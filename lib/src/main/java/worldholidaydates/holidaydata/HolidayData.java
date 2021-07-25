@@ -1,4 +1,4 @@
-package worldholidaydates;
+package worldholidaydates.holidaydata;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -6,6 +6,8 @@ import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import worldholidaydates.Utils;
 
 public class HolidayData {
     private     String      version     = null;
@@ -50,9 +52,14 @@ public class HolidayData {
         return b.toString();
     }
 
-    public static HolidayData initializeData() throws IOException {
+    public static HolidayData initializeData() {
         String path = System.getProperty("user.dir") + "/src/main/resources/holidays.json";
-        String holidayDataString = Utils.readFile(path, StandardCharsets.UTF_8);
+        String holidayDataString;
+        try {
+            holidayDataString = Utils.readFile(path, StandardCharsets.UTF_8);
+        } catch (IOException e) {
+            throw new RuntimeException(e.getMessage());
+        }
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(Country.class, new CountryDeserializer());
         gsonBuilder.registerTypeAdapter(Holiday.class, new HolidayDeserializer());

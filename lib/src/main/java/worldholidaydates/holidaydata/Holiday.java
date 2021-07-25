@@ -1,6 +1,8 @@
-package worldholidaydates;
+package worldholidaydates.holidaydata;
 
 import java.util.Map;
+
+import worldholidaydates.Utils;
 
 public class Holiday {
     Map<String, String>     name = null;

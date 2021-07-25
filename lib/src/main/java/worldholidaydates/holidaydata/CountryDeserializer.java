@@ -1,4 +1,4 @@
-package worldholidaydates;
+package worldholidaydates.holidaydata;
 
 import java.lang.reflect.Type;
 import java.util.Map;
@@ -45,7 +45,7 @@ public class CountryDeserializer implements JsonDeserializer<Country> {
         } else {
             result = context.deserialize(_days, String[].class);
         }
-        c.set_days(result);
+        c.setReferenceDays(result);
     }
 
     private void setDays(Country c, JsonElement days, JsonDeserializationContext context) {

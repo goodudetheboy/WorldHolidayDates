@@ -1,4 +1,4 @@
-package worldholidaydates;
+package worldholidaydates.holidaydata;
 
 import java.util.Map;
 
@@ -9,7 +9,7 @@ public class Country {
     private     String[]    langs       = null;
     private     String[]    zones       = null;
     private     String[]    refDays     = null;
-    private     Object      days        = null;
+    private     Map<String, Object>      days       = null;
     private     Map<String, Country>     states     = null;
     private     Map<String, Country>     regions    = null;
 
@@ -36,11 +36,11 @@ public class Country {
         this.zones = zones;
     }
 
-    public void set_days(String[] _days) {
-        this.refDays = _days;
+    public void setReferenceDays(String[] refDays) {
+        this.refDays = refDays;
     }
 
-    public void setDays(Object days) {
+    public void setDays(Map<String, Object> days) {
         this.days = days;
     }
 
