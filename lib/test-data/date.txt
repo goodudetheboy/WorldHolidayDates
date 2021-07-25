@@ -1,0 +1,2708 @@
+01-01
+01-06
+03-14
+05-01
+08-15
+09-08
+11-01
+12-08
+12-24
+12-25
+12-26
+easter -47
+easter -3 14:00
+easter -2
+easter
+easter 1
+easter 49
+easter 50
+01-01
+12-02
+1 Muharram
+1 Shawwal P3D
+10 Dhu al-Hijjah P3D
+27 Rajab
+1 Ramadan
+12 Rabi al-awwal
+01-01 and if sunday then next monday
+easter -2
+easter
+easter 1
+05-01
+easter 49
+easter 50
+08-01
+08-02
+11-01 if saturday,sunday then next monday
+12-09
+12-25 and if saturday then next monday if sunday then next tuesday
+12-26 and if sunday then next monday
+01-01
+03-02
+easter -2
+easter
+easter 1
+05-01
+05-30
+easter 49
+easter 50
+2nd monday in June
+1st monday in August
+1st thursday in August
+1st friday in August
+12-19
+12-25 and if saturday then next monday if sunday then next tuesday
+12-26 and if sunday then next monday
+01-01 and if sunday then next tuesday
+01-02 and if sunday then next monday
+03-02
+03-07
+03-08
+03-14 and if sunday then next monday
+03-22 and if sunday then next monday
+04-01
+easter
+easter 1
+orthodox
+orthodox 1
+05-01 and if sunday then next monday
+06-01
+10-19 and if sunday then next monday
+11-22
+11-28 and if sunday then next monday
+11-29 and if sunday then next monday
+12-08 and if sunday then next monday
+12-24
+12-25 and if sunday then next monday
+1 Shawwal
+10 Dhu al-Hijjah
+12-31
+01-01 P2D
+01-03 P3D
+01-06
+01-28
+02-21
+easter -52
+03-08
+04-07
+04-24
+05-01
+05-08
+05-09
+05-28
+06-01
+07-05
+09-01
+09-21
+2nd saturday in October
+12-07
+01-01
+02-04
+easter -47
+03-08
+easter -2
+easter
+04-04
+05-01
+1st sunday in May
+09-17
+11-02
+11-11
+12-25
+01-01
+easter -48
+easter -47
+03-24
+substitutes 03-24 if tuesday then previous monday if thursday then next friday
+easter -3
+easter -2
+04-02
+substitutes 04-02 if tuesday then previous monday if thursday then next friday
+05-01
+substitutes 05-01 if tuesday then previous monday if thursday then next friday
+05-25
+substitutes 05-25 if tuesday then previous monday if thursday then next friday
+06-20
+substitutes 06-20 if tuesday then previous monday if thursday then next friday
+07-09
+3rd monday in August
+10-12 if tuesday,wednesday then previous monday if thursday,friday,saturday,sunday then next monday
+4th monday in November
+12-08
+substitutes 12-08 if tuesday then previous monday if thursday then next friday
+12-24 12:00
+substitutes 12-24 if tuesday then previous monday
+12-25
+substitutes 12-25 if thursday then next friday
+12-31 12:00
+3rd monday in February
+04-15 if friday then next monday if saturday,sunday then next tuesday
+04-17 and if sunday then next monday
+07-16
+2nd sunday in October
+12-24 12:00
+12-31 12:00
+01-01
+01-06
+easter -2
+easter -1
+easter
+easter 1
+05-01
+2nd sunday in May
+easter 39
+easter 49
+easter 50
+easter 60
+08-15
+10-26
+11-01
+12-08
+12-24 14:00 if sunday then 00:00
+12-25
+12-26
+12-31 14:00 if sunday then 00:00
+01-01 and if saturday,sunday then next monday
+01-26 if saturday,sunday then next monday
+easter -2
+easter -1
+easter
+easter 1
+04-25
+12-25 and if saturday then next monday if sunday then next tuesday
+12-26 and if saturday then next monday if sunday then next tuesday
+01-01
+01-25
+easter -48
+03-18 and if saturday then previous friday if sunday then next monday
+easter -2
+easter
+easter 1
+04-27
+05-01 if sunday then next monday
+06-24
+easter 39
+12-05
+12-25
+12-26
+01-01
+01-06
+03-30
+easter -2
+easter
+easter 1
+05-01
+easter 39
+easter 49
+06-09
+3rd friday after 06-01 12:00
+3rd saturday after 06-01
+12-06
+12-24 12:00
+12-25
+12-26
+12-31 12:00
+01-01 and if saturday then next monday if sunday then next tuesday
+01-02 and if saturday then next monday if sunday then next tuesday
+01-20
+03-08 and if saturday,sunday then next monday
+03-20
+05-09 and if saturday,sunday then next monday
+05-28 and if saturday,sunday then next monday
+06-15 and if saturday,sunday then next monday
+06-26 and if saturday,sunday then next monday
+10-18 and if saturday,sunday then next monday
+11-09 and if saturday,sunday then next monday
+11-12
+11-17
+12-31 and if saturday,sunday then next monday
+1 Shawwal and if saturday then next monday if sunday then next tuesday
+2 Shawwal and if saturday then next monday if sunday then next tuesday
+10 Dhu al-Hijjah and if saturday then next monday if sunday then next tuesday
+11 Dhu al-Hijjah and if saturday then next monday if sunday then next tuesday
+01-01 and if sunday then next tuesday
+01-02 and if sunday then next monday
+05-01 and if sunday then next tuesday
+05-02 and if sunday then next monday
+01-06
+easter
+easter 1
+easter 60
+08-15
+11-01
+11-02
+12-25
+12-26
+julian 01-01
+orthodox
+julian 08-15
+julian 12-25
+1 Muharram
+12 Rabi al-awwal
+10 Dhu al-Hijjah P4D
+1 Shawwal P3D
+01-01
+01-21
+easter -2
+easter
+easter 1
+04-28
+05-01 if sunday then next monday
+easter 49
+easter 50
+08-01
+1st monday in August
+11-30
+12-25
+substitutes 12-25 if sunday then next tuesday
+12-26
+substitutes 12-26 if sunday then next monday
+bengali-revised 11-9
+bengali-revised 12-3
+bengali-revised 12-12
+bengali-revised 1-1
+bengali-revised 1-18
+bengali-revised 4-31
+bengali-revised 9-2
+10 Muharram
+12 Rabi al-awwal
+1 Shawwal P3D
+10 Dhu al-Hijjah P3D
+05-19
+08-24
+10-08
+bengali-revised 9-11
+03-25
+11-21
+12-14
+01-01
+01-06
+02-14
+easter
+easter 1
+05-01
+2nd sunday in May
+easter 39
+easter 49
+easter 50
+07-21
+08-15
+11-01
+11-02
+11-11
+11-15
+12-06
+12-25
+01-01
+01-03
+03-08
+easter
+easter 1
+easter 39
+easter 49
+05-01
+08-05
+08-15
+11-01
+12-11
+12-25
+12 Rabi al-awwal
+1 Shawwal
+10 Dhu al-Hijjah
+01-01
+03-01
+03-03
+03-08
+orthodox -2
+orthodox
+orthodox 1
+05-01
+05-06
+05-07
+05-24
+09-06
+09-22
+11-01
+12-24
+12-25
+12-26
+01-01
+05-01
+12-16
+12-17
+1 Muharram
+10 Muharram
+12 Rabi al-awwal
+1 Shawwal
+9 Dhu al-Hijjah
+10 Dhu al-Hijjah P3D
+01-01
+02-05
+04-06
+05-01
+easter 39
+07-01
+08-15
+10-13
+10-21
+11-01
+12-25
+1 Shawwal
+10 Dhu al-Hijjah
+2015-07-24
+01-01
+01-10
+easter
+easter 1
+easter 39
+easter 49
+easter 50
+05-01
+08-01
+08-15
+11-01
+12-25
+1 Shawwal
+10 Dhu al-Hijjah
+12 Rabi al-awwal
+easter -48
+easter -47
+easter -46
+easter -21
+easter -2
+easter
+easter 49
+08-24
+10-09
+12-25
+01-01
+substitutes 01-01 if saturday, sunday then next monday
+easter -2
+friday before 06-01
+3nd monday in June
+thursday before 08-04
+friday before 08-05
+monday after 09-01
+11-11
+substitutes 11-11 if saturday, sunday then next monday
+12-25
+substitutes 12-25 if saturday then next monday if sunday then next tuesday
+12-26
+substitutes 12-26 if saturday then next monday if sunday then next tuesday
+01-01
+02-23
+03-31
+07-15
+1 Ramadan
+17 Ramadan
+1 Shawwal P3D
+10 Dhu al-Hijjah
+1 Muharram
+12 Rabi al-awwal
+27 Rajab
+12-25
+chinese 01-0-01
+01-01
+02-02
+easter -48
+easter -47
+easter -2
+easter
+easter 39
+06-21
+08-02
+08-06
+11-02
+12-25
+01-01
+easter -2
+easter
+easter 1
+04-27
+05-01 if sunday then next monday
+2nd sunday in May
+3rd sunday in June
+easter 39
+12-05
+12-15
+12-25
+12-26
+01-01
+04-21
+easter -50 PT110H
+easter -2
+easter
+05-01
+2nd sunday in May
+easter 60
+06-12
+2nd sunday in August
+09-07
+10-12
+1st sunday in October in even years
+1st sunday before 11-01 in even years
+11-02
+11-15
+12-24 14:00
+12-25
+12-31 14:00
+01-01
+01-10 and if saturday,sunday then next monday
+easter -2
+easter
+easter 1
+2nd sunday in May
+easter 49
+easter 50
+1st friday in June
+07-10 and if saturday,sunday then next monday
+1st monday in August
+10-12 and if saturday,sunday then next monday
+12-25
+12-26
+01-01
+01-02
+substitutes 01-02 if monday then next tuesday
+easter -2
+easter -1
+easter
+easter 1
+easter 39
+05-01
+substitutes 05-01 if sunday then next monday
+2nd sunday in May
+07-01
+substitutes 07-01 if sunday then next monday
+3rd monday in July
+tuesday after 3rd monday in July
+09-30
+substitutes 09-30 if saturday,sunday then next monday
+12-25
+12-26
+substitutes 12-26 if monday then next tuesday
+01-01
+julian 12-25
+easter
+orthodox
+orthodox +9
+03-08
+05-01
+05-09
+07-03
+11-07
+12-25
+01-01
+03-09 if friday,saturday,sunday then next monday if tuesday,wednesday,thursday then previous monday
+easter -2
+easter -1
+easter
+easter 1
+05-01 if sunday then next monday
+05-24 if friday,saturday,sunday then next monday if tuesday,wednesday,thursday then previous monday
+09-10 if sunday then next monday
+09-21 if sunday then next monday
+10-12 if friday,saturday,sunday then next monday if tuesday,wednesday,thursday then previous monday
+11-19 if sunday then next monday
+12-25 and if sunday then next tuesday
+12-26 and if sunday then next monday
+01-01
+02-02
+02-14
+03-17
+easter -2
+easter
+2nd sunday after 05-01
+monday before 05-25
+3rd sunday after 06-01
+07-01
+monday after 08-01
+1st monday in September
+2nd monday after 10-01
+10-31 18:00
+11-11
+12-25
+12-26
+chinese 01-0-01 and if sunday then next tuesday if saturday then next monday
+chinese 01-0-02 and if sunday then next tuesday if saturday then next monday
+01-01
+01-26
+03-20
+easter 1
+04-06
+04-25
+12-25 and if sunday then next tuesday
+12-26 and if sunday then next monday
+1 Muharram and if sunday then next monday
+1 Shawwal and if sunday then next monday
+10 Dhu al-Hijjah and if sunday then next monday
+12 Rabi al-awwal and if sunday then next monday
+01-01 and if sunday then next monday
+01-04 and if sunday then next monday
+01-16 and if sunday then next tuesday
+01-17 and if sunday then next monday
+05-01 and if sunday then next monday
+05-17 and if sunday then next monday
+06-30 and if sunday then next monday
+08-01 and if sunday then next monday
+12-25 and if sunday then next monday
+2016-01-15
+01-01
+03-29
+easter 1
+05-01
+easter 39
+easter 50
+06-30
+08-13
+08-15
+11-01
+12-01
+12-25
+1 Shawwal
+10 Dhu al-Hijjah
+01-01
+easter 1
+05-01
+easter 39
+easter 49
+easter 50
+06-10
+08-15
+11-01
+11-28
+12-25
+01-01
+easter -2
+easter
+easter 1
+easter 39
+easter 49
+easter 50
+2nd sunday in May
+1st sunday in June
+08-01
+3 sunday after 09-01
+12-25
+12-26
+01-01
+easter 1
+05-01
+easter 39
+easter 50
+08-07 since 1960
+08-15
+11-01
+11-15 since 1996
+12-25
+12 Rabi al-awwal
+27 Ramadan
+1 Shawwal
+10 Dhu al-Hijjah
+01-01 and if Saturday, Sunday then next Monday
+01-02 and if Saturday then next Monday if Monday, Sunday then next Tuesday
+04-25
+easter -2
+easter 1
+1st Monday in June
+1st Friday in July
+08-04 and if Saturday, Sunday then next Monday
+10-26 and if Saturday, Sunday then next Monday
+12-25 and if Saturday, Sunday then next Monday
+12-26 and if Saturday then next Monday if Monday, Sunday then next Tuesday
+01-01
+easter -2
+easter
+05-01
+05-21
+06-29
+07-16
+08-15
+09-18
+09-19
+10-12
+10-31 if wednesday then next friday if tuesday then previous friday
+11-01
+12-08
+12-25
+12-31
+01-01
+02-11
+easter -2
+05-01 if sunday then next monday
+05-20
+easter 39
+08-15
+12-25
+1 Shawwal
+10 Dhu al-Hijjah
+01-01
+03-08 12:00
+05-01
+05-04 12:00
+06-01
+08-01 12:00
+10-01
+chinese 01-0-01
+chinese 5-01 solarterm
+chinese 05-0-05
+chinese 08-0-15
+01-01
+monday after 01-06
+monday after 03-19
+easter -7
+easter -3
+easter -2
+easter
+05-01
+easter 43
+easter 64
+easter 71
+monday after 06-29
+07-20
+08-07
+monday after 08-15
+monday after 10-12
+1st monday in November
+monday after 11-11
+12-08
+12-25
+01-01
+easter -3
+easter -2
+easter
+04-11
+05-01
+07-25
+08-02
+08-15
+09-15
+10-12 if monday then previous friday
+12-25
+01-01
+01-02
+easter -2
+05-01
+07-25
+07-26
+07-27
+10-10
+12-25
+01-01
+01-13
+01-20
+easter -47
+easter -46
+easter -2
+easter
+05-01
+06-01
+07-05
+08-15
+09-12
+11-01
+12-25
+01-01
+easter -48
+easter -2
+easter
+easter 1
+04-27
+05-01 if sunday then next monday
+2nd sunday in May
+1st sunday in June
+easter 39
+07-02
+10-10
+12-25
+12-26
+12-31 12:00
+01-01
+01-26
+chinese 01-0-01 P2D
+4th monday in March
+easter -2
+04-25
+1 Shawwal
+10 Dhu al-Hijjah
+10-06
+12-25
+12-26
+01-01
+01-06
+orthodox -48
+orthodox -47
+03-25
+04-01
+orthodox -2
+orthodox
+orthodox 1
+05-01
+orthodox 49
+2nd sunday in May
+08-15
+10-01
+10-28
+12-25
+12-26
+01-01
+easter -4
+easter -3
+easter -2
+easter -1
+easter
+easter 1
+05-01
+05-08
+2nd sunday in May
+07-05
+07-06
+09-28
+10-28
+11-17
+12-24
+12-25
+12-26
+01-01
+02-14
+easter -52
+easter -48
+easter -47 14:00
+easter -46
+easter -3
+easter -2
+easter
+easter 1
+05-01
+2nd sunday in May
+easter 39
+easter 49
+easter 50
+10-03
+11-01
+11-02
+11-11
+wednesday before 11-23
+6th sunday before 12-25
+5th sunday before 12-25
+4th sunday before 12-25
+3th sunday before 12-25
+2nd sunday before 12-25
+1st sunday before 12-25
+12-24 14:00 if sunday then 00:00
+12-25
+12-26
+12-31 14:00 if sunday then 00:00
+2017-10-31
+01-01
+05-01
+06-27 since 1977
+12-25
+1 Muharram
+12 Rabi al-awwal
+27 Rajab
+1 Shawwal
+9 Dhu al-Hijjah
+10 Dhu al-Hijjah
+01-01
+easter -48
+easter -3
+easter -2
+easter
+easter 1
+easter 26
+easter 39
+05-01
+2nd sunday in May
+06-05
+easter 49
+easter 50
+12-24
+12-25
+12-26
+01-01 and if sunday then next monday
+easter -48
+easter -47
+easter -2
+easter
+easter 1
+05-01
+easter 49
+easter 50
+1st monday in August
+11-03 if sunday then next monday
+11-04 if sunday then next monday if monday then next tuesday
+12-25 and if sunday then next tuesday
+12-26 and if sunday then next monday
+01-01
+01-06 if tuesday,wednesday then previous monday if thursday,friday then next monday
+01-21
+01-26 if tuesday,wednesday then previous monday if thursday,friday then next monday
+02-27
+easter -2
+05-01 if tuesday,wednesday then previous monday if thursday,friday,sunday then next monday
+easter 60
+08-16
+09-24
+11-06 if tuesday,wednesday,thursday,friday,saturday then next monday
+12-25
+01-01
+01-12
+05-01
+07-05
+11-01
+1 Muharram
+10 Muharram
+12 Rabi al-awwal
+1 Shawwal
+10 Dhu al-Hijjah
+01-01
+easter -48
+easter -47
+easter -3
+easter -2
+easter
+05-01
+05-24
+07-24
+08-10
+09-10
+10-31
+11-02
+11-03
+12-25
+12-31
+01-01
+01-06
+02-02
+02-24
+03-14
+easter -2
+easter
+05-01
+2nd sunday in May
+easter 49
+06-04
+06-14
+06-23
+06-24
+08-20
+08-23
+2nd sunday in September
+09-22
+11-02
+2nd sunday in November
+11-16
+12-24
+12-25
+12-26
+01-25 since 2011
+01-25
+04-25
+05-01
+30-06
+23-07
+10-06
+orthodox 1
+julian 12-25
+1 Muharram
+12 Rabi al-awwal
+1 Shawwal P3D
+10 Dhu al-Hijjah P4D
+01-01
+substitutes 01-01 if sunday then next monday
+01-06
+substitutes 01-06 if sunday then next monday
+03-19
+easter -3
+easter -2
+easter
+05-01
+substitutes 05-01 if sunday then next monday
+1st sunday in May
+easter 49
+07-25
+08-15
+substitutes 08-15 if sunday then next monday
+10-12
+substitutes 10-12 if sunday then next monday
+11-01
+substitutes 11-01 if sunday then next monday
+12-06
+substitutes 12-06 if sunday then next monday
+12-08
+substitutes 12-08 if sunday then next monday
+12-25
+substitutes 12-25 if sunday then next monday
+01-06 in non-leap years
+01-07 in leap years
+01-19
+03-02
+03-28
+orthodox -2
+orthodox
+05-28
+09-11 in non-leap years
+09-12 in leap years
+09-27 in non-leap years
+09-28 in leap years
+1 Ramadan
+12 Rabi al-awwal
+1 Shawwal
+10 Dhu al-Hijjah
+01-01
+01-06
+easter -2
+easter
+easter 1
+05-01
+easter 39
+easter 49
+2nd sunday in May
+friday after 06-19
+saturday after 06-20
+saturday after 10-31
+12-06
+12-24
+12-25
+12-26
+12-31 14:00 if sunday then 00:00
+01-01
+easter -2
+easter -1
+easter
+easter 1
+09-07
+10-10 and if Sunday then next Monday
+12-25 if Sunday then next Monday
+12-26 if Sunday then next Monday if Monday then next Tuesday
+12 Rabi al-awwal
+2014-10-22
+2015-11-10
+2016-10-29
+2017-10-19
+2018-11-07
+2019-10-27
+2019-10-28
+2020-11-14
+2020-11-16
+2021-11-04
+2022-10-24
+2023-11-12
+2023-11-13
+2024-11-01
+2025-10-21
+01-01
+easter -3
+easter -2
+easter
+easter 1
+04-24
+easter 26
+easter 39
+easter 49
+easter 50
+06-05 12:00 if sunday then 00:00
+07-28 12:00 if sunday then 00:00
+07-29
+12-24
+12-25
+12-26
+12-31 12:00 if sunday then 00:00
+01-01
+easter 1
+05-01
+05-08
+easter 39
+easter 49
+easter 50
+sunday before 06-01
+07-14
+08-15
+11-01
+11-11
+12-25
+01-01
+easter 1
+04-17
+05-01
+easter 50
+08-15
+08-16 P2D
+11-01
+12-25
+1 Shawwal
+10 Dhu al-Hijjah
+01-01
+substitutes 01-01 if sunday then next monday
+substitutes 01-01 if saturday then next monday
+easter -21
+easter -2
+easter
+easter 1
+1st monday in May
+2020-05-08
+1st monday before 06-01
+12-25
+substitutes 12-25 if saturday then next tuesday
+substitutes 12-25 if sunday then next tuesday
+12-26
+substitutes 12-26 if saturday then next monday
+substitutes 12-26 if sunday then next monday if monday then next tuesday
+2012-06-05
+01-01
+02-07
+easter -2
+easter
+easter 1
+04-24 P3D
+05-01
+easter 49
+easter 50
+easter 60
+1st monday in August
+2nd monday in August
+tuesday after 2nd monday in August
+09-01
+10-15 P5D
+10-25
+12-04 P3D
+12-25
+12-26
+01-01
+01-02
+01-07
+01-19
+03-03
+03-08
+04-09
+orthodox -2
+orthodox -1
+orthodox
+orthodox 1
+05-09
+05-12
+05-26
+08-28
+10-14
+11-23
+easter 49
+06-10
+05-09
+2nd monday in March
+easter
+04-28
+05-01 if sunday, saturday then next monday
+1st monday in May
+2020-05-08
+monday before 06-20
+monday before September
+09-10
+09-10 and if sunday, saturday then previous monday
+01-01
+01-06
+easter -3
+easter -2
+easter
+easter 1
+easter 26
+easter 39
+06-21
+easter 49
+easter 50
+12-24
+12-25
+12-26
+01-01
+easter 1
+04-03
+05-01
+05-25
+27 Ramadan
+1 Shawwal
+10 Dhu al-Hijjah
+08-15
+10-02
+12-25
+12 Rabi al-awwal
+easter 49
+easter -2
+05-27
+07-21
+01-01 and if sunday then next monday
+easter -2
+05-01 and if sunday then next monday
+easter 60
+06-05 and if sunday then next monday
+08-03 and if sunday then next monday
+08-15 and if sunday then next monday
+10-12 and if sunday then next monday
+12-08 and if sunday then next monday
+12-25 and if sunday then next monday
+01-01
+01-06
+orthodox -48
+03-25
+orthodox -2
+orthodox
+orthodox 1
+05-01
+orthodox 49
+2nd sunday in May
+08-15
+10-28
+12-25
+12-26
+01-01
+easter -3
+easter -2
+easter -1
+easter
+05-01
+06-30 if tuesday then previous monday if wednesday,thursday then next friday
+09-15
+10-20
+11-01
+12-24 12:00
+12-25
+12-31 12:00
+3rd monday in February
+1st monday in March
+easter -2
+07-21 if sunday then next monday
+11-02
+12-08 if sunday then next monday
+01-01
+02-23
+easter -2
+easter 1
+05-01
+05-05
+05-26
+monday after 07-01
+08-01
+12-25
+12-26
+12 Rabi al-awwal
+10 Dhu al-Hijjah
+2015-03-05
+2016-03-23
+2017-03-12
+2017-03-13
+2018-03-02
+2019-03-21
+2020-03-10
+2021-03-29
+2022-03-18
+2023-03-07
+2024-03-25
+2015-11-11
+2017-10-18
+2018-11-07
+2019-10-27
+2019-10-28
+2020-11-14
+2021-11-04
+2022-10-24
+2023-11-12
+2023-11-13
+2024-10-31
+01-01 and if Sunday then next Monday
+chinese 01-0-01 and if Saturday then next Tuesday
+chinese 01-0-02 and if Saturday then next Monday
+chinese 01-0-03 and if Saturday then next Monday
+chinese 5-01 solarterm and if Sunday then next Monday
+easter -2
+easter -1
+easter
+easter 1
+05-01 and if Sunday then next Monday
+chinese 04-0-08 and if Sunday then next Monday
+chinese 05-0-05
+07-01 and if Sunday then next Monday
+chinese 08-0-16 and if Sunday then next Monday
+10-01 and if Sunday then next Monday
+chinese 09-0-09 and if Sunday then next Monday
+12-25 and if Sunday then next Monday
+12-26 and if Sunday then next Monday if Monday then next Tuesday
+01-01
+03-19
+easter -3
+easter -2
+easter
+04-14
+05-01
+2nd monday in May
+06-11
+09-10
+09-15
+09-17
+10-03
+10-12
+10-21
+12-25
+01-01
+01-06
+easter -47
+easter
+easter 1
+easter 60
+03-08
+05-01
+05-30
+2nd sunday in May
+06-22
+06-25 #1
+06-25
+08-05
+08-15
+10-08 #1
+10-08
+11-01
+11-18 #1
+11-18
+12-25
+12-26
+orthodox
+orthodox 1
+julian 12-25
+10 Dhu al-Hijjah
+1 Shawwal
+1 Tishrei
+10 Tishrei
+01-01
+01-02
+01-06
+easter -48 14:00
+easter -47
+easter -46
+easter -2
+easter
+easter 39
+easter 60
+05-01
+05-18
+08-15
+10-17
+11-01
+11-02
+11-18
+12-05
+12-25
+01-01
+02-01
+02-25
+03-08
+03-15
+04-16
+easter
+easter 1
+05-01
+1st sunday in May
+05-21
+easter 49
+easter 50
+06-04
+06-19
+08-20
+10-06
+10-23
+11-01
+12-06
+12-24
+12-25
+12-26
+12-31
+05-30
+01-01
+chinese 01-0-01
+easter -2
+05-01
+easter 39
+06-01
+08-21
+12-25
+1 Muharram
+12 Rabi al-awwal
+27 Rajab
+1 Shawwal
+2 Shawwal
+10 Dhu al-Hijjah
+2009-03-26
+2010-03-16
+2011-03-05
+2012-03-23
+2013-03-12
+2014-03-31
+2015-03-21
+2016-03-09
+2017-03-28
+2018-03-17
+2019-03-07
+2020-03-25
+2021-03-14
+2022-03-03
+2023-03-22
+2024-03-11
+2025-03-29
+2026-03-19
+2001-05-07
+2002-05-26
+2003-05-16
+2004-06-03
+2005-05-24
+2006-05-13
+2007-06-01
+2008-05-20
+2009-05-09
+2010-05-28
+2011-05-17
+2012-05-06
+2013-05-25
+2014-05-15
+2015-06-02
+2016-05-22
+2017-05-11
+2018-05-29
+2019-05-19
+2020-05-07
+2021-05-26
+2022-05-16
+2023-05-06
+2024-05-23
+01-01
+03-17
+03-17 and if saturday then next monday if sunday then next monday
+easter -21
+easter -2
+easter
+easter 1
+1st monday in May
+1st monday in June
+1st monday in August
+1st monday before 10-31
+12-25
+12-26
+12-26 and if saturday then next monday if sunday then next monday
+12-27 if saturday then next monday if sunday then next tuesday
+2nd friday in June
+07-05
+01-01
+01-06
+friday after 01-18
+02-18
+easter -48
+easter -47
+easter -46
+easter -7
+easter -3
+easter -2
+easter
+easter 1
+thursday after 04-18
+05-01
+2nd sunday in May
+easter 39
+easter 49
+easter 50
+1st sunday in June
+06-17
+monday in August
+saturday after 10-21
+11-16
+12-23
+12-24 13:00 if sunday then 00:00
+12-25
+12-26
+12-31 13:00 if sunday then 00:00
+01-01
+01-06
+easter
+easter 1
+04-25
+05-01
+2nd sunday in May
+06-02
+08-15
+11-01
+12-08
+12-25
+12-26
+2011-03-17
+05-09
+01-01 and if sunday then next monday
+easter -46
+easter -2
+easter
+easter 1
+05-23 if saturday,sunday then next monday
+08-01 if sunday then next monday
+08-06 and if sunday then next monday
+3rd monday in October
+12-25 and if sunday then next tuesday
+12-26 and if sunday then next monday
+01-01
+substitutes 01-01 if sunday then next monday
+01-02
+01-03
+01-15
+substitutes 01-15 and if sunday then next monday
+2nd monday in January
+02-11
+substitutes 02-11 and if sunday then next monday
+02-23 and if sunday then next monday
+1989-02-24
+march equinox in +09:00
+substitutes march equinox in +09:00 and if sunday then next monday
+1959-04-10
+04-29
+substitutes 04-29 and if sunday then next monday
+04-29 and if sunday then next monday #1
+04-29 and if sunday then next monday #2
+2019-04-30
+2019-05-01
+2019-05-02
+05-03
+substitutes 05-03 if sunday then next monday
+substitutes 05-03 if sunday then next wednesday
+05-04 not on sunday, monday
+05-04 and if sunday then next tuesday
+05-05
+substitutes 05-05 if sunday then next monday
+1993-06-09
+07-20
+substitutes 07-20 if sunday then next monday
+3rd monday in July
+substitutes 2021-08-08 and if sunday then next monday
+substitutes 08-11 and if sunday then next monday
+09-15
+substitutes 09-15 and if sunday then next monday
+3rd monday in September
+09-22 if 09-21 and 09-23 is public holiday
+september equinox in +09:00
+substitutes september equinox in +09:00 and if sunday then next monday
+10-10
+substitutes 10-10 and if sunday then next monday
+2nd monday in October #1
+2nd monday in October #2
+2019-10-22
+11-03
+substitutes 11-03 and if sunday then next monday
+1990-11-12
+11-15
+11-23
+substitutes 11-23 and if sunday then next monday
+12-23 and if sunday then next monday
+12-25
+12-31
+01-01 and if sunday then next monday
+easter -2
+easter
+easter 1
+05-01 and if sunday then next monday
+06-01 and if sunday then next monday
+10-10 and if sunday then next monday
+10-20 and if sunday then next monday
+12-12 and if sunday then next monday
+12-25 and if sunday then next tuesday
+12-26 and if sunday then next monday
+1 Shawwal
+10 Dhu al-Hijjah
+01-01
+03-18
+05-01
+07-06
+11-12
+1 Muharram
+12 Rabi al-awwal
+1 Shawwal P3DT0H0M
+10 Dhu al-Hijjah P2DT0H0M
+27 Rajab
+01-01 and if Saturday then next Monday
+01-02
+easter -2
+easter
+easter 1
+easter 49
+easter 50
+1st Monday in May
+1st Monday in August
+1st Tuesday in August
+09-16 and if Sunday then next Monday
+09-19 if Sunday then next Monday
+12-25
+12-26
+01-01
+korean 01-0-01 P3D
+03-01
+05-05
+korean 4-0-8
+06-06
+07-17
+08-15
+korean 8-0-15 P3D
+10-03
+10-09
+12-25
+01-01 and if Saturday, Sunday then next Monday
+4th Monday in January
+easter -46
+easter -2
+easter
+easter 1
+3rd Monday in May
+07-02
+12-25
+12-26
+2017-05-24
+2021-04-14
+2016-06-13
+2017-06-19
+2018-06-11
+2019-06-10
+2020-06-15
+2021-06-14
+2022-06-20
+2023-06-19
+2024-06-17
+2025-06-16
+2026-06-15
+01-01
+01-02
+01-06
+02-02
+03-19
+easter -47
+easter -2
+easter
+easter 1
+05-01
+2nd sunday in May
+easter 39
+easter 40
+easter 49
+easter 50
+easter 60
+easter 61
+08-15
+09-08
+11-01
+12-08
+12-24
+12-25
+12-26
+12-31
+01-01
+03-11
+easter -2
+easter 1
+05-01
+easter 39
+05-25
+07-17
+10-04
+12-25
+12-26
+01-01
+02-16
+03-11
+easter
+05-01
+1st sunday in May
+1st sunday in June
+06-24
+07-06
+08-15
+11-01
+11-02
+12-24
+12-25
+12-26
+01-01
+easter -2
+easter
+easter 1
+05-01
+05-09
+easter 39
+easter 50
+06-23
+08-15
+11-01
+11-11
+12-25
+12-26
+01-01
+easter -2
+easter
+easter 1
+05-01
+05-04 and if saturday,sunday then next monday
+2nd sunday in May
+06-23
+06-24
+11-18 and if saturday,sunday then next monday
+12-24
+12-25
+12-26
+12-31
+01-01
+01-11
+05-01
+07-30
+08-14
+08-20
+08-21
+11-06
+11-18
+1 Muharram
+12 Rabi al-awwal
+1 Shawwal
+10 Dhu al-Hijjah
+01-01
+01-27 and if sunday then next monday
+easter -2
+easter
+easter 1
+05-01 and if sunday then next monday
+easter 39
+easter 50
+easter 60
+08-15
+11-01
+11-19 and if sunday then next monday
+12-08
+12-25 and if sunday then next monday
+01-01
+julian 12-25 P2D
+03-08
+orthodox
+orthodox 1
+orthodox 8
+05-01
+05-09
+08-27
+08-31
+1st saturday in October P2D
+12-25
+05-21 and if sunday then next tuesday
+05-22 and if sunday then next monday
+07-13 and if sunday then next tuesday
+07-14 and if sunday then next monday
+01-01 and if sunday then next tuesday
+01-02 and if sunday then next monday
+05-01 and if sunday then next tuesday
+05-02 and if sunday then next monday
+julian 12-24
+julian 12-25
+julian 12-26
+julian 01-01
+orthodox -2
+orthodox
+12-24
+12-25
+12-26
+easter -2
+easter
+easter 1
+08-15
+11-01
+1 Shawwal P3D
+10 Dhu al-Hijjah P3D
+1 Muharram
+12 Rabi al-awwal
+27 Rajab
+15 Shaban
+1 Ramadan
+27 Ramadan
+15 Nisan P2D
+1 Tishrei
+10 Tishrei P2D
+easter 49
+05-27
+01-01
+03-08
+03-29
+easter
+easter 1
+05-01
+05-25
+easter 39
+easter 50
+06-26
+08-15
+11-01
+12-25
+1 Shawwal
+10 Dhu al-Hijjah
+01-01 and if sunday then next monday
+julian 12-25 and if sunday then next monday
+orthodox
+orthodox 1
+05-01 and if sunday then next monday
+05-24 and if sunday then next monday
+08-02 and if sunday then next monday
+09-08 and if sunday then next monday
+10-11 and if sunday then next monday
+10-23 and if sunday then next monday
+12-08 and if sunday then next monday
+1 Shawwal and if sunday then next monday
+julian 12-24
+julian 01-06
+orthodox -2
+orthodox 47
+orthodox 49
+julian 08-15
+10 Dhu al-Hijjah
+10 Tishrei
+easter 1
+11-01
+12-25
+11-22
+12-21
+01-27
+04-08
+05-23
+09-28
+01-01
+01-20
+03-26
+easter 1
+05-01
+12-25
+1 Shawwal
+05-25
+10 Dhu al-Hijjah
+09-22
+12 Rabi al-awwal
+easter 49
+easter -2
+05-22
+07-21
+01-01
+02-10
+03-19
+03-31
+easter -2
+05-01
+06-07
+06-29
+08-15
+09-08
+09-21
+12-08
+12-13
+12-25
+01-01 and if saturday,sunday then next monday
+01-15 and if saturday,sunday then next monday
+03-03 and if saturday,sunday then next monday
+easter -2
+easter
+easter 1
+05-01 and if saturday,sunday then next monday
+05-14 and if saturday,sunday then next monday
+07-06 and if saturday,sunday then next monday
+10-15 and if saturday,sunday then next monday
+12-25 and if saturday,sunday then next monday
+1 Shawwal and if saturday,sunday then next monday
+01-01
+02-05
+1st monday in February
+03-21
+3rd monday in March
+easter -3
+easter -2
+05-01
+05-10
+09-16
+11-02
+11-20
+3rd monday in November
+12-01 every 6 years since 1934
+12-12
+12-25
+01-01
+substitutes 01-01 if sunday then next monday
+02-03
+substitutes 02-03 if sunday then next monday
+04-07
+substitutes 04-07 if sunday then next monday
+05-01
+substitutes 05-01 if sunday then next monday
+1st sunday in May
+06-25
+substitutes 06-25 if sunday then next monday
+09-07
+substitutes 09-07 if sunday then next monday
+09-25
+substitutes 09-25 if sunday then next monday
+10-04
+substitutes 10-04 if sunday then next monday
+12-25
+substitutes 12-25 if sunday then next monday
+01-01
+substitutes 01-01 if sunday then next monday
+03-21
+substitutes 03-21 if sunday then next monday
+easter -2
+easter
+easter 1
+05-01
+substitutes 05-01 if sunday then next monday
+05-04
+substitutes 05-04 if sunday then next monday
+easter 39
+05-25
+substitutes 05-25 if sunday then next monday
+08-26
+substitutes 08-26 if sunday then next monday
+12-10
+substitutes 12-10 if sunday then next monday
+12-25
+12-26
+substitutes 12-26 if sunday then next monday
+01-01
+04-24
+05-01
+08-03
+12-18
+12-25
+easter 1
+1 Shawwal
+10 Dhu al-Hijjah
+12 Rabi al-awwal
+1 Muharram
+27 Ramadan
+01-01
+01-18
+easter -3
+easter -2
+05-01
+05-30
+06-01
+06-23
+07-19
+09-14
+09-15
+10-12
+12-08
+12-24
+12-25
+12-31
+01-01
+easter -2
+easter
+easter 1
+04-27 if sunday then previous saturday
+05-04
+05-05
+2nd sunday in May
+3rd sunday in June
+easter 39
+easter 49
+easter 50
+3rd tuesday in September
+11-11
+12-05
+12-15
+12-25
+12-26
+12-31
+01-01
+2nd sunday in February
+easter -49
+easter -7
+easter -3
+easter -2
+easter -1
+easter
+easter 1
+05-01
+05-08
+05-17
+easter 39
+easter 49
+easter 50
+06-23
+2nd sunday in November
+4th sunday before 12-24
+3rd sunday before 12-24
+2nd sunday before 12-24
+1st sunday before 12-24
+12-24
+12-25
+12-26
+12-31 14:00 if sunday then 00:00
+01-01 and if saturday then next monday if sunday then next tuesday
+01-02 and if saturday then next monday if sunday then next tuesday
+02-06 and if saturday,sunday then next monday
+easter -2
+easter
+easter 1
+04-25 and if saturday,sunday then next monday
+1st monday in June
+4th monday in October
+12-25 and if saturday then next monday if sunday then next tuesday
+12-26 and if saturday then next monday if sunday then next tuesday
+01-01 and if sunday then next monday
+01-09 and if sunday then next monday
+easter -48
+easter -47
+easter -2
+05-01 and if sunday then next monday
+07-01 every 5 years since 2014
+11-03 and if sunday then next monday
+11-10 and if sunday then next monday
+11-28 and if sunday then next monday
+12-08 and if sunday then next monday
+12-25 and if sunday then next monday
+01-01
+easter -3
+easter -2
+easter
+05-01
+06-29
+07-28
+07-29
+08-30
+10-08
+11-01
+12-08
+12-25
+01-01
+01-23
+chinese 01-0-01
+02-02
+chinese 01-0-15
+02-25
+easter -3
+easter -2
+easter -1
+easter
+04-09
+04-27
+05-01
+06-12
+06-19
+2011-06-19
+07-27
+08-21
+1st monday before September
+chinese 08-0-15
+11-01
+11-02
+11-30
+12-08
+12-24
+12-25
+12-30
+12-31
+1 Muharram
+12 Rabi al-awwal
+1 Shawwal
+10 Dhu al-Hijjah
+01-01
+01-06
+easter
+easter 1
+05-01
+05-03
+05-26
+easter 49
+easter 60
+08-15
+11-01
+11-11
+12-25
+12-26
+01-01
+easter -47
+easter -2
+easter
+04-25
+05-01
+1st sunday in May
+easter 60
+06-10
+08-15
+10-05
+11-01
+12-01
+12-08
+12-24
+12-25
+12-31
+01-01
+03-01
+easter -3
+easter -2
+04-30
+05-01
+05-14
+05-15
+06-12
+08-15
+09-29
+12-08
+12-25
+12-31
+easter 49
+12-20
+01-01
+01-24
+03-08
+orthodox -2
+orthodox
+orthodox 1
+05-01
+orthodox 39
+orthodox 49
+orthodox 50
+1st sunday in May
+06-01
+06-26
+07-29
+08-15
+11-30
+12-01
+12-08
+12-25
+12-26
+01-01 if sunday then next tuesday
+01-02 if sunday then next monday
+julian 12-25
+02-15 if sunday then next tuesday
+02-16 if sunday then next monday
+orthodox -2
+orthodox
+orthodox 1
+05-01 if sunday then next tuesday
+05-02 if sunday then next monday
+11-11 if sunday then next monday
+easter -2
+easter
+easter 1
+12-25
+10 Dhu al-Hijjah
+1 Shawwal
+10 Tishrei
+julian 01-14
+04-22
+05-09
+julian 06-15
+10-21
+01-01
+01-02 P5D
+julian 12-25
+01-08
+02-23
+03-08
+08-22
+05-01
+05-09
+06-12
+11-04
+01-01
+01-02
+02-01
+easter -2
+04-07
+05-01
+07-01
+07-04
+08-15
+1st friday in August
+12-25
+12-26
+easter 1
+1 Shawwal
+10 Dhu al-Hijjah
+01-01 P2D
+easter -2
+easter -1
+easter
+easter 1
+easter 60
+05-01
+06-18
+06-29
+08-15
+11-01
+12-08
+12-25
+01-01
+01-05
+01-06
+01-13
+sunday in March
+03-25
+04-30
+easter -3
+easter -2
+easter
+easter -1
+easter 1
+05-01
+easter 39
+easter 48
+easter 49
+easter 50
+sunday before 06-01
+06-06
+friday after 06-19
+saturday after 06-20
+friday after 10-30
+saturday after 10-31
+11-06
+11-11
+12-10
+12-13
+12-24
+12-25
+12-26
+12-31
+01-01
+substitutes 01-01 if sunday then next monday
+chinese 01-0-01
+chinese 01-0-02
+substitutes chinese 01-0-01 if sunday then next tuesday
+substitutes chinese 01-0-02 if sunday then next monday
+easter -2
+05-01
+substitutes 05-01 if sunday then next monday
+08-09
+substitutes 08-09 if sunday then next monday
+12-25
+substitutes 12-25 if sunday then next monday
+1 Shawwal
+10 Dhu al-Hijjah
+2001-05-07
+2002-05-27
+2003-05-15
+2004-06-02
+2005-05-23
+2006-05-12
+2007-05-31
+2008-05-19
+2009-05-09
+2010-05-28
+2011-05-17
+2012-05-05
+2013-05-24
+2014-05-13
+2015-06-01
+2016-05-21
+2017-05-10
+2018-05-29
+2019-05-19
+2019-05-20
+2020-05-07
+2021-05-26
+2022-05-15
+2022-05-16
+2023-05-05
+2024-05-23
+2000-10-26
+2001-11-14
+2002-11-03
+2002-11-04
+2003-10-23
+2004-11-11
+2005-11-01
+2006-10-21
+2007-11-08
+2008-10-27
+2009-10-17
+2010-11-05
+2011-10-26
+2012-11-13
+2013-11-03
+2013-11-04
+2014-10-22
+2015-11-10
+2016-10-29
+2017-10-18
+2018-11-06
+2019-10-27
+2019-10-28
+2020-11-14
+2021-11-04
+2022-10-24
+2023-11-13
+2024-10-31
+2025-10-20
+2026-11-09
+2027-10-28
+2028-11-15
+2029-11-05
+2030-10-25
+01-01
+substitutes 01-01 if sunday then next monday
+substitutes 01-01 if saturday then next monday
+easter -2
+easter
+easter 1
+3rd monday in April
+05-21
+easter 50
+monday before 09-01
+12-25
+substitutes 12-25 if saturday then next tuesday
+substitutes 12-25 if sunday then next tuesday
+12-26
+substitutes 12-26 if saturday then next monday
+substitutes 12-26 if sunday then next monday
+01-01
+01-02
+02-08
+03-08
+04-23
+easter -49
+easter
+easter 1
+04-27
+05-01
+05-02
+easter 49
+06-08
+06-25
+07-22
+08-15
+08-17
+09-15
+10-25
+10-31
+11-01
+11-11
+11-23
+12-06
+12-25
+12-26
+01-01
+01-06
+easter -2
+easter
+easter 1
+05-01
+05-08
+2nd sunday in May
+07-05
+08-29
+09-01
+09-15
+11-01
+11-17
+12-24
+12-25
+12-26
+01-01
+01-06
+02-05
+easter
+easter 1
+03-25
+04-01
+05-01
+2nd sunday in May
+easter 60
+07-28
+08-15
+09-03
+10-01
+11-01
+11-02
+12-08
+12-25
+12-26
+12-31
+01-01
+04-04
+05-01
+08-15
+11-01
+12-25
+easter 1
+easter 39
+easter 50
+12 Rabi al-awwal
+1 Shawwal and if sunday then next monday
+10 Dhu al-Hijjah and if sunday then next monday
+10 Muharram
+18 Safar
+01-01
+05-01
+06-26
+07-01
+10 Muharram
+12 Rabi al-awwal
+1 Shawwal
+10 Dhu al-Hijjah
+01-01
+01-09
+03-08
+05-16
+1st monday in July
+07-09
+07-30
+12-25
+12-28
+12-31
+2 Shawwal
+12 Dhu al-Hijjah
+01-01
+01-16
+03-08
+easter -3
+easter -2
+easter -1
+easter
+05-01
+05-07
+05-10
+06-17
+06-22
+08-06
+09-15
+11-02
+12-25
+01-01 and if sunday then next monday
+05-01 and if sunday then next monday
+08-11 and if sunday then next monday
+12-01 and if sunday then next monday
+11-01
+11-28
+12-25
+easter 1
+12 Rabi al-awwal
+1 Shawwal
+10 Dhu al-Hijjah
+01-01
+01-13
+04-27
+easter 1
+05-01
+easter 39
+easter 50
+06-21
+08-15
+11-01
+12-25
+13 Rabi al-awwal
+2 Shawwal
+11 Dhu al-Hijjah
+01-01
+01-14
+03-20
+04-09
+12 Rabi al-awwal
+1 Muharram
+1 Shawwal
+10 Dhu al-Hijjah
+05-01
+07-25
+08-13
+10-15
+01-01
+easter -2
+easter 1
+04-25
+06-04 if thursday,friday,saturday,sunday then next monday and if tuesday then previous monday
+07-04
+09-17 if thursday,friday,saturday,sunday then next monday and if tuesday then previous monday
+11-04 if thursday,friday,saturday,sunday then next monday and if tuesday then previous monday
+12-04 if thursday,friday,saturday,sunday then next monday and if tuesday then previous monday
+12-25
+12-26
+01-01
+04-23
+05-01
+05-19
+07-15
+08-30
+10-29
+1 Shawwal PT90H
+10 Dhu al-Hijjah PT114H
+01-01 and if Saturday then previous Friday if Sunday then next Monday
+chinese 01-0-00
+chinese 01-0-01
+chinese 01-0-01 if Monday then next Friday if Tuesday then next Saturdayif Wednesday then next Sunday if Thursday then next Monday if Friday then next Tuesday if Saturday then next Wednesday if Sunday then next Thursday
+chinese 01-0-02
+chinese 01-0-03
+chinese 01-0-04
+02-28 and if Sunday then next Monday
+04-04 and if Sunday then next Monday
+chinese 5-01 solarterm and if Sunday then next Monday
+chinese 05-0-05 and if Sunday then next Monday
+chinese 08-0-15 and if Sunday then next Monday
+10-10 and if Sunday then next Monday
+02-04
+03-08
+03-12
+03-29
+05-01 and if Saturday then previous Friday if Sunday then next Monday
+05-04
+2nd Sunday in May
+06-03
+08-08
+09-01
+09-03
+09-28
+10-21
+10-25
+11-12
+december solstice
+12-25
+chinese 01-0-15
+chinese 01-0-15 #1
+chinese 02-0-02
+chinese 02-0-19
+chinese 03-0-15
+chinese 03-0-23
+chinese 04-0-08
+chinese 05-0-13
+chinese 05-0-13 #1
+chinese 07-0-07
+chinese 07-0-15
+chinese 09-0-09
+chinese 10-0-15
+01-01
+01-02
+easter -2
+easter
+easter 1
+04-07
+04-26
+05-01
+07-07
+08-08
+10-14
+12-09
+12-25
+12-26
+1 Shawwal P2D
+10 Dhu al-Hijjah
+12 Rabi al-awwal
+01-01 and if saturday, sunday then next tuesday
+01-02 and if saturday, sunday then next monday
+julian 12-25 and if saturday, sunday then next monday
+03-08 and if saturday, sunday then next monday
+orthodox and if sunday then next monday
+orthodox 49 and if sunday then next monday
+05-01 and if saturday, sunday then next tuesday
+05-02 and if saturday, sunday then next monday
+05-09 and if saturday, sunday then next monday
+06-28 and if saturday, sunday then next monday
+08-24 and if saturday, sunday then next monday
+10-14 and if saturday, sunday then next monday
+01-01
+01-26
+02-16
+03-08
+easter -46
+easter -2
+easter
+easter 1
+05-01
+06-03
+06-09
+10-09
+12-25
+12-26
+1 Shawwal
+10 Dhu al-Hijjah
+01-01 and if sunday then next monday if saturday then previous friday
+3rd monday in January
+3rd monday in February
+02-14
+easter
+04-15 if friday then next monday if saturday,sunday then next tuesday
+wednesday before 04-28
+2nd sunday in May
+monday before 06-01
+06-19 and if sunday then next monday if saturday then previous friday since 2021
+3rd sunday in June
+07-04 and if sunday then next monday if saturday then previous friday
+monday in September
+2nd monday in October
+10-31 18:00
+11-11
+substitutes 11-11 if sunday then next monday if saturday then previous friday
+tuesday after 1st monday in November every 4 years since 1848
+4th thursday in November
+friday after 4th thursday in November
+12-24
+12-25 and if sunday then next monday if saturday then previous friday
+12-31
+01-01
+01-06
+easter -48
+easter -47
+easter -6 P5D
+easter -3
+easter -2
+easter
+04-19 if tuesday,wednesday then previous monday if thursday,friday then next monday
+05-01
+05-18 if tuesday,wednesday then previous monday if thursday,friday then next monday
+06-19
+07-18
+08-25
+10-12 if tuesday,wednesday then previous monday if thursday,friday then next monday
+11-02
+12-24
+12-25
+12-31
+01-01
+01-06
+02-11
+03-19
+easter 1
+easter 39
+easter 60
+05-01
+06-29
+08-15
+09-08
+11-01
+12-08
+12-25
+12-26
+10-16
+11-04
+04-19
+03-19#1
+03-13
+04-23
+01-01
+01-06
+01-15
+03-19
+easter -48
+easter -47
+easter -6 P7D
+easter -3
+easter -2
+easter
+04-19
+05-01
+06-24
+07-05
+07-24
+08-03
+09-11
+10-12
+11-01
+11-02
+12-08
+12-10
+12-24
+12-25
+12-31
+01-01
+vietnamese 1-0-1
+1 day before vietnamese 1-0-1 P5D
+vietnamese 3-0-10
+04-30
+05-01
+09-02
+02-03
+03-08
+04-21
+05-07
+05-19
+06-01
+06-28
+07-27
+08-19
+10-10
+10-20
+11-20
+12-22
+vietnamese 1-0-5
+vietnamese 1-0-15
+vietnamese 4-0-15
+vietnamese 5-0-5
+vietnamese 7-0-15
+vietnamese 8-0-15
+vietnamese 12-0-23
+01-01
+02-21
+02-22
+03-05
+easter -2
+easter 1
+05-01
+easter 39
+07-24
+07-30
+08-15
+08-16
+10-05
+10-29
+12-25
+12-26
+12-27
+01-01
+julian 12-25
+02-17
+04-09
+easter
+orthodox
+05-01
+05-09
+12-25
+1 Shawwal
+10 Dhu al-Hijjah
+easter 49
+04-27
+01-01
+substitutes 01-01 if sunday then next monday
+03-21
+substitutes 03-21 if sunday then next monday
+easter -2
+easter
+easter 1
+04-27
+substitutes 04-27 if sunday then next monday
+05-01
+substitutes 05-01 if sunday then next monday
+2nd sunday in May
+06-16
+substitutes 06-16 if sunday then next monday
+3rd sunday in June
+08-09
+substitutes 08-09 if sunday then next monday
+07-18
+09-24
+substitutes 09-24 if sunday then next monday
+12-16
+substitutes 12-16 if sunday then next monday
+12-25
+12-26
+substitutes 12-26 if sunday then next monday
+01-01 and if sunday then next monday
+03-09
+03-12 and if sunday then next monday
+easter -2
+easter 1
+05-01 and if sunday then next monday
+05-25 and if sunday then next monday
+1st monday in July
+tuesday after 1st monday in July
+1st monday in August
+2015-10-18
+10-24 and if sunday then next monday
+12-25 and if sunday then next monday
+01-01
+easter -2
+easter
+easter 1
+04-18
+05-01
+05-25
+2nd sunday in May
+3rd sunday in June
+2nd monday in August
+2nd tuesday in August
+12-22
+12-25
+12-26

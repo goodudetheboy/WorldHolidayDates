@@ -76,7 +76,7 @@ public class Country {
         return refDays;
     }
 
-    public Object getDays() {
+    public Map<String, Object> getDays() {
         return days;
     }
 
