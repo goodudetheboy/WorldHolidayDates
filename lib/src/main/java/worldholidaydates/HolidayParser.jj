@@ -1,0 +1,104 @@
+options
+{
+  JDK_VERSION = "1.8";
+
+  static = false;
+
+  LOOKAHEAD= 5;
+  IGNORE_CASE = true;
+  FORCE_LA_CHECK = true;
+  CHOICE_AMBIGUITY_CHECK = 2;
+  OTHER_AMBIGUITY_CHECK = 2;
+  DEBUG_PARSER = false;
+  DEBUG_LOOKAHEAD = false;
+  DEBUG_TOKEN_MANAGER = false;
+  UNICODE_INPUT = true;
+}
+
+PARSER_BEGIN(HolidayParser)
+
+package worldholidaydates.holidayparser;
+
+public class HolidayParser {
+    static int DEFAULT_YEAR = 2021;
+
+    public static void main (String[] args) throws ParseException, TokenMgrError {
+        // nothing here
+    }
+
+    public Rule parse() throws ParseException {
+        return start();
+    }
+
+}
+
+PARSER_END(HolidayParser)
+
+SKIP: { " " }
+TOKEN: { < DASH : "-" > }
+
+TOKEN: { < YEAR :  (< DIGIT >){4} > }
+
+TOKEN :
+{
+  < NUMBER : (< DIGIT >)+ >
+}
+
+TOKEN :
+{
+  < DIGIT : [ "0"-"9" ] >
+}
+
+Rule start():
+{
+    Rule r = new Rule();
+    Date d;
+}
+{
+    d = gregorianDate()
+    {
+        r.setMainDate(d);
+        return r;
+    }
+    < EOF >
+}
+
+Date gregorianDate() throws NumberFormatException:
+{
+    Token t;
+    int year = DEFAULT_YEAR;
+    int month;
+    int day;
+}
+{
+    (
+        t = < YEAR >
+        {
+            year = Integer.parseInt(t.image);
+        }
+        < DASH >
+    )?
+    (
+        t = < NUMBER >
+        {
+            if (t.image.length() != 2 ) {
+                throw new ParseException("Month must be defined as MM");
+            }
+            month = Integer.parseInt(t.image);
+        }
+    )
+    < DASH >
+    (
+        t = < NUMBER >
+        {
+            if (t.image.length() != 2) {
+                throw new ParseException("Day must be defined as DD");
+            }
+            day = Integer.parseInt(t.image);
+        }
+    )
+    {
+        GregorianDate d = new GregorianDate(year, month, day);
+        return d;
+    }
+}
