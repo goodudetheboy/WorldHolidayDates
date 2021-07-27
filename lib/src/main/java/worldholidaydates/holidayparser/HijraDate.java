@@ -3,10 +3,7 @@ package worldholidaydates.holidayparser;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.chrono.HijrahChronology;
-import java.time.chrono.HijrahDate;
 import java.time.chrono.HijrahEra;
-
-import org.omg.CORBA.PUBLIC_MEMBER;
 
 public class HijraDate implements Date {
     public static final int DEFAULT_HIJRA_YEAR = 1442; // Gregorian Year = 2021-2022
@@ -98,6 +95,4 @@ public class HijraDate implements Date {
         java.time.chrono.HijrahDate date =  HijrahChronology.INSTANCE.date(HijrahEra.AH, year, month.toInt(), dayOfMonth);
         return LocalDate.from(date);
     }
- 
-
 }
