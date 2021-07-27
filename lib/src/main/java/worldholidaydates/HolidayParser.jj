@@ -19,6 +19,8 @@ PARSER_BEGIN(HolidayParser)
 
 package worldholidaydates.holidayparser;
 
+import worldholidaydates.Utils;
+
 public class HolidayParser {
     static int DEFAULT_YEAR = 2021;
 
@@ -55,7 +57,7 @@ TOKEN :
     | "November"
     | "December" >
     {
-        matchedToken.image = Util.capitalize(image.toString());
+        matchedToken.image = Utils.capitalize(image.toString());
     }
 }
 

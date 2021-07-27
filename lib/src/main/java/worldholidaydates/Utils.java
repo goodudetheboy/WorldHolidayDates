@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Locale;
 
 
 public class Utils {
@@ -31,5 +32,21 @@ public class Utils {
     public static String readFile(String path, Charset encoding) throws IOException {
         byte[] encoded = Files.readAllBytes(Paths.get(path));
         return new String(encoded, encoding);
+    }
+
+        /**
+     * Capitalize a string
+     * 
+     * @param s string to capitalize
+     * @return capitalized string
+     * @author Simon Poole
+     */
+    public static String capitalize(String s) {
+        char[] c = s.toLowerCase(Locale.US).toCharArray();
+        if (c.length > 0) {
+            c[0] = Character.toUpperCase(c[0]);
+            return new String(c);
+        }
+        return s;
     }
 }
