@@ -144,6 +144,7 @@ public class ParserTest {
                 lineNumber++;
             }
             // record statistics
+            // fail("Is this shit working?");
             outputStats.write("Successful: " + successful + "\n");
             outputStats.write("Error: " + errors + "\n");
             outputStats.write("Total: " + (lineNumber-1) + "\n");

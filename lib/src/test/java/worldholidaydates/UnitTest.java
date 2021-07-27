@@ -18,13 +18,24 @@ import worldholidaydates.holidayparser.ParseException;
 public class UnitTest {
     @Test
     public void gregorianDateTest() {
-        String input = "2021-12-20";
+        String input = "2021-05-01";
+        LocalDateTime expected = LocalDateTime.parse("2021-05-01T00:00");
+        testParser(input, expected);
+    }
+
+    @Test
+    public void startOfMonthTest() {
+        String input = "January";
+        LocalDateTime expected = LocalDateTime.parse("2021-01-01T00:00");
+        testParser(input, expected);
+    }
+
+    public void testParser(String input, LocalDateTime expected) {
         HolidayParser parser = new HolidayParser(new ByteArrayInputStream(input.getBytes()));
         try {
             Rule rule = parser.parse();
             LocalDateTime actual = rule.calculate();
-            System.out.println(actual);
-            assertEquals(LocalDateTime.parse("2021-12-20T00:00"), actual);
+            assertEquals(expected, actual);
         } catch (ParseException e) {
             e.printStackTrace();
             fail(e.getMessage());
