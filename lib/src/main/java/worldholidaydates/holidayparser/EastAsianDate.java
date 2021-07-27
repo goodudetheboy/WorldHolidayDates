@@ -2,6 +2,7 @@ package worldholidaydates.holidayparser;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.YearMonth;
 
 import javax.annotation.Nullable;
 
@@ -43,14 +44,18 @@ public class EastAsianDate implements Date {
     public static final int DEFAULT_EAST_ASIAN_CYCLE = 78;
     // to gregorian year: 2021
 
-    private     int         cycle       = DEFAULT_EAST_ASIAN_CYCLE;
-    private     int         yearOfCycle = DEFAULT_EAST_ASIAN_YEAR_OF_CYCLE;
-    private     int         month       = Date.UNDEFINED_NUM; // chinese
-    private     boolean     isLeapMonth = false;
-    private     int         day         = Date.UNDEFINED_NUM; // chinese, day of lunar month
-    private     CalendarType calType    = null;
+    private     CalendarType calType        = null;
+
+    // for normal year, month, day
+    private     int         cycle           = DEFAULT_EAST_ASIAN_CYCLE;
+    private     int         yearOfCycle     = DEFAULT_EAST_ASIAN_YEAR_OF_CYCLE;
+    private     int         month           = Date.UNDEFINED_NUM; // chinese
+    private     boolean     isLeapMonth     = false;
+    private     int         day             = Date.UNDEFINED_NUM; // chinese, day of lunar month
     
-    private     int         solarTermTh = 0;
+    // for solar term
+    private     int         solarTermTh     = Date.UNDEFINED_NUM; // from 1 to 24
+    private     int         solarTermDay    = Date.UNDEFINED_NUM; // from 1 to 15
 
     public EastAsianDate() {
         // empty
@@ -77,8 +82,14 @@ public class EastAsianDate implements Date {
         this.calType = calType;
     }
 
-    public EastAsianDate(int month, int day, CalendarType calType) {
-        this(month, false, day, calType);
+    public EastAsianDate(int solarTermTh, int solarTermDay, CalendarType calType) {
+        this.solarTermTh = solarTermTh;
+        this.solarTermDay = solarTermDay;
+        this.calType = calType;
+    }
+
+    public CalendarType getCalendarType() {
+        return calType;
     }
 
     public int getCycle() {
@@ -93,6 +104,14 @@ public class EastAsianDate implements Date {
         return month;
     }
     
+    public int getSolarTermTh() {
+        return solarTermTh;
+    }
+
+    public int getSolarTermDay() {
+        return solarTermDay;
+    }
+
     public int getGregorianYear() {
         return toGregorianYear(cycle, yearOfCycle);
     }
@@ -101,8 +120,8 @@ public class EastAsianDate implements Date {
         return isLeapMonth;
     }
 
-    public CalendarType getCalendarType() {
-        return calType;
+    public void setCalendarType(CalendarType calType) {
+        this.calType = calType;
     }
 
     public void setCycle(int cycle) {
@@ -125,8 +144,12 @@ public class EastAsianDate implements Date {
         this.day = day;
     }
 
-    public void setCalendarType(CalendarType calType) {
-        this.calType = calType;
+    public void setSolarTermTh(int solarTermTh) {
+        this.solarTermTh = solarTermTh;
+    }
+
+    public void setSolarTermDay(int solarTermDay) {
+        this.solarTermDay = solarTermDay;
     }
 
     @Override
@@ -136,30 +159,36 @@ public class EastAsianDate implements Date {
 
     @Override @Nullable
     public LocalDate calculateDate() {
-        // conversion
-        EastAsianMonth conMonth = (!isLeapMonth())
-                                ? EastAsianMonth.valueOf(month)
-                                : EastAsianMonth.valueOf(month).withLeap();
-        EastAsianYear conYear = EastAsianYear.forGregorian(toGregorianYear(cycle, yearOfCycle));
+        if (month != Date.UNDEFINED_NUM) {
+            // normal year, month, day
+            // conversion
+            EastAsianMonth conMonth = (!isLeapMonth())
+                                    ? EastAsianMonth.valueOf(month)
+                                    : EastAsianMonth.valueOf(month).withLeap();
+            EastAsianYear conYear = EastAsianYear.forGregorian(toGregorianYear(cycle, yearOfCycle));
 
-        // calculation based on different calendar type
-        EastAsianCalendar date = null;
-        switch(calType) {
-            case CHINESE:
-                date = ChineseCalendar.of(conYear, conMonth, day);
-                break;
-            case KOREAN:
-                date = KoreanCalendar.of(conYear, conMonth, day);
-                break;
-            case VIETNAMESE:
-                date = VietnameseCalendar.of(conYear, conMonth, day);
-                break;
-        }
-        if (date != null) {
-            PlainDate pdate = date.transform(PlainDate.class);
-            return pdate.toTemporalAccessor();
+            // calculation based on different calendar type
+            EastAsianCalendar date = null;
+            switch(calType) {
+                case CHINESE:
+                    date = ChineseCalendar.of(conYear, conMonth, day);
+                    break;
+                case KOREAN:
+                    date = KoreanCalendar.of(conYear, conMonth, day);
+                    break;
+                case VIETNAMESE:
+                    date = VietnameseCalendar.of(conYear, conMonth, day);
+                    break;
+            }
+            if (date != null) {
+                PlainDate pdate = date.transform(PlainDate.class);
+                return pdate.toTemporalAccessor();
+            } else {
+                return null;
+            }
         } else {
-            return null;
+            // solar term calculation
+            return getDateFromSolarTerm(solarTermTh, solarTermDay, toGregorianYear(cycle, yearOfCycle));
         }
     }
 
@@ -181,5 +210,52 @@ public class EastAsianDate implements Date {
             throw new IllegalArgumentException("Year of cycle out of range: " + yearOfCycle);
         }
         return -2697 + (cycle * 60) + yearOfCycle;
+    }
+
+    /**
+     * Get a rough estimation of a date in year based on the count of solar term
+     * and day in that solar term. Based on the information from
+     * <a href="https://en.wikipedia.org/wiki/Solar_term#List_of_solar_terms">List of solar terms</a>.
+     * <p>
+     * As per Wikipedia, the resulting date "can vary within a ±1 day range."
+     * 
+     * @param solarTermTh the count of solar term from 1 to 24
+     * @param solarTermDay the day in the solar term from 1 to 15
+     * @param year the year
+     * @return a rough estimation of a date in year based on the count of solar term
+     * @see https://en.wikipedia.org/wiki/Solar_term
+     */
+    public static LocalDate getDateFromSolarTerm(int solarTermTh, int solarTermDay, int year) {
+        if (solarTermTh < 1 || solarTermTh > 24) {
+            throw new IllegalArgumentException("Solar term out of range: " + solarTermTh);
+        }
+        if (solarTermDay < 1 || solarTermDay > 15) {
+            throw new IllegalArgumentException("Solar term day out of range: " + solarTermDay);
+        }
+
+        // Start date of solar term taken from https://en.wikipedia.org/wiki/Solar_term#List_of_solar_terms
+        int[][] solarTermStartDate =  { { 2,  4}, { 2, 19}, { 3,  6}, { 3, 21}, { 4,  5}, { 4, 20},
+                                        { 5,  6}, { 5, 21}, { 6,  6}, { 6, 21}, { 7,  7}, { 7, 23},
+                                        { 8,  8}, { 8, 23}, { 9,  8}, { 9, 23}, {10,  8}, {10, 23},
+                                        {11,  7}, {11, 22}, {12,  7}, {12, 22}, { 1,  6}, { 1, 20} };
+        
+        // process the solar term and its day
+        int[] solarTermDate = solarTermStartDate[solarTermTh - 1];
+        int month = solarTermDate[0];
+        int day = solarTermDate[1] + solarTermDay - 1;
+        int maxDay = YearMonth.of(year, month).lengthOfMonth();
+
+        // process case spills over into next month or year
+        if (day > maxDay) {
+            day = day % maxDay;
+            if (month == 12) {
+                month = 1;
+                year += 1;
+            } else {
+                month += 1;
+            }
+        }
+
+        return LocalDate.of(year, month, day);
     }
 }

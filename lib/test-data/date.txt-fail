@@ -646,8 +646,10 @@ Was expecting:
 2422	1 Shawwal PT90H	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 11.  Encountered: "P" (80), after : ""
 2423	10 Dhu al-Hijjah PT114H	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 18.  Encountered: "P" (80), after : ""
 2424	01-01 and if Saturday then previous Friday if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-2425	chinese 01-0-00	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
+2425	chinese 01-0-00	worldholidaydates.holidayparser.ParseException: Encountered " <NUMBER> "01 "" at line 1, column 9.
+Was expecting:
+    <EOF> 
+    
 2427	chinese 01-0-01 if Monday then next Friday if Tuesday then next Saturdayif Wednesday then next Sunday if Thursday then next Monday if Friday then next Tuesday if Saturday then next Wednesday if Sunday then next Thursday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 18.  Encountered: "f" (102), after : "i"
 2431	02-28 and if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
 2432	04-04 and if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"

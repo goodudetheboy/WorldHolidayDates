@@ -384,6 +384,7 @@ Date hebrew() throws NumberFormatException:
     }
 }
 
+// TODO: Refactor this to be more readable
 Date eastAsian() throws NumberFormatException:
 {
     Token t;
@@ -393,12 +394,18 @@ Date eastAsian() throws NumberFormatException:
     int month;
     boolean isLeapMonth;
     int dayOfMonth;
+
+    int solarTermTh;
+    int solarTermDay;
+
+    EastAsianDate eastAsianDate = new EastAsianDate();
 }
 {
     (
         t = < EASTASIAN_CALENDER >
         {
             calType = CalendarType.fromName(t.image);
+            eastAsianDate.setCalendarType(calType);
         }
     )
     (
@@ -408,43 +415,75 @@ Date eastAsian() throws NumberFormatException:
             t = < NUMBER >
             {
                 cycle = Integer.parseInt(t.image);
+                eastAsianDate.setCycle(cycle);
             }
             < DASH >
         )
-        // TODO: Add optional looking for year of cycle here, for like "chinese 78-6-0-18"
         (
             LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 1, 60) })
             t = < NUMBER >
             {
                 yearOfCycle = Integer.parseInt(t.image);
+                eastAsianDate.setYearOfCycle(yearOfCycle);
             }
             < DASH >
         )
     )?
     (
-        t = < NUMBER >
-        {
-            month = Integer.parseInt(t.image);
-        }
-        < DASH >
-    )
-    (
-        LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 0, 1) })
-        t = < NUMBER >
-        {
-            isLeapMonth = (Integer.parseInt(t.image) == 1);
-        }
-        < DASH>
-    )
-    (
-        LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 1, 30) })
-        t = < NUMBER >
-        {
-            dayOfMonth = Integer.parseInt(t.image);
-        }
+        LOOKAHEAD({ getToken(4).kind == DASH })
+        (
+            (
+                t = < NUMBER >
+                {
+                    month = Integer.parseInt(t.image);
+                    eastAsianDate.setMonth(month);
+                }
+                < DASH >
+            )
+            (
+                LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 0, 1) })
+                (
+                    t = < NUMBER >
+                    {
+                        isLeapMonth = (Integer.parseInt(t.image) == 1);
+                        eastAsianDate.setLeapMonth(isLeapMonth);
+                    }
+                    < DASH>
+                )
+            )
+            (
+                LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 1, 30) })
+                (
+                    t = < NUMBER >
+                    {
+                        dayOfMonth = Integer.parseInt(t.image);
+                        eastAsianDate.setDay(dayOfMonth);
+                    }
+                )
+            )
+        )?
+    |
+        (
+            LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 1, 24) })
+            (
+                t = < NUMBER >
+                {
+                    solarTermTh = Integer.parseInt(t.image);
+                    eastAsianDate.setSolarTermTh(solarTermTh);
+                }
+            )
+            <DASH>
+            LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 1, 15) })
+            (
+                t = < NUMBER >
+                {
+                    solarTermDay = Integer.parseInt(t.image);
+                    eastAsianDate.setSolarTermDay(solarTermDay);
+                }
+            )
+        )?
     )
     {
-        EastAsianDate eastAsianDate = new EastAsianDate(cycle, yearOfCycle, month, isLeapMonth, dayOfMonth, calType);
         return eastAsianDate;
     }
 }

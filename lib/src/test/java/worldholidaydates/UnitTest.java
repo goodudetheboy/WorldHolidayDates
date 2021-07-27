@@ -104,4 +104,10 @@ public class UnitTest {
         testParserDate("vietnamese 6-0-18", LocalDate.parse("2021-07-27"));
         testParserDate("vietnamese 78-38-6-0-18", LocalDate.parse("2021-07-27"));
     }
+
+    @Test
+    public void eastAsianSolarTermTest() {
+        testParserDate("chinese 5-01", LocalDate.parse("2021-04-05"));
+        testParserDate("chinese 78-38-5-01", LocalDate.parse("2021-04-05"));
+    }
 }
