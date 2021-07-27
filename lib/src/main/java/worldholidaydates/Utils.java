@@ -6,6 +6,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Locale;
 
+import javax.annotation.Nonnull;
+
 
 public class Utils {
     public static final String LINE_SEPARATOR = System.getProperty("line.separator");
@@ -48,5 +50,23 @@ public class Utils {
             return new String(c);
         }
         return s;
+    }
+
+    /**
+     * Make a safe comparison catching parse errors
+     * 
+     * @param token the current token
+     * @param lower lower bounds
+     * @param upper upper bounds
+     * @return true if in bounds and is an int
+     * @author Simon Pool
+     */
+    public static boolean between(@Nonnull String token, int lower, int upper) {
+        try {
+            int temp = Integer.parseInt(token);
+            return temp >= lower && temp <= upper;
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
     }
 }

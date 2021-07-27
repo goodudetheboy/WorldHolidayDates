@@ -4,11 +4,10 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class GregorianDate implements Date{
-    public static final int UNDEFINED_NUM = Integer.MIN_VALUE;
 
     private int year = LocalDate.now().getYear();
-    private int month = UNDEFINED_NUM;
-    private int day = UNDEFINED_NUM;
+    private int month = Date.UNDEFINED_NUM;
+    private int day = Date.UNDEFINED_NUM;
     private int hour = 0;
     private int minute = 0;
 

@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public interface Date {
+    public static final int UNDEFINED_NUM = Integer.MIN_VALUE;
+
     public LocalDateTime calculate();
 
     public LocalDate calculateDate();

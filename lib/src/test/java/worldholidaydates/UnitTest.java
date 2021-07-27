@@ -8,6 +8,7 @@ import static org.junit.Assert.fail;
 import java.io.ByteArrayInputStream;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.chrono.HijrahDate;
 
 import org.junit.Test;
 
@@ -29,25 +30,53 @@ public class UnitTest {
         }
     }
 
+    public void testParserDate(String input, LocalDate expected) {
+        HolidayParser parser = new HolidayParser(new ByteArrayInputStream(input.getBytes()));
+        try {
+            Rule rule = parser.parse();
+            LocalDate actual = rule.calculateDate();
+            assertEquals(expected, actual);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            fail("Parse fail at \"" + input + "\" - " + e.getMessage());
+        }
+    }
+
     @Test
     public void gregorianDateTest() {
-        testParser("2021-05-01", LocalDateTime.parse("2021-05-01T00:00"));
+        testParserDate("2021-05-01", LocalDate.parse("2021-05-01"));
     }
 
     @Test
     public void startOfMonthTest() {
-        testParser("january", LocalDateTime.parse("2021-01-01T00:00"));
-        testParser("march", LocalDateTime.parse("2021-03-01T00:00"));
+        testParserDate("january", LocalDate.parse("2021-01-01"));
+        testParserDate("march", LocalDate.parse("2021-03-01"));
     }
 
 
     @Test
     public void easterOrthodoxTest() {
-        testParser("easter", LocalDateTime.parse("2021-04-04T00:00"));
-        testParser("orthodox", LocalDateTime.parse("2021-05-02T00:00"));
-        testParser("easter -2", LocalDateTime.parse("2021-04-02T00:00"));
-        testParser("orthodox 3", LocalDateTime.parse("2021-05-05T00:00"));
-        testParser("easter +49", LocalDateTime.parse("2021-05-23T00:00"));
-        testParser("orthodox -6", LocalDateTime.parse("2021-04-26T00:00"));
+        testParserDate("easter", LocalDate.parse("2021-04-04"));
+        testParserDate("orthodox", LocalDate.parse("2021-05-02"));
+        testParserDate("easter -2", LocalDate.parse("2021-04-02"));
+        testParserDate("orthodox 3", LocalDate.parse("2021-05-05"));
+        testParserDate("easter +49", LocalDate.parse("2021-05-23"));
+        testParserDate("orthodox -6", LocalDate.parse("2021-04-26"));
+    }
+
+    @Test
+    public void hijraTest() {
+        testParserDate("29 Muharram", LocalDate.parse("2020-09-17"));
+        testParserDate("30 Safar", LocalDate.parse("2020-10-17"));
+        testParserDate("28 Rabi al-awwal", LocalDate.parse("2020-11-14"));
+        testParserDate("27 Rabi al-thani", LocalDate.parse("2020-12-12"));
+        testParserDate("26 Jumada al-awwal", LocalDate.parse("2021-01-10"));
+        testParserDate("22 Jumada al-thani", LocalDate.parse("2021-02-04"));
+        testParserDate("21 Rajab", LocalDate.parse("2021-03-05"));
+        testParserDate("20 Shaban", LocalDate.parse("2021-04-02"));
+        testParserDate("9 Ramadan", LocalDate.parse("2021-04-21"));
+        testParserDate("10 Shawwal", LocalDate.parse("2021-05-22"));
+        testParserDate("11 Dhu al-Qidah", LocalDate.parse("2021-06-21"));
+        testParserDate("17 Dhu al-Hijjah", LocalDate.parse("2021-07-27"));
     }
 }

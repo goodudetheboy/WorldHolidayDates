@@ -20,6 +20,7 @@ PARSER_BEGIN(HolidayParser)
 package worldholidaydates.holidayparser;
 
 import worldholidaydates.Utils;
+import worldholidaydates.holidayparser.HijraDate.Month;
 
 public class HolidayParser {
     static int DEFAULT_YEAR = 2021;
@@ -71,6 +72,23 @@ TOKEN :
     }
 }
 
+TOKEN :
+{
+    < HIJRA_MONTH:
+        "Muharram"
+    |   "Safar"
+    |   "Rabi al-awwal"
+    |   "Rabi al-thani"
+    |   "Jumada al-awwal"
+    |   "Jumada al-thani"
+    |   "Rajab"
+    |   "Shaban"
+    |   "Ramadan"
+    |   "Shawwal"
+    |   "Dhu al-Qidah"
+    |   "Dhu al-Hijjah" >
+}
+
 TOKEN:
 {
     < PLUS : "+" >
@@ -84,6 +102,11 @@ TOKEN :
 TOKEN :
 {
   < DIGIT : [ "0"-"9" ] >
+}
+
+TOKEN :
+{
+    < TEST: "T" >
 }
 
 Rule start():
@@ -108,8 +131,13 @@ Rule start():
             (
                 d = easterOrthodox()
             )?
+        |
+            LOOKAHEAD( hijra() )
+            (
+                d = hijra()
+            )?
         )
-        < EOF>
+        < EOF >
     )
     {
         if (d != null) {
@@ -265,5 +293,29 @@ Date easterOrthodox() throws NumberFormatException:
     {
         EasterDate easterDate = new EasterDate(DEFAULT_YEAR, isOrthodox, offset);
         return easterDate;
+    }
+}
+
+Date hijra() throws NumberFormatException:
+{
+    Token t;
+    int dayOfMonth;
+    Month month;
+}
+{
+    (
+        LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 1, 30) })
+        t = < NUMBER >
+        {
+            dayOfMonth = Integer.parseInt(t.image);
+        }
+        t = < HIJRA_MONTH >
+        {
+            month = Month.hijraMonthConvert(t.image);
+        }
+    )
+    {
+        HijraDate hijraDate = new HijraDate(month, dayOfMonth);
+        return hijraDate;
     }
 }
