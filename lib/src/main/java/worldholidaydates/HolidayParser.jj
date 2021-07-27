@@ -63,6 +63,21 @@ TOKEN :
 
 TOKEN :
 {
+    < EASTER :
+      "Easter"
+    | "Orthodox" >
+    {
+        matchedToken.image = Utils.capitalize(image.toString());
+    }
+}
+
+TOKEN:
+{
+    < PLUS : "+" >
+}
+
+TOKEN :
+{
   < NUMBER : (< DIGIT >)+ >
 }
 
@@ -87,6 +102,11 @@ Rule start():
             LOOKAHEAD( startOfMonth() )
             (
                 d = startOfMonth()
+            )?
+        |
+            LOOKAHEAD( easterOrthodox() )
+            (
+                d = easterOrthodox()
             )?
         )
         < EOF>
@@ -211,4 +231,39 @@ String month() :
   {
     return m.image;
   }
+}
+
+Date easterOrthodox() throws NumberFormatException:
+{
+    Token t;
+    boolean isPlus = true;
+    boolean isOrthodox = false;
+    Token sign;
+    int offset = 0;
+}
+{
+    t = < EASTER >
+    {
+        if (t.image.equals("Orthodox")) {
+            isOrthodox = true;
+        }
+    }
+    (
+        sign = < PLUS >
+    |
+        sign = < DASH >
+        {
+            isPlus = false;
+        }
+    )?
+    (
+        t = < NUMBER >
+        {
+            offset = (isPlus) ? Integer.parseInt(t.image) : Integer.parseInt(t.image) * -1;
+        }
+    )?
+    {
+        EasterDate easterDate = new EasterDate(DEFAULT_YEAR, isOrthodox, offset);
+        return easterDate;
+    }
 }
