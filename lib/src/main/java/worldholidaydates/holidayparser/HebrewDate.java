@@ -7,8 +7,6 @@ import net.time4j.PlainDate;
 import net.time4j.calendar.HebrewCalendar;
 
 public class HebrewDate implements Date {
-    public static final int DEFAULT_HEBREW_YEAR = 5781; // Gregorian Year = 2021-2022
-
     public enum HebrewMonth {
         NISAN(1, "Nisan"),
         IYYAR(2, "Iyyar"),
@@ -94,10 +92,11 @@ public class HebrewDate implements Date {
             return name;
         }
     }
+    public static final int DEFAULT_HEBREW_YEAR = 5781; // Gregorian Year = 2021-2022
 
-    private int year = DEFAULT_HEBREW_YEAR;
-    private HebrewMonth month = null;
-    private int day = Date.UNDEFINED_NUM;
+    private     int         year    = DEFAULT_HEBREW_YEAR;
+    private     HebrewMonth month   = null;
+    private     int         day     = Date.UNDEFINED_NUM;
 
     public HebrewDate() {
         // empty
@@ -114,7 +113,23 @@ public class HebrewDate implements Date {
         this.day = day;
     }
 
-    public void setDayOfMonth(int day) {
+    public int getYear() {
+        return year;
+    }
+
+    public HebrewMonth getMonth() {
+        return month;
+    }
+
+    public int getDay() {
+        return day;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public void setDay(int day) {
         this.day = day;
     }
 
@@ -129,7 +144,7 @@ public class HebrewDate implements Date {
 
     @Override
     public LocalDate calculateDate() {
-        HebrewCalendar date =  HebrewCalendar.of(year, month.toTime4jHebrewMonth(), day);
+        HebrewCalendar date = HebrewCalendar.of(year, month.toTime4jHebrewMonth(), day);
         PlainDate pdate = date.transform(PlainDate.class);
         return pdate.toTemporalAccessor();
     }

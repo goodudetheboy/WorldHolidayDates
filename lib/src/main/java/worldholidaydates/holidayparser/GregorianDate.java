@@ -40,11 +40,11 @@ public class GregorianDate implements Date{
         }
     }
 
-    private int year = LocalDate.now().getYear();
-    private int month = Date.UNDEFINED_NUM;
-    private int day = Date.UNDEFINED_NUM;
-    private int hour = 0;
-    private int minute = 0;
+    private int     year    = LocalDate.now().getYear();
+    private int     month   = Date.UNDEFINED_NUM;
+    private int     day     = Date.UNDEFINED_NUM;
+    private int     hour    = 0;
+    private int     minute  = 0;
 
     public GregorianDate(int year, int month, int day, int hour, int minute) {
         setYear(year);
@@ -58,6 +58,26 @@ public class GregorianDate implements Date{
         setYear(year);
         setMonth(month);
         setDay(day);
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public int getDay() {
+        return day;
+    }
+
+    public int getHour() {
+        return hour;
+    }
+
+    public int getMinute() {
+        return minute;
     }
 
     public void setYear(int year) {
@@ -82,7 +102,7 @@ public class GregorianDate implements Date{
 
     @Override
     public LocalDateTime calculate() {
-        return LocalDateTime.of(year, month, day, hour, minute);
+        return calculateDate().atTime(hour, minute);
     }
 
     @Override

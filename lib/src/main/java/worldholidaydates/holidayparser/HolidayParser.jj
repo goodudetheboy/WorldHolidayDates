@@ -4,7 +4,7 @@ options
 
   static = false;
 
-  LOOKAHEAD= 5;
+  LOOKAHEAD= 6;
   IGNORE_CASE = true;
   FORCE_LA_CHECK = true;
   CHOICE_AMBIGUITY_CHECK = 2;
@@ -20,6 +20,7 @@ PARSER_BEGIN(HolidayParser)
 package worldholidaydates.holidayparser;
 
 import worldholidaydates.Utils;
+import worldholidaydates.holidayparser.EastAsianDate.CalendarType;
 import worldholidaydates.holidayparser.HijraDate.HijraMonth;
 import worldholidaydates.holidayparser.HebrewDate.HebrewMonth;
 
@@ -100,8 +101,19 @@ TOKEN :
 TOKEN :
 {
     < EASTER :
-      "Easter"
-    | "Orthodox" >
+        "Easter"
+    |   "Orthodox" >
+    {
+        matchedToken.image = Utils.capitalize(image.toString());
+    }
+}
+
+TOKEN : 
+{
+    < EASTASIAN_CALENDER:
+        "Chinese"
+    |   "Korean"
+    |   "Vietnamese" >
     {
         matchedToken.image = Utils.capitalize(image.toString());
     }
@@ -158,6 +170,11 @@ Rule start():
             LOOKAHEAD( hebrew() )
             (
                 d = hebrew()
+            )?
+        |
+            LOOKAHEAD( eastAsian() )
+            (
+                d = eastAsian()
             )?
         )
         < EOF >
@@ -364,5 +381,70 @@ Date hebrew() throws NumberFormatException:
     {
         HebrewDate hebrewDate = new HebrewDate(month, dayOfMonth);
         return hebrewDate;
+    }
+}
+
+Date eastAsian() throws NumberFormatException:
+{
+    Token t;
+    CalendarType calType;
+    int cycle = EastAsianDate.DEFAULT_EAST_ASIAN_CYCLE;
+    int yearOfCycle = EastAsianDate.DEFAULT_EAST_ASIAN_YEAR_OF_CYCLE;
+    int month;
+    boolean isLeapMonth;
+    int dayOfMonth;
+}
+{
+    (
+        t = < EASTASIAN_CALENDER >
+        {
+            calType = CalendarType.fromName(t.image);
+        }
+    )
+    (
+        // look for cycle
+        LOOKAHEAD({ getToken(6).kind == DASH })
+        (
+            t = < NUMBER >
+            {
+                cycle = Integer.parseInt(t.image);
+            }
+            < DASH >
+        )
+        // TODO: Add optional looking for year of cycle here, for like "chinese 78-6-0-18"
+        (
+            LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 1, 60) })
+            t = < NUMBER >
+            {
+                yearOfCycle = Integer.parseInt(t.image);
+            }
+            < DASH >
+        )
+    )?
+    (
+        t = < NUMBER >
+        {
+            month = Integer.parseInt(t.image);
+        }
+        < DASH >
+    )
+    (
+        LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 0, 1) })
+        t = < NUMBER >
+        {
+            isLeapMonth = (Integer.parseInt(t.image) == 1);
+        }
+        < DASH>
+    )
+    (
+        LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 1, 30) })
+        t = < NUMBER >
+        {
+            dayOfMonth = Integer.parseInt(t.image);
+        }
+    )
+    {
+        EastAsianDate eastAsianDate = new EastAsianDate(cycle, yearOfCycle, month, isLeapMonth, dayOfMonth, calType);
+        return eastAsianDate;
     }
 }

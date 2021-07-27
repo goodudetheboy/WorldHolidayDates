@@ -25,6 +25,30 @@ public class EasterDate implements Date {
         this.offset = offset;
     }
 
+    public int getYear() {
+        return year;
+    }
+
+    public boolean isOrthodox() {
+        return isOrthodox;
+    }
+
+    public int getOffset() {
+        return offset;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public void setOrthodox(boolean isOrthodox) {
+        this.isOrthodox = isOrthodox;
+    }
+
+    public void setOffset(int offset) {
+        this.offset = offset;
+    }
+
     @Override
     public LocalDateTime calculate() {
         return calculateDate().atStartOfDay();

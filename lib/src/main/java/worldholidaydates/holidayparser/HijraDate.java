@@ -63,9 +63,9 @@ public class HijraDate implements Date {
         }
     }
 
-    private int year = DEFAULT_HIJRA_YEAR;
-    private HijraMonth month = null;
-    private int day = Date.UNDEFINED_NUM;
+    private     int         year    = DEFAULT_HIJRA_YEAR;
+    private     HijraMonth  month   = null;
+    private     int         day     = Date.UNDEFINED_NUM;
 
     public HijraDate() {
         // empty
@@ -76,18 +76,34 @@ public class HijraDate implements Date {
         this.month = month;
         this.day = day;
     }
+    
+    public int getYear() {
+        return year;
+    }
+
+    public HijraMonth getMonth() {
+        return month;
+    }
+
+    public int getDay() {
+        return day;
+    }
 
     public HijraDate(HijraMonth month, int day) {
         this.month = month;
         this.day = day;
     }
 
-    public void setDay(int day) {
-        this.day = day;
+    public void setYear(int year) {
+        this.year = year;
     }
 
     public void setMonth(HijraMonth month) {
         this.month = month;
+    }
+
+    public void setDay(int day) {
+        this.day = day;
     }
 
     @Override

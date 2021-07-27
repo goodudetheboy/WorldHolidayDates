@@ -94,4 +94,14 @@ public class UnitTest {
         testParserDate("27 Shvat", LocalDate.parse("2021-02-09"));
         testParserDate("28 Adar", LocalDate.parse("2021-03-12"));
     }
+
+    @Test
+    public void eastAsianTest() {
+        testParserDate("chinese 6-0-18", LocalDate.parse("2021-07-27"));
+        testParserDate("chinese 78-38-6-0-18", LocalDate.parse("2021-07-27"));
+        testParserDate("korean 6-0-18", LocalDate.parse("2021-07-27"));
+        testParserDate("korean 78-38-6-0-18", LocalDate.parse("2021-07-27"));
+        testParserDate("vietnamese 6-0-18", LocalDate.parse("2021-07-27"));
+        testParserDate("vietnamese 78-38-6-0-18", LocalDate.parse("2021-07-27"));
+    }
 }
