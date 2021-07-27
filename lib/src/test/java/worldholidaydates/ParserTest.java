@@ -38,8 +38,8 @@ public class ParserTest {
      */
     @Test
     public void dataTest() {
-        parseData("test-data/date.txt", false, "test-data/date.txt-result-strict");
-        parseData("test-data/date.txt", true, "test-data/date.txt-debug-result-strict");
+        parseData("test-data/date.txt", false, "test-data/date.txt-result-strict", "test-data/date.txt-stats");
+        parseData("test-data/date.txt", true, "test-data/date.txt-debug-result-strict", "test-data/date.txt-stats");
     }
 
     /**
@@ -51,15 +51,17 @@ public class ParserTest {
      * @param debug if true produce debug output
      * @param resultsFile file to write results to
      */
-    private void parseData(String inputFile, boolean debug, String resultsFile) {
+    private void parseData(String inputFile, boolean debug, String resultsFile, String statsFile) {
         int differences = 0;
         int successful = 0;
         int errors = 0;
         int lexical = 0;
+        int lineNumber = 1;
         BufferedReader inputRules = null;
         BufferedReader inputExpected = null;
         BufferedWriter outputExpected = null;
         BufferedWriter outputFail = null;
+        BufferedWriter outputStats = null;
         String line = null;
         try {
             inputRules = new BufferedReader(new InputStreamReader(new FileInputStream(inputFile), StandardCharsets.UTF_8));
@@ -72,10 +74,11 @@ public class ParserTest {
                     new FileOutputStream(inputFile + "-result" + (debug ? "-debug" : "")), StandardCharsets.UTF_8));
             outputFail = new BufferedWriter(new OutputStreamWriter(
                     new FileOutputStream(inputFile + "-fail" + (debug ? "-debug" : "")), StandardCharsets.UTF_8));
+            outputStats = new BufferedWriter(new OutputStreamWriter(
+                    new FileOutputStream(statsFile + (debug ? "-debug" : "")), StandardCharsets.UTF_8));
 
             String expectedResultCode = null;
             String expectedResult = null;
-            int lineNumber = 1;
             while ((line = inputRules.readLine()) != null) {
                 if ("".equals(line.trim())) {
                     continue;
@@ -140,6 +143,10 @@ public class ParserTest {
                 }
                 lineNumber++;
             }
+            // record statistics
+            outputStats.write("Successful: " + successful + "\n");
+            outputStats.write("Error: " + errors + "\n");
+            outputStats.write("Total: " + (lineNumber-1) + "\n");
         } catch (FileNotFoundException fnfex) {
             System.out.println("File not found " + fnfex.toString());
         } catch (IOException e) {
@@ -166,6 +173,13 @@ public class ParserTest {
             if (outputFail != null) {
                 try {
                     outputFail.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (outputStats != null) {
+                try {
+                    outputStats.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
