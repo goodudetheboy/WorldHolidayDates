@@ -21,6 +21,7 @@ package worldholidaydates.holidayparser;
 
 import worldholidaydates.Utils;
 import worldholidaydates.holidayparser.HijraDate.HijraMonth;
+import worldholidaydates.holidayparser.HebrewDate.HebrewMonth;
 
 public class HolidayParser {
     static int DEFAULT_YEAR = 2021;
@@ -44,7 +45,7 @@ TOKEN : { < YEAR :  (< DIGIT >){4} > }
 
 TOKEN :
 {
-    < MONTH :
+    < GREGORIAN_MONTH :
       "January"
     | "Febuary"
     | "March"
@@ -60,20 +61,7 @@ TOKEN :
     {
         matchedToken.image = Utils.capitalize(image.toString());
     }
-}
-
-TOKEN :
-{
-    < EASTER :
-      "Easter"
-    | "Orthodox" >
-    {
-        matchedToken.image = Utils.capitalize(image.toString());
-    }
-}
-
-TOKEN :
-{
+|
     < HIJRA_MONTH:
         "Muharram"
     |   "Safar"
@@ -87,6 +75,36 @@ TOKEN :
     |   "Shawwal"
     |   "Dhu al-Qidah"
     |   "Dhu al-Hijjah" >
+    {
+        matchedToken.image = Utils.capitalize(image.toString());
+    }
+|
+    < HEBREW_MONTH:
+        "Nisan"
+    |   "Iyyar"
+    |   "Sivan"
+    |   "Tamuz"
+    |   "Av"
+    |   "Elul"
+    |   "Tishrei"
+    |   "Cheshvan"
+    |   "Kislev"
+    |   "Tevet"
+    |   "Shvat"
+    |   "Adar">
+    {
+        matchedToken.image = Utils.capitalize(image.toString());
+    }
+}
+
+TOKEN :
+{
+    < EASTER :
+      "Easter"
+    | "Orthodox" >
+    {
+        matchedToken.image = Utils.capitalize(image.toString());
+    }
 }
 
 TOKEN:
@@ -135,6 +153,11 @@ Rule start():
             LOOKAHEAD( hijra() )
             (
                 d = hijra()
+            )?
+        |
+            LOOKAHEAD( hebrew() )
+            (
+                d = hebrew()
             )?
         )
         < EOF >
@@ -255,7 +278,7 @@ String month() :
   Token m = null;
 }
 {
-  m = < MONTH >
+  m = < GREGORIAN_MONTH >
   {
     return m.image;
   }
@@ -320,4 +343,26 @@ Date hijra() throws NumberFormatException:
     }
 }
 
-
+Date hebrew() throws NumberFormatException:
+{
+    Token t;
+    int dayOfMonth;
+    HebrewMonth month;
+}
+{
+    (
+        LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 1, 28) })
+        t = < NUMBER >
+        {
+            dayOfMonth = Integer.parseInt(t.image);
+        }
+        t = < HEBREW_MONTH >
+        {
+            month = HebrewMonth.fromName(t.image);
+        }
+    )
+    {
+        HebrewDate hebrewDate = new HebrewDate(month, dayOfMonth);
+        return hebrewDate;
+    }
+}

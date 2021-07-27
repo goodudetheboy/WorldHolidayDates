@@ -20,8 +20,8 @@ public class HijraDate implements Date {
         SHABAN(8, "Shaban"),
         RAMADAN(9, "Ramadan"),
         SHAWWAL(10, "Shawwal"),
-        DHU_AL_QIDAH(11, "Dhu al-Qidah"),
-        DHU_AL_HIJJAH(12, "Dhu al-Hijjah");
+        DHU_AL_QIDAH(11, "Dhu al-qidah"),
+        DHU_AL_HIJJAH(12, "Dhu al-hijjah");
 
         private final int month;
         private final String name;

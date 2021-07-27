@@ -79,4 +79,19 @@ public class UnitTest {
         testParserDate("11 Dhu al-Qidah", LocalDate.parse("2021-06-21"));
         testParserDate("17 Dhu al-Hijjah", LocalDate.parse("2021-07-27"));
     }
+
+    @Test
+    public void hebrewTest() {
+        testParserDate("1 Nisan", LocalDate.parse("2021-03-14"));
+        testParserDate("2 Iyyar", LocalDate.parse("2021-04-14"));
+        testParserDate("3 Sivan", LocalDate.parse("2021-05-14"));
+        testParserDate("10 Tamuz", LocalDate.parse("2021-06-20"));
+        testParserDate("11 Av", LocalDate.parse("2021-07-20"));
+        testParserDate("12 Elul", LocalDate.parse("2021-08-20"));
+        testParserDate("24 Tishrei", LocalDate.parse("2020-10-12"));
+        testParserDate("25 Kislev", LocalDate.parse("2020-12-11"));
+        testParserDate("26 Tevet", LocalDate.parse("2021-01-10"));
+        testParserDate("27 Shvat", LocalDate.parse("2021-02-09"));
+        testParserDate("28 Adar", LocalDate.parse("2021-03-12"));
+    }
 }
