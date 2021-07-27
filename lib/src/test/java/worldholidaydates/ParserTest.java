@@ -18,9 +18,9 @@ import java.time.LocalDateTime;
 
 import org.junit.Test;
 
-import worldholidaydates.holidayparser.Rule;
 import worldholidaydates.holidayparser.HolidayParser;
 import worldholidaydates.holidayparser.ParseException;
+import worldholidaydates.holidayparser.Rule;
 
 /**
  * A test class for the {@link HolidayParser}, that takes data from the date.txt
@@ -28,6 +28,7 @@ import worldholidaydates.holidayparser.ParseException;
  * from the testing suite of <a href="https://github.com/simonpoole/OpeningHoursParser">OpeningHoursParser</a>,
  * specifically the file: <a href="https://github.com/simonpoole/OpeningHoursParser/blob/master/src/test/java/ch/poole/openinghoursparser/DataTest.java">DataTest.java</a>
  * 
+ * @author (large portion) Simon Poole
  */
 public class ParserTest {
 

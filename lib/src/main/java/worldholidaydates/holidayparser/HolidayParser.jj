@@ -20,7 +20,7 @@ PARSER_BEGIN(HolidayParser)
 package worldholidaydates.holidayparser;
 
 import worldholidaydates.Utils;
-import worldholidaydates.holidayparser.HijraDate.Month;
+import worldholidaydates.holidayparser.HijraDate.HijraMonth;
 
 public class HolidayParser {
     static int DEFAULT_YEAR = 2021;
@@ -300,7 +300,7 @@ Date hijra() throws NumberFormatException:
 {
     Token t;
     int dayOfMonth;
-    Month month;
+    HijraMonth month;
 }
 {
     (
@@ -311,7 +311,7 @@ Date hijra() throws NumberFormatException:
         }
         t = < HIJRA_MONTH >
         {
-            month = Month.hijraMonthConvert(t.image);
+            month = HijraMonth.fromName(t.image);
         }
     )
     {
@@ -319,3 +319,5 @@ Date hijra() throws NumberFormatException:
         return hijraDate;
     }
 }
+
+

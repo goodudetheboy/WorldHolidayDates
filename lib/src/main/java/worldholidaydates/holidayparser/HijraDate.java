@@ -8,80 +8,85 @@ import java.time.chrono.HijrahEra;
 public class HijraDate implements Date {
     public static final int DEFAULT_HIJRA_YEAR = 1442; // Gregorian Year = 2021-2022
 
-    public enum Month {
-        MUHARRAM,
-        SAFAR,
-        RABI_AL_AWWAL,
-        RABI_AL_THANI,
-        JUMADA_AL_AWWAL,
-        JUMADA_AL_THANI,
-        RAJAB,
-        SHABAN,
-        RAMADAN,
-        SHAWWAL,
-        DHU_AL_QIDAH,
-        DHU_AL_HIJJAH;
+    // (Muharram|Safar|Rabi al-awwal|Rabi al-thani|Jumada al-awwal|Jumada al-thani|Rajab|Shaban|Ramadan|Shawwal|Dhu al-Qidah|Dhu al-Hijjah)
+    public enum HijraMonth {
+        MUHARRAM(1, "Muharram"),
+        SAFAR(2, "Safar"),
+        RABI_AL_AWWAL(3, "Rabi al-awwal"),
+        RABI_AL_THANI(4, "Rabi al-thani"),
+        JUMADA_AL_AWWAL(5, "Jumada al-awwal"),
+        JUMADA_AL_THANI(6, "Jumada al-thani"),
+        RAJAB(7, "Rajab"),
+        SHABAN(8, "Shaban"),
+        RAMADAN(9, "Ramadan"),
+        SHAWWAL(10, "Shawwal"),
+        DHU_AL_QIDAH(11, "Dhu al-Qidah"),
+        DHU_AL_HIJJAH(12, "Dhu al-Hijjah");
 
-        public static Month hijraMonthConvert(String monthString) {
-            switch (monthString) {
-                case "Muharram":
-                    return Month.MUHARRAM;
-                case "Safar":
-                    return Month.SAFAR;
-                case "Rabi al-awwal":
-                    return Month.RABI_AL_AWWAL;
-                case "Rabi al-thani":
-                    return Month.RABI_AL_THANI;
-                case "Jumada al-awwal":
-                    return Month.JUMADA_AL_AWWAL;
-                case "Jumada al-thani":
-                    return Month.JUMADA_AL_THANI;
-                case "Rajab":
-                    return Month.RAJAB;
-                case "Shaban":
-                    return Month.SHABAN;
-                case "Ramadan":
-                    return Month.RAMADAN;
-                case "Shawwal":
-                    return Month.SHAWWAL;
-                case "Dhu al-Qidah":
-                    return Month.DHU_AL_QIDAH;
-                case "Dhu al-Hijjah":
-                    return Month.DHU_AL_HIJJAH;
-                default:
-                    return null;
-            }
+        private final int month;
+        private final String name;
+
+        HijraMonth(int month, String name) {
+            this.month = month;
+            this.name = name;
         }
 
-        public int toInt() {
-            return this.ordinal() + 1;
+        public int getMonth() {
+            return month;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public static HijraMonth fromMonth(int month) {
+            for (HijraMonth h : HijraMonth.values()) {
+                if (h.getMonth() == month) {
+                    return h;
+                }
+            }
+            return null;
+        }
+
+        public static HijraMonth fromName(String name) {
+            for (HijraMonth h : HijraMonth.values()) {
+                if (h.getName().equals(name)) {
+                    return h;
+                }
+            }
+            return null;
+        }
+
+        @Override
+        public String toString() {
+            return name;
         }
     }
 
     private int year = DEFAULT_HIJRA_YEAR;
-    private Month month = null;
-    private int dayOfMonth = Date.UNDEFINED_NUM;
+    private HijraMonth month = null;
+    private int day = Date.UNDEFINED_NUM;
 
     public HijraDate() {
         // empty
     }
 
-    public HijraDate(int year, Month month, int dayOfMonth) {
+    public HijraDate(int year, HijraMonth month, int day) {
         this.year = year;
         this.month = month;
-        this.dayOfMonth = dayOfMonth;
+        this.day = day;
     }
 
-    public HijraDate(Month month, int dayOfMonth) {
+    public HijraDate(HijraMonth month, int day) {
         this.month = month;
-        this.dayOfMonth = dayOfMonth;
+        this.day = day;
     }
 
-    public void setDayOfMonth(int dayOfMonth) {
-        this.dayOfMonth = dayOfMonth;
+    public void setDay(int day) {
+        this.day = day;
     }
 
-    public void setMonth(Month month) {
+    public void setMonth(HijraMonth month) {
         this.month = month;
     }
 
@@ -92,7 +97,7 @@ public class HijraDate implements Date {
 
     @Override
     public LocalDate calculateDate() {
-        java.time.chrono.HijrahDate date =  HijrahChronology.INSTANCE.date(HijrahEra.AH, year, month.toInt(), dayOfMonth);
+        java.time.chrono.HijrahDate date =  HijrahChronology.INSTANCE.date(HijrahEra.AH, year, month.getMonth(), day);
         return LocalDate.from(date);
     }
 }
