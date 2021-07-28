@@ -300,8 +300,8 @@ Date easterOrthodox() throws NumberFormatException:
         }
     )?
     {
-        EasterDate easterDate = new EasterDate(DEFAULT_YEAR, isOrthodox, offset);
-        return easterDate;
+        EasterDate d = new EasterDate(DEFAULT_YEAR, isOrthodox, offset);
+        return d;
     }
 }
 
@@ -324,8 +324,8 @@ Date hijra() throws NumberFormatException:
         }
     )
     {
-        HijraDate hijraDate = new HijraDate(month, dayOfMonth);
-        return hijraDate;
+        HijraDate d = new HijraDate(month, dayOfMonth);
+        return d;
     }
 }
 
@@ -367,14 +367,14 @@ Date eastAsian() throws NumberFormatException:
     int solarTermTh;
     int solarTermDay;
 
-    EastAsianDate eastAsianDate = new EastAsianDate();
+    EastAsianDate d = new EastAsianDate();
 }
 {
     (
         t = < EASTASIAN_CALENDER >
         {
             calType = CalendarType.fromName(t.image);
-            eastAsianDate.setCalendarType(calType);
+            d.setCalendarType(calType);
         }
     )
     (
@@ -384,7 +384,7 @@ Date eastAsian() throws NumberFormatException:
             t = < NUMBER >
             {
                 cycle = Integer.parseInt(t.image);
-                eastAsianDate.setCycle(cycle);
+                d.setCycle(cycle);
             }
             < DASH >
         )
@@ -393,7 +393,7 @@ Date eastAsian() throws NumberFormatException:
             t = < NUMBER >
             {
                 yearOfCycle = Integer.parseInt(t.image);
-                eastAsianDate.setYearOfCycle(yearOfCycle);
+                d.setYearOfCycle(yearOfCycle);
             }
             < DASH >
         )
@@ -406,7 +406,7 @@ Date eastAsian() throws NumberFormatException:
                 t = < NUMBER >
                 {
                     solarTermTh = Integer.parseInt(t.image);
-                    eastAsianDate.setSolarTermTh(solarTermTh);
+                    d.setSolarTermTh(solarTermTh);
                 }
             )
             <DASH>
@@ -415,7 +415,7 @@ Date eastAsian() throws NumberFormatException:
                 t = < NUMBER >
                 {
                     solarTermDay = Integer.parseInt(t.image);
-                    eastAsianDate.setSolarTermDay(solarTermDay);
+                    d.setSolarTermDay(solarTermDay);
                 }
             )
             < SOLARTERM >
@@ -426,7 +426,7 @@ Date eastAsian() throws NumberFormatException:
                 t = < NUMBER >
                 {
                     month = Integer.parseInt(t.image);
-                    eastAsianDate.setMonth(month);
+                    d.setMonth(month);
                 }
                 < DASH >
             )
@@ -436,7 +436,7 @@ Date eastAsian() throws NumberFormatException:
                     t = < NUMBER >
                     {
                         isLeapMonth = (Integer.parseInt(t.image) == 1);
-                        eastAsianDate.setLeapMonth(isLeapMonth);
+                        d.setLeapMonth(isLeapMonth);
                     }
                     < DASH>
                 )
@@ -447,13 +447,13 @@ Date eastAsian() throws NumberFormatException:
                     t = < NUMBER >
                     {
                         dayOfMonth = Integer.parseInt(t.image);
-                        eastAsianDate.setDay(dayOfMonth);
+                        d.setDay(dayOfMonth);
                     }
                 )
             )
         )?
     )
     {
-        return eastAsianDate;
+        return d;
     }
 }

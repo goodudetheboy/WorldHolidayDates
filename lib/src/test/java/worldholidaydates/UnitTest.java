@@ -30,6 +30,11 @@ public class UnitTest {
         }
     }
 
+    public void testFailParser(String input) throws ParseException {
+        HolidayParser parser = new HolidayParser(new ByteArrayInputStream(input.getBytes()));
+        Rule rule = parser.parse();
+    }
+
     public void testParserDate(String input, LocalDate expected) {
         HolidayParser parser = new HolidayParser(new ByteArrayInputStream(input.getBytes()));
         try {
@@ -110,5 +115,17 @@ public class UnitTest {
     public void eastAsianSolarTermTest() {
         testParserDate("chinese 5-01 solarterm", LocalDate.parse("2021-04-05"));
         testParserDate("chinese 78-38-5-01 solarterm", LocalDate.parse("2021-04-05"));
+    }
+
+    @Test
+    public void eastAsianSolarTermFailTest() {
+        try {
+            testFailParser("chinese 25-01 solarterm");
+            fail("Should have failed");
+        } catch (ParseException e) {
+            // expected
+            System.out.println(e.getMessage());
+            assertEquals("Encountered \" <NUMBER> \"25 \"\" at line 1, column 9.", e.getMessage().substring(0, 50));
+        }
     }
 }
