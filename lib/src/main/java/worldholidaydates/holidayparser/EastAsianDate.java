@@ -47,15 +47,15 @@ public class EastAsianDate implements Date {
     private     CalendarType calType        = null;
 
     // for normal year, month, day
-    private     int         cycle           = DEFAULT_EAST_ASIAN_CYCLE;
-    private     int         yearOfCycle     = DEFAULT_EAST_ASIAN_YEAR_OF_CYCLE;
-    private     int         month           = Date.UNDEFINED_NUM; // chinese
-    private     boolean     isLeapMonth     = false;
-    private     int         day             = Date.UNDEFINED_NUM; // chinese, day of lunar month
+    private int         cycle           = DEFAULT_EAST_ASIAN_CYCLE;
+    private int         yearOfCycle     = DEFAULT_EAST_ASIAN_YEAR_OF_CYCLE;
+    private int         month           = UNDEFINED_NUM; // chinese
+    private boolean     isLeapMonth     = false;
+    private int         day             = UNDEFINED_NUM; // chinese, day of lunar month
     
     // for solar term
-    private     int         solarTermTh     = Date.UNDEFINED_NUM; // from 1 to 24
-    private     int         solarTermDay    = Date.UNDEFINED_NUM; // from 1 to 15
+    private int         solarTermTh     = UNDEFINED_NUM; // from 1 to 24
+    private int         solarTermDay    = UNDEFINED_NUM; // from 1 to 15
 
     public EastAsianDate() {
         // empty

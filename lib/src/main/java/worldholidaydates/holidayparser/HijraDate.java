@@ -63,9 +63,9 @@ public class HijraDate implements Date {
         }
     }
 
-    private     int         year    = DEFAULT_HIJRA_YEAR;
-    private     HijraMonth  month   = null;
-    private     int         day     = Date.UNDEFINED_NUM;
+    private int         year    = DEFAULT_HIJRA_YEAR;
+    private HijraMonth  month   = null;
+    private int         day     = UNDEFINED_NUM;
 
     public HijraDate() {
         // empty

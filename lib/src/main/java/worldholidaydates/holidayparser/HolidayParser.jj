@@ -113,7 +113,7 @@ TOKEN :
 
 TOKEN : 
 {
-    < EASTASIAN_CALENDER:
+    < EASTASIAN_CALENDER :
         "Chinese"
     |   "Korean"
     |   "Vietnamese" >
@@ -122,6 +122,15 @@ TOKEN :
     }
 |
     < SOLARTERM : "solarterm" >
+    {
+        matchedToken.image = image.toString().toLowerCase(Locale.US);
+    }
+}
+
+TOKEN :
+{
+    < BENGALI_REVISED :
+        "bengali-revised" >
     {
         matchedToken.image = image.toString().toLowerCase(Locale.US);
     }
@@ -183,6 +192,11 @@ Rule start():
             LOOKAHEAD( eastAsian() )
             (
                 d = eastAsian()
+            )?
+        |
+            LOOKAHEAD( bengaliRevised() )
+            (
+                d = bengaliRevised()
             )?
         )
         < EOF >
@@ -452,6 +466,45 @@ Date eastAsian() throws NumberFormatException:
                 )
             )
         )?
+    )
+    {
+        return d;
+    }
+}
+
+Date bengaliRevised() throws NumberFormatException:
+{
+    Token t;
+    BengaliDate d = new BengaliDate();
+}
+{
+    < BENGALI_REVISED>
+    (
+        t = < YEAR >
+        {
+            d.setYear(Integer.parseInt(t.image));
+        }
+        < DASH >
+    )?
+    (
+        LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 1, 12) })
+        (
+            t = < NUMBER >
+            {
+                d.setMonth(Integer.parseInt(t.image));
+            }
+        )
+    )
+    < DASH >
+    (
+        LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 1, 31) })
+        (
+            t = < NUMBER >
+            {
+                d.setDay(Integer.parseInt(t.image));
+            }
+        )
+  
     )
     {
         return d;

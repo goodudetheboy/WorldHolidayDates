@@ -94,9 +94,9 @@ public class HebrewDate implements Date {
     }
     public static final int DEFAULT_HEBREW_YEAR = 5781; // Gregorian Year = 2021-2022
 
-    private     int         year    = DEFAULT_HEBREW_YEAR;
-    private     HebrewMonth month   = null;
-    private     int         day     = Date.UNDEFINED_NUM;
+    private int         year    = DEFAULT_HEBREW_YEAR;
+    private HebrewMonth month   = null;
+    private int         day     = Date.UNDEFINED_NUM;
 
     public HebrewDate() {
         // empty

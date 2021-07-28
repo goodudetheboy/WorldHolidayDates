@@ -128,4 +128,11 @@ public class UnitTest {
             assertEquals("Encountered \" <NUMBER> \"25 \"\" at line 1, column 9.", e.getMessage().substring(0, 50));
         }
     }
+
+    @Test
+    public void bengaliRevisedTest() {
+        testParserDate("bengali-revised 11-9", LocalDate.parse("2022-02-23"));
+        testParserDate("bengali-revised 1428-11-9", LocalDate.parse("2022-02-23"));
+        testParserDate("bengali-revised 4-31", LocalDate.parse("2021-08-16"));
+    }
 }
