@@ -34,6 +34,21 @@ public class GregorianDate implements Date{
             return name;
         }
 
+        /**
+         * Convert a month name to a month number.
+         * 
+         * @param name a month name
+         * @return a corresponding month number from 1 to 12
+         */
+        public static int toMonth(String name) {
+            for (GregorianMonth month : GregorianMonth.values()) {
+                if (month.getName().equals(name)) {
+                    return month.getMonth();
+                }
+            }
+            return Integer.MIN_VALUE;
+        }
+
         @Override
         public String toString() {
             return name;
