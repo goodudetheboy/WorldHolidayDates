@@ -1,7 +1,6 @@
 package worldholidaydates.holidayparser;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.YearMonth;
 
 import javax.annotation.Nullable;
@@ -14,13 +13,17 @@ import net.time4j.calendar.EastAsianYear;
 import net.time4j.calendar.KoreanCalendar;
 import net.time4j.calendar.VietnameseCalendar;
 
-public class EastAsianDate implements Date {
+/**
+ * A class for calculating the date of East Asian dates based on East Asian
+ * calendar, which can be Chinese, Korean, or Vietnamese
+ */
+public class EastAsianDate extends Date {
     public enum CalendarType {
         CHINESE("Chinese"),
         KOREAN("Korean"),
         VIETNAMESE("Vietnamese");
 
-        private final String name;
+        final String name;
 
         CalendarType(String name) {
             this.name = name;
@@ -40,52 +43,48 @@ public class EastAsianDate implements Date {
         }
     }
 
-    public static final int DEFAULT_EAST_ASIAN_YEAR_OF_CYCLE = 38;
     public static final int DEFAULT_EAST_ASIAN_CYCLE = 78;
+    public static final int DEFAULT_EAST_ASIAN_YEAR_OF_CYCLE = 38;
+    public static final int DEFAULT_EAST_ASIAN_YEAR
+        = toGregorianYear(DEFAULT_EAST_ASIAN_CYCLE, DEFAULT_EAST_ASIAN_YEAR_OF_CYCLE);
     // to gregorian year: 2021
 
-    private     CalendarType calType        = null;
+    CalendarType calType        = null;
 
     // for normal year, month, day
-    private int         cycle           = DEFAULT_EAST_ASIAN_CYCLE;
-    private int         yearOfCycle     = DEFAULT_EAST_ASIAN_YEAR_OF_CYCLE;
-    private int         month           = UNDEFINED_NUM; // chinese
-    private boolean     isLeapMonth     = false;
-    private int         day             = UNDEFINED_NUM; // chinese, day of lunar month
+    int         cycle           = DEFAULT_EAST_ASIAN_CYCLE;
+    int         yearOfCycle     = DEFAULT_EAST_ASIAN_YEAR_OF_CYCLE;
+
+    boolean     isLeapMonth     = false;
     
     // for solar term
-    private int         solarTermTh     = UNDEFINED_NUM; // from 1 to 24
-    private int         solarTermDay    = UNDEFINED_NUM; // from 1 to 15
+    int         solarTermTh     = UNDEFINED_NUM; // from 1 to 24
+    int         solarTermDay    = UNDEFINED_NUM; // from 1 to 15
 
     public EastAsianDate() {
-        // empty
+        setYear(DEFAULT_EAST_ASIAN_YEAR);
     }
 
-    public EastAsianDate(int cycle, int cycleYear, int month, int day, CalendarType calType) {
-        this(cycle, cycleYear, month, false, day, calType);
+    public EastAsianDate(CalendarType calType, int cycle, int yearOfCycle, int month, int dayOfMonth) {
+        this(calType, cycle, yearOfCycle, month, false, dayOfMonth);
     }
 
-    public EastAsianDate(int cycle, int yearOfCycle, int month, boolean isLeapMonth, int day, CalendarType calType) {
-        this.cycle = cycle;
-        this.yearOfCycle = yearOfCycle;
-        this.month = month;
-        this.day = day;
-        this.isLeapMonth = isLeapMonth;
-        this.calType = calType;
+    public EastAsianDate(CalendarType calType, int cycle, int yearOfCycle, int month, boolean isLeapMonth, int dayOfMonth) {
+        super(month, dayOfMonth);
+        setCycle(cycle);
+        setYearOfCycle(yearOfCycle);
+        setLeapMonth(isLeapMonth);
+        setCalendarType(calType);
     }
 
-
-    public EastAsianDate(int month, boolean isLeapMonth, int day, CalendarType calType) {
-        this.month = month;
-        this.isLeapMonth = isLeapMonth;
-        this.day = day;
-        this.calType = calType;
+    public EastAsianDate(CalendarType calType, int month, boolean isLeapMonth, int dayOfMonth) {
+        this(calType, DEFAULT_EAST_ASIAN_CYCLE, DEFAULT_EAST_ASIAN_YEAR_OF_CYCLE, month, isLeapMonth, dayOfMonth);
     }
 
-    public EastAsianDate(int solarTermTh, int solarTermDay, CalendarType calType) {
-        this.solarTermTh = solarTermTh;
-        this.solarTermDay = solarTermDay;
-        this.calType = calType;
+    public EastAsianDate(CalendarType calType, int solarTermTh, int solarTermDay) {
+        setCalendarType(calType);
+        setSolarTermTh(solarTermTh);
+        setSolarTermDay(solarTermDay);
     }
 
     public CalendarType getCalendarType() {
@@ -99,10 +98,6 @@ public class EastAsianDate implements Date {
     public int getYearOfCycle() {
         return yearOfCycle;
     }
-
-    public int getMonth() {
-        return month;
-    }
     
     public int getSolarTermTh() {
         return solarTermTh;
@@ -112,7 +107,8 @@ public class EastAsianDate implements Date {
         return solarTermDay;
     }
 
-    public int getGregorianYear() {
+    @Override
+    public int getYear() {
         return toGregorianYear(cycle, yearOfCycle);
     }
 
@@ -132,16 +128,8 @@ public class EastAsianDate implements Date {
         this.yearOfCycle = yearOfCycle;
     }
 
-    public void setMonth(int month) {
-        this.month = month;
-    }
-
     public void setLeapMonth(boolean isLeapMonth) {
         this.isLeapMonth = isLeapMonth;
-    }
-
-    public void setDay(int day) {
-        this.day = day;
     }
 
     public void setSolarTermTh(int solarTermTh) {
@@ -151,14 +139,23 @@ public class EastAsianDate implements Date {
     public void setSolarTermDay(int solarTermDay) {
         this.solarTermDay = solarTermDay;
     }
-
+    
     @Override
-    public LocalDateTime calculate() {
-        return calculateDate().atStartOfDay();
+    public NamedMonth getNamedMonth() {
+        // TODO Auto-generated method stub
+        return null;
     }
 
+    /**
+     * Calculates the raw date stored in this {@link HijraDate} with the 
+     * {@link #calType} (Calendar type, either Chinese, Korean, or Vietnamese),
+     * then convert to the Gregorian calendar.
+     * 
+     * @return a {@link LocalDate} object representing the {@link calType} date
+     *      converted to Gregorian calendar
+     */
     @Override @Nullable
-    public LocalDate calculateDate() {
+    public LocalDate calculateRawDate() {
         if (month != Date.UNDEFINED_NUM) {
             // normal year, month, day
             // conversion
@@ -171,13 +168,13 @@ public class EastAsianDate implements Date {
             EastAsianCalendar date = null;
             switch(calType) {
                 case CHINESE:
-                    date = ChineseCalendar.of(conYear, conMonth, day);
+                    date = ChineseCalendar.of(conYear, conMonth, dayOfMonth);
                     break;
                 case KOREAN:
-                    date = KoreanCalendar.of(conYear, conMonth, day);
+                    date = KoreanCalendar.of(conYear, conMonth, dayOfMonth);
                     break;
                 case VIETNAMESE:
-                    date = VietnameseCalendar.of(conYear, conMonth, day);
+                    date = VietnameseCalendar.of(conYear, conMonth, dayOfMonth);
                     break;
             }
             if (date != null) {
@@ -191,6 +188,8 @@ public class EastAsianDate implements Date {
             return getDateFromSolarTerm(solarTermTh, solarTermDay, toGregorianYear(cycle, yearOfCycle));
         }
     }
+
+    // TODO: override toString and toNamedString here
 
     /**
      * A very rough estimation of Gregorian Year based on the cycle and year cycle.
@@ -258,4 +257,5 @@ public class EastAsianDate implements Date {
 
         return LocalDate.of(year, month, day);
     }
+
 }

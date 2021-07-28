@@ -1,13 +1,15 @@
 package worldholidaydates.holidayparser;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 import net.time4j.PlainDate;
 import net.time4j.calendar.HebrewCalendar;
 
-public class HebrewDate implements Date {
-    public enum HebrewMonth {
+/**
+ * A class for calculating the date of Hebrew dates
+ */
+public class HebrewDate extends Date {
+    public enum HebrewMonth implements NamedMonth {
         NISAN(1, "Nisan"),
         IYYAR(2, "Iyyar"),
         SIVAN(3, "Sivan"),
@@ -21,16 +23,16 @@ public class HebrewDate implements Date {
         SHVAT(11, "Shvat"),
         ADAR(12, "Adar");
 
-        private final int month;
+        private final int value;
         private final String name;
 
-        HebrewMonth(int month, String name) {
-            this.month = month;
+        HebrewMonth(int value, String name) {
+            this.value = value;
             this.name = name;
         }
 
-        public int getMonth() {
-            return month;
+        public int getValue() {
+            return value;
         }
 
         public String getName() {
@@ -69,9 +71,9 @@ public class HebrewDate implements Date {
             }
         }
 
-        public static HebrewMonth fromMonth(int month) {
+        public static HebrewMonth fromValue(int month) {
             for (HebrewMonth h : HebrewMonth.values()) {
-                if (h.getMonth() == month) {
+                if (h.getValue() == month) {
                     return h;
                 }
             }
@@ -94,63 +96,60 @@ public class HebrewDate implements Date {
     }
     public static final int DEFAULT_HEBREW_YEAR = 5781; // Gregorian Year = 2021-2022
 
-    private int         year    = DEFAULT_HEBREW_YEAR;
-    private HebrewMonth month   = null;
-    private int         day     = Date.UNDEFINED_NUM;
-
     public HebrewDate() {
-        // empty
+        super();
+        setYear(DEFAULT_HEBREW_YEAR);
     }
 
-    public HebrewDate(int year, HebrewMonth month, int day) {
-        this.year = year;
-        this.month = month;
-        this.day = day;
+    public HebrewDate(int year, int month, int dayOfMonth, int hour, int minute) {
+        super(year, month, dayOfMonth, hour, minute);
     }
 
-    public HebrewDate(HebrewMonth month, int day) {
-        this.month = month;
-        this.day = day;
+    public HebrewDate(int year, int month, int dayOfMonth) {
+        super(year, month, dayOfMonth, 0, 0);
     }
 
-    public int getYear() {
-        return year;
+    public HebrewDate(int month, int dayOfMonth, int hour, int minute) {
+        super(month, dayOfMonth, hour, minute);
+        setYear(DEFAULT_HEBREW_YEAR);
     }
 
-    public HebrewMonth getMonth() {
-        return month;
-    }
-
-    public int getDay() {
-        return day;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
-
-    public void setDay(int day) {
-        this.day = day;
-    }
-
-    public void setMonth(HebrewMonth month) {
-        this.month = month;
+    public HebrewDate(int month, int dayOfMonth) {
+        super(month, dayOfMonth);
+        setYear(DEFAULT_HEBREW_YEAR);
     }
 
     @Override
-    public LocalDateTime calculate() {
-        return calculateDate().atStartOfDay();
+    public HebrewMonth getNamedMonth() {
+        return (HebrewMonth) namedMonth;
     }
 
     @Override
-    public LocalDate calculateDate() {
-        HebrewCalendar date = HebrewCalendar.of(year, month.toTime4jHebrewMonth(), day);
+    public void setMonth(int month) {
+        super.setMonth(month);
+        super.setNamedMonth(HebrewMonth.fromValue(month));
+    }
+
+    @Override
+    public void setNamedMonth(NamedMonth namedMonth) {
+        if (namedMonth instanceof HebrewMonth) {
+            super.setMonth(((HebrewMonth) namedMonth).getValue());
+        } else {
+            throw new IllegalArgumentException("NamedMonth must be a HebrewMonth");
+        }
+    }
+
+    /**
+     * Calculates the raw date stored in this {@link HebrewDate} with the 
+     * Hebrew calendar, then converted to the Gregorian calendar.
+     * 
+     * @return a {@link LocalDate} object representing the raw Hebrew date 
+     *      converted to Gregorian calendar
+     */
+    @Override
+    public LocalDate calculateRawDate() {
+        HebrewCalendar date = HebrewCalendar.of(year, ((HebrewMonth) namedMonth).toTime4jHebrewMonth(), dayOfMonth);
         PlainDate pdate = date.transform(PlainDate.class);
         return pdate.toTemporalAccessor();
-    }
-
-    @Override
-    public String toString() {
-        return String.format("%d-%s-%d", year, month.getName(), day);        
     }
 }

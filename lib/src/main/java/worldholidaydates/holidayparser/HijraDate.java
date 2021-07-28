@@ -1,15 +1,14 @@
 package worldholidaydates.holidayparser;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.chrono.HijrahChronology;
 import java.time.chrono.HijrahEra;
 
-public class HijraDate implements Date {
-    public static final int DEFAULT_HIJRA_YEAR = 1442; // Gregorian Year = 2021-2022
-
-    // (Muharram|Safar|Rabi al-awwal|Rabi al-thani|Jumada al-awwal|Jumada al-thani|Rajab|Shaban|Ramadan|Shawwal|Dhu al-Qidah|Dhu al-Hijjah)
-    public enum HijraMonth {
+/**
+ * A class for calculating the date of Hirja dates based on Hirja calendar
+ */
+public class HijraDate extends Date {
+    public enum HijraMonth implements NamedMonth {
         MUHARRAM(1, "Muharram"),
         SAFAR(2, "Safar"),
         RABI_AL_AWWAL(3, "Rabi al-awwal"),
@@ -23,25 +22,27 @@ public class HijraDate implements Date {
         DHU_AL_QIDAH(11, "Dhu al-qidah"),
         DHU_AL_HIJJAH(12, "Dhu al-hijjah");
 
-        private final int month;
+        private final int value;
         private final String name;
 
-        HijraMonth(int month, String name) {
-            this.month = month;
+        HijraMonth(int value, String name) {
+            this.value = value;
             this.name = name;
         }
 
-        public int getMonth() {
-            return month;
+        @Override
+        public int getValue() {
+            return value;
         }
 
+        @Override
         public String getName() {
             return name;
         }
 
-        public static HijraMonth fromMonth(int month) {
+        public static HijraMonth fromValue(int value) {
             for (HijraMonth h : HijraMonth.values()) {
-                if (h.getMonth() == month) {
+                if (h.getValue() == value) {
                     return h;
                 }
             }
@@ -63,57 +64,61 @@ public class HijraDate implements Date {
         }
     }
 
-    private int         year    = DEFAULT_HIJRA_YEAR;
-    private HijraMonth  month   = null;
-    private int         day     = UNDEFINED_NUM;
+    public static final int DEFAULT_HIJRA_YEAR = 1442; // Gregorian Year = 2021-2022
 
     public HijraDate() {
-        // empty
+        super();
+        setYear(DEFAULT_HIJRA_YEAR);
     }
 
-    public HijraDate(int year, HijraMonth month, int day) {
-        this.year = year;
-        this.month = month;
-        this.day = day;
-    }
-    
-    public int getYear() {
-        return year;
+    public HijraDate(int year, int month, int dayOfMonth, int hour, int minute) {
+        super(year, month, dayOfMonth, hour, minute);
     }
 
-    public HijraMonth getMonth() {
-        return month;
+    public HijraDate(int year, int month, int dayOfMonth) {
+        super(year, month, dayOfMonth, 0, 0);
     }
 
-    public int getDay() {
-        return day;
+    public HijraDate(int month, int dayOfMonth, int hour, int minute) {
+        super(month, dayOfMonth, hour, minute);
+        setYear(DEFAULT_HIJRA_YEAR);
     }
 
-    public HijraDate(HijraMonth month, int day) {
-        this.month = month;
-        this.day = day;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
-
-    public void setMonth(HijraMonth month) {
-        this.month = month;
-    }
-
-    public void setDay(int day) {
-        this.day = day;
+    public HijraDate(int month, int dayOfMonth) {
+        super(month, dayOfMonth);
+        setYear(DEFAULT_HIJRA_YEAR);
     }
 
     @Override
-    public LocalDateTime calculate() {
-        return calculateDate().atStartOfDay();
+    public void setMonth(int month) {
+        super.setMonth(month);
+        super.setNamedMonth(HijraMonth.fromValue(month));
     }
 
     @Override
-    public LocalDate calculateDate() {
-        java.time.chrono.HijrahDate date =  HijrahChronology.INSTANCE.date(HijrahEra.AH, year, month.getMonth(), day);
+    public void setNamedMonth(NamedMonth namedMonth) {
+        if (namedMonth instanceof HijraMonth) {
+            super.setMonth(((HijraMonth) namedMonth).getValue());
+        } else {
+            throw new IllegalArgumentException("NamedMonth must be a HijraMonth");
+        }
+    }
+
+    @Override
+    public HijraMonth getNamedMonth() {
+        return (HijraMonth) namedMonth;
+    }
+
+    /**
+     * Calculates the raw date stored in this {@link HijraDate} with the 
+     * Hirja calendar, then convert to the Gregorian calendar.
+     * 
+     * @return a {@link LocalDate} object representing the raw Hebrew date 
+     *      converted to Gregorian calendar
+     */
+    @Override
+    public LocalDate calculateRawDate() {
+        java.time.chrono.HijrahDate date =  HijrahChronology.INSTANCE.date(HijrahEra.AH, year, month, dayOfMonth);
         return LocalDate.from(date);
     }
 }

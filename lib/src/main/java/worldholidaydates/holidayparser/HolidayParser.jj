@@ -214,7 +214,7 @@ Date gregorianDate() throws NumberFormatException:
     Token t;
     int year = DEFAULT_YEAR;
     int month;
-    int day;
+    int dayOfMonth;
 }
 {
     (
@@ -243,14 +243,14 @@ Date gregorianDate() throws NumberFormatException:
             if (t.image.length() != 2) {
                 throw new ParseException("Day must be defined as DD");
             }
-            day = Integer.parseInt(t.image);
-            if (day > 31 || month < 1) {
-                throw new ParseException("Day must be between 1-31, not " + day);
+            dayOfMonth = Integer.parseInt(t.image);
+            if (dayOfMonth > 31 || month < 1) {
+                throw new ParseException("Day must be between 1-31, not " + dayOfMonth);
             }
         }
     )
     {
-        GregorianDate d = new GregorianDate(year, month, day);
+        GregorianDate d = new GregorianDate(year, month, dayOfMonth);
         return d;
     }
 }
@@ -264,7 +264,7 @@ Date startOfMonth():
     (
         m = month()
         {
-            month = GregorianMonth.toMonth(m);
+            month = GregorianMonth.fromName(m).getValue();
         }
     )
     {
@@ -323,7 +323,7 @@ Date hijra() throws NumberFormatException:
 {
     Token t;
     int dayOfMonth;
-    HijraMonth month;
+    int month;
 }
 {
     (
@@ -334,7 +334,7 @@ Date hijra() throws NumberFormatException:
         }
         t = < HIJRA_MONTH >
         {
-            month = HijraMonth.fromName(t.image);
+            month = HijraMonth.fromName(t.image).getValue();
         }
     )
     {
@@ -347,7 +347,7 @@ Date hebrew() throws NumberFormatException:
 {
     Token t;
     int dayOfMonth;
-    HebrewMonth month;
+    int month;
 }
 {
     (
@@ -358,7 +358,7 @@ Date hebrew() throws NumberFormatException:
         }
         t = < HEBREW_MONTH >
         {
-            month = HebrewMonth.fromName(t.image);
+            month = HebrewMonth.fromName(t.image).getValue();
         }
     )
     {
@@ -461,7 +461,7 @@ Date eastAsian() throws NumberFormatException:
                     t = < NUMBER >
                     {
                         dayOfMonth = Integer.parseInt(t.image);
-                        d.setDay(dayOfMonth);
+                        d.setDayOfMonth(dayOfMonth);
                     }
                 )
             )
@@ -501,7 +501,7 @@ Date bengaliRevised() throws NumberFormatException:
         (
             t = < NUMBER >
             {
-                d.setDay(Integer.parseInt(t.image));
+                d.setDayOfMonth(Integer.parseInt(t.image));
             }
         )
   

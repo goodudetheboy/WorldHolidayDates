@@ -1,10 +1,14 @@
 package worldholidaydates.holidayparser;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
-public class GregorianDate implements Date{
-    public enum GregorianMonth {
+import javax.annotation.Nullable;
+
+/**
+ * A class for calculating the date of Gregorian dates
+ */
+public class GregorianDate extends Date {
+    public enum GregorianMonth implements NamedMonth {
         JANUARY(1, "January"),
         FEBRUARY(2, "February"),
         MARCH(3, "March"),
@@ -18,35 +22,53 @@ public class GregorianDate implements Date{
         NOVEMBER(11, "November"),
         DECEMBER(12, "December");
         
-        private int month;
+        private int value;
         private String name;
         
         private GregorianMonth(int month, String name){
-            this.month = month;
+            this.value = month;
             this.name = name;
         }
         
-        public int getMonth(){
-            return month;
+        @Override
+        public int getValue(){
+            return value;
         }
         
+        @Override
         public String getName(){
             return name;
         }
 
         /**
-         * Convert a month name to a month number.
+         * Convert a Gregorian month name to a Gregorian month number.
          * 
          * @param name a month name
          * @return a corresponding month number from 1 to 12
          */
-        public static int toMonth(String name) {
+        public static GregorianMonth fromName(String name) {
             for (GregorianMonth month : GregorianMonth.values()) {
                 if (month.getName().equals(name)) {
-                    return month.getMonth();
+                    return month;
                 }
             }
-            return Integer.MIN_VALUE;
+            return null;
+        }
+
+        /**
+         * Convert a Gregorian month number to a Gregorian month name.
+         * 
+         * @param value a Gregorian month number from 1 to 12
+         * @return a corresponding Gregorian month name
+         */
+        @Nullable
+        public static GregorianMonth fromValue(int value) {
+            for (GregorianMonth month : GregorianMonth.values()) {
+                if (month.getValue() == value) {
+                    return month;
+                }
+            }
+            return null;
         }
 
         @Override
@@ -55,73 +77,60 @@ public class GregorianDate implements Date{
         }
     }
 
-    private int     year    = LocalDate.now().getYear();
-    private int     month   = UNDEFINED_NUM;
-    private int     day     = UNDEFINED_NUM;
-    private int     hour    = 0;
-    private int     minute  = 0;
+    public static final int DEFAULT_GREGORIAN_YEAR = 2021;
 
-    public GregorianDate(int year, int month, int day, int hour, int minute) {
-        setYear(year);
-        setMonth(month);
-        setDay(day);
-        setHour(hour);
-        setMinute(minute);
+    public GregorianDate() {
+        super();
+        setYear(DEFAULT_GREGORIAN_YEAR);
     }
 
-    public GregorianDate(int year, int month, int day) {
-        setYear(year);
-        setMonth(month);
-        setDay(day);
+    public GregorianDate(int year, int month, int dayOfMonth, int hour, int minute) {
+        super(year, month, dayOfMonth, hour, minute);
     }
 
-    public int getYear() {
-        return year;
+    public GregorianDate(int year, int month, int dayOfMonth) {
+        super(year, month, dayOfMonth, 0, 0);
     }
 
-    public int getMonth() {
-        return month;
+    public GregorianDate(int month, int dayOfMonth, int hour, int minute) {
+        super(month, dayOfMonth, hour, minute);
+        setYear(DEFAULT_GREGORIAN_YEAR);
     }
 
-    public int getDay() {
-        return day;
+    public GregorianDate(int month, int dayOfMonth) {
+        super(month, dayOfMonth);
+        setYear(DEFAULT_GREGORIAN_YEAR);
     }
 
-    public int getHour() {
-        return hour;
+    @Override
+    public GregorianMonth getNamedMonth() {
+        return (GregorianMonth) namedMonth;
     }
 
-    public int getMinute() {
-        return minute;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
-
+    @Override
     public void setMonth(int month) {
-        this.month = month;
-    }
-
-    public void setDay(int day) {
-        this.day = day;
-    }
-
-    public void setHour(int hour) {
-        this.hour = hour;
-    }
-
-    public void setMinute(int minute) {
-        this.minute = minute;
+        super.setMonth(month);
+        super.setNamedMonth(GregorianMonth.fromValue(month));
     }
 
     @Override
-    public LocalDateTime calculate() {
-        return calculateDate().atTime(hour, minute);
+    public void setNamedMonth(NamedMonth namedMonth) {
+        if (namedMonth instanceof GregorianMonth) {
+            super.setMonth(((GregorianMonth) namedMonth).getValue());
+        } else {
+            throw new IllegalArgumentException("NamedMonth must be a GregorianMonth");
+        }
     }
 
+    /**
+     * Calculates the raw date stored in this {@link GregorianDate}, in the
+     * Gregorian calendar.
+     * 
+     * @return a {@link LocalDate} object representing the raw date in
+     *      Gregorian calendar
+     */
     @Override
-    public LocalDate calculateDate() {
-        return LocalDate.of(year, month, day);
+    public LocalDate calculateRawDate() {
+        return LocalDate.of(year, month, dayOfMonth);
     }
 }

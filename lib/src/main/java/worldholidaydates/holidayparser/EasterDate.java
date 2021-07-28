@@ -1,22 +1,24 @@
 package worldholidaydates.holidayparser;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
-public class EasterDate implements Date {
-    private int DEFAULT_YEAR = 2021;
-
-    private int     year            = DEFAULT_YEAR;
-    private boolean isOrthodox      = false;
-    private int     offset          = 0;
+/**
+ * A class for calculating the date of Easter and Orthodox easter dates based
+ * on the Gregorian calendar
+ */
+public class EasterDate extends Date {
+    boolean isOrthodox      = false;
     
+    public EasterDate() {
+        setYear(GregorianDate.DEFAULT_GREGORIAN_YEAR);
+    }
+
     public EasterDate(int year) {
-        this.year = year;
+        this(year, false, 0);
     }
     
     public EasterDate(int year, boolean isOrthodox) {
-        this.year = year;
-        this.isOrthodox = isOrthodox;
+        this(year, isOrthodox, 0);
     }
 
     public EasterDate(int year, boolean isOrthodox, int offset) {
@@ -25,44 +27,29 @@ public class EasterDate implements Date {
         this.offset = offset;
     }
 
-    public int getYear() {
-        return year;
-    }
-
     public boolean isOrthodox() {
         return isOrthodox;
-    }
-
-    public int getOffset() {
-        return offset;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
     }
 
     public void setOrthodox(boolean isOrthodox) {
         this.isOrthodox = isOrthodox;
     }
 
-    public void setOffset(int offset) {
-        this.offset = offset;
+    @Override
+    public NamedMonth getNamedMonth() {
+        // TODO Auto-generated method stub
+        return null;
     }
 
+    /**
+     * Calculates the date of Easter of the year stored in this
+     * {@link EasterDate} in the Gregorian calendar.
+     * 
+     * @return the date of Easter of the year stored in this {@link EasterDate}
+     */
     @Override
-    public LocalDateTime calculate() {
-        return calculateDate().atStartOfDay();
-    }
-
-    @Override
-    public LocalDate calculateDate() {
-        LocalDate result;
-        if (isOrthodox) {
-            result = getOrthodoxEasterDate(year) ;
-        } else {
-            result = getEasterDate(year);
-        }
-        return Date.getOffsetDate(result, offset);
+    public LocalDate calculateRawDate() {
+        return (isOrthodox) ? getOrthodoxEasterDate(year) : getEasterDate(year);
     }
 
     /**

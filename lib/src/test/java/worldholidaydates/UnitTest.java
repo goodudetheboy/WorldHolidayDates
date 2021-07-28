@@ -51,6 +51,7 @@ public class UnitTest {
     public void gregorianDateTest() {
         testParserDate("2021-05-01", LocalDate.parse("2021-05-01"));
         testParserDate("05-01", LocalDate.parse("2021-05-01"));
+        testParserDate("2015-07-24", LocalDate.parse("2015-07-24"));
     }
 
     @Test
