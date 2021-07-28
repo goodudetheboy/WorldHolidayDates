@@ -230,7 +230,6 @@ Was expecting:
 Was expecting:
     <EOF> 
     
-646	chinese 5-01 solarterm	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 15.  Encountered: "o" (111), after : "s"
 650	monday after 01-06	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 2.  Encountered: "o" (111), after : "m"
 651	monday after 03-19	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 2.  Encountered: "o" (111), after : "m"
 660	monday after 06-29	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 2.  Encountered: "o" (111), after : "m"
@@ -385,7 +384,7 @@ Was expecting:
 1210	chinese 01-0-01 and if Saturday then next Tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 18.  Encountered: "n" (110), after : "a"
 1211	chinese 01-0-02 and if Saturday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 18.  Encountered: "n" (110), after : "a"
 1212	chinese 01-0-03 and if Saturday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 18.  Encountered: "n" (110), after : "a"
-1213	chinese 5-01 solarterm and if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 15.  Encountered: "o" (111), after : "s"
+1213	chinese 5-01 solarterm and if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 25.  Encountered: "n" (110), after : "a"
 1218	05-01 and if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
 1219	chinese 04-0-08 and if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 18.  Encountered: "n" (110), after : "a"
 1221	07-01 and if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
@@ -653,13 +652,13 @@ Was expecting:
 2427	chinese 01-0-01 if Monday then next Friday if Tuesday then next Saturdayif Wednesday then next Sunday if Thursday then next Monday if Friday then next Tuesday if Saturday then next Wednesday if Sunday then next Thursday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 18.  Encountered: "f" (102), after : "i"
 2431	02-28 and if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
 2432	04-04 and if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-2433	chinese 5-01 solarterm and if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 15.  Encountered: "o" (111), after : "s"
+2433	chinese 5-01 solarterm and if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 25.  Encountered: "n" (110), after : "a"
 2434	chinese 05-0-05 and if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 18.  Encountered: "n" (110), after : "a"
 2435	chinese 08-0-15 and if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 18.  Encountered: "n" (110), after : "a"
 2436	10-10 and if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
 2441	05-01 and if Saturday then previous Friday if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
 2443	2nd Sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "d" (100), after : "n"
-2452	december solstice	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 11.  Encountered: "o" (111), after : "s"
+2452	december solstice	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "s" (115), after : "sol"
 2455	chinese 01-0-15 #1	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 17.  Encountered: "#" (35), after : ""
 2462	chinese 05-0-13 #1	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 17.  Encountered: "#" (35), after : ""
 2481	1 Shawwal P2D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 11.  Encountered: "P" (80), after : ""

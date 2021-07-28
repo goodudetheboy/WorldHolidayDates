@@ -399,7 +399,28 @@ Date eastAsian() throws NumberFormatException:
         )
     )?
     (
-        LOOKAHEAD({ getToken(4).kind == DASH })
+        LOOKAHEAD({ getToken(4).kind == SOLARTERM })
+        (
+            LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 1, 24) })
+            (
+                t = < NUMBER >
+                {
+                    solarTermTh = Integer.parseInt(t.image);
+                    eastAsianDate.setSolarTermTh(solarTermTh);
+                }
+            )
+            <DASH>
+            LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 1, 15) })
+            (
+                t = < NUMBER >
+                {
+                    solarTermDay = Integer.parseInt(t.image);
+                    eastAsianDate.setSolarTermDay(solarTermDay);
+                }
+            )
+            < SOLARTERM >
+        )?
+    |
         (
             (
                 t = < NUMBER >
@@ -429,26 +450,6 @@ Date eastAsian() throws NumberFormatException:
                         eastAsianDate.setDay(dayOfMonth);
                     }
                 )
-            )
-        )?
-    |
-        (
-            LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 1, 24) })
-            (
-                t = < NUMBER >
-                {
-                    solarTermTh = Integer.parseInt(t.image);
-                    eastAsianDate.setSolarTermTh(solarTermTh);
-                }
-            )
-            <DASH>
-            LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 1, 15) })
-            (
-                t = < NUMBER >
-                {
-                    solarTermDay = Integer.parseInt(t.image);
-                    eastAsianDate.setSolarTermDay(solarTermDay);
-                }
             )
         )?
     )

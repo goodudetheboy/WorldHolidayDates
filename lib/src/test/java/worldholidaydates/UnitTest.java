@@ -45,12 +45,13 @@ public class UnitTest {
     @Test
     public void gregorianDateTest() {
         testParserDate("2021-05-01", LocalDate.parse("2021-05-01"));
+        testParserDate("05-01", LocalDate.parse("2021-05-01"));
     }
 
     @Test
     public void startOfMonthTest() {
         testParserDate("january", LocalDate.parse("2021-01-01"));
-        testParserDate("march", LocalDate.parse("2021-03-01"));
+        testParserDate("March", LocalDate.parse("2021-03-01"));
     }
 
 
@@ -107,7 +108,7 @@ public class UnitTest {
 
     @Test
     public void eastAsianSolarTermTest() {
-        testParserDate("chinese 5-01", LocalDate.parse("2021-04-05"));
-        testParserDate("chinese 78-38-5-01", LocalDate.parse("2021-04-05"));
+        testParserDate("chinese 5-01 solarterm", LocalDate.parse("2021-04-05"));
+        testParserDate("chinese 78-38-5-01 solarterm", LocalDate.parse("2021-04-05"));
     }
 }
