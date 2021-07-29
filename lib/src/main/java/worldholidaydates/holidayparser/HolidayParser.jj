@@ -199,6 +199,25 @@ TOKEN :
     {
         matchedToken.image = image.toString().toLowerCase(Locale.US);
     }
+|
+    < IN : "in" >
+    {
+        matchedToken.image = image.toString().toLowerCase(Locale.US);
+    }
+}
+
+TOKEN :
+{
+    < TIMEZONE :
+        (["A"-"Z"]){3}
+    |   (< PLUS > | < DASH >) <NUMBER> ":" <NUMBER>
+    |    <STRING> "/" <STRING> >
+}
+
+TOKEN :
+{
+    < STRING :
+        (["a"-"z","A"-"Z"])+ >
 }
 
 TOKEN :
@@ -462,7 +481,13 @@ Date equinoxSolstice():
             throw new ParseException("Expected equinox or solstice");
         }
     )
-    // TODO: add timezone here
+    (
+        < IN >
+        t = < TIMEZONE >
+        {
+            d.setTimezone(t.image);
+        }
+    )?
     {
         return d;
     }

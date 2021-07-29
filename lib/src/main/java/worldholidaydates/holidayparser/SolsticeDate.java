@@ -1,6 +1,7 @@
 package worldholidaydates.holidayparser;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
@@ -47,8 +48,32 @@ public class SolsticeDate extends Date {
     }
 
     @Override
+    public LocalDateTime calculate() {
+        LocalDateTime result = calculateRaw();
+        if (offset != 0) {
+            result = getOffsetDate(result, (isAfter) ? offset : -offset);
+        }
+        if (offsetWeekDay != 0) {
+            result = getOffsetWeekDayDate(result, offsetWeekDay, offsetWeekDayNth, isAfter);
+        }
+        return result;
+    }
+
+    @Override
+    public ZonedDateTime calculateWithTimeZone() {
+        return calculate().atZone(timezone);
+    }
+
+    @Override
+    public LocalDateTime calculateRaw() {
+        ZonedDateTime defaultResult = calculateSolsticeDate(month, year);
+        ZonedDateTime shiftedResult = defaultResult.withZoneSameInstant(timezone);
+        return shiftedResult.toLocalDateTime();
+    }
+
+    @Override
     public LocalDate calculateRawDate() {
-        ZonedDateTime defaultResult = calculateEquinoxDate(month, year);
+        ZonedDateTime defaultResult = calculateSolsticeDate(month, year);
         ZonedDateTime shiftedResult = defaultResult.withZoneSameInstant(timezone);
         return shiftedResult.toLocalDate();
     }
@@ -74,7 +99,7 @@ public class SolsticeDate extends Date {
      * @param year 
      * @return either March or September Equinox in input year
      */
-    public static ZonedDateTime calculateEquinoxDate(int month, int year) {
+    public static ZonedDateTime calculateSolsticeDate(int month, int year) {
         double m = ((double) year - 2000) / 1000;
         final double m2 = m * m;
         final double m3 = m2 * m;

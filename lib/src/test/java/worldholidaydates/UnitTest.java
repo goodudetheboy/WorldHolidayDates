@@ -139,14 +139,16 @@ public class UnitTest {
 
     @Test
     public void equinoxTest() {
-        testParserDate("5 days before september equinox", LocalDate.parse("2021-09-17"));
-        // testParserDate("march equinox in Asia/Tokyo", LocalDate.parse("2021-03-20"));
-        // testParserDate("march equinox in +09:00", LocalDate.parse("2021-03-20"));
+        testParser("5 days before september equinox", LocalDateTime.parse("2021-09-17T19:11"));
+        testParser("march equinox", LocalDateTime.parse("2021-03-20T09:35"));
+        testParser("march equinox in -12:00", LocalDateTime.parse("2021-03-19T21:35"));
+        testParser("march equinox in Asia/Tokyo", LocalDateTime.parse("2021-03-20T18:35"));
     }
 
     @Test
     public void solsticeTest() {
-        testParserDate("december solstice", LocalDate.parse("2021-12-21"));
-        testParserDate("3rd Sunday after june solstice", LocalDate.parse("2021-07-11"));
+        testParser("december solstice", LocalDateTime.parse("2021-12-21T15:46"));
+        testParser("3rd Sunday after june solstice", LocalDateTime.parse("2021-07-11T03:24"));
+        testParser("3rd Sunday after june solstice in -05:00", LocalDateTime.parse("2021-07-11T22:24"));
     }
 }

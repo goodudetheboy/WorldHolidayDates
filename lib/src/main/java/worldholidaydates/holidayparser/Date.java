@@ -1,6 +1,7 @@
 package worldholidaydates.holidayparser;
 
 import java.time.DayOfWeek;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -10,8 +11,6 @@ import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
 
 import javax.annotation.Nullable;
-
-import org.checkerframework.checker.units.qual.m;
 
 /**
  * An abstract class containing the date information for a holiday. Each
@@ -216,6 +215,17 @@ public abstract class Date {
     }
 
     /**
+     * Similar to {@link #calculate}, but converted to {@link ZonedDateTime}
+     * with the stored {@link #timezone}.
+     * 
+     * @return the Gregorian date created only from the year, month, day,
+     *      with offset, if any, at the stored {@link #timezone}
+     */
+    public ZonedDateTime calculateWithTimeZone() {
+        return calculate().atZone(timezone);
+    }
+
+    /**
      * Calculates the Gregorian date created from the year, month, day, along
      * with any offset (deviation from raw dates), if any.
      * <p>
@@ -228,10 +238,10 @@ public abstract class Date {
     public LocalDate calculateDate() {
         LocalDate result = calculateRawDate();
         if (offset != 0) {
-            result = getOffsetDate(result, (isAfter) ? offset : -offset);
+            result = getOffsetDate(result.atStartOfDay(), (isAfter) ? offset : -offset).toLocalDate();
         }
         if (offsetWeekDay != 0) {
-            result = getOffsetWeekDayDate(result, offsetWeekDay, offsetWeekDayNth, isAfter);
+            result = getOffsetWeekDayDate(result.atStartOfDay(), offsetWeekDay, offsetWeekDayNth, isAfter).toLocalDate();
         }
         return result;
     }
@@ -302,8 +312,8 @@ public abstract class Date {
 
     
     /**
-     * Return the date that is offset by some days from the input date,
-     * according to the following rule:
+     * Return the {@link LocalDateTime} that is offset by some days from the input
+     * date, according to the following rule:
      * <ol>
      * <li> offset < 0: return [offset] days before input date
      * <li> offset > 0: return [offset] days after input date
@@ -315,7 +325,7 @@ public abstract class Date {
      * @param offset offset, in days
      * @return the date that is offset by some [offset] days from the input date
      */
-    public static LocalDate getOffsetDate(LocalDate date, int offset) {
+    public static LocalDateTime getOffsetDate(LocalDateTime date, int offset) {
         if (offset > 0) {
             return date.plusDays(offset);
         } 
@@ -325,7 +335,42 @@ public abstract class Date {
         return date;
     }
 
-    public static LocalDate getOffsetWeekDayDate(LocalDate date, int weekday, int nth, boolean isAfter) {
+    /**
+     * Return the {@link ZonedDateTime} that is offset by some days from the
+     * input date, according to the following rule:
+     * <ol>
+     * <li> offset < 0: return [offset] days before input date
+     * <li> offset > 0: return [offset] days after input date
+     * <li> offset = 0: return original date
+     * </ol>
+     * <p>
+     * 
+     * @param date an input date
+     * @param offset offset, in days
+     * @return the date that is offset by some [offset] days from the input date
+     */
+    public static ZonedDateTime getOffsetZonedDate(ZonedDateTime zDate, int offset) {
+        if (offset > 0) {
+            return zDate.plusDays(offset);
+        } 
+        if (offset < 0) {
+            return zDate.minusDays(-offset);
+        }
+        return zDate;
+    }
+
+    /**
+     * Returns a {@link LocalDateTime} that is offset by an nth weekday before
+     * or after the input date.
+     * 
+     * @param date an input {@link LocalDateTime}
+     * @param weekday a weekday to be offset before or after
+     * @param nth count of the weekday before or after
+     * @param isAfter true to offset after, false for before
+     * @return a {@link LocalDateTime} that is offset by an nth weekday before
+     *      or after the input date
+     */
+    public static LocalDateTime getOffsetWeekDayDate(LocalDateTime date, int weekday, int nth, boolean isAfter) {
         if (nth == 0) {
             return date;
         }
@@ -333,12 +378,40 @@ public abstract class Date {
         TemporalAdjuster dir = (isAfter)
                             ? TemporalAdjusters.next(dayOfWeek)
                             : TemporalAdjusters.previous(dayOfWeek);
-        LocalDate result = date.with(dir);
+        LocalDateTime result = date.with(dir);
         nth -= 1;
         if (nth == 0) {
             return result;
         } else {
             return getOffsetWeekDayDate(result, weekday, nth, isAfter);
+        }
+    }
+
+    /**
+     * Returns a {@link ZonedDateTime} that is offset by an nth weekday before
+     * or after the input date.
+     * 
+     * @param zDate an input {@link ZonedDateTime}
+     * @param weekday a weekday to be offset before or after
+     * @param nth count of the weekday before or after
+     * @param isAfter true to offset after, false for before
+     * @return a {@link ZonedDateTime} that is offset by an nth weekday before
+     *      or after the input date
+     */
+    public static ZonedDateTime getOffsetWeekDayZonedDate(ZonedDateTime zDate, int weekday, int nth, boolean isAfter) {
+        if (nth == 0) {
+            return zDate;
+        }
+        DayOfWeek dayOfWeek = DayOfWeek.of(weekday);
+        TemporalAdjuster dir = (isAfter)
+                            ? TemporalAdjusters.next(dayOfWeek)
+                            : TemporalAdjusters.previous(dayOfWeek);
+        ZonedDateTime result = zDate.with(dir);
+        nth -= 1;
+        if (nth == 0) {
+            return result;
+        } else {
+            return getOffsetWeekDayZonedDate(result, weekday, nth, isAfter);
         }
     }
 
@@ -382,7 +455,7 @@ public abstract class Date {
         second = Math.round(tm);
         
         return ZonedDateTime.of(LocalDate.of((int) year, (int) month, (int) dayOfMonth),
-                                LocalTime.of((int) hour, (int) minute, (int) second),
+                                LocalTime.of((int) hour, (int) minute),
                                 DEFAULT_ZONE);
     }
 
@@ -421,8 +494,5 @@ public abstract class Date {
             default:
                 throw new IllegalArgumentException("Invalid weekday: " + weekday);
         }
-    }
-    public static void main(String[] args) {
-        System.out.println(getOffsetWeekDayDate(LocalDate.now(), 2, 2, false));
     }
 }

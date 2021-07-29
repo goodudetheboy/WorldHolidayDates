@@ -1,6 +1,8 @@
 package worldholidaydates.holidayparser;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
@@ -44,6 +46,30 @@ public class EquinoxDate extends Date {
     @Override
     public GregorianMonth getNamedMonth() {
         return (GregorianMonth) namedMonth;
+    }
+
+    @Override
+    public LocalDateTime calculate() {
+        LocalDateTime result = calculateRaw();
+        if (offset != 0) {
+            result = getOffsetDate(result, (isAfter) ? offset : -offset);
+        }
+        if (offsetWeekDay != 0) {
+            result = getOffsetWeekDayDate(result, offsetWeekDay, offsetWeekDayNth, isAfter);
+        }
+        return result;
+    }
+
+    @Override
+    public ZonedDateTime calculateWithTimeZone() {
+        return calculate().atZone(timezone);
+    }
+
+    @Override
+    public LocalDateTime calculateRaw() {
+        ZonedDateTime defaultResult = calculateEquinoxDate(month, year);
+        ZonedDateTime shiftedResult = defaultResult.withZoneSameInstant(timezone);
+        return shiftedResult.toLocalDateTime();
     }
 
     @Override

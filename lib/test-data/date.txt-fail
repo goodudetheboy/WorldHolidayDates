@@ -2,55 +2,142 @@
 Was expecting:
     <EOF> 
     
-22	1 Shawwal P3D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 11.  Encountered: "P" (80), after : ""
-23	10 Dhu al-Hijjah P3D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 18.  Encountered: "P" (80), after : ""
-27	01-01 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-36	11-01 if saturday,sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-38	12-25 and if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-39	12-26 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-49	2nd monday in June	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-50	1st monday in August	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-51	1st thursday in August	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 15.  Encountered: "n" (110), after : "i"
-52	1st friday in August	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-54	12-25 and if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-55	12-26 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-56	01-01 and if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-57	01-02 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-61	03-14 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-62	03-22 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-68	05-01 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-70	10-19 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-72	11-28 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-73	11-29 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-74	12-08 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-76	12-25 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-80	01-01 P2D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 7.  Encountered: "P" (80), after : ""
-81	01-03 P3D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 7.  Encountered: "P" (80), after : ""
-97	2nd saturday in October	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 15.  Encountered: "n" (110), after : "i"
-107	1st sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-116	substitutes 03-24 if tuesday then previous monday if thursday then next friday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-120	substitutes 04-02 if tuesday then previous monday if thursday then next friday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-122	substitutes 05-01 if tuesday then previous monday if thursday then next friday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-124	substitutes 05-25 if tuesday then previous monday if thursday then next friday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-126	substitutes 06-20 if tuesday then previous monday if thursday then next friday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-128	3rd monday in August	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-129	10-12 if tuesday,wednesday then previous monday if thursday,friday,saturday,sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-130	4th monday in November	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-132	substitutes 12-08 if tuesday then previous monday if thursday then next friday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
+22	1 Shawwal P3D	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "P "" at line 1, column 11.
+Was expecting:
+    <EOF> 
+    
+23	10 Dhu al-Hijjah P3D	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "P "" at line 1, column 18.
+Was expecting:
+    <EOF> 
+    
+27	01-01 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+36	11-01 if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+38	12-25 and if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+39	12-26 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+49	2nd monday in June	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+50	1st monday in August	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+51	1st thursday in August	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+52	1st friday in August	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+54	12-25 and if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+55	12-26 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+56	01-01 and if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+57	01-02 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+61	03-14 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+62	03-22 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+68	05-01 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+70	10-19 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+72	11-28 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+73	11-29 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+74	12-08 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+76	12-25 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+80	01-01 P2D	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "P "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+81	01-03 P3D	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "P "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+97	2nd saturday in October	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+107	1st sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+116	substitutes 03-24 if tuesday then previous monday if thursday then next friday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+120	substitutes 04-02 if tuesday then previous monday if thursday then next friday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+122	substitutes 05-01 if tuesday then previous monday if thursday then next friday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+124	substitutes 05-25 if tuesday then previous monday if thursday then next friday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+126	substitutes 06-20 if tuesday then previous monday if thursday then next friday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+128	3rd monday in August	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+129	10-12 if tuesday,wednesday then previous monday if thursday,friday,saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+130	4th monday in November	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+132	substitutes 12-08 if tuesday then previous monday if thursday then next friday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
 133	12-24 12:00	worldholidaydates.holidayparser.ParseException: Encountered " <NUMBER> "12 "" at line 1, column 7.
 Was expecting:
     <EOF> 
     
-134	substitutes 12-24 if tuesday then previous monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-136	substitutes 12-25 if thursday then next friday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
+134	substitutes 12-24 if tuesday then previous monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+136	substitutes 12-25 if thursday then next friday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
 137	12-31 12:00	worldholidaydates.holidayparser.ParseException: Encountered " <NUMBER> "12 "" at line 1, column 7.
 Was expecting:
     <EOF> 
     
-138	3rd monday in February	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-139	04-15 if friday then next monday if saturday,sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-140	04-17 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-142	2nd sunday in October	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
+138	3rd monday in February	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+139	04-15 if friday then next monday if saturday,sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+140	04-17 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+142	2nd sunday in October	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
 143	12-24 12:00	worldholidaydates.holidayparser.ParseException: Encountered " <NUMBER> "12 "" at line 1, column 7.
 Was expecting:
     <EOF> 
@@ -59,7 +146,8 @@ Was expecting:
 Was expecting:
     <EOF> 
     
-152	2nd sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
+152	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
 161	12-24 14:00 if sunday then 00:00	worldholidaydates.holidayparser.ParseException: Encountered " <NUMBER> "14 "" at line 1, column 7.
 Was expecting:
     <EOF> 
@@ -68,12 +156,30 @@ Was expecting:
 Was expecting:
     <EOF> 
     
-165	01-01 and if saturday,sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-166	01-26 if saturday,sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-172	12-25 and if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-173	12-26 and if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-177	03-18 and if saturday then previous friday if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-182	05-01 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
+165	01-01 and if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+166	01-26 if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+172	12-25 and if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+173	12-26 and if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+177	03-18 and if saturday then previous friday if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+182	05-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
 198	3rd friday after 06-01 12:00	worldholidaydates.holidayparser.ParseException: Encountered " <NUMBER> "12 "" at line 1, column 24.
 Was expecting:
     <EOF> 
@@ -86,59 +192,160 @@ Was expecting:
 Was expecting:
     <EOF> 
     
-205	01-01 and if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-206	01-02 and if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-208	03-08 and if saturday,sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-210	05-09 and if saturday,sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-211	05-28 and if saturday,sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-212	06-15 and if saturday,sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-213	06-26 and if saturday,sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-214	10-18 and if saturday,sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-215	11-09 and if saturday,sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-218	12-31 and if saturday,sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-219	1 Shawwal and if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 12.  Encountered: "n" (110), after : "a"
-220	2 Shawwal and if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 12.  Encountered: "n" (110), after : "a"
-221	10 Dhu al-Hijjah and if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 19.  Encountered: "n" (110), after : "a"
-222	11 Dhu al-Hijjah and if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 19.  Encountered: "n" (110), after : "a"
-223	01-01 and if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-224	01-02 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-225	05-01 and if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-226	05-02 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-236	julian 01-01	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 4.  Encountered: "i" (105), after : "jul"
-238	julian 08-15	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 4.  Encountered: "i" (105), after : "jul"
-239	julian 12-25	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 4.  Encountered: "i" (105), after : "jul"
-242	10 Dhu al-Hijjah P4D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 18.  Encountered: "P" (80), after : ""
-243	1 Shawwal P3D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 11.  Encountered: "P" (80), after : ""
-250	05-01 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-254	1st monday in August	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-257	substitutes 12-25 if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-259	substitutes 12-26 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-269	1 Shawwal P3D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 11.  Encountered: "P" (80), after : ""
-270	10 Dhu al-Hijjah P3D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 18.  Encountered: "P" (80), after : ""
-284	2nd sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-338	10 Dhu al-Hijjah P3D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 18.  Encountered: "P" (80), after : ""
-379	substitutes 01-01 if saturday, sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
+205	01-01 and if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+206	01-02 and if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+208	03-08 and if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+210	05-09 and if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+211	05-28 and if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+212	06-15 and if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+213	06-26 and if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+214	10-18 and if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+215	11-09 and if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+218	12-31 and if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+219	1 Shawwal and if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 11.
+Was expecting:
+    <EOF> 
+    
+220	2 Shawwal and if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 11.
+Was expecting:
+    <EOF> 
+    
+221	10 Dhu al-Hijjah and if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 18.
+Was expecting:
+    <EOF> 
+    
+222	11 Dhu al-Hijjah and if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 18.
+Was expecting:
+    <EOF> 
+    
+223	01-01 and if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+224	01-02 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+225	05-01 and if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+226	05-02 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+236	julian 01-01	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+238	julian 08-15	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+239	julian 12-25	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+242	10 Dhu al-Hijjah P4D	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "P "" at line 1, column 18.
+Was expecting:
+    <EOF> 
+    
+243	1 Shawwal P3D	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "P "" at line 1, column 11.
+Was expecting:
+    <EOF> 
+    
+250	05-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+254	1st monday in August	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+257	substitutes 12-25 if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+259	substitutes 12-26 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+269	1 Shawwal P3D	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "P "" at line 1, column 11.
+Was expecting:
+    <EOF> 
+    
+270	10 Dhu al-Hijjah P3D	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "P "" at line 1, column 18.
+Was expecting:
+    <EOF> 
+    
+284	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+338	10 Dhu al-Hijjah P3D	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "P "" at line 1, column 18.
+Was expecting:
+    <EOF> 
+    
+379	substitutes 01-01 if saturday, sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
 381	friday before 06-01	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-382	3nd monday in June	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
+382	3nd monday in June	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
 383	thursday before 08-04	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 384	friday before 08-05	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 385	monday after 09-01	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-387	substitutes 11-11 if saturday, sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-389	substitutes 12-25 if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-391	substitutes 12-26 if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-398	1 Shawwal P3D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 11.  Encountered: "P" (80), after : ""
-422	05-01 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-423	2nd sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-424	3rd sunday in June	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-432	easter -50 PT110H	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 12.  Encountered: "P" (80), after : ""
-436	2nd sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-439	2nd sunday in August	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-442	1st sunday in October in even years	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-443	1st sunday before 11-01 in even years	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 26.  Encountered: "n" (110), after : "i"
+387	substitutes 11-11 if saturday, sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+389	substitutes 12-25 if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+391	substitutes 12-26 if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+398	1 Shawwal P3D	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "P "" at line 1, column 11.
+Was expecting:
+    <EOF> 
+    
+422	05-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+423	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+424	3rd sunday in June	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+432	easter -50 PT110H	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "PT "" at line 1, column 12.
+Was expecting:
+    <EOF> 
+    
+436	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+439	2nd sunday in August	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+442	1st sunday in October in even years	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+443	1st sunday before 11-01 in even years	worldholidaydates.holidayparser.ParseException: Encountered " "in" "in "" at line 1, column 25.
+Was expecting:
+    <EOF> 
+    
 446	12-24 14:00	worldholidaydates.holidayparser.ParseException: Encountered " <NUMBER> "14 "" at line 1, column 7.
 Was expecting:
     <EOF> 
@@ -147,73 +354,206 @@ Was expecting:
 Was expecting:
     <EOF> 
     
-450	01-10 and if saturday,sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-454	2nd sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-457	1st friday in June	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-458	07-10 and if saturday,sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-459	1st monday in August	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-460	10-12 and if saturday,sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-465	substitutes 01-02 if monday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-472	substitutes 05-01 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-473	2nd sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-475	substitutes 07-01 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-476	3rd monday in July	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
+450	01-10 and if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+454	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+457	1st friday in June	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+458	07-10 and if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+459	1st monday in August	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+460	10-12 and if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+465	substitutes 01-02 if monday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+472	substitutes 05-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+473	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+475	substitutes 07-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+476	3rd monday in July	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
 477	tuesday after 3rd monday in July	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-479	substitutes 09-30 if saturday,sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-482	substitutes 12-26 if monday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-484	julian 12-25	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 4.  Encountered: "i" (105), after : "jul"
-495	03-09 if friday,saturday,sunday then next monday if tuesday,wednesday,thursday then previous monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-500	05-01 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-501	05-24 if friday,saturday,sunday then next monday if tuesday,wednesday,thursday then previous monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-502	09-10 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-503	09-21 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-504	10-12 if friday,saturday,sunday then next monday if tuesday,wednesday,thursday then previous monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-505	11-19 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-506	12-25 and if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-507	12-26 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
+479	substitutes 09-30 if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+482	substitutes 12-26 if monday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+484	julian 12-25	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+495	03-09 if friday,saturday,sunday then next monday if tuesday,wednesday,thursday then previous monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+500	05-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+501	05-24 if friday,saturday,sunday then next monday if tuesday,wednesday,thursday then previous monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+502	09-10 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+503	09-21 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+504	10-12 if friday,saturday,sunday then next monday if tuesday,wednesday,thursday then previous monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+505	11-19 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+506	12-25 and if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+507	12-26 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
 515	monday before 05-25	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 518	monday after 08-01	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-519	1st monday in September	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
+519	1st monday in September	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
 521	10-31 18:00	worldholidaydates.holidayparser.ParseException: Encountered " <NUMBER> "18 "" at line 1, column 7.
 Was expecting:
     <EOF> 
     
-525	chinese 01-0-01 and if sunday then next tuesday if saturday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 18.  Encountered: "n" (110), after : "a"
-526	chinese 01-0-02 and if sunday then next tuesday if saturday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 18.  Encountered: "n" (110), after : "a"
-533	12-25 and if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-534	12-26 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-535	1 Muharram and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "a"
-536	1 Shawwal and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 12.  Encountered: "n" (110), after : "a"
-537	10 Dhu al-Hijjah and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 19.  Encountered: "n" (110), after : "a"
-538	12 Rabi al-awwal and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 19.  Encountered: "n" (110), after : "a"
-539	01-01 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-540	01-04 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-541	01-16 and if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-542	01-17 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-543	05-01 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-544	05-17 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-545	06-30 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-546	08-01 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-547	12-25 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-581	2nd sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-582	1st sunday in June	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
+525	chinese 01-0-01 and if sunday then next tuesday if saturday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 17.
+Was expecting:
+    <EOF> 
+    
+526	chinese 01-0-02 and if sunday then next tuesday if saturday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 17.
+Was expecting:
+    <EOF> 
+    
+533	12-25 and if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+534	12-26 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+535	1 Muharram and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 12.
+Was expecting:
+    <EOF> 
+    
+536	1 Shawwal and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 11.
+Was expecting:
+    <EOF> 
+    
+537	10 Dhu al-Hijjah and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 18.
+Was expecting:
+    <EOF> 
+    
+538	12 Rabi al-awwal and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 18.
+Was expecting:
+    <EOF> 
+    
+539	01-01 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+540	01-04 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+541	01-16 and if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+542	01-17 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+543	05-01 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+544	05-17 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+545	06-30 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+546	08-01 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+547	12-25 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+581	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+582	1st sunday in June	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
 584	3 sunday after 09-01	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-592	08-07 since 1960	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 9.  Encountered: "n" (110), after : "si"
-595	11-15 since 1996	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 9.  Encountered: "n" (110), after : "si"
-601	01-01 and if Saturday, Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-602	01-02 and if Saturday then next Monday if Monday, Sunday then next Tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-606	1st Monday in June	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-607	1st Friday in July	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-608	08-04 and if Saturday, Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-609	10-26 and if Saturday, Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-610	12-25 and if Saturday, Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-611	12-26 and if Saturday then next Monday if Monday, Sunday then next Tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-623	10-31 if wednesday then next friday if tuesday then previous friday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-631	05-01 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
+592	08-07 since 1960	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "since "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+595	11-15 since 1996	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "since "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+601	01-01 and if Saturday, Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+602	01-02 and if Saturday then next Monday if Monday, Sunday then next Tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+606	1st Monday in June	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+607	1st Friday in July	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+608	08-04 and if Saturday, Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+609	10-26 and if Saturday, Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+610	12-25 and if Saturday, Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+611	12-26 and if Saturday then next Monday if Monday, Sunday then next Tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+623	10-31 if wednesday then next friday if tuesday then previous friday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+631	05-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
 639	03-08 12:00	worldholidaydates.holidayparser.ParseException: Encountered " <NUMBER> "12 "" at line 1, column 7.
 Was expecting:
     <EOF> 
@@ -236,26 +576,42 @@ Was expecting:
 
 664	monday after 10-12	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-665	1st monday in November	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
+665	1st monday in November	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
 666	monday after 11-11	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-679	10-12 if monday then previous friday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-710	05-01 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-711	2nd sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-712	1st sunday in June	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
+679	10-12 if monday then previous friday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+710	05-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+711	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+712	1st sunday in June	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
 718	12-31 12:00	worldholidaydates.holidayparser.ParseException: Encountered " <NUMBER> "12 "" at line 1, column 7.
 Was expecting:
     <EOF> 
     
-721	chinese 01-0-01 P2D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 17.  Encountered: "P" (80), after : ""
-722	4th monday in March	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-741	2nd sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-756	2nd sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
+721	chinese 01-0-01 P2D	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "P "" at line 1, column 17.
+Was expecting:
+    <EOF> 
+    
+722	4th monday in March	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+741	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+756	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
 769	easter -47 14:00	worldholidaydates.holidayparser.ParseException: Encountered " <NUMBER> "14 "" at line 1, column 12.
 Was expecting:
     <EOF> 
     
-776	2nd sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
+776	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
 784	wednesday before 11-23	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 791	12-24 14:00 if sunday then 00:00	worldholidaydates.holidayparser.ParseException: Encountered " <NUMBER> "14 "" at line 1, column 7.
@@ -266,44 +622,118 @@ Was expecting:
 Was expecting:
     <EOF> 
     
-798	06-27 since 1977	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 9.  Encountered: "n" (110), after : "si"
-815	2nd sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-822	01-01 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-831	1st monday in August	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-832	11-03 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-833	11-04 if sunday then next monday if monday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-834	12-25 and if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-835	12-26 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-837	01-06 if tuesday,wednesday then previous monday if thursday,friday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-839	01-26 if tuesday,wednesday then previous monday if thursday,friday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-842	05-01 if tuesday,wednesday then previous monday if thursday,friday,sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-846	11-06 if tuesday,wednesday,thursday,friday,saturday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-882	2nd sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-890	2nd sunday in September	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-893	2nd sunday in November	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-898	01-25 since 2011	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 9.  Encountered: "n" (110), after : "si"
+798	06-27 since 1977	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "since "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+815	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+822	01-01 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+831	1st monday in August	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+832	11-03 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+833	11-04 if sunday then next monday if monday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+834	12-25 and if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+835	12-26 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+837	01-06 if tuesday,wednesday then previous monday if thursday,friday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+839	01-26 if tuesday,wednesday then previous monday if thursday,friday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+842	05-01 if tuesday,wednesday then previous monday if thursday,friday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+846	11-06 if tuesday,wednesday,thursday,friday,saturday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+882	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+890	2nd sunday in September	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+893	2nd sunday in November	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+898	01-25 since 2011	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "since "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
 902	30-06	worldholidaydates.holidayparser.ParseException: Month must be between 1-12, not 30
 903	23-07	worldholidaydates.holidayparser.ParseException: Month must be between 1-12, not 23
-906	julian 12-25	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 4.  Encountered: "i" (105), after : "jul"
-909	1 Shawwal P3D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 11.  Encountered: "P" (80), after : ""
-910	10 Dhu al-Hijjah P4D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 18.  Encountered: "P" (80), after : ""
-912	substitutes 01-01 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-914	substitutes 01-06 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-920	substitutes 05-01 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-921	1st sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-925	substitutes 08-15 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-927	substitutes 10-12 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-929	substitutes 11-01 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-931	substitutes 12-06 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-933	substitutes 12-08 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-935	substitutes 12-25 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-936	01-06 in non-leap years	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "i"
-937	01-07 in leap years	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "i"
-944	09-11 in non-leap years	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "i"
-945	09-12 in leap years	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "i"
-946	09-27 in non-leap years	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "i"
-947	09-28 in leap years	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "i"
-960	2nd sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
+906	julian 12-25	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+909	1 Shawwal P3D	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "P "" at line 1, column 11.
+Was expecting:
+    <EOF> 
+    
+910	10 Dhu al-Hijjah P4D	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "P "" at line 1, column 18.
+Was expecting:
+    <EOF> 
+    
+912	substitutes 01-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+914	substitutes 01-06 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+920	substitutes 05-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+921	1st sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+925	substitutes 08-15 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+927	substitutes 10-12 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+929	substitutes 11-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+931	substitutes 12-06 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+933	substitutes 12-08 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+935	substitutes 12-25 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+936	01-06 in non-leap years	worldholidaydates.holidayparser.ParseException: Encountered " "in" "in "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+937	01-07 in leap years	worldholidaydates.holidayparser.ParseException: Encountered " "in" "in "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+944	09-11 in non-leap years	worldholidaydates.holidayparser.ParseException: Encountered " "in" "in "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+945	09-12 in leap years	worldholidaydates.holidayparser.ParseException: Encountered " "in" "in "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+946	09-27 in non-leap years	worldholidaydates.holidayparser.ParseException: Encountered " "in" "in "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+947	09-28 in leap years	worldholidaydates.holidayparser.ParseException: Encountered " "in" "in "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+960	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
 961	friday after 06-19	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 962	saturday after 06-20	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
@@ -314,9 +744,18 @@ Was expecting:
 Was expecting:
     <EOF> 
     
-975	10-10 and if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-976	12-25 if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-977	12-26 if Sunday then next Monday if Monday then next Tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
+975	10-10 and if Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+976	12-25 if Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+977	12-26 if Sunday then next Monday if Monday then next Tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
 1004	06-05 12:00 if sunday then 00:00	worldholidaydates.holidayparser.ParseException: Encountered " <NUMBER> "12 "" at line 1, column 7.
 Was expecting:
     <EOF> 
@@ -331,39 +770,96 @@ Was expecting:
     
 1018	sunday before 06-01	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-1030	08-16 P2D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 7.  Encountered: "P" (80), after : ""
-1036	substitutes 01-01 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1037	substitutes 01-01 if saturday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1042	1st monday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1046	substitutes 12-25 if saturday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1047	substitutes 12-25 if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1049	substitutes 12-26 if saturday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1050	substitutes 12-26 if sunday then next monday if monday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1057	04-24 P3D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 7.  Encountered: "P" (80), after : ""
-1062	1st monday in August	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1063	2nd monday in August	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
+1030	08-16 P2D	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "P "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1036	substitutes 01-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1037	substitutes 01-01 if saturday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1042	1st monday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1046	substitutes 12-25 if saturday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1047	substitutes 12-25 if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1049	substitutes 12-26 if saturday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1050	substitutes 12-26 if sunday then next monday if monday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1057	04-24 P3D	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "P "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1062	1st monday in August	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1063	2nd monday in August	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
 1064	tuesday after 2nd monday in August	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-1066	10-15 P5D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 7.  Encountered: "P" (80), after : ""
-1068	12-04 P3D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 7.  Encountered: "P" (80), after : ""
-1091	2nd monday in March	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1094	05-01 if sunday, saturday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-1095	1st monday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
+1066	10-15 P5D	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "P "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1068	12-04 P3D	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "P "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1091	2nd monday in March	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1094	05-01 if sunday, saturday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1095	1st monday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
 1097	monday before 06-20	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 1098	monday before September	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-1100	09-10 and if sunday, saturday then previous monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1131	01-01 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1133	05-01 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1135	06-05 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1136	08-03 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1137	08-15 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1138	10-12 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1139	12-08 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1140	12-25 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1150	2nd sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1161	06-30 if tuesday then previous monday if wednesday,thursday then next friday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
+1100	09-10 and if sunday, saturday then previous monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1131	01-01 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1133	05-01 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1135	06-05 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1136	08-03 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1137	08-15 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1138	10-12 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1139	12-08 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1140	12-25 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1150	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1161	06-30 if tuesday then previous monday if wednesday,thursday then next friday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
 1165	12-24 12:00	worldholidaydates.holidayparser.ParseException: Encountered " <NUMBER> "12 "" at line 1, column 7.
 Was expecting:
     <EOF> 
@@ -372,49 +868,115 @@ Was expecting:
 Was expecting:
     <EOF> 
     
-1168	3rd monday in February	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1169	1st monday in March	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1171	07-21 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-1173	12-08 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
+1168	3rd monday in February	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1169	1st monday in March	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1171	07-21 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1173	12-08 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
 1181	monday after 07-01	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-1209	01-01 and if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1210	chinese 01-0-01 and if Saturday then next Tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 18.  Encountered: "n" (110), after : "a"
-1211	chinese 01-0-02 and if Saturday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 18.  Encountered: "n" (110), after : "a"
-1212	chinese 01-0-03 and if Saturday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 18.  Encountered: "n" (110), after : "a"
-1213	chinese 5-01 solarterm and if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 25.  Encountered: "n" (110), after : "a"
-1218	05-01 and if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1219	chinese 04-0-08 and if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 18.  Encountered: "n" (110), after : "a"
-1221	07-01 and if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1222	chinese 08-0-16 and if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 18.  Encountered: "n" (110), after : "a"
-1223	10-01 and if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1224	chinese 09-0-09 and if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 18.  Encountered: "n" (110), after : "a"
-1225	12-25 and if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1226	12-26 and if Sunday then next Monday if Monday then next Tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1234	2nd monday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1252	2nd sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
+1209	01-01 and if Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1210	chinese 01-0-01 and if Saturday then next Tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 17.
+Was expecting:
+    <EOF> 
+    
+1211	chinese 01-0-02 and if Saturday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 17.
+Was expecting:
+    <EOF> 
+    
+1212	chinese 01-0-03 and if Saturday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 17.
+Was expecting:
+    <EOF> 
+    
+1213	chinese 5-01 solarterm and if Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 24.
+Was expecting:
+    <EOF> 
+    
+1218	05-01 and if Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1219	chinese 04-0-08 and if Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 17.
+Was expecting:
+    <EOF> 
+    
+1221	07-01 and if Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1222	chinese 08-0-16 and if Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 17.
+Was expecting:
+    <EOF> 
+    
+1223	10-01 and if Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1224	chinese 09-0-09 and if Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 17.
+Was expecting:
+    <EOF> 
+    
+1225	12-25 and if Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1226	12-26 and if Sunday then next Monday if Monday then next Tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1234	2nd monday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1252	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
 1254	06-25 #1	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 7.  Encountered: "#" (35), after : ""
 1258	10-08 #1	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 7.  Encountered: "#" (35), after : ""
 1261	11-18 #1	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 7.  Encountered: "#" (35), after : ""
-1267	julian 12-25	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 4.  Encountered: "i" (105), after : "jul"
+1267	julian 12-25	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
 1275	easter -48 14:00	worldholidaydates.holidayparser.ParseException: Encountered " <NUMBER> "14 "" at line 1, column 12.
 Was expecting:
     <EOF> 
     
-1300	1st sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1374	03-17 and if saturday then next monday if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1379	1st monday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1380	1st monday in June	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1381	1st monday in August	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1385	12-26 and if saturday then next monday if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1386	12-27 if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-1387	2nd friday in June	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
+1300	1st sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1374	03-17 and if saturday then next monday if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1379	1st monday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1380	1st monday in June	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1381	1st monday in August	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1385	12-26 and if saturday then next monday if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1386	12-27 if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1387	2nd friday in June	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
 1391	friday after 01-18	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 1401	thursday after 04-18	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-1403	2nd sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1407	1st sunday in June	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
+1403	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1407	1st sunday in June	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
 1409	monday in August	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 1410	saturday after 10-21	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
@@ -427,180 +989,528 @@ Was expecting:
 Was expecting:
     <EOF> 
     
-1423	2nd sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1432	01-01 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1437	05-23 if saturday,sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-1438	08-01 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-1439	08-06 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1440	3rd monday in October	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1441	12-25 and if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1442	12-26 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1444	substitutes 01-01 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1448	substitutes 01-15 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1449	2nd monday in January	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1451	substitutes 02-11 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1452	02-23 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1454	march equinox in +09:00	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 16.  Encountered: "n" (110), after : "i"
-1455	substitutes march equinox in +09:00 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1458	substitutes 04-29 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1459	04-29 and if sunday then next monday #1	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1460	04-29 and if sunday then next monday #2	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1465	substitutes 05-03 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1466	substitutes 05-03 if sunday then next wednesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1467	05-04 not on sunday, monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 9.  Encountered: "t" (116), after : "no"
-1468	05-04 and if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1470	substitutes 05-05 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1473	substitutes 07-20 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1474	3rd monday in July	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1475	substitutes 2021-08-08 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1476	substitutes 08-11 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1478	substitutes 09-15 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1479	3rd monday in September	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1480	09-22 if 09-21 and 09-23 is public holiday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-1481	september equinox in +09:00	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 20.  Encountered: "n" (110), after : "i"
-1482	substitutes september equinox in +09:00 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1484	substitutes 10-10 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1485	2nd monday in October #1	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1486	2nd monday in October #2	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1489	substitutes 11-03 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1493	substitutes 11-23 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1494	12-23 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1497	01-01 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1501	05-01 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1502	06-01 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1503	10-10 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1504	10-20 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1505	12-12 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1506	12-25 and if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1507	12-26 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1517	1 Shawwal P3DT0H0M	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 11.  Encountered: "P" (80), after : ""
-1518	10 Dhu al-Hijjah P2DT0H0M	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 18.  Encountered: "P" (80), after : ""
-1520	01-01 and if Saturday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1527	1st Monday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1528	1st Monday in August	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1529	1st Tuesday in August	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 14.  Encountered: "n" (110), after : "i"
-1530	09-16 and if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1531	09-19 if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-1535	korean 01-0-01 P3D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 16.  Encountered: "P" (80), after : ""
-1542	korean 8-0-15 P3D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 15.  Encountered: "P" (80), after : ""
-1546	01-01 and if Saturday, Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1547	4th Monday in January	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1552	3rd Monday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1579	2nd sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1610	1st sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1611	1st sunday in June	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1639	05-04 and if saturday,sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1640	2nd sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1643	11-18 and if saturday,sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1662	01-27 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1666	05-01 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1672	11-19 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1674	12-25 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1676	julian 12-25 P2D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 4.  Encountered: "i" (105), after : "jul"
-1685	1st saturday in October P2D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 15.  Encountered: "n" (110), after : "i"
-1687	05-21 and if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1688	05-22 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1689	07-13 and if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1690	07-14 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1691	01-01 and if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1692	01-02 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1693	05-01 and if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1694	05-02 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1695	julian 12-24	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 4.  Encountered: "i" (105), after : "jul"
-1696	julian 12-25	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 4.  Encountered: "i" (105), after : "jul"
-1697	julian 12-26	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 4.  Encountered: "i" (105), after : "jul"
-1698	julian 01-01	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 4.  Encountered: "i" (105), after : "jul"
-1709	1 Shawwal P3D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 11.  Encountered: "P" (80), after : ""
-1710	10 Dhu al-Hijjah P3D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 18.  Encountered: "P" (80), after : ""
-1717	15 Nisan P2D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 10.  Encountered: "P" (80), after : ""
-1719	10 Tishrei P2D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 12.  Encountered: "P" (80), after : ""
-1737	01-01 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1738	julian 12-25 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 4.  Encountered: "i" (105), after : "jul"
-1741	05-01 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1742	05-24 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1743	08-02 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1744	09-08 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1745	10-11 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1746	10-23 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1747	12-08 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1748	1 Shawwal and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 12.  Encountered: "n" (110), after : "a"
-1749	julian 12-24	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 4.  Encountered: "i" (105), after : "jul"
-1750	julian 01-06	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 4.  Encountered: "i" (105), after : "jul"
-1754	julian 08-15	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 4.  Encountered: "i" (105), after : "jul"
-1795	01-01 and if saturday,sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1796	01-15 and if saturday,sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1797	03-03 and if saturday,sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1801	05-01 and if saturday,sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1802	05-14 and if saturday,sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1803	07-06 and if saturday,sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1804	10-15 and if saturday,sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1805	12-25 and if saturday,sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1806	1 Shawwal and if saturday,sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 12.  Encountered: "n" (110), after : "a"
-1809	1st monday in February	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1811	3rd monday in March	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1819	3rd monday in November	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1820	12-01 every 6 years since 1934	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "v" (118), after : "e"
-1824	substitutes 01-01 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1826	substitutes 02-03 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1828	substitutes 04-07 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1830	substitutes 05-01 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1831	1st sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1833	substitutes 06-25 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1835	substitutes 09-07 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1837	substitutes 09-25 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1839	substitutes 10-04 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1841	substitutes 12-25 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1843	substitutes 01-01 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1845	substitutes 03-21 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1850	substitutes 05-01 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1852	substitutes 05-04 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1855	substitutes 05-25 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1857	substitutes 08-26 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1859	substitutes 12-10 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1862	substitutes 12-26 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-1895	04-27 if sunday then previous saturday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-1898	2nd sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1899	3rd sunday in June	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1903	3rd tuesday in September	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 14.  Encountered: "n" (110), after : "i"
-1911	2nd sunday in February	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1926	2nd sunday in November	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
+1423	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1432	01-01 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1437	05-23 if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1438	08-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1439	08-06 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1440	3rd monday in October	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1441	12-25 and if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1442	12-26 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1444	substitutes 01-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1448	substitutes 01-15 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1449	2nd monday in January	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1451	substitutes 02-11 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1452	02-23 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1455	substitutes march equinox in +09:00 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1458	substitutes 04-29 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1459	04-29 and if sunday then next monday #1	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1460	04-29 and if sunday then next monday #2	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1465	substitutes 05-03 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1466	substitutes 05-03 if sunday then next wednesday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1467	05-04 not on sunday, monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "not "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1468	05-04 and if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1470	substitutes 05-05 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1473	substitutes 07-20 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1474	3rd monday in July	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1475	substitutes 2021-08-08 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1476	substitutes 08-11 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1478	substitutes 09-15 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1479	3rd monday in September	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1480	09-22 if 09-21 and 09-23 is public holiday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1482	substitutes september equinox in +09:00 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1484	substitutes 10-10 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1485	2nd monday in October #1	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1486	2nd monday in October #2	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1489	substitutes 11-03 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1493	substitutes 11-23 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1494	12-23 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1497	01-01 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1501	05-01 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1502	06-01 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1503	10-10 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1504	10-20 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1505	12-12 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1506	12-25 and if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1507	12-26 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1517	1 Shawwal P3DT0H0M	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "P "" at line 1, column 11.
+Was expecting:
+    <EOF> 
+    
+1518	10 Dhu al-Hijjah P2DT0H0M	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "P "" at line 1, column 18.
+Was expecting:
+    <EOF> 
+    
+1520	01-01 and if Saturday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1527	1st Monday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1528	1st Monday in August	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1529	1st Tuesday in August	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1530	09-16 and if Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1531	09-19 if Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1535	korean 01-0-01 P3D	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "P "" at line 1, column 16.
+Was expecting:
+    <EOF> 
+    
+1542	korean 8-0-15 P3D	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "P "" at line 1, column 15.
+Was expecting:
+    <EOF> 
+    
+1546	01-01 and if Saturday, Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1547	4th Monday in January	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1552	3rd Monday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1579	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1610	1st sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1611	1st sunday in June	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1639	05-04 and if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1640	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1643	11-18 and if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1662	01-27 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1666	05-01 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1672	11-19 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1674	12-25 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1676	julian 12-25 P2D	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1685	1st saturday in October P2D	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1687	05-21 and if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1688	05-22 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1689	07-13 and if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1690	07-14 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1691	01-01 and if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1692	01-02 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1693	05-01 and if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1694	05-02 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1695	julian 12-24	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1696	julian 12-25	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1697	julian 12-26	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1698	julian 01-01	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1709	1 Shawwal P3D	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "P "" at line 1, column 11.
+Was expecting:
+    <EOF> 
+    
+1710	10 Dhu al-Hijjah P3D	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "P "" at line 1, column 18.
+Was expecting:
+    <EOF> 
+    
+1717	15 Nisan P2D	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "P "" at line 1, column 10.
+Was expecting:
+    <EOF> 
+    
+1719	10 Tishrei P2D	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "P "" at line 1, column 12.
+Was expecting:
+    <EOF> 
+    
+1737	01-01 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1738	julian 12-25 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1741	05-01 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1742	05-24 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1743	08-02 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1744	09-08 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1745	10-11 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1746	10-23 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1747	12-08 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1748	1 Shawwal and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 11.
+Was expecting:
+    <EOF> 
+    
+1749	julian 12-24	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1750	julian 01-06	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1754	julian 08-15	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1795	01-01 and if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1796	01-15 and if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1797	03-03 and if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1801	05-01 and if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1802	05-14 and if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1803	07-06 and if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1804	10-15 and if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1805	12-25 and if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1806	1 Shawwal and if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 11.
+Was expecting:
+    <EOF> 
+    
+1809	1st monday in February	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1811	3rd monday in March	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1819	3rd monday in November	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1820	12-01 every 6 years since 1934	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "every "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1824	substitutes 01-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1826	substitutes 02-03 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1828	substitutes 04-07 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1830	substitutes 05-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1831	1st sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1833	substitutes 06-25 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1835	substitutes 09-07 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1837	substitutes 09-25 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1839	substitutes 10-04 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1841	substitutes 12-25 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1843	substitutes 01-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1845	substitutes 03-21 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1850	substitutes 05-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1852	substitutes 05-04 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1855	substitutes 05-25 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1857	substitutes 08-26 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1859	substitutes 12-10 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1862	substitutes 12-26 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1895	04-27 if sunday then previous saturday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1898	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1899	3rd sunday in June	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1903	3rd tuesday in September	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1911	2nd sunday in February	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1926	2nd sunday in November	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
 1934	12-31 14:00 if sunday then 00:00	worldholidaydates.holidayparser.ParseException: Encountered " <NUMBER> "14 "" at line 1, column 7.
 Was expecting:
     <EOF> 
     
-1935	01-01 and if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1936	01-02 and if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1937	02-06 and if saturday,sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1941	04-25 and if saturday,sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1942	1st monday in June	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1943	4th monday in October	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-1944	12-25 and if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1945	12-26 and if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1946	01-01 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1947	01-09 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1951	05-01 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1952	07-01 every 5 years since 2014	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "v" (118), after : "e"
-1953	11-03 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1954	11-10 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1955	11-28 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1956	12-08 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-1957	12-25 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-2023	1st sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-2060	1st sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-2070	01-01 if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-2071	01-02 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-2072	julian 12-25	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 4.  Encountered: "i" (105), after : "jul"
-2073	02-15 if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-2074	02-16 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-2078	05-01 if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-2079	05-02 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-2080	11-11 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-2088	julian 01-14	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 4.  Encountered: "i" (105), after : "jul"
-2091	julian 06-15	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 4.  Encountered: "i" (105), after : "jul"
-2094	01-02 P5D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 7.  Encountered: "P" (80), after : ""
-2095	julian 12-25	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 4.  Encountered: "i" (105), after : "jul"
-2113	1st friday in August	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-2119	01-01 P2D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 7.  Encountered: "P" (80), after : ""
+1935	01-01 and if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1936	01-02 and if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1937	02-06 and if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1941	04-25 and if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1942	1st monday in June	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1943	4th monday in October	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+1944	12-25 and if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1945	12-26 and if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1946	01-01 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1947	01-09 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1951	05-01 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1952	07-01 every 5 years since 2014	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "every "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1953	11-03 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1954	11-10 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1955	11-28 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1956	12-08 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1957	12-25 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2023	1st sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2060	1st sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2070	01-01 if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2071	01-02 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2072	julian 12-25	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2073	02-15 if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2074	02-16 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2078	05-01 if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2079	05-02 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2080	11-11 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2088	julian 01-14	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2091	julian 06-15	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2094	01-02 P5D	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "P "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2095	julian 12-25	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2113	1st friday in August	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2119	01-01 P2D	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "P "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
 2136	sunday in March	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 2149	sunday before 06-01	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
@@ -613,121 +1523,312 @@ Was expecting:
 
 2154	saturday after 10-31	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-2164	substitutes 01-01 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-2167	substitutes chinese 01-0-01 if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-2168	substitutes chinese 01-0-02 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-2171	substitutes 05-01 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-2173	substitutes 08-09 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-2175	substitutes 12-25 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-2239	substitutes 01-01 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-2240	substitutes 01-01 if saturday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-2244	3rd monday in April	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
+2164	substitutes 01-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2167	substitutes chinese 01-0-01 if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2168	substitutes chinese 01-0-02 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2171	substitutes 05-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2173	substitutes 08-09 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2175	substitutes 12-25 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2239	substitutes 01-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2240	substitutes 01-01 if saturday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2244	3rd monday in April	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
 2247	monday before 09-01	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-2249	substitutes 12-25 if saturday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-2250	substitutes 12-25 if sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-2252	substitutes 12-26 if saturday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-2253	substitutes 12-26 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-2287	2nd sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-2305	2nd sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-2327	1 Shawwal and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 12.  Encountered: "n" (110), after : "a"
-2328	10 Dhu al-Hijjah and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 19.  Encountered: "n" (110), after : "a"
-2343	1st monday in July	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-2367	01-01 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-2368	05-01 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-2369	08-11 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-2370	12-01 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-2408	06-04 if thursday,friday,saturday,sunday then next monday and if tuesday then previous monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-2410	09-17 if thursday,friday,saturday,sunday then next monday and if tuesday then previous monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-2411	11-04 if thursday,friday,saturday,sunday then next monday and if tuesday then previous monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-2412	12-04 if thursday,friday,saturday,sunday then next monday and if tuesday then previous monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-2422	1 Shawwal PT90H	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 11.  Encountered: "P" (80), after : ""
-2423	10 Dhu al-Hijjah PT114H	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 18.  Encountered: "P" (80), after : ""
-2424	01-01 and if Saturday then previous Friday if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
+2249	substitutes 12-25 if saturday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2250	substitutes 12-25 if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2252	substitutes 12-26 if saturday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2253	substitutes 12-26 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2287	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2305	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2327	1 Shawwal and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 11.
+Was expecting:
+    <EOF> 
+    
+2328	10 Dhu al-Hijjah and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 18.
+Was expecting:
+    <EOF> 
+    
+2343	1st monday in July	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2367	01-01 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2368	05-01 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2369	08-11 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2370	12-01 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2408	06-04 if thursday,friday,saturday,sunday then next monday and if tuesday then previous monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2410	09-17 if thursday,friday,saturday,sunday then next monday and if tuesday then previous monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2411	11-04 if thursday,friday,saturday,sunday then next monday and if tuesday then previous monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2412	12-04 if thursday,friday,saturday,sunday then next monday and if tuesday then previous monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2422	1 Shawwal PT90H	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "PT "" at line 1, column 11.
+Was expecting:
+    <EOF> 
+    
+2423	10 Dhu al-Hijjah PT114H	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "PT "" at line 1, column 18.
+Was expecting:
+    <EOF> 
+    
+2424	01-01 and if Saturday then previous Friday if Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
 2425	chinese 01-0-00	worldholidaydates.holidayparser.ParseException: Encountered " <NUMBER> "01 "" at line 1, column 9.
 Was expecting:
     <EOF> 
     
-2427	chinese 01-0-01 if Monday then next Friday if Tuesday then next Saturdayif Wednesday then next Sunday if Thursday then next Monday if Friday then next Tuesday if Saturday then next Wednesday if Sunday then next Thursday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 18.  Encountered: "f" (102), after : "i"
-2431	02-28 and if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-2432	04-04 and if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-2433	chinese 5-01 solarterm and if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 25.  Encountered: "n" (110), after : "a"
-2434	chinese 05-0-05 and if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 18.  Encountered: "n" (110), after : "a"
-2435	chinese 08-0-15 and if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 18.  Encountered: "n" (110), after : "a"
-2436	10-10 and if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-2441	05-01 and if Saturday then previous Friday if Sunday then next Monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-2443	2nd Sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
+2427	chinese 01-0-01 if Monday then next Friday if Tuesday then next Saturdayif Wednesday then next Sunday if Thursday then next Monday if Friday then next Tuesday if Saturday then next Wednesday if Sunday then next Thursday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 17.
+Was expecting:
+    <EOF> 
+    
+2431	02-28 and if Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2432	04-04 and if Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2433	chinese 5-01 solarterm and if Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 24.
+Was expecting:
+    <EOF> 
+    
+2434	chinese 05-0-05 and if Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 17.
+Was expecting:
+    <EOF> 
+    
+2435	chinese 08-0-15 and if Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 17.
+Was expecting:
+    <EOF> 
+    
+2436	10-10 and if Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2441	05-01 and if Saturday then previous Friday if Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2443	2nd Sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
 2455	chinese 01-0-15 #1	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 17.  Encountered: "#" (35), after : ""
 2462	chinese 05-0-13 #1	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 17.  Encountered: "#" (35), after : ""
-2481	1 Shawwal P2D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 11.  Encountered: "P" (80), after : ""
-2484	01-01 and if saturday, sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-2485	01-02 and if saturday, sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-2486	julian 12-25 and if saturday, sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 4.  Encountered: "i" (105), after : "jul"
-2487	03-08 and if saturday, sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-2488	orthodox and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 11.  Encountered: "n" (110), after : "a"
-2489	orthodox 49 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 14.  Encountered: "n" (110), after : "a"
-2490	05-01 and if saturday, sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-2491	05-02 and if saturday, sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-2492	05-09 and if saturday, sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-2493	06-28 and if saturday, sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-2494	08-24 and if saturday, sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-2495	10-14 and if saturday, sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-2512	01-01 and if sunday then next monday if saturday then previous friday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-2513	3rd monday in January	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-2514	3rd monday in February	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-2517	04-15 if friday then next monday if saturday,sunday then next tuesday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
+2481	1 Shawwal P2D	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "P "" at line 1, column 11.
+Was expecting:
+    <EOF> 
+    
+2484	01-01 and if saturday, sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2485	01-02 and if saturday, sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2486	julian 12-25 and if saturday, sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2487	03-08 and if saturday, sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2488	orthodox and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 10.
+Was expecting:
+    <EOF> 
+    
+2489	orthodox 49 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 13.
+Was expecting:
+    <EOF> 
+    
+2490	05-01 and if saturday, sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2491	05-02 and if saturday, sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2492	05-09 and if saturday, sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2493	06-28 and if saturday, sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2494	08-24 and if saturday, sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2495	10-14 and if saturday, sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2512	01-01 and if sunday then next monday if saturday then previous friday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2513	3rd monday in January	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2514	3rd monday in February	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2517	04-15 if friday then next monday if saturday,sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
 2518	wednesday before 04-28	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-2519	2nd sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
+2519	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
 2520	monday before 06-01	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-2521	06-19 and if sunday then next monday if saturday then previous friday since 2021	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-2522	3rd sunday in June	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-2523	07-04 and if sunday then next monday if saturday then previous friday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
+2521	06-19 and if sunday then next monday if saturday then previous friday since 2021	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2522	3rd sunday in June	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2523	07-04 and if sunday then next monday if saturday then previous friday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
 2524	monday in September	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-2525	2nd monday in October	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
+2525	2nd monday in October	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
 2526	10-31 18:00	worldholidaydates.holidayparser.ParseException: Encountered " <NUMBER> "18 "" at line 1, column 7.
 Was expecting:
     <EOF> 
     
-2528	substitutes 11-11 if sunday then next monday if saturday then previous friday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
+2528	substitutes 11-11 if sunday then next monday if saturday then previous friday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
 2529	tuesday after 1st monday in November every 4 years since 1848	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-2530	4th thursday in November	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 15.  Encountered: "n" (110), after : "i"
+2530	4th thursday in November	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
 2531	friday after 4th thursday in November	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-2533	12-25 and if sunday then next monday if saturday then previous friday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-2539	easter -6 P5D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 11.  Encountered: "P" (80), after : ""
-2543	04-19 if tuesday,wednesday then previous monday if thursday,friday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-2545	05-18 if tuesday,wednesday then previous monday if thursday,friday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
-2549	10-12 if tuesday,wednesday then previous monday if thursday,friday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "f" (102), after : "i"
+2533	12-25 and if sunday then next monday if saturday then previous friday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2539	easter -6 P5D	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "P "" at line 1, column 11.
+Was expecting:
+    <EOF> 
+    
+2543	04-19 if tuesday,wednesday then previous monday if thursday,friday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2545	05-18 if tuesday,wednesday then previous monday if thursday,friday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2549	10-12 if tuesday,wednesday then previous monday if thursday,friday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "if "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
 2572	03-19#1	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 6.  Encountered: "#" (35), after : ""
-2581	easter -6 P7D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 11.  Encountered: "P" (80), after : ""
-2602	1 day before vietnamese 1-0-1 P5D	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 5.  Encountered: "y" (121), after : "a"
-2645	julian 12-25	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 4.  Encountered: "i" (105), after : "jul"
-2658	substitutes 01-01 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-2660	substitutes 03-21 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-2665	substitutes 04-27 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-2667	substitutes 05-01 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-2668	2nd sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-2670	substitutes 06-16 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-2671	3rd sunday in June	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-2673	substitutes 08-09 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-2676	substitutes 09-24 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-2678	substitutes 12-16 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-2681	substitutes 12-26 if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 3.  Encountered: "b" (98), after : "su"
-2682	01-01 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-2684	03-12 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-2687	05-01 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-2688	05-25 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-2689	1st monday in July	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
+2581	easter -6 P7D	worldholidaydates.holidayparser.ParseException: Encountered " <STRING> "P "" at line 1, column 11.
+Was expecting:
+    <EOF> 
+    
+2602	1 day before vietnamese 1-0-1 P5D	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2645	julian 12-25	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2658	substitutes 01-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2660	substitutes 03-21 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2665	substitutes 04-27 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2667	substitutes 05-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2668	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2670	substitutes 06-16 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2671	3rd sunday in June	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2673	substitutes 08-09 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2676	substitutes 09-24 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2678	substitutes 12-16 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2681	substitutes 12-26 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2682	01-01 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2684	03-12 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2687	05-01 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2688	05-25 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2689	1st monday in July	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
 2690	tuesday after 1st monday in July	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-2691	1st monday in August	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-2693	10-24 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-2694	12-25 and if sunday then next monday	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 8.  Encountered: "n" (110), after : "a"
-2702	2nd sunday in May	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-2703	3rd sunday in June	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-2704	2nd monday in August	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 13.  Encountered: "n" (110), after : "i"
-2705	2nd tuesday in August	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 14.  Encountered: "n" (110), after : "i"
+2691	1st monday in August	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2693	10-24 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2694	12-25 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+2702	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2703	3rd sunday in June	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2704	2nd monday in August	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
+2705	2nd tuesday in August	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+
