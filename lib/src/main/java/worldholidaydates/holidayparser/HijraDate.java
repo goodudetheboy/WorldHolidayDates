@@ -76,17 +76,15 @@ public class HijraDate extends Date {
     }
 
     public HijraDate(int year, int month, int dayOfMonth) {
-        super(year, month, dayOfMonth, 0, 0);
+        this(year, month, dayOfMonth, 0, 0);
     }
 
     public HijraDate(int month, int dayOfMonth, int hour, int minute) {
-        super(month, dayOfMonth, hour, minute);
-        setYear(DEFAULT_HIJRA_YEAR);
+        this(DEFAULT_HIJRA_YEAR, month, dayOfMonth, hour, minute);
     }
 
     public HijraDate(int month, int dayOfMonth) {
-        super(month, dayOfMonth);
-        setYear(DEFAULT_HIJRA_YEAR);
+        this(DEFAULT_HIJRA_YEAR, month, dayOfMonth, 0, 0);
     }
 
     @Override

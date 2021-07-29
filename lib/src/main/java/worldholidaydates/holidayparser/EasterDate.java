@@ -10,7 +10,7 @@ public class EasterDate extends Date {
     boolean isOrthodox      = false;
     
     public EasterDate() {
-        setYear(GregorianDate.DEFAULT_GREGORIAN_YEAR);
+        this(GregorianDate.DEFAULT_GREGORIAN_YEAR, false);
     }
 
     public EasterDate(int year) {
