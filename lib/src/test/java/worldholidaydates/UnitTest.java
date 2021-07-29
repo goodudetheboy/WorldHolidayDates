@@ -136,4 +136,17 @@ public class UnitTest {
         testParserDate("bengali-revised 1428-11-9", LocalDate.parse("2022-02-23"));
         testParserDate("bengali-revised 4-31", LocalDate.parse("2021-08-16"));
     }
+
+    @Test
+    public void equinoxTest() {
+        testParserDate("5 days before september equinox", LocalDate.parse("2021-09-17"));
+        // testParserDate("march equinox in Asia/Tokyo", LocalDate.parse("2021-03-20"));
+        // testParserDate("march equinox in +09:00", LocalDate.parse("2021-03-20"));
+    }
+
+    @Test
+    public void solsticeTest() {
+        testParserDate("december solstice", LocalDate.parse("2021-12-21"));
+        testParserDate("3rd Sunday after june solstice", LocalDate.parse("2021-07-11"));
+    }
 }

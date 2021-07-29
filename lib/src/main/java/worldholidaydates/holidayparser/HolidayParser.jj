@@ -103,6 +103,32 @@ TOKEN :
 
 TOKEN :
 {
+    < WEEKDAY : 
+        "Monday"
+    |   "Tuesday"
+    |   "Wednesday"
+    |   "Thursday"
+    |   "Friday"
+    |   "Saturday"
+    |   "Sunday" >
+    {
+        matchedToken.image = Utils.capitalize(image.toString());
+    }
+|
+    < DAYS_PH :
+        "days"
+    |   "d" >
+|
+    < AFTER_BEFORE :
+        "after"
+    |   "before" >
+    {
+        matchedToken.image = image.toString().toLowerCase(Locale.US);
+    }
+}
+
+TOKEN :
+{
     < EASTER :
         "Easter"
     |   "Orthodox" >
@@ -138,6 +164,18 @@ TOKEN :
 
 TOKEN:
 {
+    < SOLSTICE :
+        "solstice" >
+|
+    < EQUINOX:
+        "equinox" >
+    {
+        matchedToken.image = image.toString().toLowerCase(Locale.US);
+    }
+}
+
+TOKEN:
+{
     < PLUS : "+" >
 }
 
@@ -153,6 +191,18 @@ TOKEN :
 
 TOKEN :
 {
+    < COUNT_SUFFIX:
+        "st"
+    |   "nd"
+    |   "rd"
+    |   "th" >
+    {
+        matchedToken.image = image.toString().toLowerCase(Locale.US);
+    }
+}
+
+TOKEN :
+{
     < TEST: "T" >
 }
 
@@ -160,8 +210,15 @@ Rule start():
 {
     Rule r = new Rule();
     Date d = null;
+    Date offsetD = null;
 }
 {
+    (
+        LOOKAHEAD( offset() )
+        (
+            offsetD = offset()
+        )
+    )?
     (
         (
             LOOKAHEAD( gregorianDate() )
@@ -202,10 +259,94 @@ Rule start():
         < EOF >
     )
     {
+        if (offsetD != null) {
+            if (offsetD.getOffset() != 0) {
+                d.setOffset(offsetD.getOffset());
+            } else {
+                d.setOffsetWeekDay(offsetD.getOffsetWeekDay());
+                d.setOffsetWeekDayNth(offsetD.getOffsetWeekDayNth());    
+            }
+            d.setOffsetDirection(offsetD.getOffsetDirection());
+        }
         if (d != null) {
             r.setMainDate(d);
         }
         return r;
+    }
+}
+
+Date offset() throws NumberFormatException:
+{
+    Token t;
+    boolean isAfter;
+    Date d = null;
+    int offset = 0;
+}
+{
+    (
+        (
+            LOOKAHEAD( weekdayOffset() )
+                d = weekdayOffset()
+            |
+            LOOKAHEAD( dayOffset() )
+                d = dayOffset()
+        )
+        t = < AFTER_BEFORE >
+        {
+            isAfter = t.image.equals("after");
+        }
+    )
+    {
+        if (d != null) {
+            d.setOffsetDirection(isAfter);
+        }
+        return d;
+    }
+}
+
+Date dayOffset() throws NumberFormatException:
+{
+    Token t;
+    int offset = 0;
+    Date d = new GregorianDate();
+}
+{
+    (
+        t = < NUMBER >
+        {
+            offset = Integer.parseInt(t.image);
+        }
+        (< DAYS_PH >)?
+    )
+    {
+        d.setOffset(offset);
+        return d;
+    }
+}
+
+Date weekdayOffset() throws NumberFormatException:
+{
+    Token t;
+    int offsetWeekDayNth = 1;
+    int offsetWeekDay = 0;
+    Date d = new GregorianDate();
+}
+{
+    (
+        LOOKAHEAD({ getToken(1).kind == NUMBER })
+        t = < NUMBER >
+        {
+            offsetWeekDayNth = Integer.parseInt(t.image);
+        }
+        < COUNT_SUFFIX >
+        t = < WEEKDAY >
+        {
+            offsetWeekDay = Date.weekdayToValue(t.image);
+        }
+    )
+    {
+        d.setOffsetWeekDay(offsetWeekDay, offsetWeekDayNth);
+        return d;
     }
 }
 
@@ -257,8 +398,10 @@ Date gregorianDate() throws NumberFormatException:
 
 Date startOfMonth():
 {
+    Token t;
     String m;    
     int month;
+    Date d;
 }
 {
     (
@@ -266,10 +409,22 @@ Date startOfMonth():
         {
             month = GregorianMonth.fromName(m).getValue();
         }
+        (
+            LOOKAHEAD ({ getToken(1).kind == SOLSTICE || getToken(1).kind == EQUINOX })
+            d = equinoxSolstice()
+        |
+            {
+                d = new GregorianDate(DEFAULT_YEAR, month, 1);
+            }
+        )
     )
     {
-        GregorianDate d = new GregorianDate(DEFAULT_YEAR, month, 1);
-        return d;        
+        try {
+            d.setMonth(month);
+        } catch (IllegalArgumentException e) {
+            throw new ParseException("Problem in setting month for equinox/solstice");
+        }
+        return d;   
     }
 }
 
@@ -282,6 +437,35 @@ String month() :
   {
     return m.image;
   }
+}
+
+Date equinoxSolstice():
+{
+    Token t;
+    Date d;
+}
+{
+    (
+        LOOKAHEAD({ getToken(1).kind == EQUINOX })
+        < EQUINOX >
+        {
+            d = new EquinoxDate();
+        }
+    |
+        LOOKAHEAD({ getToken(1).kind == SOLSTICE })
+        < SOLSTICE >
+        {
+            d = new SolsticeDate();
+        }
+    |
+        {
+            throw new ParseException("Expected equinox or solstice");
+        }
+    )
+    // TODO: add timezone here
+    {
+        return d;
+    }
 }
 
 Date easterOrthodox() throws NumberFormatException:
