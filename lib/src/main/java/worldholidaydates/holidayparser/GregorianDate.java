@@ -84,20 +84,16 @@ public class GregorianDate extends Date {
         setYear(DEFAULT_GREGORIAN_YEAR);
     }
 
-    public GregorianDate(int year, int month, int dayOfMonth, int hour, int minute) {
-        super(year, month, dayOfMonth, hour, minute);
+    public GregorianDate(int year, int month, int dayOfMonth, int time) {
+        super(year, month, dayOfMonth, time);
     }
 
     public GregorianDate(int year, int month, int dayOfMonth) {
-        this(year, month, dayOfMonth, 0, 0);
-    }
-
-    public GregorianDate(int month, int dayOfMonth, int hour, int minute) {
-        this(DEFAULT_GREGORIAN_YEAR, month, dayOfMonth, hour, minute);
+        this(year, month, dayOfMonth, 0);
     }
 
     public GregorianDate(int month, int dayOfMonth) {
-        this(DEFAULT_GREGORIAN_YEAR, month, dayOfMonth, 0, 0);
+        this(DEFAULT_GREGORIAN_YEAR, month, dayOfMonth, 0);
     }
 
     @Override

@@ -101,16 +101,12 @@ public class HebrewDate extends Date {
         setYear(DEFAULT_HEBREW_YEAR);
     }
 
-    public HebrewDate(int year, int month, int dayOfMonth, int hour, int minute) {
-        super(year, month, dayOfMonth, hour, minute);
+    public HebrewDate(int year, int month, int dayOfMonth, int time) {
+        super(year, month, dayOfMonth, time);
     }
 
     public HebrewDate(int year, int month, int dayOfMonth) {
-        this(year, month, dayOfMonth, 0, 0);
-    }
-
-    public HebrewDate(int month, int dayOfMonth, int hour, int minute) {
-        this(DEFAULT_HEBREW_YEAR, month, dayOfMonth, hour, minute);
+        this(year, month, dayOfMonth, 0);
     }
 
     public HebrewDate(int month, int dayOfMonth) {

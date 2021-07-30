@@ -1,7 +1,6 @@
 package worldholidaydates.holidayparser;
 
 import java.time.DayOfWeek;
-import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -18,16 +17,17 @@ import javax.annotation.Nullable;
  * around the world
  */
 public abstract class Date {
-    public static final int UNDEFINED_NUM = Integer.MIN_VALUE;
-    public static final ZoneId DEFAULT_ZONE = ZoneId.of("GMT");
+    public static final int     UNDEFINED_NUM   = Integer.MIN_VALUE;
+    public static final ZoneId  DEFAULT_ZONE    = ZoneId.of("GMT");
+    public static final int     MIN_TIME        = 0;
+    public static final int     MAX_TIME        = 1440 - 1; // can't have 24:00 time
 
     int         year        = UNDEFINED_NUM;
     int         month       = UNDEFINED_NUM;
     NamedMonth  namedMonth  = null;
     int         dayOfMonth  = UNDEFINED_NUM;
 
-    int         hour        = 0;
-    int         minute      = 0;
+    int         time        = MIN_TIME; // in minutes, MAX = 1440 - 1, MIN = 0 
 
     // Gregorian days deviation from raw stored date
     int         offset      = 0;
@@ -49,32 +49,46 @@ public abstract class Date {
     }
 
     /**
+     * Constructs a {@link Date} with a given year, month, dayOfMonth and time.
+     * There's no IllegalArgumentException thrown if the parameters are invalid,
+     * so please use with caution.
      * 
-     * 
-     * @param year
-     * @param month
-     * @param dayOfMonth
-     * @param hour
-     * @param minute
+     * @param year the year
+     * @param month the month, 1-12
+     * @param dayOfMonth the day of month, 1-31
+     * @param time the time, in minutes, {@link #MIN_TIME} to {@link #MAX_TIME}
      */
-    protected Date(int year, int month, int dayOfMonth, int hour, int minute) {
+    protected Date(int year, int month, int dayOfMonth, int time) {
         setYear(year);
         setMonth(month);
         setDayOfMonth(dayOfMonth);
-        setHour(hour);
-        setMinute(minute);
+        setTime(time);
     }
 
+    /**
+     * Constructs a {@link Date} with a given year, month, dayOfMonth, with time
+     * set to {@link #MIN_TIME}. There's no IllegalArgumentException thrown if
+     * the parameters are invalid, so please use with caution.
+     * 
+     * @param year the year
+     * @param month the month, 1-12
+     * @param dayOfMonth the day of month, 1-31
+     */
     protected Date(int year, int month, int dayOfMonth) {
-        this(year, month, dayOfMonth, 0, 0);
+        this(year, month, dayOfMonth, 0);
     }
 
-    protected Date(int month, int dayOfMonth, int hour, int minute) {
-        this(GregorianDate.DEFAULT_GREGORIAN_YEAR, month, dayOfMonth, hour, minute);
-    }
-
+    /**
+     * Constructs a {@link Date} with a given month, dayOfMonth, with year set
+     * to default year set in each date and time set to {@link #MIN_TIME}. There's
+     * no IllegalArgumentException thrown if the parameters are invalid, so
+     * please use with caution.
+     * 
+     * @param month the month, 1-12
+     * @param dayOfMonth the day of month, 1-31
+     */
     protected Date(int month, int dayOfMonth) {
-        this(GregorianDate.DEFAULT_GREGORIAN_YEAR, month, dayOfMonth, 0, 0);
+        this(GregorianDate.DEFAULT_GREGORIAN_YEAR, month, dayOfMonth, 0);
     }
 
     public int getYear() {
@@ -91,12 +105,8 @@ public abstract class Date {
         return dayOfMonth;
     }
 
-    public int getHour() {
-        return hour;
-    }
-
-    public int getMinute() {
-        return minute;
+    public int getTime() {
+        return time;
     }
 
     public int getOffset() {
@@ -140,12 +150,8 @@ public abstract class Date {
         this.dayOfMonth = dayOfMonth;
     }
     
-    public void setHour(int hour) {
-        this.hour = hour;
-    }
-
-    public void setMinute(int minute) {
-        this.minute = minute;
+    public void setTime(int time) {
+        this.time = time;
     }
 
     public void setOffset(int offset) {
@@ -211,7 +217,7 @@ public abstract class Date {
      *      with offset, if any
      */
     public LocalDateTime calculate() {
-        return calculateDate().atTime(hour, minute);
+        return calculateDate().atTime(minutesToLocalTime(time));
     }
 
     /**
@@ -259,7 +265,7 @@ public abstract class Date {
      *      without taking any offset into calculation.
      */
     public LocalDateTime calculateRaw() {
-        return calculateRawDate().atTime(hour, minute);
+        return calculateRawDate().atTime(minutesToLocalTime(time));
     }
 
     /**
@@ -444,15 +450,12 @@ public abstract class Date {
     
         double hour;
         double minute;
-        double second;
         double tm;
     
         tm = 24 * (dayOfMonth - Math.floor(dayOfMonth));
         hour = Math.floor(tm);
         tm = 60 * (tm - hour);
         minute = Math.floor(tm);
-        tm = 60 * (tm - minute);
-        second = Math.round(tm);
         
         return ZonedDateTime.of(LocalDate.of((int) year, (int) month, (int) dayOfMonth),
                                 LocalTime.of((int) hour, (int) minute),
@@ -494,5 +497,18 @@ public abstract class Date {
             default:
                 throw new IllegalArgumentException("Invalid weekday: " + weekday);
         }
+    }
+
+    /**
+     * Converts a minute value from {@link MIN_TIME} to {@link MAX_TIME} to an
+     * instance of {@link LocalTime}.
+     * 
+     * @param timeInMinutes a minute value from {@link MIN_TIME} to {@link MAX_TIME}
+     * @return an instance of {@link LocalTime}
+     */
+    public static LocalTime minutesToLocalTime(int timeInMinutes) {
+        int hour = timeInMinutes / 60;
+        int minute = timeInMinutes % 60;
+        return LocalTime.of(hour, minute);
     }
 }

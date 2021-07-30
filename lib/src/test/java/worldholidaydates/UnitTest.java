@@ -151,4 +151,9 @@ public class UnitTest {
         testParser("3rd Sunday after june solstice", LocalDateTime.parse("2021-07-11T03:24"));
         testParser("3rd Sunday after june solstice in -05:00", LocalDateTime.parse("2021-07-11T22:24"));
     }
+
+    @Test
+    public void differentStartTimeTest() {
+        testParser("12-31 14:00", LocalDateTime.parse("2021-12-31T14:00"));
+    }
 }

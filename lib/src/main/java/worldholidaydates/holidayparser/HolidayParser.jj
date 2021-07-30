@@ -43,7 +43,11 @@ public class HolidayParser {
 PARSER_END(HolidayParser)
 
 SKIP : { " " }
-TOKEN : { < DASH : "-" > }
+TOKEN :
+{
+    < DASH : "-" >
+|   < COLON : ":" >
+}
 
 TOKEN : { < YEAR :  (< DIGIT >){4} > }
 
@@ -230,6 +234,7 @@ Rule start():
     Rule r = new Rule();
     Date d = null;
     Date offsetD = null;
+    int startTime = 0;
 }
 {
     (
@@ -275,8 +280,14 @@ Rule start():
                 d = bengaliRevised()
             )?
         )
-        < EOF >
     )
+    (
+        LOOKAHEAD( startTime() )
+        (
+            startTime = startTime()
+        )
+    )?
+    < EOF >
     {
         if (offsetD != null) {
             if (offsetD.getOffset() != 0) {
@@ -287,6 +298,7 @@ Rule start():
             }
             d.setOffsetDirection(offsetD.getOffsetDirection());
         }
+        d.setTime(startTime);
         if (d != null) {
             r.setMainDate(d);
         }
@@ -366,6 +378,34 @@ Date weekdayOffset() throws NumberFormatException:
     {
         d.setOffsetWeekDay(offsetWeekDay, offsetWeekDayNth);
         return d;
+    }
+}
+
+int startTime() throws NumberFormatException:
+{
+    Token t;
+    int startTime = 0;
+}
+{
+    (
+        LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 0, 23) })
+        t = < NUMBER >
+        {
+            int hour = Integer.parseInt(t.image);
+            startTime = hour * 60;
+        }
+    )
+    < COLON >
+    (
+        LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 0, 59) && (getToken(1).image.length() >= 2 || "0".equals(getToken(1).image))})
+        t = < NUMBER >
+        {
+            int minute = Integer.parseInt(t.image);
+            startTime += minute;
+        }
+    )
+    {
+        return startTime;
     }
 }
 

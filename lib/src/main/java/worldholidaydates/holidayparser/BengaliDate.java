@@ -13,22 +13,16 @@ public class BengaliDate extends Date {
         setYear(DEFAULT_BENGALI_YEAR);
     }
 
-    public BengaliDate(int year, int month, int dayOfMonth, int hour, int minute) {
-        super(year, month, dayOfMonth, hour, minute);
+    public BengaliDate(int year, int month, int dayOfMonth, int time) {
+        super(year, month, dayOfMonth, time);
     }
 
     public BengaliDate(int year, int month, int dayOfMonth) {
-        super(year, month, dayOfMonth, 0, 0);
-    }
-
-    public BengaliDate(int month, int dayOfMonth, int hour, int minute) {
-        super(month, dayOfMonth, hour, minute);
-        setYear(DEFAULT_BENGALI_YEAR);
+        super(year, month, dayOfMonth, 0);
     }
 
     public BengaliDate(int month, int dayOfMonth) {
-        super(month, dayOfMonth);
-        setYear(DEFAULT_BENGALI_YEAR);
+        super(DEFAULT_BENGALI_YEAR, month, dayOfMonth);
     }
     
     @Override
