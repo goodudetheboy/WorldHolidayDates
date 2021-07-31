@@ -27,7 +27,10 @@ public abstract class Date {
     NamedMonth  namedMonth  = null;
     int         dayOfMonth  = UNDEFINED_NUM;
 
-    int         time        = MIN_TIME; // in minutes, MAX = 1440 - 1, MIN = 0 
+    int         startTime   = MIN_TIME; // in minutes, MAX = 1440 - 1, MIN = 0 
+    // the range of this {@link Date} in minutes, the default range is from the
+    // startTime to the end of the stored day
+    int         range       = UNDEFINED_NUM; 
 
     // Gregorian days deviation from raw stored date
     int         offset      = 0;
@@ -62,7 +65,7 @@ public abstract class Date {
         setYear(year);
         setMonth(month);
         setDayOfMonth(dayOfMonth);
-        setTime(time);
+        setStartTime(time);
     }
 
     /**
@@ -105,8 +108,18 @@ public abstract class Date {
         return dayOfMonth;
     }
 
-    public int getTime() {
-        return time;
+    /**
+     * @return the start time of this {@link Date} (in minutes)
+     */
+    public int getStartTime() {
+        return startTime;
+    }
+
+    /**
+     * @return the range of this {@link Date} (in minutes)
+     */
+    public int getRange() {
+        return range;
     }
 
     public int getOffset() {
@@ -150,8 +163,22 @@ public abstract class Date {
         this.dayOfMonth = dayOfMonth;
     }
     
-    public void setTime(int time) {
-        this.time = time;
+    /**
+     * Sets the start time of this {@link Date} (in minutes).
+     * 
+     * @param startTime the start time (in minutes)
+     */
+    public void setStartTime(int startTime) {
+        this.startTime = startTime;
+    }
+
+    /**
+     * Sets the range of this {@link Date} (in minutes).
+     * 
+     * @param range the range (in minutes)
+     */
+    public void setRange(int range) {
+        this.range = range;
     }
 
     public void setOffset(int offset) {
@@ -205,8 +232,26 @@ public abstract class Date {
     }
 
     /**
+     * Shifts the input date by the {@link #offset} and {@link #offsetWeekDay},
+     * if any.
+     * 
+     * @param date the date to shift
+     * @return the shifted date by offset and weekday offset, if any
+     */
+    private LocalDateTime offsetShift(LocalDateTime date) {
+        LocalDateTime result = date;
+        if (offset != 0) {
+            result = getOffsetDate(result, (isAfter) ? offset : -offset);
+        }
+        if (offsetWeekDay != 0) {
+            result = getOffsetWeekDayDate(result, offsetWeekDay, offsetWeekDayNth, isAfter);
+        }
+        return result;
+    }
+
+    /**
      * Calculates the Gregorian date and time created only from the year,
-     * month, day, hour, and minutes stored in this {@link Date}, along
+     * month, day, start time in minutes stored in this {@link Date}, along
      * with any offset (deviation from raw dates). To get the date with offset,
      * use the {@link #calculate} method instead.
      * <p>
@@ -217,23 +262,50 @@ public abstract class Date {
      *      with offset, if any
      */
     public LocalDateTime calculate() {
-        return calculateDate().atTime(minutesToLocalTime(time));
+        return calculateDate().atTime(minutesToLocalTime(startTime));
+    }
+
+    /**
+     * Calculates the Gregorian date and time created only from the year,
+     * month, day, start time in minutes stored in this {@link Date}, along
+     * with any offset (deviation from raw dates). To get the date with offset,
+     * use the {@link #calculate} method instead.
+     * <p>
+     * The returned date will be of {@link LocalDate}. Support for more options,
+     * such as Threeten, will be implemented later.
+     * 
+     * @return the Gregorian date created only from the year, month, day,
+     *      with offset, if any
+     */
+    public LocalDateTime calculateEnd() {
+        return calculate().plusMinutes(range);
     }
 
     /**
      * Similar to {@link #calculate}, but converted to {@link ZonedDateTime}
      * with the stored {@link #timezone}.
      * 
-     * @return the Gregorian date created only from the year, month, day,
-     *      with offset, if any, at the stored {@link #timezone}
+     * @return the Gregorian date created only from the year, month, day, and
+     *      start time with offset, if any, at the stored {@link #timezone}
      */
     public ZonedDateTime calculateWithTimeZone() {
         return calculate().atZone(timezone);
     }
 
     /**
-     * Calculates the Gregorian date created from the year, month, day, along
-     * with any offset (deviation from raw dates), if any.
+     * Similar to {@link #calculateEnd}, but converted to {@link ZonedDateTime}
+     * with the stored {@link #timezone}.
+     * 
+     * @return the Gregorian date created only from the year, month, day, and
+     *      start time with offset, if any, at the stored {@link #timezone}
+     */
+    public ZonedDateTime calculateEndWithTimeZone() {
+        return calculateEnd().atZone(timezone);
+    }
+
+    /**
+     * Calculates the start Gregorian date created from the year, month, day,
+     * and along with any offset (deviation from raw dates), if any.
      * <p>
      * The returned date will be of {@link LocalDate}. Support for more options,
      * such as Threeten, will be implemented later.
@@ -242,37 +314,70 @@ public abstract class Date {
      *      this date, with offset, if any
      */
     public LocalDate calculateDate() {
-        LocalDate result = calculateRawDate();
-        if (offset != 0) {
-            result = getOffsetDate(result.atStartOfDay(), (isAfter) ? offset : -offset).toLocalDate();
-        }
-        if (offsetWeekDay != 0) {
-            result = getOffsetWeekDayDate(result.atStartOfDay(), offsetWeekDay, offsetWeekDayNth, isAfter).toLocalDate();
-        }
-        return result;
+        LocalDateTime raw = calculateRaw();
+        return offsetShift(raw).toLocalDate();
     }
 
     /**
-     * Calculates the Gregorian date and time created only from the year,
-     * month, day, hour, and minutes stored in this {@link Date}, without 
-     * taking any offset into calculation. To get the date with offset,
-     * use the {@link #calculate} method instead.
+     * Calculates the end Gregorian date created from the year, month, day,
+     * shifted by {@link range}, and along with any offset (deviation
+     * from raw dates), if any.
      * <p>
      * The returned date will be of {@link LocalDate}. Support for more options,
      * such as Threeten, will be implemented later.
      * 
-     * @return the Gregorian date created only from the year, month, day,
-     *      without taking any offset into calculation.
+     * @return the Gregorian date created from the year, month, day stored in
+     *      this date, with offset, if any
      */
-    public LocalDateTime calculateRaw() {
-        return calculateRawDate().atTime(minutesToLocalTime(time));
+    public LocalDate calculateDateEnd() {
+        LocalDateTime raw = calculateRawEnd();
+        return offsetShift(raw).toLocalDate();
     }
 
     /**
-     * Calculates the Gregorian date created only from the year, month, day,
-     * stored in this {@link Date} without taking any offset into calculation.
-     * To get the date with offset, use the {@link #calculateDate} method
-     * instead.
+     * Calculates the start Gregorian date and time created only from the year,
+     * month, day in this {@link Date}, without taking any offset into
+     * calculation. To get the date with offset, use the {@link #calculate}
+     * method instead.
+     * <p>
+     * The returned date will be of {@link LocalDate}. Support for more options,
+     * such as Threeten, will be implemented later.
+     * 
+     * @return the Gregorian date created only from the year, month, day, and
+     *      start time without taking any offset into calculation.
+     */
+    public LocalDateTime calculateRaw() {
+        return calculateRawDate().atTime(minutesToLocalTime(startTime));
+    }
+
+    /**
+     * Calculates the Gregorian date and time created only from the year,
+     * month, day, shifted by {@link range} in this {@link Date}, without 
+     * taking any offset into calculation. To get the date with offset,
+     * use the {@link #calculateEnd} method instead.
+     * <p>
+     * By default, the end time is defined as the This is useful for when a
+     * {@link Date} is defined to have range longer than one day/24 hours.
+     * <p>
+     * The returned date will be of {@link LocalDate}. Support for more options,
+     * such as Threeten, will be implemented later.
+     * 
+     * @return the Gregorian date created only from the year, month, day, and
+     *      end time without taking any offset into calculation.
+     */
+    public LocalDateTime calculateRawEnd() {
+        LocalDateTime raw = calculateRaw();
+        if (range == UNDEFINED_NUM) {
+            LocalDate rawDate = raw.toLocalDate();
+            return rawDate.atTime(minutesToLocalTime(MAX_TIME));
+        }
+        return raw.plusMinutes(range);
+    }
+
+    /**
+     * Calculates the start Gregorian date created only from the year, month, day,
+     * stored in this {@link Date}without taking any offset into calculation.
+     * To get the date with offset, use the {@link #calculateDate} method instead.
      * <p>
      * The returned date will be of {@link LocalDate}. Support for more options,
      * such as Threeten, will be implemented later.
@@ -284,6 +389,25 @@ public abstract class Date {
      *      without taking any offset into calculation.
      */
     public abstract LocalDate calculateRawDate();
+
+    /**
+     * Calculates the end Gregorian date created only from the year, month, day,
+     * stored in this {@link Date}, shifted by {@link range}, without taking any
+     * offset into calculation. To get the end date with offset, use the
+     * {@link #calculateDateEnd} method instead.
+     * <p>
+     * The returned date will be of {@link LocalDate}. Support for more options,
+     * such as Threeten, will be implemented later.
+     * <p>
+     * Note that the method is abstract here is because this is intended for
+     * use with different calendar systems in the world.
+     * 
+     * @return the Gregorian date created only from the year, month, day,
+     *      without taking any offset into calculation.
+     */
+    public LocalDate calculateRawDateEnd() {
+        return calculateRawEnd().toLocalDate();
+    }
 
     /**
      * @return a string representation of the date with named month, which is
