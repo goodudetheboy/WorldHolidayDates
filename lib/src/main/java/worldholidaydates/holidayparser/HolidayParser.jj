@@ -47,6 +47,7 @@ TOKEN :
 {
     < DASH : "-" >
 |   < COLON : ":" >
+|   < PLUS : "+" >
 }
 
 TOKEN : { < YEAR :  (< DIGIT >){4} > }
@@ -119,15 +120,30 @@ TOKEN :
         matchedToken.image = Utils.capitalize(image.toString());
     }
 |
-    < DAYS_PH :
-        "days"
-    |   "d" >
-|
     < AFTER_BEFORE :
         "after"
     |   "before" >
     {
         matchedToken.image = image.toString().toLowerCase(Locale.US);
+    }
+}
+
+TOKEN :
+{
+    < DAYS_PH :
+        "days"
+    |   "d" >
+}
+
+TOKEN :
+{
+    < ISO_PERIOD : "P" >
+|   < ISO_DAY : "D" >
+|   < ISO_TIME : "T" >
+|   < ISO_HOUR : "H" >
+|   < ISO_MINUTE : "M" >
+    {
+        matchedToken.image = image.toString().toUpperCase(Locale.US);
     }
 }
 
@@ -178,11 +194,6 @@ TOKEN:
     }
 }
 
-TOKEN:
-{
-    < PLUS : "+" >
-}
-
 TOKEN :
 {
   < NUMBER : (< DIGIT >)+ >
@@ -215,18 +226,7 @@ TOKEN :
     < TIMEZONE :
         (["A"-"Z"]){3}
     |   (< PLUS > | < DASH >) <NUMBER> ":" <NUMBER>
-    |    <STRING> "/" <STRING> >
-}
-
-TOKEN :
-{
-    < STRING :
-        (["a"-"z","A"-"Z"])+ >
-}
-
-TOKEN :
-{
-    < TEST: "T" >
+    |    (["a"-"z","A"-"Z"])+ "/" (["a"-"z","A"-"Z"])+ >
 }
 
 Rule start():
@@ -235,6 +235,7 @@ Rule start():
     Date d = null;
     Date offsetD = null;
     int startTime = 0;
+    int range = 0;
 }
 {
     (
@@ -282,11 +283,20 @@ Rule start():
         )
     )
     (
-        LOOKAHEAD( { getToken(2).kind == COLON } )
+        LOOKAHEAD( < NUMBER > < COLON > < NUMBER > )
         (
             startTime = startTime()
             {
                 d.setStartTime(startTime);
+            }
+        )
+    )?
+    (
+        LOOKAHEAD( < ISO_PERIOD > )
+        (
+            range = differentRange()
+            {
+                d.setRange(range);
             }
         )
     )?
@@ -410,6 +420,49 @@ int startTime() throws NumberFormatException:
         return startTime;
     }
 }
+
+int differentRange() throws NumberFormatException:
+{
+    Token t;
+    int day = 0;
+    int hour = 0;
+    int minute = 0;
+    int range = 0;
+}
+{
+    < ISO_PERIOD >
+    (
+        // TODO: Fix this DAYS_PH and ISO_DAYS ordeal here
+        LOOKAHEAD( { getToken(2).kind == DAYS_PH })
+        t = < NUMBER >
+        {
+            day = Integer.parseInt(t.image);
+        }
+        <DAYS_PH>
+    )?
+    < ISO_TIME >
+    (
+        LOOKAHEAD({ getToken(2).kind == ISO_HOUR })
+        t = < NUMBER >
+        {
+            hour = Integer.parseInt(t.image);
+        }
+        < ISO_HOUR >
+    )?
+    (
+        LOOKAHEAD({ getToken(2).kind == ISO_MINUTE })
+        t = < NUMBER >
+        {
+            minute = Integer.parseInt(t.image);
+        }
+        < ISO_MINUTE >
+    )?
+    {
+        range = day * 24 * 60 + hour * 60 + minute;
+        return range;
+    }
+}
+
 
 Date gregorianDate() throws NumberFormatException:
 {

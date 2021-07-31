@@ -10,6 +10,10 @@ public class Rule {
         // empty
     }
 
+    public Date getMainDate() {
+        return mainDate;
+    }
+
     public void setMainDate(Date mainDate) {
         this.mainDate = mainDate;
     }

@@ -27,7 +27,7 @@ public abstract class Date {
     NamedMonth  namedMonth  = null;
     int         dayOfMonth  = UNDEFINED_NUM;
 
-    int         startTime   = MIN_TIME; // in minutes, MAX = 1440 - 1, MIN = 0 
+    int         startTime   = UNDEFINED_NUM; // in minutes, MAX = 1440 - 1, MIN = 0 
     // the range of this {@link Date} in minutes, the default range is from the
     // startTime to the end of the stored day
     int         range       = UNDEFINED_NUM; 
@@ -262,7 +262,8 @@ public abstract class Date {
      *      with offset, if any
      */
     public LocalDateTime calculate() {
-        return calculateDate().atTime(minutesToLocalTime(startTime));
+        LocalDateTime raw = calculateRaw();
+        return offsetShift(raw);
     }
 
     /**
@@ -336,8 +337,8 @@ public abstract class Date {
 
     /**
      * Calculates the start Gregorian date and time created only from the year,
-     * month, day in this {@link Date}, without taking any offset into
-     * calculation. To get the date with offset, use the {@link #calculate}
+     * month, day, and start time in this {@link Date}, without taking any offset
+     * into calculation. To get the date with offset, use the {@link #calculate}
      * method instead.
      * <p>
      * The returned date will be of {@link LocalDate}. Support for more options,
@@ -347,7 +348,11 @@ public abstract class Date {
      *      start time without taking any offset into calculation.
      */
     public LocalDateTime calculateRaw() {
-        return calculateRawDate().atTime(minutesToLocalTime(startTime));
+        LocalDate rawDate = calculateRawDate();
+        LocalTime rawTime = (startTime != UNDEFINED_NUM)
+                            ? minutesToLocalTime(startTime) 
+                            : minutesToLocalTime(0);
+        return rawDate.atTime(rawTime);
     }
 
     /**

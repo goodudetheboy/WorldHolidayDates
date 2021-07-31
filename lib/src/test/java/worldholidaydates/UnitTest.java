@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 import org.junit.Test;
 
 import worldholidaydates.holidayparser.Rule;
+import worldholidaydates.holidayparser.Date;
 import worldholidaydates.holidayparser.HolidayParser;
 import worldholidaydates.holidayparser.ParseException;
 
@@ -28,6 +29,20 @@ public class UnitTest {
             fail("Parse fail at \"" + input + "\" - " + e.getMessage());
         }
     }
+
+    public static void testParserEnd(String input, LocalDateTime expected) {
+        HolidayParser parser = new HolidayParser(new ByteArrayInputStream(input.getBytes()));
+        try {
+            Rule rule = parser.parse();
+            Date mainDate = rule.getMainDate();
+            LocalDateTime actual = mainDate.calculateEnd();
+            assertEquals(expected, actual);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            fail("Parse fail at \"" + input + "\" - " + e.getMessage());
+        }
+    }
+
 
     public static void testFailParser(String input, String expectedMessage) throws ParseException {
         try {
@@ -164,5 +179,17 @@ public class UnitTest {
         testParser("january 22:00", LocalDateTime.parse("2021-01-01T22:00"));
         testParser("2015-07-24 23:00", LocalDateTime.parse("2015-07-24T23:00"));
         testParser("07-24 00:00", LocalDateTime.parse("2021-07-24T00:00"));
+    }
+
+    @Test
+    public void differentRangeTest() {
+        testParser("12-31 14:00 P0DT0H0M", LocalDateTime.parse("2021-12-31T14:00"));
+        testParserEnd("12-31 14:00 P0DT0H0M", LocalDateTime.parse("2021-12-31T14:00"));
+        testParser("12-31 14:00 PT5H", LocalDateTime.parse("2021-12-31T14:00"));
+        testParserEnd("12-31 14:00 PT5H", LocalDateTime.parse("2021-12-31T19:00"));
+        testParser("17 Dhu al-Hijjah PT5M", LocalDateTime.parse("2021-07-27T00:00"));
+        testParserEnd("17 Dhu al-Hijjah PT5M", LocalDateTime.parse("2021-07-27T00:05"));
+        testParser("easter P1DT12H", LocalDateTime.parse("2021-04-04T00:00"));
+        testParserEnd("easter P1DT12H", LocalDateTime.parse("2021-04-05T12:00"));
     }
 }
