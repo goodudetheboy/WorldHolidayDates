@@ -1,13 +1,13 @@
 package worldholidaydates.holidayparser;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
-import worldholidaydates.holidayparser.GregorianDate.GregorianMonth;
-
-public class EquinoxDate extends Date {
+/**
+ * A class for calculating the date and time of equinox events, on which
+ * a holiday can be based.
+ */
+public class EquinoxDate extends AstronomicalDate {
 
     public EquinoxDate() {
         setYear(GregorianDate.DEFAULT_GREGORIAN_YEAR);
@@ -24,58 +24,8 @@ public class EquinoxDate extends Date {
     }
 
     @Override
-    public void setMonth(int month) {
-        if (month == 3 || month == 9) {
-            super.setMonth(month);
-        } else {
-            throw new IllegalArgumentException("Equinox dates must be in March or September, not: " + month);
-        }
-    }
-
-    @Override
-    public void setNamedMonth(NamedMonth namedMonth) {
-        if (namedMonth instanceof GregorianMonth) {
-            setMonth(((GregorianMonth) namedMonth).getValue());
-            super.setNamedMonth(namedMonth);
-        } else {
-            throw new IllegalArgumentException("NamedMonth must be a GregorianMonth");
-        }
-    }
-
-    @Override
-    public GregorianMonth getNamedMonth() {
-        return (GregorianMonth) namedMonth;
-    }
-
-    @Override
-    public LocalDateTime calculate() {
-        LocalDateTime result = calculateRaw();
-        if (offset != 0) {
-            result = getOffsetDate(result, (isAfter) ? offset : -offset);
-        }
-        if (offsetWeekDay != 0) {
-            result = getOffsetWeekDayDate(result, offsetWeekDay, offsetWeekDayNth, isAfter);
-        }
-        return result;
-    }
-
-    @Override
-    public ZonedDateTime calculateWithTimeZone() {
-        return calculate().atZone(timezone);
-    }
-
-    @Override
-    public LocalDateTime calculateRaw() {
-        ZonedDateTime defaultResult = calculateEquinoxDate(month, year);
-        ZonedDateTime shiftedResult = defaultResult.withZoneSameInstant(timezone);
-        return shiftedResult.toLocalDateTime();
-    }
-
-    @Override
-    public LocalDate calculateRawDate() {
-        ZonedDateTime defaultResult = calculateEquinoxDate(month, year);
-        ZonedDateTime shiftedResult = defaultResult.withZoneSameInstant(timezone);
-        return shiftedResult.toLocalDate();
+    public boolean isAcceptedMonth(int month) {
+        return month == 3 || month == 9;
     }
 
     @Override
@@ -85,6 +35,11 @@ public class EquinoxDate extends Date {
          .append("equinox").append(", ")
          .append(year);
         return b.toString();
+    }
+    
+    @Override
+    protected ZonedDateTime calculateAstronomicalDate() {
+        return calculateEquinoxDate(month, year);
     }
 
     /**

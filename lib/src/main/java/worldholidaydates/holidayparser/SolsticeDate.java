@@ -1,13 +1,13 @@
 package worldholidaydates.holidayparser;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
-import worldholidaydates.holidayparser.GregorianDate.GregorianMonth;
-
-public class SolsticeDate extends Date {
+/**
+ * A class for calculating the date and time of solstice events, on which
+ * a holiday can be based.
+ */
+public class SolsticeDate extends AstronomicalDate {
 
     public SolsticeDate() {
         setYear(GregorianDate.DEFAULT_GREGORIAN_YEAR);
@@ -24,60 +24,15 @@ public class SolsticeDate extends Date {
     }
 
     @Override
-    public void setMonth(int month) {
-        if (month == 6 || month == 12) {
-            super.setMonth(month);
-        } else {
-            throw new IllegalArgumentException("Solstice dates must be in June or December, not " + month);
-        }
+    public boolean isAcceptedMonth(int month) {
+        return month == 6 || month == 12;
     }
 
     @Override
-    public void setNamedMonth(NamedMonth namedMonth) {
-        if (namedMonth instanceof GregorianMonth) {
-            setMonth(((GregorianMonth) namedMonth).getValue());
-            super.setNamedMonth(namedMonth);
-        } else {
-            throw new IllegalArgumentException("NamedMonth must be a GregorianMonth");
-        }
+    protected ZonedDateTime calculateAstronomicalDate() {
+        return calculateSolsticeDate(month, year);
     }
-
-    @Override
-    public GregorianMonth getNamedMonth() {
-        return (GregorianMonth) namedMonth;
-    }
-
-    @Override
-    public LocalDateTime calculate() {
-        LocalDateTime result = calculateRaw();
-        if (offset != 0) {
-            result = getOffsetDate(result, (isAfter) ? offset : -offset);
-        }
-        if (offsetWeekDay != 0) {
-            result = getOffsetWeekDayDate(result, offsetWeekDay, offsetWeekDayNth, isAfter);
-        }
-        return result;
-    }
-
-    @Override
-    public ZonedDateTime calculateWithTimeZone() {
-        return calculate().atZone(timezone);
-    }
-
-    @Override
-    public LocalDateTime calculateRaw() {
-        ZonedDateTime defaultResult = calculateSolsticeDate(month, year);
-        ZonedDateTime shiftedResult = defaultResult.withZoneSameInstant(timezone);
-        return shiftedResult.toLocalDateTime();
-    }
-
-    @Override
-    public LocalDate calculateRawDate() {
-        ZonedDateTime defaultResult = calculateSolsticeDate(month, year);
-        ZonedDateTime shiftedResult = defaultResult.withZoneSameInstant(timezone);
-        return shiftedResult.toLocalDate();
-    }
-
+    
     @Override
     public String toNamedString() {
         StringBuilder b = new StringBuilder();
@@ -108,13 +63,13 @@ public class SolsticeDate extends Date {
         switch (month) {
             case 6:
                 // Summer Solstice
-                double sSols = 2451716.56767 + 365241.62603 * m + 0.00325 * m2 
+                double sSols = 2451716.56767 + 365241.62603 * m + 0.00325 * m2
                             + 0.00888 * m3 - 0.00030 * m4;
                 return jdeToDate(sSols);
             case 12:
                 // Winter Solstice
-                double wSols = 2451900.05952 + 365242.74049 * m - 0.06223 * m2 
-                        - 0.00823 * m3 + 0.00032 * m4;
+                double wSols = 2451900.05952 + 365242.74049 * m - 0.06223 * m2
+                            - 0.00823 * m3 + 0.00032 * m4;
                 return jdeToDate(wSols);
             default:
                 throw new IllegalArgumentException("Solstice dates must be in June or December, not: " + month);
