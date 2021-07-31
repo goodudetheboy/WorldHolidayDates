@@ -141,7 +141,7 @@ public class HebrewDate extends Date {
      *      converted to Gregorian calendar
      */
     @Override
-    public LocalDate calculateRawDate() {
+    public LocalDate calculateDate() {
         HebrewCalendar date = HebrewCalendar.of(year, ((HebrewMonth) namedMonth).toTime4jHebrewMonth(), dayOfMonth);
         PlainDate pdate = date.transform(PlainDate.class);
         return pdate.toTemporalAccessor();

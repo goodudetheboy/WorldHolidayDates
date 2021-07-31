@@ -29,12 +29,14 @@ import worldholidaydates.holidayparser.GregorianDate.GregorianMonth;
 
 public class HolidayParser {
     static int DEFAULT_YEAR = 2021;
+    Rule rule;
 
     public static void main (String[] args) throws ParseException, TokenMgrError {
         // nothing here
     }
 
     public Rule parse() throws ParseException {
+        rule = new Rule();
         return start();
     }
 
@@ -231,18 +233,14 @@ TOKEN :
 
 Rule start():
 {
-    Rule r = new Rule();
     Date d = null;
-    Date offsetD = null;
     int startTime = 0;
     int range = 0;
 }
 {
     (
         LOOKAHEAD( offset() )
-        (
-            offsetD = offset()
-        )
+        offset()
     )?
     (
         (
@@ -294,85 +292,62 @@ Rule start():
     (
         LOOKAHEAD( < ISO_PERIOD > )
         (
-            range = differentRange()
-            {
-                d.setRange(range);
-            }
+            differentRange()
         )
     )?
     < EOF >
     {
-        if (offsetD != null) {
-            if (offsetD.getOffset() != 0) {
-                d.setOffset(offsetD.getOffset());
-            } else {
-                d.setOffsetWeekDay(offsetD.getOffsetWeekDay());
-                d.setOffsetWeekDayNth(offsetD.getOffsetWeekDayNth());    
-            }
-            d.setOffsetDirection(offsetD.getOffsetDirection());
-        }
         if (d != null) {
-            r.setMainDate(d);
+            rule.setRawDate(d);
         }
-        return r;
+        return rule;
     }
 }
 
-Date offset() throws NumberFormatException:
+void offset() throws NumberFormatException:
 {
     Token t;
     boolean isAfter;
-    Date d = null;
     int offset = 0;
 }
 {
     (
         (
             LOOKAHEAD( weekdayOffset() )
-                d = weekdayOffset()
+                weekdayOffset()
             |
             LOOKAHEAD( dayOffset() )
-                d = dayOffset()
+                dayOffset()
         )
         t = < AFTER_BEFORE >
         {
             isAfter = t.image.equals("after");
+            rule.setOffsetDirection(isAfter);
         }
     )
-    {
-        if (d != null) {
-            d.setOffsetDirection(isAfter);
-        }
-        return d;
-    }
 }
 
-Date dayOffset() throws NumberFormatException:
+void dayOffset() throws NumberFormatException:
 {
     Token t;
     int offset = 0;
-    Date d = new GregorianDate();
 }
 {
     (
         t = < NUMBER >
         {
             offset = Integer.parseInt(t.image);
+            rule.setOffset(offset);
         }
         (< DAYS_PH >)?
     )
-    {
-        d.setOffset(offset);
-        return d;
-    }
 }
 
-Date weekdayOffset() throws NumberFormatException:
+void weekdayOffset() throws NumberFormatException:
 {
     Token t;
     int offsetWeekDayNth = 1;
     int offsetWeekDay = 0;
-    Date d = new GregorianDate();
 }
 {
     (
@@ -380,17 +355,15 @@ Date weekdayOffset() throws NumberFormatException:
         t = < NUMBER >
         {
             offsetWeekDayNth = Integer.parseInt(t.image);
+            rule.setOffsetWeekDayNth(offsetWeekDayNth);
         }
         < COUNT_SUFFIX >
         t = < WEEKDAY >
         {
             offsetWeekDay = Date.weekdayToValue(t.image);
+            rule.setOffsetWeekDay(offsetWeekDay);
         }
     )
-    {
-        d.setOffsetWeekDay(offsetWeekDay, offsetWeekDayNth);
-        return d;
-    }
 }
 
 int startTime() throws NumberFormatException:
@@ -421,7 +394,7 @@ int startTime() throws NumberFormatException:
     }
 }
 
-int differentRange() throws NumberFormatException:
+void differentRange() throws NumberFormatException:
 {
     Token t;
     int day = 0;
@@ -459,7 +432,7 @@ int differentRange() throws NumberFormatException:
     )?
     {
         range = day * 24 * 60 + hour * 60 + minute;
-        return range;
+        rule.setRange(range);
     }
 }
 

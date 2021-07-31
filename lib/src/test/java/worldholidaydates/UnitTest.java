@@ -34,8 +34,7 @@ public class UnitTest {
         HolidayParser parser = new HolidayParser(new ByteArrayInputStream(input.getBytes()));
         try {
             Rule rule = parser.parse();
-            Date mainDate = rule.getMainDate();
-            LocalDateTime actual = mainDate.calculateEnd();
+            LocalDateTime actual = rule.calculateEnd();
             assertEquals(expected, actual);
         } catch (ParseException e) {
             e.printStackTrace();

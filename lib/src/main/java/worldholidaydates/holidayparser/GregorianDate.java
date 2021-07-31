@@ -124,7 +124,7 @@ public class GregorianDate extends Date {
      *      Gregorian calendar
      */
     @Override
-    public LocalDate calculateRawDate() {
+    public LocalDate calculateDate() {
         return LocalDate.of(year, month, dayOfMonth);
     }
 }

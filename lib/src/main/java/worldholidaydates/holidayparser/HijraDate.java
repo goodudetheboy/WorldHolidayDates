@@ -111,7 +111,7 @@ public class HijraDate extends Date {
      *      converted to Gregorian calendar
      */
     @Override
-    public LocalDate calculateRawDate() {
+    public LocalDate calculateDate() {
         java.time.chrono.HijrahDate date =  HijrahChronology.INSTANCE.date(HijrahEra.AH, year, month, dayOfMonth);
         return LocalDate.from(date);
     }

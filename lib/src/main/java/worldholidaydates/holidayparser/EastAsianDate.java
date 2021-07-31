@@ -155,7 +155,7 @@ public class EastAsianDate extends Date {
      *      converted to Gregorian calendar
      */
     @Override @Nullable
-    public LocalDate calculateRawDate() {
+    public LocalDate calculateDate() {
         if (month != Date.UNDEFINED_NUM) {
             // normal year, month, day
             // conversion

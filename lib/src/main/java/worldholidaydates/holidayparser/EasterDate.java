@@ -8,7 +8,8 @@ import java.time.LocalDate;
  */
 public class EasterDate extends Date {
     boolean isOrthodox      = false;
-    
+    int     offset          = 0;
+
     public EasterDate() {
         this(GregorianDate.DEFAULT_GREGORIAN_YEAR, false);
     }
@@ -31,8 +32,16 @@ public class EasterDate extends Date {
         return isOrthodox;
     }
 
+    public int getOffset() {
+        return offset;
+    }
+
     public void setOrthodox(boolean isOrthodox) {
         this.isOrthodox = isOrthodox;
+    }
+
+    public void setOffset(int offset) {
+        this.offset = offset;
     }
 
     @Override
@@ -48,8 +57,9 @@ public class EasterDate extends Date {
      * @return the date of Easter of the year stored in this {@link EasterDate}
      */
     @Override
-    public LocalDate calculateRawDate() {
-        return (isOrthodox) ? getOrthodoxEasterDate(year) : getEasterDate(year);
+    public LocalDate calculateDate() {
+        LocalDate result = (isOrthodox) ? getOrthodoxEasterDate(year) : getEasterDate(year);
+        return getOffsetDate(result.atStartOfDay(), offset).toLocalDate();
     }
 
     /**

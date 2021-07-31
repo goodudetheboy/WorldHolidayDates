@@ -47,7 +47,7 @@ public abstract class AstronomicalDate extends Date {
     }
 
     @Override
-    public LocalDateTime calculateRaw() {
+    public LocalDateTime calculate() {
         ZonedDateTime defaultResult = calculateAstronomicalDate();
         ZonedDateTime shiftedResult = defaultResult.withZoneSameInstant(timezone);
         if (startTime != UNDEFINED_NUM) {
@@ -60,7 +60,7 @@ public abstract class AstronomicalDate extends Date {
     }
 
     @Override
-    public LocalDate calculateRawDate() {
+    public LocalDate calculateDate() {
         ZonedDateTime defaultResult = calculateAstronomicalDate();
         ZonedDateTime shiftedResult = defaultResult.withZoneSameInstant(timezone);
         return shiftedResult.toLocalDate();

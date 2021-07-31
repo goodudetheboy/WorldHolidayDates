@@ -39,7 +39,7 @@ public class BengaliDate extends Date {
      *      converted to Gregorian calendar
      */
     @Override
-    public LocalDate calculateRawDate() {
+    public LocalDate calculateDate() {
         return toGregorianDate(year, month, dayOfMonth);
     }
     
