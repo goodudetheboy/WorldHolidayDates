@@ -282,9 +282,12 @@ Rule start():
         )
     )
     (
-        LOOKAHEAD( startTime() )
+        LOOKAHEAD( { getToken(2).kind == COLON } )
         (
             startTime = startTime()
+            {
+                d.setStartTime(startTime);
+            }
         )
     )?
     < EOF >
@@ -298,7 +301,6 @@ Rule start():
             }
             d.setOffsetDirection(offsetD.getOffsetDirection());
         }
-        d.setTime(startTime);
         if (d != null) {
             r.setMainDate(d);
         }
@@ -557,10 +559,13 @@ Date easterOrthodox() throws NumberFormatException:
         }
     )?
     (
-        t = < NUMBER >
-        {
-            offset = (isPlus) ? Integer.parseInt(t.image) : Integer.parseInt(t.image) * -1;
-        }
+        LOOKAHEAD({ getToken(1).kind == NUMBER && getToken(2).kind != COLON })
+        (
+            t = < NUMBER >
+            {
+                offset = (isPlus) ? Integer.parseInt(t.image) : Integer.parseInt(t.image) * -1;
+            }
+        )
     )?
     {
         EasterDate d = new EasterDate(DEFAULT_YEAR, isOrthodox, offset);

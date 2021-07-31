@@ -8,7 +8,6 @@ import static org.junit.Assert.fail;
 import java.io.ByteArrayInputStream;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.chrono.HijrahDate;
 
 import org.junit.Test;
 
@@ -18,7 +17,7 @@ import worldholidaydates.holidayparser.ParseException;
 
 public class UnitTest {
 
-    public void testParser(String input, LocalDateTime expected) {
+    public static void testParser(String input, LocalDateTime expected) {
         HolidayParser parser = new HolidayParser(new ByteArrayInputStream(input.getBytes()));
         try {
             Rule rule = parser.parse();
@@ -30,9 +29,16 @@ public class UnitTest {
         }
     }
 
-    public void testFailParser(String input) throws ParseException {
-        HolidayParser parser = new HolidayParser(new ByteArrayInputStream(input.getBytes()));
-        Rule rule = parser.parse();
+    public static void testFailParser(String input, String expectedMessage) throws ParseException {
+        try {
+            HolidayParser parser = new HolidayParser(new ByteArrayInputStream(input.getBytes()));
+            parser.parse();
+            fail("Should have failed");
+        } catch (ParseException e) {
+            // expected
+            System.out.println(e.getMessage());
+            assertEquals(expectedMessage, e.getMessage().substring(0, 50));
+        }
     }
 
     public void testParserDate(String input, LocalDate expected) {
@@ -119,15 +125,8 @@ public class UnitTest {
     }
 
     @Test
-    public void eastAsianSolarTermFailTest() {
-        try {
-            testFailParser("chinese 25-01 solarterm");
-            fail("Should have failed");
-        } catch (ParseException e) {
-            // expected
-            System.out.println(e.getMessage());
-            assertEquals("Encountered \" <NUMBER> \"25 \"\" at line 1, column 9.", e.getMessage().substring(0, 50));
-        }
+    public void eastAsianSolarTermFailTest() throws ParseException {
+        testFailParser("chinese 25-01 solarterm", "Encountered \" <NUMBER> \"25 \"\" at line 1, column 9.");
     }
 
     @Test
@@ -155,5 +154,15 @@ public class UnitTest {
     @Test
     public void differentStartTimeTest() {
         testParser("12-31 14:00", LocalDateTime.parse("2021-12-31T14:00"));
+        testParser("5 days before september equinox 15:00", LocalDateTime.parse("2021-09-17T15:00"));
+        testParser("december solstice 16:00", LocalDateTime.parse("2021-12-21T16:00"));
+        testParser("bengali-revised 1428-11-9 17:00", LocalDateTime.parse("2022-02-23T17:00"));
+        testParser("chinese 78-38-5-01 solarterm 18:00", LocalDateTime.parse("2021-04-05T18:00"));
+        testParser("27 Shvat 19:00", LocalDateTime.parse("2021-02-09T19:00"));
+        testParser("17 Dhu al-Hijjah 20:00", LocalDateTime.parse("2021-07-27T20:00"));
+        testParser("orthodox 21:00", LocalDateTime.parse("2021-05-02T21:00"));
+        testParser("january 22:00", LocalDateTime.parse("2021-01-01T22:00"));
+        testParser("2015-07-24 23:00", LocalDateTime.parse("2015-07-24T23:00"));
+        testParser("07-24 00:00", LocalDateTime.parse("2021-07-24T00:00"));
     }
 }
