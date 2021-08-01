@@ -1,11 +1,3 @@
-22	1 Shawwal P3D	worldholidaydates.holidayparser.ParseException: Encountered "<EOF>" at line 1, column 13.
-Was expecting:
-    "T" ...
-    
-23	10 Dhu al-Hijjah P3D	worldholidaydates.holidayparser.ParseException: Encountered "<EOF>" at line 1, column 20.
-Was expecting:
-    "T" ...
-    
 27	01-01 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
 Was expecting:
     <EOF> 
@@ -77,14 +69,6 @@ Was expecting:
 76	12-25 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
 Was expecting:
     <EOF> 
-    
-80	01-01 P2D	worldholidaydates.holidayparser.ParseException: Encountered "<EOF>" at line 1, column 9.
-Was expecting:
-    "T" ...
-    
-81	01-03 P3D	worldholidaydates.holidayparser.ParseException: Encountered "<EOF>" at line 1, column 9.
-Was expecting:
-    "T" ...
     
 97	2nd saturday in October	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
@@ -230,14 +214,6 @@ Was expecting:
 
 239	julian 12-25	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-242	10 Dhu al-Hijjah P4D	worldholidaydates.holidayparser.ParseException: Encountered "<EOF>" at line 1, column 20.
-Was expecting:
-    "T" ...
-    
-243	1 Shawwal P3D	worldholidaydates.holidayparser.ParseException: Encountered "<EOF>" at line 1, column 13.
-Was expecting:
-    "T" ...
-    
 250	05-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
 Was expecting:
     <EOF> 
@@ -248,20 +224,8 @@ Was expecting:
 
 259	substitutes 12-26 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-269	1 Shawwal P3D	worldholidaydates.holidayparser.ParseException: Encountered "<EOF>" at line 1, column 13.
-Was expecting:
-    "T" ...
-    
-270	10 Dhu al-Hijjah P3D	worldholidaydates.holidayparser.ParseException: Encountered "<EOF>" at line 1, column 20.
-Was expecting:
-    "T" ...
-    
 284	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-338	10 Dhu al-Hijjah P3D	worldholidaydates.holidayparser.ParseException: Encountered "<EOF>" at line 1, column 20.
-Was expecting:
-    "T" ...
-    
 379	substitutes 01-01 if saturday, sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 381	friday before 06-01	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
@@ -280,10 +244,6 @@ Was expecting:
 
 391	substitutes 12-26 if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-398	1 Shawwal P3D	worldholidaydates.holidayparser.ParseException: Encountered "<EOF>" at line 1, column 13.
-Was expecting:
-    "T" ...
-    
 422	05-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
 Was expecting:
     <EOF> 
@@ -524,10 +484,6 @@ Was expecting:
 
 712	1st sunday in June	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-721	chinese 01-0-01 P2D	worldholidaydates.holidayparser.ParseException: Encountered "<EOF>" at line 1, column 19.
-Was expecting:
-    "T" ...
-    
 722	4th monday in March	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 741	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
@@ -596,14 +552,6 @@ Was expecting:
 903	23-07	worldholidaydates.holidayparser.ParseException: Month must be between 1-12, not 23
 906	julian 12-25	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-909	1 Shawwal P3D	worldholidaydates.holidayparser.ParseException: Encountered "<EOF>" at line 1, column 13.
-Was expecting:
-    "T" ...
-    
-910	10 Dhu al-Hijjah P4D	worldholidaydates.holidayparser.ParseException: Encountered "<EOF>" at line 1, column 20.
-Was expecting:
-    "T" ...
-    
 912	substitutes 01-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 914	substitutes 01-06 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
@@ -670,10 +618,6 @@ Was expecting:
     
 1018	sunday before 06-01	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-1030	08-16 P2D	worldholidaydates.holidayparser.ParseException: Encountered "<EOF>" at line 1, column 9.
-Was expecting:
-    "T" ...
-    
 1036	substitutes 01-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 1037	substitutes 01-01 if saturday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
@@ -688,24 +632,12 @@ Was expecting:
 
 1050	substitutes 12-26 if sunday then next monday if monday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-1057	04-24 P3D	worldholidaydates.holidayparser.ParseException: Encountered "<EOF>" at line 1, column 9.
-Was expecting:
-    "T" ...
-    
 1062	1st monday in August	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 1063	2nd monday in August	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 1064	tuesday after 2nd monday in August	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-1066	10-15 P5D	worldholidaydates.holidayparser.ParseException: Encountered "<EOF>" at line 1, column 9.
-Was expecting:
-    "T" ...
-    
-1068	12-04 P3D	worldholidaydates.holidayparser.ParseException: Encountered "<EOF>" at line 1, column 9.
-Was expecting:
-    "T" ...
-    
 1091	2nd monday in March	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 1094	05-01 if sunday, saturday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
@@ -1017,14 +949,6 @@ Was expecting:
 Was expecting:
     <EOF> 
     
-1535	korean 01-0-01 P3D	worldholidaydates.holidayparser.ParseException: Encountered "<EOF>" at line 1, column 18.
-Was expecting:
-    "T" ...
-    
-1542	korean 8-0-15 P3D	worldholidaydates.holidayparser.ParseException: Encountered "<EOF>" at line 1, column 17.
-Was expecting:
-    "T" ...
-    
 1546	01-01 and if Saturday, Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
 Was expecting:
     <EOF> 
@@ -1109,22 +1033,6 @@ Was expecting:
 
 1698	julian 01-01	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-1709	1 Shawwal P3D	worldholidaydates.holidayparser.ParseException: Encountered "<EOF>" at line 1, column 13.
-Was expecting:
-    "T" ...
-    
-1710	10 Dhu al-Hijjah P3D	worldholidaydates.holidayparser.ParseException: Encountered "<EOF>" at line 1, column 20.
-Was expecting:
-    "T" ...
-    
-1717	15 Nisan P2D	worldholidaydates.holidayparser.ParseException: Encountered "<EOF>" at line 1, column 12.
-Was expecting:
-    "T" ...
-    
-1719	10 Tishrei P2D	worldholidaydates.holidayparser.ParseException: Encountered "<EOF>" at line 1, column 14.
-Was expecting:
-    "T" ...
-    
 1737	01-01 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
 Was expecting:
     <EOF> 
@@ -1367,18 +1275,10 @@ Was expecting:
 
 2091	julian 06-15	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-2094	01-02 P5D	worldholidaydates.holidayparser.ParseException: Encountered "<EOF>" at line 1, column 9.
-Was expecting:
-    "T" ...
-    
 2095	julian 12-25	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 2113	1st friday in August	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-2119	01-01 P2D	worldholidaydates.holidayparser.ParseException: Encountered "<EOF>" at line 1, column 9.
-Was expecting:
-    "T" ...
-    
 2136	sunday in March	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 2149	sunday before 06-01	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
@@ -1509,10 +1409,6 @@ Was expecting:
 
 2455	chinese 01-0-15 #1	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 17.  Encountered: "#" (35), after : ""
 2462	chinese 05-0-13 #1	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 17.  Encountered: "#" (35), after : ""
-2481	1 Shawwal P2D	worldholidaydates.holidayparser.ParseException: Encountered "<EOF>" at line 1, column 13.
-Was expecting:
-    "T" ...
-    
 2484	01-01 and if saturday, sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
 Was expecting:
     <EOF> 
@@ -1603,10 +1499,6 @@ Was expecting:
 Was expecting:
     <EOF> 
     
-2539	easter -6 P5D	worldholidaydates.holidayparser.ParseException: Encountered "<EOF>" at line 1, column 13.
-Was expecting:
-    "T" ...
-    
 2543	04-19 if tuesday,wednesday then previous monday if thursday,friday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
 Was expecting:
     <EOF> 
@@ -1620,10 +1512,6 @@ Was expecting:
     <EOF> 
     
 2572	03-19#1	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 6.  Encountered: "#" (35), after : ""
-2581	easter -6 P7D	worldholidaydates.holidayparser.ParseException: Encountered "<EOF>" at line 1, column 13.
-Was expecting:
-    "T" ...
-    
 2602	1 day before vietnamese 1-0-1 P5D	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 2645	julian 12-25	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.

@@ -276,6 +276,7 @@ public class Rule {
      *      with offset, if any
      */
     public LocalDateTime calculateEnd() {
+        // throw new IllegalArgumentException(range + "" );
         return calculate().plusMinutes(range);
     }
     

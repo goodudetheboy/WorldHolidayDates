@@ -439,22 +439,25 @@ void differentRange() throws NumberFormatException:
         }
         <DAYS_PH>
     )?
-    < ISO_TIME >
     (
-        LOOKAHEAD({ getToken(2).kind == ISO_HOUR })
-        t = < NUMBER >
-        {
-            hour = Integer.parseInt(t.image);
-        }
-        < ISO_HOUR >
-    )?
-    (
-        LOOKAHEAD({ getToken(2).kind == ISO_MINUTE })
-        t = < NUMBER >
-        {
-            minute = Integer.parseInt(t.image);
-        }
-        < ISO_MINUTE >
+        LOOKAHEAD( { getToken(1).kind == ISO_TIME } )
+        < ISO_TIME >
+        (
+            LOOKAHEAD({ getToken(2).kind == ISO_HOUR })
+            t = < NUMBER >
+            {
+                hour = Integer.parseInt(t.image);
+            }
+            < ISO_HOUR >
+        )?
+        (
+            LOOKAHEAD({ getToken(2).kind == ISO_MINUTE })
+            t = < NUMBER >
+            {
+                minute = Integer.parseInt(t.image);
+            }
+            < ISO_MINUTE >
+        )?
     )?
     {
         range = day * 24 * 60 + hour * 60 + minute;

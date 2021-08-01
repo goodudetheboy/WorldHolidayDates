@@ -190,6 +190,7 @@ public class UnitTest {
         testParserEnd("17 Dhu al-Hijjah PT5M", LocalDateTime.parse("2021-07-27T00:05"));
         testParser("easter P1DT12H", LocalDateTime.parse("2021-04-04T00:00"));
         testParserEnd("easter P1DT12H", LocalDateTime.parse("2021-04-05T12:00"));
+        testParser("1 Shawwal P3D", LocalDateTime.parse("2021-05-13T00:00"));testParserEnd("1 Shawwal P3D", LocalDateTime.parse("2021-05-16T00:00"));
     }
 
     @Test
