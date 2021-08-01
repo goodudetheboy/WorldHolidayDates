@@ -202,4 +202,12 @@ public class UnitTest {
         testParser("2021-08-01 14:00 if Saturday,sunday then 00:00 if monday,Tuesday then 05:00", LocalDateTime.parse("2021-08-01T00:00"));
         testParser("2021-08-03 14:00 if Saturday,sunday then 00:00 if monday,Tuesday,wednesday then 05:00", LocalDateTime.parse("2021-08-03T05:00"));
     }
+
+    @Test
+    public void differentWeekdayTest() {
+        testParser("1st Monday after 08-01", LocalDateTime.parse("2021-08-02T00:00"));
+        testParser("Monday after 08-01", LocalDateTime.parse("2021-08-02T00:00"));
+        testParser("Saturday before 08-01", LocalDateTime.parse("2021-07-31T00:00"));
+        testParser("2nd saturday before 08-01", LocalDateTime.parse("2021-07-24T00:00"));
+    }
 }

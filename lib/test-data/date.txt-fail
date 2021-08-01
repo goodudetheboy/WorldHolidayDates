@@ -228,15 +228,7 @@ Was expecting:
 
 379	substitutes 01-01 if saturday, sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-381	friday before 06-01	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
 382	3nd monday in June	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
-383	thursday before 08-04	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
-384	friday before 08-05	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
-385	monday after 09-01	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 387	substitutes 11-11 if saturday, sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
@@ -290,7 +282,7 @@ Was expecting:
 
 476	3rd monday in July	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-477	tuesday after 3rd monday in July	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+477	tuesday after 3rd monday in July	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 15.
 
 479	substitutes 09-30 if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
@@ -334,10 +326,6 @@ Was expecting:
 Was expecting:
     <EOF> 
     
-515	monday before 05-25	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
-518	monday after 08-01	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
 519	1st monday in September	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 525	chinese 01-0-01 and if sunday then next tuesday if saturday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 17.
@@ -458,19 +446,7 @@ Was expecting:
 Was expecting:
     <EOF> 
     
-650	monday after 01-06	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
-651	monday after 03-19	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
-660	monday after 06-29	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
-663	monday after 08-15	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
-664	monday after 10-12	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
 665	1st monday in November	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
-666	monday after 11-11	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 679	10-12 if monday then previous friday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
 Was expecting:
@@ -491,8 +467,6 @@ Was expecting:
 756	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 776	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
-784	wednesday before 11-23	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 798	06-27 since 1977	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "sin "" at line 1, column 7.
 Was expecting:
@@ -598,12 +572,6 @@ Was expecting:
     
 960	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-961	friday after 06-19	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
-962	saturday after 06-20	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
-963	saturday after 10-31	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
 975	10-10 and if Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
 Was expecting:
     <EOF> 
@@ -616,8 +584,6 @@ Was expecting:
 Was expecting:
     <EOF> 
     
-1018	sunday before 06-01	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
 1036	substitutes 01-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 1037	substitutes 01-01 if saturday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
@@ -636,7 +602,7 @@ Was expecting:
 
 1063	2nd monday in August	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-1064	tuesday after 2nd monday in August	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+1064	tuesday after 2nd monday in August	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 15.
 
 1091	2nd monday in March	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
@@ -645,10 +611,6 @@ Was expecting:
     <EOF> 
     
 1095	1st monday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
-1097	monday before 06-20	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
-1098	monday before September	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 1100	09-10 and if sunday, saturday then previous monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
 Was expecting:
@@ -704,8 +666,6 @@ Was expecting:
 Was expecting:
     <EOF> 
     
-1181	monday after 07-01	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
 1209	01-01 and if Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
 Was expecting:
     <EOF> 
@@ -789,17 +749,11 @@ Was expecting:
     
 1387	2nd friday in June	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-1391	friday after 01-18	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
-1401	thursday after 04-18	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
 1403	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 1407	1st sunday in June	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 1409	monday in August	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
-1410	saturday after 10-21	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 1423	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
@@ -1281,16 +1235,6 @@ Was expecting:
 
 2136	sunday in March	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-2149	sunday before 06-01	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
-2151	friday after 06-19	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
-2152	saturday after 06-20	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
-2153	friday after 10-30	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
-2154	saturday after 10-31	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
 2164	substitutes 01-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 2167	substitutes chinese 01-0-01 if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
@@ -1308,8 +1252,6 @@ Was expecting:
 2240	substitutes 01-01 if saturday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 2244	3rd monday in April	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
-2247	monday before 09-01	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 2249	substitutes 12-25 if saturday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
@@ -1467,11 +1409,7 @@ Was expecting:
 Was expecting:
     <EOF> 
     
-2518	wednesday before 04-28	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
 2519	2nd sunday in May	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
-
-2520	monday before 06-01	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 2521	06-19 and if sunday then next monday if saturday then previous friday since 2021	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
 Was expecting:
@@ -1489,11 +1427,11 @@ Was expecting:
 
 2528	substitutes 11-11 if sunday then next monday if saturday then previous friday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-2529	tuesday after 1st monday in November every 4 years since 1848	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+2529	tuesday after 1st monday in November every 4 years since 1848	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 15.
 
 2530	4th thursday in November	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-2531	friday after 4th thursday in November	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+2531	friday after 4th thursday in November	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 14.
 
 2533	12-25 and if sunday then next monday if saturday then previous friday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
 Was expecting:
@@ -1556,7 +1494,7 @@ Was expecting:
     
 2689	1st monday in July	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-2690	tuesday after 1st monday in July	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
+2690	tuesday after 1st monday in July	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 15.
 
 2691	1st monday in August	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 

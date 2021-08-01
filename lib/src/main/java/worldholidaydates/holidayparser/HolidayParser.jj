@@ -377,19 +377,24 @@ void weekdayOffset() throws NumberFormatException:
 }
 {
     (
-        LOOKAHEAD({ getToken(1).kind == NUMBER })
-        t = < NUMBER >
-        {
-            offsetWeekDayNth = Integer.parseInt(t.image);
-            rule.setOffsetWeekDayNth(offsetWeekDayNth);
-        }
-        < COUNT_SUFFIX >
+        (
+            LOOKAHEAD({ getToken(1).kind == NUMBER })
+            t = < NUMBER >
+            {
+                offsetWeekDayNth = Integer.parseInt(t.image);
+                rule.setOffsetWeekDayNth(offsetWeekDayNth);
+            }
+            < COUNT_SUFFIX >
+        )?
         t = < WEEKDAY >
         {
             offsetWeekDay = Date.weekdayToValue(t.image);
-            rule.setOffsetWeekDay(offsetWeekDay);
         }
     )
+    {
+        rule.setOffsetWeekDayNth(offsetWeekDayNth);
+        rule.setOffsetWeekDay(offsetWeekDay);
+    }
 }
 
 int startTime() throws NumberFormatException:
