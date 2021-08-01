@@ -3,11 +3,12 @@ package worldholidaydates.holidayparser;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.List;
 
 public class Rule {
     public static final int UNDEFINED_NUM = Integer.MIN_VALUE;
     Date    rawDate    = null;
-     
+
     // the range of this {@link Date} in minutes, the default range is from the
     // startTime to the end of the stored day
     int         range       = UNDEFINED_NUM; 
@@ -22,29 +23,47 @@ public class Rule {
     // Offset before or after raw stored date
     boolean     isAfter     = true;
 
+    // Start-time of holiday changes per weekday
+    // list of if weekday, from 1-7
+    List<List<Integer>>   ifWeekdays   = null; 
+     // list of alternative time, from {@link Date#MIN_TIME} to {@link Date#MAX_TIME}
+    List<Integer>   altTime     = null;
+
     public Rule() {
         // empty
     }
 
+    /**
+     * @return the raw {@link Date} of this {@link Rule}.
+     */
     public Date getRawDate() {
         return rawDate;
     }
 
     /**
-     * @return the range of this {@link Date} (in minutes)
+     * @return the range of the raw {@link Date} (in minutes)
      */
     public int getRange() {
         return range;
     }
 
+    /**
+     * @return the offset of the raw {@link Date} (in minutes)
+     */
     public int getOffset() {
         return offset;
     }
 
+    /**
+     * @return the weekday offset of the raw {@link Date}.
+     */
     public int getOffsetWeekDay() {
         return offsetWeekDay;
     }
 
+    /**
+     * @return the nth of the weekday offset of the raw {@link Date}.
+     */
     public int getOffsetWeekDayNth() {
         return offsetWeekDayNth;
     }
@@ -58,8 +77,28 @@ public class Rule {
         return isAfter;
     }
 
-    public void setRawDate(Date mainDate) {
-        this.rawDate = mainDate;
+    /**
+     * @return the list of if weekday, from 1-7
+     */
+    public List<List<Integer>> getIfWeekdays() {
+        return ifWeekdays;
+    }
+
+    /**
+     * @return the list of alternative time, from {@link Date#MIN_TIME} to {@link Date#MAX_TIME}
+     */
+    public List<Integer> getAlternateTime() {
+        return altTime;
+    }
+
+    /**
+     * Sets the {@link Date} to be used in the {@link Rule}
+     * 
+     * @param rawDate the {@link Date} to be used in the {@link Rule}
+     * 
+     */
+    public void setRawDate(Date rawDate) {
+        this.rawDate = rawDate;
     }
 
     /**
@@ -71,15 +110,32 @@ public class Rule {
         this.range = range;
     }
 
+    /**
+     * Sets the offset of this {@link Rule} (in minutes).
+     * 
+     * @param offset the offset (in minutes)
+     */
     public void setOffset(int offset) {
         this.offset = offset;
     }
 
+    /**
+     * Sets the offset and the offset direction of this {@link Rule}
+     * (in minutes).
+     * 
+     * @param offset the offset (in minutes)
+     * @param isAfter the offset direction (true if the offset is after, false
+     */
     public void setOffset(int offset, boolean isAfter) {
         this.offset = offset;
         this.isAfter = isAfter;
     }
 
+    /**
+     * Sets the weekday offset of this {@link Rule} (from 1-7).
+     * 
+     * @param offsetWeekDay the weekday offset (from 1-7)
+     */
     public void setOffsetWeekDay(int offsetWeekDay) {
         if (offsetWeekDay < 1 || offsetWeekDay > 7) {
             throw new IllegalArgumentException("offsetWeekDay must be between 1 and 7");
@@ -87,16 +143,37 @@ public class Rule {
         this.offsetWeekDay = offsetWeekDay;
     }
     
+    /**
+     * Sets the weekday offset (from 1-7) and the nth of that weekday (from 1-100)
+     * of this {@link Rule}.
+     * 
+     * @param offsetWeekDay the weekday offset (from 1-7)
+     * @param offsetWeekDayNth the nth of that weekday (from 1-100)
+     */
     public void setOffsetWeekDay(int offsetWeekDay, int offsetWeekDayNth) {
         setOffsetWeekDay(offsetWeekDay);
         setOffsetWeekDayNth(offsetWeekDayNth);
     }
 
+    /**
+     * Sets the weekday offset (from 1-7) and the nth of that weekday (from 1-100)
+     * and the offset direction.
+     * 
+     * @param offsetWeekDay the weekday offset (from 1-7)
+     * @param offsetWeekDayNth the nth of that weekday (from 1-100)
+     * @param isAfter the offset direction (true if the offset is after, false
+     *      if it is before)
+     */
     public void setOffsetWeekDay(int offsetWeekDay, int offsetWeekDayNth, boolean isAfter) {
         setOffsetWeekDay(offsetWeekDay, offsetWeekDayNth);
         setOffsetDirection(isAfter);
     }
 
+    /**
+     * Sets the nth of the weekday offset of the raw {@link Date} (from 1-100).
+     * 
+     * @param offsetWeekDayNth the nth of the weekday offset (from 1-100)
+     */
     public void setOffsetWeekDayNth(int offsetWeekDayNth) {
         if (offsetWeekDayNth < 0 || offsetWeekDayNth > 100) {
             throw new IllegalArgumentException("offsetWeekDayNth must be between 0 and 100");
@@ -107,10 +184,29 @@ public class Rule {
     /**
      * Set the offset direction of this {@link Date}.
      * 
-     * @param isAfter true if the offset direction is after, false if it is before
+     * @param isAfter true if the offset direction is after, false if it
+     *      is before
      */
     public void setOffsetDirection(boolean isAfter) {
         this.isAfter = isAfter;
+    }
+
+    /**
+     * Sets the list of if weekday.
+     * 
+     * @param ifWeekdays the list of if weekday
+     */
+    public void setIfWeekdays(List<List<Integer>> ifWeekdays) {
+        this.ifWeekdays = ifWeekdays;
+    }
+    
+    /**
+     * Sets the list of alternative time.
+     * 
+     * @param altTime the list of alternative time
+     */
+    public void setAlternateTime(List<Integer> altTime) {
+        this.altTime = altTime;
     }
 
     /**
@@ -132,6 +228,28 @@ public class Rule {
     }
 
     /**
+     * Check if the input date's weekday is in one of the {@link #ifWeekdays}.
+     * If yes, the input date's new time will be the corresponding indexed
+     * {@link #altTime}'s time.
+     * 
+     * @param date the date to check
+     * @return the input date's new time, if it is in one of the {@link #ifWeekdays}
+     */
+    private LocalDateTime checkIfWeekday(LocalDateTime date) {
+        LocalDateTime result = date;
+        for (int i=0; i<ifWeekdays.size(); i++) {
+            List<Integer> ifWeekday = ifWeekdays.get(i);
+            for (int weekday : ifWeekday) {
+                if (result.getDayOfWeek().getValue() == weekday) {
+                    LocalTime newTime = Date.minutesToLocalTime(altTime.get(i));
+                    return result.toLocalDate().atTime(newTime);
+                }
+            }
+        }
+        return result;
+    }
+
+    /**
      * Calculates the start Gregorian date and time created from the {@link #rawDate},
      * along with any offset (deviation from raw dates).
      * <p>
@@ -143,7 +261,8 @@ public class Rule {
      */
     public LocalDateTime calculate() {
         LocalDateTime raw = calculateRaw();
-        return offsetShift(raw);
+        LocalDateTime offsetShifted = offsetShift(raw);
+        return checkIfWeekday(offsetShifted);
     }
 
     /**

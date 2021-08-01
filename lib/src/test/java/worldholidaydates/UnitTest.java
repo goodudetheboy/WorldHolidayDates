@@ -191,4 +191,14 @@ public class UnitTest {
         testParser("easter P1DT12H", LocalDateTime.parse("2021-04-04T00:00"));
         testParserEnd("easter P1DT12H", LocalDateTime.parse("2021-04-05T12:00"));
     }
+
+    @Test
+    public void startTimeChangesPerWeekDayTest() {
+        testParser("2021-08-01 14:00 if Sunday then 00:00", LocalDateTime.parse("2021-08-01T00:00"));
+        testParser("2021-08-02 14:00 if Sunday then 00:00", LocalDateTime.parse("2021-08-02T14:00"));
+        testParser("2021-07-31 14:00 if Saturday,sunday then 00:00", LocalDateTime.parse("2021-07-31T00:00"));
+        testParser("2021-08-02 14:00 if Saturday,sunday then 00:00 if monday,Tuesday then 05:00", LocalDateTime.parse("2021-08-02T05:00"));
+        testParser("2021-08-01 14:00 if Saturday,sunday then 00:00 if monday,Tuesday then 05:00", LocalDateTime.parse("2021-08-01T00:00"));
+        testParser("2021-08-03 14:00 if Saturday,sunday then 00:00 if monday,Tuesday,wednesday then 05:00", LocalDateTime.parse("2021-08-03T05:00"));
+    }
 }

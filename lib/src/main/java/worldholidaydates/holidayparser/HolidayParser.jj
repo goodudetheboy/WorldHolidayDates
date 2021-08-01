@@ -19,7 +19,9 @@ PARSER_BEGIN(HolidayParser)
 
 package worldholidaydates.holidayparser;
 
+import java.util.ArrayList;
 import java.util.Locale;
+import java.util.List;
 
 import worldholidaydates.Utils;
 import worldholidaydates.holidayparser.EastAsianDate.CalendarType;
@@ -48,8 +50,9 @@ SKIP : { " " }
 TOKEN :
 {
     < DASH : "-" >
-|   < COLON : ":" >
 |   < PLUS : "+" >
+|   < COLON : ":" >
+|   < COMMA : "," >
 }
 
 TOKEN : { < YEAR :  (< DIGIT >){4} > }
@@ -198,12 +201,8 @@ TOKEN:
 
 TOKEN :
 {
-  < NUMBER : (< DIGIT >)+ >
-}
-
-TOKEN :
-{
-  < DIGIT : [ "0"-"9" ] >
+    < NUMBER : (< DIGIT >)+ >
+|   < DIGIT : [ "0"-"9" ] >
 }
 
 TOKEN :
@@ -231,11 +230,25 @@ TOKEN :
     |    (["a"-"z","A"-"Z"])+ "/" (["a"-"z","A"-"Z"])+ >
 }
 
+TOKEN :
+{
+    < IF : "if" >
+    {
+        matchedToken.image = image.toString().toLowerCase(Locale.US);
+    }
+|   < THEN : "then" >
+    {
+        matchedToken.image = image.toString().toLowerCase(Locale.US);
+    }
+}
+
 Rule start():
 {
     Date d = null;
     int startTime = 0;
     int range = 0;
+    List < List < Integer > > ifWeekdays = new ArrayList < List < Integer > > ();
+    List < Integer > altTime = new ArrayList < Integer > ();
 }
 {
     (
@@ -295,10 +308,23 @@ Rule start():
             differentRange()
         )
     )?
+    (
+        LOOKAHEAD( ifRule() )
+        (
+            ifRule()
+        )
+    )?
     < EOF >
     {
         if (d != null) {
             rule.setRawDate(d);
+        }
+        // TODO: refactor this
+        if (rule.getIfWeekdays() == null) {
+            rule.setIfWeekdays(ifWeekdays);
+        }
+        if (rule.getAlternateTime() == null) {
+            rule.setAlternateTime(altTime);
         }
         return rule;
     }
@@ -436,6 +462,67 @@ void differentRange() throws NumberFormatException:
     }
 }
 
+void ifRule() throws NumberFormatException:
+{
+    Token t;
+    List< List < Integer > > ifWeekdays = new ArrayList< List < Integer > >();
+    List< Integer > altTime = new ArrayList< Integer >();
+    rule.setIfWeekdays(ifWeekdays);
+    rule.setAlternateTime(altTime);
+    int time = 0;
+}
+{
+    ifWeekdayThenTime()
+    ( ifWeekdayThenTime() )*
+}
+
+void ifWeekdayThenTime() throws NumberFormatException:
+{
+    Token t;
+    List< List < Integer > > ifWeekdays = rule.getIfWeekdays();
+    List< Integer > altTime = rule.getAlternateTime();
+    int time = 0;
+}
+{
+    (
+        < IF >
+        {
+            List < Integer > ifWeekday = new ArrayList< Integer >();
+        }
+        t = < WEEKDAY >
+        {
+            ifWeekday.add(Date.weekdayToValue(t.image));
+        }
+        (
+            < COMMA >
+            t = < WEEKDAY >
+            {
+                ifWeekday.add(Date.weekdayToValue(t.image));
+            }
+        )*
+        < THEN >
+        (
+            LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 0, 23) && (getToken(1).image.length() >= 2 || "0".equals(getToken(1).image))})
+            t = < NUMBER >
+            {
+                time = 0;
+                time = Integer.parseInt(t.image) * 60; // hour
+            }
+        )
+        < COLON >
+        (
+            LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 0, 59) && (getToken(1).image.length() >= 2 || "0".equals(getToken(1).image))})
+            t = < NUMBER >
+            {
+                time += Integer.parseInt(t.image); // minute
+            }
+        )
+        {
+            altTime.add(time);
+            ifWeekdays.add(ifWeekday);
+        }
+    )
+}
 
 Date gregorianDate() throws NumberFormatException:
 {
