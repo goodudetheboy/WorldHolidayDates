@@ -1,6 +1,6 @@
 LEGEND: | - OR
 
-<start> -> <offset> <rule> <start-time> <if-rule>
+<start> -> (substitutes)? (<offset>)? <rule> (<start-time>)? (<if-rule>)?
 
 <rule0> -> (<offset>)? <rule>
 
