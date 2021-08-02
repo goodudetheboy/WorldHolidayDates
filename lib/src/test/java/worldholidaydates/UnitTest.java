@@ -21,7 +21,7 @@ public class UnitTest {
     public static void testParser(String input, LocalDateTime expected) {
         HolidayParser parser = new HolidayParser(new ByteArrayInputStream(input.getBytes()));
         try {
-            Rule rule = parser.parse();
+            Rule rule = parse(input);
             LocalDateTime actual = rule.calculate();
             assertEquals(expected, actual);
         } catch (ParseException e) {
@@ -33,7 +33,7 @@ public class UnitTest {
     public static void testParserEnd(String input, LocalDateTime expected) {
         HolidayParser parser = new HolidayParser(new ByteArrayInputStream(input.getBytes()));
         try {
-            Rule rule = parser.parse();
+            Rule rule = parse(input);
             LocalDateTime actual = rule.calculateEnd();
             assertEquals(expected, actual);
         } catch (ParseException e) {
@@ -43,10 +43,9 @@ public class UnitTest {
     }
 
 
-    public static void testFailParser(String input, String expectedMessage) throws ParseException {
+    public static void testFailParser(String input, String expectedMessage) {
         try {
-            HolidayParser parser = new HolidayParser(new ByteArrayInputStream(input.getBytes()));
-            parser.parse();
+            parse(input);
             fail("Should have failed");
         } catch (ParseException e) {
             // expected
@@ -55,16 +54,20 @@ public class UnitTest {
         }
     }
 
-    public void testParserDate(String input, LocalDate expected) {
-        HolidayParser parser = new HolidayParser(new ByteArrayInputStream(input.getBytes()));
+    public static void testParserDate(String input, LocalDate expected) {
         try {
-            Rule rule = parser.parse();
+            Rule rule = parse(input);
             LocalDate actual = rule.calculateDate();
             assertEquals(expected, actual);
         } catch (ParseException e) {
             e.printStackTrace();
             fail("Parse fail at \"" + input + "\" - " + e.getMessage());
         }
+    }
+    
+    public static Rule parse(String input) throws ParseException {
+        HolidayParser parser = new HolidayParser(new ByteArrayInputStream(input.getBytes()));
+        return parser.parse();
     }
 
     @Test
