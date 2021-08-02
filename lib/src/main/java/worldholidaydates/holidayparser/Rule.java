@@ -3,6 +3,7 @@ package worldholidaydates.holidayparser;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Rule {
@@ -29,13 +30,16 @@ public class Rule {
 
     // Start-time of holiday changes per weekday
     // list of if weekday, from 1-7
-    List<List<Integer>>     ifWeekdays  = null; 
+    List<List<Integer>>     ifWeekdays      = null; 
     // list of alternative time, from {@link Date#MIN_TIME} to {@link Date#MAX_TIME}
     //(null if no alternative)
-    List<Integer>           altTime     = null;
+    List<Integer>           altTime         = null;
     // list of alternative weekday, from 1-7 (null if no alternative)
     // 0 for previous and 1 for next
-    List<List<Integer>>     altWeekdays = null;
+    List<List<Integer>>     altWeekdays     = null;
+
+    List<List<Integer>>     ifWeekdaysExtra = null;
+    List<List<Integer>>     extraWeekdays   = null;
 
     public Rule() {
         // empty
@@ -125,6 +129,14 @@ public class Rule {
      */
     public List<Integer> getAlternateTime() {
         return altTime;
+    }
+
+    public List<List<Integer>> getIfWeekdaysExtra() {
+        return ifWeekdaysExtra;
+    }
+
+    public List<List<Integer>> getExtraWeekdays() {
+        return extraWeekdays;
     }
 
     /**
@@ -273,6 +285,14 @@ public class Rule {
         this.altWeekdays = altWeekdays;
     }
 
+    public void setIfWeekdaysExtra(List<List<Integer>> ifWeekdaysExtra) {
+        this.ifWeekdaysExtra = ifWeekdaysExtra;
+    }
+
+    public void setExtraWeekdays(List<List<Integer>> extraWeekdays) {
+        this.extraWeekdays = extraWeekdays;
+    }
+
     /**
      * Shifts the input date by the {@link #offset} and {@link #offsetWeekDay},
      * if any.
@@ -338,6 +358,37 @@ public class Rule {
         LocalDateTime raw = calculateRaw();
         LocalDateTime offsetShifted = offsetShift(raw);
         return checkIfWeekday(offsetShifted);
+    }
+
+    /**
+     * Calculates extra holidays if the processed {@link #rawDate} (offset,
+     * ifWeekdays... applied) satisfies that:
+     * <ol>
+     * <li> its weekday is in one of the {@link #ifWeekdaysExtra}
+     * </ol>
+     * 
+     * @return the extra holidays if the processed {@link #rawDate} satisfies
+     *      the above conditions
+     */
+    public List<LocalDateTime> calculateExtra() {
+        List<LocalDateTime> result = new ArrayList<>();
+
+        if (ifWeekdaysExtra != null) {
+            LocalDate mainDate = calculateDate();
+            int weekdayValue = mainDate.getDayOfWeek().getValue();
+            for (int i=0; i<ifWeekdaysExtra.size(); i++) {
+                List<Integer> ifWeekdayExtra = ifWeekdaysExtra.get(i);
+                if (ifWeekdayExtra.contains(weekdayValue)) {
+                    List<Integer> extraWeekday = extraWeekdays.get(i);
+                    int eWeekdayVal = extraWeekday.get(0);
+                    boolean isNext = (extraWeekday.get(1) == 1);
+                    LocalDate extraDate = Date.getNextOrPreviousWeekday(mainDate, eWeekdayVal, isNext);
+                    result.add(extraDate.atStartOfDay());
+                }
+            }
+        }
+        
+        return result;
     }
 
     /**

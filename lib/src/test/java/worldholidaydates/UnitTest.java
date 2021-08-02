@@ -8,6 +8,7 @@ import static org.junit.Assert.fail;
 import java.io.ByteArrayInputStream;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -17,6 +18,11 @@ import worldholidaydates.holidayparser.HolidayParser;
 import worldholidaydates.holidayparser.ParseException;
 
 public class UnitTest {
+
+    public static Rule parse(String input) throws ParseException {
+        HolidayParser parser = new HolidayParser(new ByteArrayInputStream(input.getBytes()));
+        return parser.parse();
+    }
 
     public static void testParser(String input, LocalDateTime expected) {
         try {
@@ -75,9 +81,18 @@ public class UnitTest {
         }
     }
 
-    public static Rule parse(String input) throws ParseException {
-        HolidayParser parser = new HolidayParser(new ByteArrayInputStream(input.getBytes()));
-        return parser.parse();
+    public static void testParserExtraDates(String input, LocalDate[] expected) {
+        try {
+            Rule rule = parse(input);
+            List<LocalDateTime> actual = rule.calculateExtra();
+            assertEquals(expected.length, actual.size());
+            for (int i = 0; i < expected.length; i++) {
+                assertEquals(expected[i], actual.get(i).toLocalDate());
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+            fail("Parse fail at \"" + input + "\" - " + e.getMessage());
+        }
     }
 
     @Test
@@ -152,7 +167,7 @@ public class UnitTest {
     }
 
     @Test
-    public void eastAsianSolarTermFailTest() throws ParseException {
+    public void eastAsianSolarTermFailTest() {
         testFailParser("chinese 25-01 solarterm", "Encountered \" <NUMBER> \"25 \"\" at line 1, column 9.");
     }
 
@@ -244,5 +259,11 @@ public class UnitTest {
     public void subsituteTest() {
         testParserSubstitute("substitutes 2021-08-01 if Sunday then next Monday", true);
         testParserSubstitute("substitutes 2021-08-02 if Sunday then next Monday", false);
+    }
+
+    @Test
+    public void extraDatesTest() {
+        testParserExtraDates("2021-08-01 and if sunday then next tuesday", new LocalDate[]{ LocalDate.parse("2021-08-03") });
+        testParserExtraDates("2021-08-01 if sunday then next monday and if monday then next tuesday", new LocalDate[]{ LocalDate.parse("2021-08-03") });
     }
 }

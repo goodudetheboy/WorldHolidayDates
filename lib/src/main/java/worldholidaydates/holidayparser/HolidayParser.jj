@@ -131,6 +131,7 @@ TOKEN :
 |   < NEXT : "next" >
 |   < PREVIOUS : "previous" >
 |   < SUBSTITUTES : "substitutes" >
+|   < AND : "and" >
     {
         matchedToken.image = image.toString().toLowerCase(Locale.US);
     }
@@ -491,12 +492,92 @@ void ifRule() throws NumberFormatException:
     rule.setIfWeekdays(ifWeekdays);
     rule.setAlternateTime(altTime);
     rule.setAlternateWeekdays(altWeekdays);
+
+    List< List < Integer > > ifWeekdaysExtra = new ArrayList< List < Integer > >();
+    List< List < Integer > > extraWeekdays = new ArrayList< List < Integer > >();
+    rule.setIfWeekdaysExtra(ifWeekdaysExtra);
+    rule.setExtraWeekdays(extraWeekdays);
+
     int time = 0;
 }
 {
-    ifWeekdayThenTime()
-    ( ifWeekdayThenTime() )*
+    ifWeekday()
+    ( ifWeekday() )*
 }
+
+void ifWeekday() throws NumberFormatException:
+{
+    Token and = null;
+    int weekday = 0;
+}
+{
+    LOOKAHEAD( < AND > )
+    extraWeekday()
+    |
+    ifWeekdayThenTime()
+}
+
+void extraWeekday() throws NumberFormatException:
+{
+    Token t;
+    List< List < Integer > > ifWeekdaysExtra = rule.getIfWeekdaysExtra();
+    List< List < Integer > > extraWeekdays = rule.getExtraWeekdays();
+
+    int weekday = 0;
+    int previousOrNext = 1; // 0 = previous, 1 = next
+}
+{
+    (
+        < AND >
+        < IF >
+        (
+            {
+                List < Integer > ifWeekday = new ArrayList< Integer >();
+            }
+            t = < WEEKDAY >
+            {
+                ifWeekday.add(Date.weekdayToValue(t.image));
+            }
+            (
+                < COMMA >
+                t = < WEEKDAY >
+                {
+                    ifWeekday.add(Date.weekdayToValue(t.image));
+                }
+            )*
+        )
+        < THEN >
+        (
+            (
+                (
+                    < NEXT >
+                    {
+                        previousOrNext = 1;
+                    }
+                    |
+                    < PREVIOUS >
+                    {
+                        previousOrNext = 0;
+                    }
+                )
+                t = < WEEKDAY >
+                {
+                    weekday = Date.weekdayToValue(t.image);
+                }
+            )
+            {
+                List < Integer > extraWeekday = new ArrayList < Integer >();
+                extraWeekday.add(weekday);
+                extraWeekday.add(previousOrNext);
+                extraWeekdays.add(extraWeekday);
+            }
+        )
+        {
+            ifWeekdaysExtra.add(ifWeekday);
+        }
+    )
+}
+    
 
 void ifWeekdayThenTime() throws NumberFormatException:
 {
@@ -527,6 +608,9 @@ void ifWeekdayThenTime() throws NumberFormatException:
                     ifWeekday.add(Date.weekdayToValue(t.image));
                 }
             )*
+            {
+                ifWeekdays.add(ifWeekday);
+            }
         )
         < THEN >
         (
@@ -576,9 +660,6 @@ void ifWeekdayThenTime() throws NumberFormatException:
                 altTime.add(null);
             }
         )
-        {
-            ifWeekdays.add(ifWeekday);
-        }
     )
 }
 
