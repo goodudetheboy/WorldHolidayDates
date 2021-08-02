@@ -397,4 +397,21 @@ public abstract class Date {
         int minute = timeInMinutes % 60;
         return LocalTime.of(hour, minute);
     }
+
+    /**
+     * Gets the next or previous weekday starting from the input date.
+     * 
+     * @param date a date
+     * @param weekday a weekday
+     * @param isAfter true to get the next weekday, false for the previous
+     * @return a date that is the next or previous weekday from the input date
+     */
+    public static LocalDate getNextOrPreviousWeekday(LocalDate date, int weekday, boolean isAfter) {
+        return (isAfter) ? date.with(TemporalAdjusters.next(DayOfWeek.of(weekday)))
+                         : date.with(TemporalAdjusters.previous(DayOfWeek.of(weekday)));
+    }
+
+    public static void main(String[] args) {
+        System.out.println(getNextOrPreviousWeekday(LocalDate.of(2021, 8, 1), 1, true));
+    }
 }

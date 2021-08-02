@@ -128,6 +128,8 @@ TOKEN :
     < AFTER : "after" >
 |   < BEFORE : "before" >
 |   < IN : "in" >
+|   < NEXT : "next" >
+|   < PREVIOUS : "previous" >
     {
         matchedToken.image = image.toString().toLowerCase(Locale.US);
     }
@@ -479,8 +481,10 @@ void ifRule() throws NumberFormatException:
     Token t;
     List< List < Integer > > ifWeekdays = new ArrayList< List < Integer > >();
     List< Integer > altTime = new ArrayList< Integer >();
+    List< List < Integer > > altWeekdays = new ArrayList< List < Integer > >();
     rule.setIfWeekdays(ifWeekdays);
     rule.setAlternateTime(altTime);
+    rule.setAlternateWeekdays(altWeekdays);
     int time = 0;
 }
 {
@@ -493,44 +497,80 @@ void ifWeekdayThenTime() throws NumberFormatException:
     Token t;
     List< List < Integer > > ifWeekdays = rule.getIfWeekdays();
     List< Integer > altTime = rule.getAlternateTime();
+    List< List < Integer > > altWeekdays = rule.getAlternateWeekdays();
     int time = 0;
+
+    int weekday = 0;
+    int previousOrNext = 1; // 0 = previous, 1 = next
 }
 {
     (
         < IF >
-        {
-            List < Integer > ifWeekday = new ArrayList< Integer >();
-        }
-        t = < WEEKDAY >
-        {
-            ifWeekday.add(Date.weekdayToValue(t.image));
-        }
         (
-            < COMMA >
+            {
+                List < Integer > ifWeekday = new ArrayList< Integer >();
+            }
             t = < WEEKDAY >
             {
                 ifWeekday.add(Date.weekdayToValue(t.image));
             }
-        )*
+            (
+                < COMMA >
+                t = < WEEKDAY >
+                {
+                    ifWeekday.add(Date.weekdayToValue(t.image));
+                }
+            )*
+        )
         < THEN >
         (
-            LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 0, 23) && (getToken(1).image.length() >= 2 || "0".equals(getToken(1).image))})
-            t = < NUMBER >
+            (
+                LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 0, 23) && (getToken(1).image.length() >= 2 || "0".equals(getToken(1).image))})
+                t = < NUMBER >
+                {
+                    time = 0;
+                    time = Integer.parseInt(t.image) * 60; // hour
+                }
+            )
+            < COLON >
+            (
+                LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 0, 59) && (getToken(1).image.length() >= 2 || "0".equals(getToken(1).image))})
+                t = < NUMBER >
+                {
+                    time += Integer.parseInt(t.image); // minute
+                }
+            )
             {
-                time = 0;
-                time = Integer.parseInt(t.image) * 60; // hour
+                altTime.add(time);
+                altWeekdays.add(null);
             }
-        )
-        < COLON >
-        (
-            LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 0, 59) && (getToken(1).image.length() >= 2 || "0".equals(getToken(1).image))})
-            t = < NUMBER >
+        |
+            (
+                (
+                    < NEXT >
+                    {
+                        previousOrNext = 1;
+                    }
+                    |
+                    < PREVIOUS >
+                    {
+                        previousOrNext = 0;
+                    }
+                )
+                t = < WEEKDAY >
+                {
+                    weekday = Date.weekdayToValue(t.image);
+                }
+            )
             {
-                time += Integer.parseInt(t.image); // minute
+                List < Integer > altWeekday = new ArrayList < Integer >();
+                altWeekday.add(weekday);
+                altWeekday.add(previousOrNext);
+                altWeekdays.add(altWeekday);
+                altTime.add(null);
             }
         )
         {
-            altTime.add(time);
             ifWeekdays.add(ifWeekday);
         }
     )

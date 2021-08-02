@@ -7,7 +7,8 @@ import java.util.List;
 
 public class Rule {
     public static final int UNDEFINED_NUM = Integer.MIN_VALUE;
-    Date    rawDate    = null;
+    // the raw date, without any offset or time applied
+    Date        rawDate     = null;
 
     // the range of this {@link Date} in minutes, the default range is from the
     // startTime to the end of the stored day
@@ -17,17 +18,21 @@ public class Rule {
     int         offset      = 0;
 
     // weekday offset deviation from raw stored date
-    int         offsetWeekDay = 0; // 1-7 corresponds to Monday-Sunday
-    int         offsetWeekDayNth = 0; // 1-100th
+    int         offsetWeekDay       = 0; // 1-7 corresponds to Monday-Sunday
+    int         offsetWeekDayNth    = 0; // 1-100th
     
     // Offset before or after raw stored date
     boolean     isAfter     = true;
 
     // Start-time of holiday changes per weekday
     // list of if weekday, from 1-7
-    List<List<Integer>>   ifWeekdays   = null; 
-     // list of alternative time, from {@link Date#MIN_TIME} to {@link Date#MAX_TIME}
-    List<Integer>   altTime     = null;
+    List<List<Integer>>     ifWeekdays  = null; 
+    // list of alternative time, from {@link Date#MIN_TIME} to {@link Date#MAX_TIME}
+    //(null if no alternative)
+    List<Integer>           altTime     = null;
+    // list of alternative weekday, from 1-7 (null if no alternative)
+    // 0 for previous and 1 for next
+    List<List<Integer>>     altWeekdays = null;
 
     public Rule() {
         // empty
@@ -89,6 +94,14 @@ public class Rule {
      */
     public List<Integer> getAlternateTime() {
         return altTime;
+    }
+
+    /**
+     * @return the list of alternative weekday, from 1-7 (null if no alternative)
+     *      as the first index, and 0 for previous and 1 for next as the second index
+     */
+    public List<List<Integer>> getAlternateWeekdays() {
+        return altWeekdays;
     }
 
     /**
@@ -210,6 +223,17 @@ public class Rule {
     }
 
     /**
+     * Sets the list of alternative weekday. Each of the list is a list of
+     * two integers. The first integer is the index of the weekday, the second
+     * is either 0 for previous and 1 for next.
+     * 
+     * @param altWeekdays the list of alternative weekday
+     */
+    public void setAlternateWeekdays(List<List<Integer>> altWeekdays) {
+        this.altWeekdays = altWeekdays;
+    }
+
+    /**
      * Shifts the input date by the {@link #offset} and {@link #offsetWeekDay},
      * if any.
      * 
@@ -230,7 +254,8 @@ public class Rule {
     /**
      * Check if the input date's weekday is in one of the {@link #ifWeekdays}.
      * If yes, the input date's new time will be the corresponding indexed
-     * {@link #altTime}'s time.
+     * {@link #altTime}'s time, or if there's no alternative, then will look
+     * for alternate weekday.
      * 
      * @param date the date to check
      * @return the input date's new time, if it is in one of the {@link #ifWeekdays}
@@ -241,8 +266,18 @@ public class Rule {
             List<Integer> ifWeekday = ifWeekdays.get(i);
             for (int weekday : ifWeekday) {
                 if (result.getDayOfWeek().getValue() == weekday) {
-                    LocalTime newTime = Date.minutesToLocalTime(altTime.get(i));
-                    return result.toLocalDate().atTime(newTime);
+                    Integer aTime = altTime.get(i);
+                    List<Integer> altWeekday = altWeekdays.get(i);
+                    if (aTime != null) {
+                        LocalTime newTime = Date.minutesToLocalTime(aTime);
+                        return result.toLocalDate().atTime(newTime);
+                    } else if (altWeekday != null) {
+                        int altWeekdayVal = altWeekday.get(0);
+                        boolean isNext = (altWeekday.get(1) == 1);
+                        LocalDate newDate = Date.getNextOrPreviousWeekday(result.toLocalDate(), altWeekdayVal, isNext);
+                        LocalTime time = result.toLocalTime();
+                        return newDate.atTime(time);
+                    }
                 }
             }
         }
@@ -276,7 +311,6 @@ public class Rule {
      *      with offset, if any
      */
     public LocalDateTime calculateEnd() {
-        // throw new IllegalArgumentException(range + "" );
         return calculate().plusMinutes(range);
     }
     
@@ -291,8 +325,7 @@ public class Rule {
      *      this date, with offset, if any
      */
     public LocalDate calculateDate() {
-        LocalDateTime raw = calculateRaw();
-        return offsetShift(raw).toLocalDate();
+        return calculate().toLocalDate();
     }
 
     /**

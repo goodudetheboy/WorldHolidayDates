@@ -205,17 +205,23 @@ public class UnitTest {
 
     @Test
     public void differentWeekdayTest() {
-        testParser("1st Monday after 08-01", LocalDateTime.parse("2021-08-02T00:00"));
-        testParser("Monday after 08-01", LocalDateTime.parse("2021-08-02T00:00"));
-        testParser("Saturday before 08-01", LocalDateTime.parse("2021-07-31T00:00"));
-        testParser("2nd saturday before 08-01", LocalDateTime.parse("2021-07-24T00:00"));
+        testParserDate("1st Monday after 08-01", LocalDate.parse("2021-08-02"));
+        testParserDate("Monday after 08-01", LocalDate.parse("2021-08-02"));
+        testParserDate("Saturday before 08-01", LocalDate.parse("2021-07-31"));
+        testParserDate("2nd saturday before 08-01", LocalDate.parse("2021-07-24"));
     }
 
     @Test
     public void nthWeekdayInMonthTest() {
-        testParser("1st Monday in July", LocalDateTime.parse("2021-07-05T00:00"));
-        testParser("2nd Sunday in August", LocalDateTime.parse("2021-08-08T00:00"));
-        testParser("2nd Sunday before August", LocalDateTime.parse("2021-07-18T00:00"));      
-        testParser("3rd Monday before August", LocalDateTime.parse("2021-07-12T00:00"));
+        testParserDate("1st Monday in July", LocalDate.parse("2021-07-05"));
+        testParserDate("2nd Sunday in August", LocalDate.parse("2021-08-08"));
+        testParserDate("2nd Sunday before August", LocalDate.parse("2021-07-18"));      
+        testParserDate("3rd Monday before August", LocalDate.parse("2021-07-12"));
+    }
+
+    @Test
+    public void differentWeekdayIfWeekdayTest() {
+        testParserDate("08-01 if Sunday then next Monday", LocalDate.parse("2021-08-02"));
+        testParserDate("08-01 if Sunday then previous Monday", LocalDate.parse("2021-07-26"));
     }
 }

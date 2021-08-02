@@ -2,10 +2,6 @@
 Was expecting:
     <EOF> 
     
-36	11-01 if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
 38	12-25 and if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
 Was expecting:
     <EOF> 
@@ -72,10 +68,6 @@ Was expecting:
 
 126	substitutes 06-20 if tuesday then previous monday if thursday then next friday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-129	10-12 if tuesday,wednesday then previous monday if thursday,friday,saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
 132	substitutes 12-08 if tuesday then previous monday if thursday then next friday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 134	substitutes 12-24 if tuesday then previous monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
@@ -84,19 +76,11 @@ Was expecting:
 
 138	3rd monday in February	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-139	04-15 if friday then next monday if saturday,sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
 140	04-17 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
 Was expecting:
     <EOF> 
     
 165	01-01 and if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-166	01-26 if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
 Was expecting:
     <EOF> 
     
@@ -109,10 +93,6 @@ Was expecting:
     <EOF> 
     
 177	03-18 and if saturday then previous friday if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-182	05-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
 Was expecting:
     <EOF> 
     
@@ -194,10 +174,6 @@ Was expecting:
 
 239	julian 12-25	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-250	05-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
 257	substitutes 12-25 if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 259	substitutes 12-26 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
@@ -210,10 +186,6 @@ Was expecting:
 
 391	substitutes 12-26 if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-422	05-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
 442	1st sunday in October in even years	worldholidaydates.holidayparser.ParseException: Encountered " "in" "in "" at line 1, column 23.
 Was expecting:
     <EOF> 
@@ -246,34 +218,6 @@ Was expecting:
 
 484	julian 12-25	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-495	03-09 if friday,saturday,sunday then next monday if tuesday,wednesday,thursday then previous monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-500	05-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-501	05-24 if friday,saturday,sunday then next monday if tuesday,wednesday,thursday then previous monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-502	09-10 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-503	09-21 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-504	10-12 if friday,saturday,sunday then next monday if tuesday,wednesday,thursday then previous monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-505	11-19 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
 506	12-25 and if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
 Was expecting:
     <EOF> 
@@ -384,22 +328,6 @@ Was expecting:
 Was expecting:
     <EOF> 
     
-623	10-31 if wednesday then next friday if tuesday then previous friday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-631	05-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-679	10-12 if monday then previous friday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-710	05-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
 798	06-27 since 1977	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "sin "" at line 1, column 7.
 Was expecting:
     <EOF> 
@@ -408,35 +336,11 @@ Was expecting:
 Was expecting:
     <EOF> 
     
-832	11-03 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-833	11-04 if sunday then next monday if monday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
 834	12-25 and if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
 Was expecting:
     <EOF> 
     
 835	12-26 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-837	01-06 if tuesday,wednesday then previous monday if thursday,friday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-839	01-26 if tuesday,wednesday then previous monday if thursday,friday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-842	05-01 if tuesday,wednesday then previous monday if thursday,friday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-846	11-06 if tuesday,wednesday,thursday,friday,saturday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
 Was expecting:
     <EOF> 
     
@@ -494,14 +398,6 @@ Was expecting:
 Was expecting:
     <EOF> 
     
-976	12-25 if Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-977	12-26 if Sunday then next Monday if Monday then next Tuesday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
 1036	substitutes 01-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 1037	substitutes 01-01 if saturday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
@@ -514,10 +410,6 @@ Was expecting:
 
 1050	substitutes 12-26 if sunday then next monday if monday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-1094	05-01 if sunday, saturday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
 1100	09-10 and if sunday, saturday then previous monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
 Was expecting:
     <EOF> 
@@ -554,20 +446,8 @@ Was expecting:
 Was expecting:
     <EOF> 
     
-1161	06-30 if tuesday then previous monday if wednesday,thursday then next friday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
 1168	3rd monday in February	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-1171	07-21 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-1173	12-08 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
 1209	01-01 and if Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
 Was expecting:
     <EOF> 
@@ -633,21 +513,9 @@ Was expecting:
 Was expecting:
     <EOF> 
     
-1386	12-27 if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
 1409	monday in August	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 1432	01-01 and if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-1437	05-23 if saturday,sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-1438	08-01 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
 Was expecting:
     <EOF> 
     
@@ -762,10 +630,6 @@ Was expecting:
     <EOF> 
     
 1530	09-16 and if Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-1531	09-19 if Sunday then next Monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
 Was expecting:
     <EOF> 
     
@@ -959,10 +823,6 @@ Was expecting:
 
 1862	substitutes 12-26 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-1895	04-27 if sunday then previous saturday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
 1911	2nd sunday in February	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 1935	01-01 and if saturday then next monday if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
@@ -1025,36 +885,8 @@ Was expecting:
 Was expecting:
     <EOF> 
     
-2070	01-01 if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-2071	01-02 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
 2072	julian 12-25	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-2073	02-15 if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-2074	02-16 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-2078	05-01 if sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-2079	05-02 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-2080	11-11 if sunday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
 2088	julian 01-14	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 2091	julian 06-15	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
@@ -1111,19 +943,19 @@ Was expecting:
 Was expecting:
     <EOF> 
     
-2408	06-04 if thursday,friday,saturday,sunday then next monday and if tuesday then previous monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
+2408	06-04 if thursday,friday,saturday,sunday then next monday and if tuesday then previous monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 59.
 Was expecting:
     <EOF> 
     
-2410	09-17 if thursday,friday,saturday,sunday then next monday and if tuesday then previous monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
+2410	09-17 if thursday,friday,saturday,sunday then next monday and if tuesday then previous monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 59.
 Was expecting:
     <EOF> 
     
-2411	11-04 if thursday,friday,saturday,sunday then next monday and if tuesday then previous monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
+2411	11-04 if thursday,friday,saturday,sunday then next monday and if tuesday then previous monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 59.
 Was expecting:
     <EOF> 
     
-2412	12-04 if thursday,friday,saturday,sunday then next monday and if tuesday then previous monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
+2412	12-04 if thursday,friday,saturday,sunday then next monday and if tuesday then previous monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 59.
 Was expecting:
     <EOF> 
     
@@ -1132,10 +964,6 @@ Was expecting:
     <EOF> 
     
 2425	chinese 01-0-00	worldholidaydates.holidayparser.ParseException: Encountered " <NUMBER> "01 "" at line 1, column 9.
-Was expecting:
-    <EOF> 
-    
-2427	chinese 01-0-01 if Monday then next Friday if Tuesday then next Saturdayif Wednesday then next Sunday if Thursday then next Monday if Friday then next Tuesday if Saturday then next Wednesday if Sunday then next Thursday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 17.
 Was expecting:
     <EOF> 
     
@@ -1221,10 +1049,6 @@ Was expecting:
     
 2514	3rd monday in February	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-2517	04-15 if friday then next monday if saturday,sunday then next tuesday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
 2521	06-19 and if sunday then next monday if saturday then previous friday since 2021	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
 Was expecting:
     <EOF> 
@@ -1242,18 +1066,6 @@ Was expecting:
     <EOF> 
     
 2533	12-25 and if sunday then next monday if saturday then previous friday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "and "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-2543	04-19 if tuesday,wednesday then previous monday if thursday,friday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-2545	05-18 if tuesday,wednesday then previous monday if thursday,friday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-2549	10-12 if tuesday,wednesday then previous monday if thursday,friday then next monday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
 Was expecting:
     <EOF> 
     
