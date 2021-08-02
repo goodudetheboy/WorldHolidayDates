@@ -10,12 +10,15 @@ public class Rule {
     // the raw date, without any offset or time applied
     Date        rawDate     = null;
 
+    // set substitute check during if weekday check
+    boolean     substituteCheck = false;
+
     // the range of this {@link Date} in minutes, the default range is from the
     // startTime to the end of the stored day
     int         range       = UNDEFINED_NUM; 
 
     // Gregorian days deviation from raw stored date
-    int         offset      = 0;
+    int         offset              = 0;
 
     // weekday offset deviation from raw stored date
     int         offsetWeekDay       = 0; // 1-7 corresponds to Monday-Sunday
@@ -43,6 +46,34 @@ public class Rule {
      */
     public Date getRawDate() {
         return rawDate;
+    }
+
+    /**
+     * @return if this {@link Rule}'s substitute check mode is on.
+     */
+    public boolean getSubstituteCheck() {
+        return substituteCheck;
+    }
+
+    /**
+     * Check if this {@link Date} is a sustitute. It will be a subtitute if, the 
+     * {@link #substituteCheck} mode is true, and:
+     * <ol>
+     * <li> the raw {@link Date}'s weekday falls into one of {@link ifWeekdays} list
+     * </ol>
+     * 
+     * @return if this {@link Rule} is a substitute.
+     */
+    public boolean isSubstitute() {
+        if (!substituteCheck) return false;
+        // check in ifWeekdays
+        int rawWeekday = calculateRaw().getDayOfWeek().getValue();
+        for (List<Integer> ifWeekday : ifWeekdays) {
+            if (ifWeekday.contains(rawWeekday)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -105,13 +136,22 @@ public class Rule {
     }
 
     /**
-     * Sets the {@link Date} to be used in the {@link Rule}
+     * Sets the {@link Date} to be used in the {@link Rule}.
      * 
      * @param rawDate the {@link Date} to be used in the {@link Rule}
      * 
      */
     public void setRawDate(Date rawDate) {
         this.rawDate = rawDate;
+    }
+
+    /**
+     * Sets the substitute check mode of this {@link Rule}.
+     * 
+     * @param isSubstitute the substitute check mode of this {@link Rule}
+     */
+    public void setSubstituteCheck(boolean substituteCheck) {
+        this.substituteCheck = substituteCheck;
     }
 
     /**

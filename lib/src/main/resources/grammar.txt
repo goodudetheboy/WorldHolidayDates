@@ -20,7 +20,6 @@ LEGEND: | - OR
         ->  (June|December) solstice (in <timezone>)?
         -> <count> <weekday> (before|in) <month>
         
-        -> substitutes MM-DD if <weekday> then (next|previous) <weekday>
         -> MM-DD and if <weekday> then (next|previous) <weekday> 
         -> MM-DD in (even|odd|leap|non-leap) years
         -> MM-DD every <count> years since <year>

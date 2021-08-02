@@ -130,6 +130,7 @@ TOKEN :
 |   < IN : "in" >
 |   < NEXT : "next" >
 |   < PREVIOUS : "previous" >
+|   < SUBSTITUTES : "substitutes" >
     {
         matchedToken.image = image.toString().toLowerCase(Locale.US);
     }
@@ -246,8 +247,10 @@ Rule start():
     int range = 0;
     List < List < Integer > > ifWeekdays = new ArrayList < List < Integer > > ();
     List < Integer > altTime = new ArrayList < Integer > ();
+    Token substitute = null;
 }
 {
+    ( substitute = < SUBSTITUTES > )?
     (
         LOOKAHEAD( offset() )
         offset()
@@ -315,7 +318,10 @@ Rule start():
         )
     )?
     < EOF >
-    {
+    {   
+        if (substitute != null) {
+            rule.setSubstituteCheck(true);
+        }
         if (d != null) {
             rule.setRawDate(d);
         }

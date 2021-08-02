@@ -19,7 +19,6 @@ import worldholidaydates.holidayparser.ParseException;
 public class UnitTest {
 
     public static void testParser(String input, LocalDateTime expected) {
-        HolidayParser parser = new HolidayParser(new ByteArrayInputStream(input.getBytes()));
         try {
             Rule rule = parse(input);
             LocalDateTime actual = rule.calculate();
@@ -64,7 +63,18 @@ public class UnitTest {
             fail("Parse fail at \"" + input + "\" - " + e.getMessage());
         }
     }
-    
+
+    public static void testParserSubstitute(String input, boolean expected) {
+        try {
+            Rule rule = parse(input);
+            boolean actual = rule.isSubstitute();
+            assertEquals(expected, actual);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            fail("Parse fail at \"" + input + "\" - " + e.getMessage());
+        }
+    }
+
     public static Rule parse(String input) throws ParseException {
         HolidayParser parser = new HolidayParser(new ByteArrayInputStream(input.getBytes()));
         return parser.parse();
@@ -226,5 +236,11 @@ public class UnitTest {
     public void differentWeekdayIfWeekdayTest() {
         testParserDate("08-01 if Sunday then next Monday", LocalDate.parse("2021-08-02"));
         testParserDate("08-01 if Sunday then previous Monday", LocalDate.parse("2021-07-26"));
+    }
+
+    @Test
+    public void subsituteTest() {
+        testParserSubstitute("substitutes 2021-08-01 if Sunday then next Monday", true);
+        testParserSubstitute("substitutes 2021-08-02 if Sunday then next Monday", false);
     }
 }
