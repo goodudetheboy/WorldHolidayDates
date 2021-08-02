@@ -1,0 +1,65 @@
+LEGEND: | - OR
+
+<start> -> <offset> <rule> <start-time> <if-rule>
+
+<rule0> -> (<offset>)? <rule>
+
+<offset> -> (<day-offset>|<weekday-offset>) (after|before) 
+
+<day-offset>     -> <number-of-days> (d|days)?
+<weekday-offset> -> <count>? <weekday>
+
+<rule>  -> (<year>-)?<month>-<day>
+        -> (January|February|March|April|May|June|July|August|September|October|November|December)
+        -> (easter|orthodox) (+|-)?<number-of-days>
+        -> <day-of-month> (Muharram|Safar|Rabi al-awwal|Rabi al-thani|Jumada al-awwal|Jumada al-thani|Rajab|Shaban|Ramadan|Shawwal|Dhu al-Qidah|Dhu al-Hijjah)
+        -> <day-of-month> (Nisan|Iyyar|Sivan|Tamuz|Av|Elul|Tishrei|Cheshvan|Kislev|Tevet|Shvat|Adar)
+        -> chinese (<cycle>-)? (<year>-)? (<month>-<leapmonth>-<day> | <count>-<day> solarterm)
+        -> bengali-revised <year>-<month>-<day>
+        ->  (March|September) equinox (in <timezone>)?
+        ->  (June|December) solstice (in <timezone>)?
+        -> <count> <weekday> (before|in) <month>
+        
+        -> substitutes MM-DD if <weekday> then (next|previous) <weekday>
+        -> MM-DD and if <weekday> then (next|previous) <weekday> 
+        -> MM-DD in (even|odd|leap|non-leap) years
+        -> MM-DD every <count> years since <year>
+        -> MM-DD (not) on <weekday>
+        -> <date> if MM-DD (and MM-DD)? is (<type>)? holiday
+
+
+<start_time> -> <time> | <pdthm>       
+
+<if-rule>    -> if <weekday>(,<weekday>)* then (<start_time> | (next|previous) <weekday>)
+
+<weekday>           ->  Sunday | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday
+<date>              ->  MM-DD-(YYYY)?
+<year> (O)          ->  [0..9][0..9][0..9][0..9]
+<month>             ->  0[1..9] | 1[0..2]
+<day>               ->  0[1..9] | [1..2][1..9] | 3[0..1]
+<number-of-days>    ->  [1..99]
+<day-of-month>      ->  [1..28]
+<count>             ->  1st | 2nd | 3rd | [1..9]1st | [1..9]2nd | [1..9]3rd | [1..9][4..9]th | 100th
+<time>              ->  <hour> : <minute>
+<pdthm>             ->  P[0..9]DT[0..12]H(0[0..9]|[1..5][1..9]|60)
+<hour>              ->  [0..9][0..9]
+<minute>            ->  [0..9][0..9]
+
+
+
+CHINESE:
+    <cycle> (O) ->  0[1..9] | [10..99]
+    <year>  (O) ->  0[1..9] | [10..99]
+    <month>     ->  0[1..9] | [10..99]
+    <leapmonth> ->  0 | 1
+    <day>       ->  [1..30]
+
+BENGALI-REVISED:
+    <year> (O)  ->  <year>
+    <month>     ->  <month>
+    <day>       ->  <day>
+
+EQUINOX, SOLSTICE:
+    <number-of-days> -> <number-of-days>
+    <count>     -> <count>
+    <weekday>   -> <weekday>
