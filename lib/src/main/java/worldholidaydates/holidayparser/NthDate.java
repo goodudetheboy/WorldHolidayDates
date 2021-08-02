@@ -52,7 +52,8 @@ public class NthDate extends Date {
     @Override
     public LocalDate calculateDate() {
         int monthToSearch = (isInMonth) ? month : month - 1;
-        return getNthDateOfMonth(year, monthToSearch, weekday, nth);
+        int nthToSearch = (isInMonth) ? nth : -nth;
+        return getNthDateOfMonth(year, monthToSearch, weekday, nthToSearch);
     }
     
     /**
