@@ -125,9 +125,9 @@ TOKEN :
         matchedToken.image = Utils.capitalize(image.toString());
     }
 |
-    < AFTER_BEFORE :
-        "after"
-    |   "before" >
+    < AFTER : "after" >
+|   < BEFORE : "before" >
+|   < IN : "in" >
     {
         matchedToken.image = image.toString().toLowerCase(Locale.US);
     }
@@ -215,11 +215,6 @@ TOKEN :
     {
         matchedToken.image = image.toString().toLowerCase(Locale.US);
     }
-|
-    < IN : "in" >
-    {
-        matchedToken.image = image.toString().toLowerCase(Locale.US);
-    }
 }
 
 TOKEN :
@@ -256,42 +251,45 @@ Rule start():
         offset()
     )?
     (
+        LOOKAHEAD( gregorianDate() )
         (
-            LOOKAHEAD( gregorianDate() )
-            (
-                d = gregorianDate()
-            )?
-        |
-            LOOKAHEAD( startOfMonth() )
-            (
-                d = startOfMonth()
-            )?
-        |
-            LOOKAHEAD( easterOrthodox() )
-            (
-                d = easterOrthodox()
-            )?
-        |
-            LOOKAHEAD( hijra() )
-            (
-                d = hijra()
-            )?
-        |
-            LOOKAHEAD( hebrew() )
-            (
-                d = hebrew()
-            )?
-        |
-            LOOKAHEAD( eastAsian() )
-            (
-                d = eastAsian()
-            )?
-        |
-            LOOKAHEAD( bengaliRevised() )
-            (
-                d = bengaliRevised()
-            )?
-        )
+            d = gregorianDate()
+        )?
+    |
+        LOOKAHEAD( startOfMonth() )
+        (
+            d = startOfMonth()
+        )?
+    |
+        LOOKAHEAD( easterOrthodox() )
+        (
+            d = easterOrthodox()
+        )?
+    |
+        LOOKAHEAD( hijra() )
+        (
+            d = hijra()
+        )?
+    |
+        LOOKAHEAD( hebrew() )
+        (
+            d = hebrew()
+        )?
+    |
+        LOOKAHEAD( eastAsian() )
+        (
+            d = eastAsian()
+        )?
+    |
+        LOOKAHEAD( bengaliRevised() )
+        (
+            d = bengaliRevised()
+        )?
+    |
+        LOOKAHEAD( nthWeekday() )
+        (
+            d = nthWeekday()
+        )?
     )
     (
         LOOKAHEAD( < NUMBER > < COLON > < NUMBER > )
@@ -333,7 +331,7 @@ Rule start():
 void offset() throws NumberFormatException:
 {
     Token t;
-    boolean isAfter;
+    boolean isAfter = true;
     int offset = 0;
 }
 {
@@ -345,11 +343,17 @@ void offset() throws NumberFormatException:
             LOOKAHEAD( dayOffset() )
                 dayOffset()
         )
-        t = < AFTER_BEFORE >
-        {
-            isAfter = t.image.equals("after");
-            rule.setOffsetDirection(isAfter);
-        }
+        (
+            < BEFORE >
+            {
+                rule.setOffsetDirection(false);
+            }
+            |
+            < AFTER >
+            {
+                rule.setOffsetDirection(true);
+            }
+        )
     )
 }
 
@@ -883,5 +887,58 @@ Date bengaliRevised() throws NumberFormatException:
     )
     {
         return d;
+    }
+}
+
+Date nthWeekday() throws NumberFormatException:
+{
+    Token t;
+    int nth;
+    int weekday;
+    int month;
+    boolean isInMonth;
+    NthDate nthDate = new NthDate();
+}
+{
+    (
+        (
+            LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 1, 100) })
+            t = < NUMBER >
+            {
+                nth = Integer.parseInt(t.image);
+            }
+            < COUNT_SUFFIX >
+        )
+        (
+            t = < WEEKDAY >
+            {
+                weekday = Date.weekdayToValue(t.image);
+            }
+        )
+        (
+            < IN >
+            {
+                isInMonth = true;
+            }
+            |
+            < BEFORE >
+            {
+                isInMonth = false;
+            }
+        )
+        (
+            t = < GREGORIAN_MONTH >
+            {
+                month = GregorianMonth.fromName(t.image).getValue();
+            }
+        )
+    )
+    {
+        nthDate.setYear(2021);
+        nthDate.setNth(nth);
+        nthDate.setWeekday(weekday);
+        nthDate.setInMonth(isInMonth);
+        nthDate.setMonth(month);
+        return nthDate;
     }
 }

@@ -210,4 +210,11 @@ public class UnitTest {
         testParser("Saturday before 08-01", LocalDateTime.parse("2021-07-31T00:00"));
         testParser("2nd saturday before 08-01", LocalDateTime.parse("2021-07-24T00:00"));
     }
+
+    @Test
+    public void nthWeekdayInMonthTest() {
+        testParser("1st Monday in July", LocalDateTime.parse("2021-07-05T00:00"));
+        testParser("2nd Sunday in August", LocalDateTime.parse("2021-08-08T00:00"));
+        testParser("2nd Sunday before August", LocalDateTime.parse("2021-07-18T00:00"));        
+    }
 }
