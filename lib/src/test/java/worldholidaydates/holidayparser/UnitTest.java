@@ -242,6 +242,7 @@ public class UnitTest {
         testParserDate("2nd Sunday in August", LocalDate.parse("2021-08-08"));
         testParserDate("2nd Sunday before August", LocalDate.parse("2021-07-18"));      
         testParserDate("3rd Monday before August", LocalDate.parse("2021-07-12"));
+        testParserDate("3rd monday in February", LocalDate.parse("2021-02-15"));
     }
 
     @Test

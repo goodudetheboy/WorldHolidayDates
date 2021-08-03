@@ -62,7 +62,7 @@ TOKEN :
 {
     < GREGORIAN_MONTH :
       "January"
-    | "Febuary"
+    | "February"
     | "March"
     | "April"
     | "May"
