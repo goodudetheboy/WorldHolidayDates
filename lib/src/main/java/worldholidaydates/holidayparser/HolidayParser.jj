@@ -19,6 +19,7 @@ PARSER_BEGIN(HolidayParser)
 
 package worldholidaydates.holidayparser;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.List;
@@ -224,6 +225,7 @@ TOKEN:
 {
     < EVERY : "every" >
 |   < SINCE : "since" >
+|   < PRIOR_TO : "prior to" >
 }
 
 TOKEN :
@@ -323,6 +325,10 @@ Rule start():
     (
         ruleModifier()
     )
+    (
+        LOOKAHEAD( enabledRange() )
+        enabledRange()            
+    )?
     < EOF >
     {   
         if (substitute != null) {
@@ -340,32 +346,6 @@ Rule start():
         }
         return rule;
     }
-}
-
-void ruleModifier() throws NumberFormatException:
-{
-}
-{
-    (
-        LOOKAHEAD( < ISO_PERIOD > )
-        differentRange()
-    )?
-    (
-        LOOKAHEAD( ifRule() )
-        ifRule()
-    )?
-    (
-        LOOKAHEAD( specialYear() )
-        specialYear()
-    )?
-    (
-        LOOKAHEAD( onWeekday() )
-        onWeekday()
-    )?
-    (
-        LOOKAHEAD( yearInterval() )
-        yearInterval()
-    )?
 }
 
 void offset() throws NumberFormatException:
@@ -512,6 +492,32 @@ void differentRange() throws NumberFormatException:
         range = day * 24 * 60 + hour * 60 + minute;
         rule.setRange(range);
     }
+}
+
+void ruleModifier() throws NumberFormatException:
+{
+}
+{
+    (
+        LOOKAHEAD( < ISO_PERIOD > )
+        differentRange()
+    )?
+    (
+        LOOKAHEAD( ifRule() )
+        ifRule()
+    )?
+    (
+        LOOKAHEAD( specialYear() )
+        specialYear()
+    )?
+    (
+        LOOKAHEAD( onWeekday() )
+        onWeekday()
+    )?
+    (
+        LOOKAHEAD( yearInterval() )
+        yearInterval()
+    )?
 }
 
 void ifRule() throws NumberFormatException:
@@ -791,6 +797,94 @@ void yearInterval() throws NumberFormatException:
             yearStarts.add(Integer.parseInt(t.image));
         }
     )
+}
+
+void enabledRange() throws NumberFormatException:
+{
+    LocalDate date;
+}
+{
+    (
+        date = sinceYear()
+        {
+            rule.setEnabledSince(date);
+        }
+        (
+            LOOKAHEAD( { getToken(1).kind == AND })
+            < AND >
+            date = untilYear()
+            {
+                rule.setEnabledUntil(date);
+            }
+        )?
+    )
+    |
+    (
+        date = untilYear()
+        {
+            rule.setEnabledUntil(date);
+        }
+    )
+}
+
+LocalDate sinceYear() throws NumberFormatException:
+{
+    Token t;
+    int year;
+    int month = 1;
+    int dayOfMonth = 1;
+}
+{
+    (
+        < SINCE >
+        t = < YEAR >
+        {
+            year = Integer.parseInt(t.image);
+        }
+        (
+            t = < NUMBER >
+            {
+                month = Integer.parseInt(t.image);
+            }
+            t = < NUMBER >
+            {
+                dayOfMonth = Integer.parseInt(t.image);
+            }
+        )?
+    )
+    {
+        return LocalDate.of(year, month, dayOfMonth);
+    }
+}
+
+LocalDate untilYear() throws NumberFormatException:
+{
+    Token t;
+    int year;
+    int month = 1;
+    int dayOfMonth = 1;
+}
+{
+    (
+        < PRIOR_TO >
+        t = < YEAR >
+        {
+            year = Integer.parseInt(t.image);
+        }
+        (
+            t = < NUMBER >
+            {
+                month = Integer.parseInt(t.image);
+            }
+            t = < NUMBER >
+            {
+                dayOfMonth = Integer.parseInt(t.image);
+            }
+        )?
+    )
+    {
+        return LocalDate.of(year, month, dayOfMonth);
+    }
 }
 
 Date gregorianDate() throws NumberFormatException:

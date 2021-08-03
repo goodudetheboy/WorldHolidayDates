@@ -1,6 +1,6 @@
 LEGEND: | - OR
 
-<start> -> (substitutes)? (<offset>)? <rule> <start-time> (<rule-modifier>)?
+<start> -> (substitutes)? (<offset>)? <rule> <start-time> (<rule-modifier>)? (<enabled-range>)?
 
 <rule-modifier> ->  <if-rule> | <special-year> | <on-weekday> | <year-interval>
 
@@ -15,6 +15,9 @@ LEGEND: | - OR
 <on-weekday>     -> (not)? on <weekday>(,<weekday>)*
 
 <year-interval>  -> every <count> years since <year>
+
+<enabled-range>  -> since <year>(-<month>-<day-of-month>)? (and prior to <year>(-<month>-<day-of-month>)?)
+                 -> prior to <year>(-<month>-<day-of-month>)?
 
 <rule>  -> (<year>-)?<month>-<day>
         -> (January|February|March|April|May|June|July|August|September|October|November|December)

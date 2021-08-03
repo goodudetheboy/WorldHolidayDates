@@ -76,6 +76,9 @@ public class Rule {
     List<Integer>           yearIntervals   = new ArrayList<>();
     List<Integer>           yearStarts      = new ArrayList<>();
 
+    LocalDate               enabledSince    = null;
+    LocalDate               enabledUntil    = null;
+
     /**
      * Empty default constructor
      */
@@ -248,6 +251,20 @@ public class Rule {
      */
     public List<Integer> getYearIntervalStarts() {
         return yearStarts;
+    }
+
+    /**
+     * @return the date after which this Rule is enabled
+     */
+    public LocalDate getEnabledSince() {
+        return enabledSince;
+    }
+
+    /**
+     * @return the date before which this Rule is enabled
+     */
+    public LocalDate getEnabledUntil() {
+        return enabledUntil;
     }
 
     /**
@@ -487,6 +504,24 @@ public class Rule {
     }
 
     /**
+     * Sets the date after which this {@link Rule} is enabled.
+     * 
+     * @param enabledSince since time
+     */
+    public void setEnabledSince(LocalDate enabledSince) {
+        this.enabledSince = enabledSince;
+    }
+
+    /**
+     * Sets the date before which this {@link Rule} is enabled.
+     * 
+     * @param enabledUntil prior to time
+     */
+    public void setEnabledUntil(LocalDate enabledUntil) {
+        this.enabledUntil = enabledUntil;
+    }
+
+    /**
      * Shifts the input date by the {@link #offset} and {@link #offsetWeekDay},
      * if any.
      * 
@@ -649,6 +684,38 @@ public class Rule {
     }
 
     /**
+     * Check if the input dateTime is between the {@link #enabledSince} and
+     * {@link #enabledUntil}.
+     * <p>
+     * The input will be returned untouched if:
+     * <ol>
+     * <li>there's no enabled range, or</li>
+     * <li>the input dateTime is between the enabled range</li>
+     * </ol>
+     * 
+     * @param dateTime the date to check
+     * @return the input dateTime, if it is between the enabled range, null
+     *      otherwise
+     */
+    private LocalDateTime checkEnabled(LocalDateTime dateTime) {
+        if (dateTime == null) {
+            return null;
+        }
+
+        LocalDate date = dateTime.toLocalDate();
+        if (enabledSince == null && enabledUntil == null) {
+            return dateTime;
+        }
+        if (enabledSince != null && enabledUntil == null) {
+            return (date.isAfter(enabledSince)) ? dateTime : null;
+        }
+        if (enabledSince == null /*&& enabledPriorTo != null (always true)*/) {
+            return (date.isBefore(enabledUntil)) ? dateTime : null;
+        }
+        return (date.isAfter(enabledSince) && date.isBefore(enabledUntil)) ? dateTime : null;
+    }
+
+    /**
      * Calculates the start Gregorian date and time created from the {@link #rawDate},
      * along with any offset (deviation from raw dates).
      * <p>
@@ -665,7 +732,8 @@ public class Rule {
         LocalDateTime ifCheck = checkIfWeekday(offsetShifted); // check if weekday
         LocalDateTime yearCheck = checkYearRequirement(ifCheck); // check year requirement (even/odd/leap/non-leap year only)
         LocalDateTime weekdayCheck = checkWeekdayRequirement(yearCheck); // check weekday requirement
-        return checkYearInterval(weekdayCheck); // check year interval
+        LocalDateTime yearIntervalCheck = checkYearInterval(weekdayCheck);
+        return checkEnabled(yearIntervalCheck); // check year interval
     }
 
     /**
