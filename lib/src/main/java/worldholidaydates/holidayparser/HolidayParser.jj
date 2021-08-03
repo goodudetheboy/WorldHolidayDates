@@ -167,6 +167,7 @@ TOKEN :
     {
         matchedToken.image = Utils.capitalize(image.toString());
     }
+|   < JULIAN : "julian" >
 }
 
 TOKEN : 
@@ -276,6 +277,11 @@ Rule start():
         LOOKAHEAD( gregorianDate() )
         (
             d = gregorianDate()
+        )?
+    |
+        LOOKAHEAD( julianDate() )
+        (
+            d = julianDate()
         )?
     |
         LOOKAHEAD( startOfMonth() )
@@ -936,6 +942,54 @@ Date gregorianDate() throws NumberFormatException:
         return d;
     }
 }
+
+Date julianDate() throws NumberFormatException:
+{
+    Token t;
+    int year = DEFAULT_YEAR;
+    int month;
+    int dayOfMonth;
+}
+{
+    < JULIAN >
+    (
+        t = < YEAR >
+        {
+            year = Integer.parseInt(t.image);
+        }
+        < DASH >
+    )?
+    (
+        t = < NUMBER >
+        {
+            if (t.image.length() != 2 ) {
+                throw new ParseException("Month must be defined as MM");
+            }
+            month = Integer.parseInt(t.image);
+            if (month > 12 || month < 1) {
+                throw new ParseException("Month must be between 1-12, not " + month);
+            }
+        }
+    )
+    < DASH >
+    (
+        t = < NUMBER >
+        {
+            if (t.image.length() != 2) {
+                throw new ParseException("Day must be defined as DD");
+            }
+            dayOfMonth = Integer.parseInt(t.image);
+            if (dayOfMonth > 31 || month < 1) {
+                throw new ParseException("Day must be between 1-31, not " + dayOfMonth);
+            }
+        }
+    )
+    {
+        JulianCalDate d = new JulianCalDate(year, month, dayOfMonth);
+        return d;
+    }
+}
+
 
 Date startOfMonth():
 {

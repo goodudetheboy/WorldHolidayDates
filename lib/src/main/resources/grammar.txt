@@ -20,6 +20,7 @@ LEGEND: | - OR
                  -> prior to <year>(-<month>-<day-of-month>)?
 
 <rule>  -> (<year>-)?<month>-<day>
+        -> julian (<year>-)?<month>-<day>
         -> (January|February|March|April|May|June|July|August|September|October|November|December)
         -> (easter|orthodox) (+|-)?<number-of-days>
         -> <day-of-month> (Muharram|Safar|Rabi al-awwal|Rabi al-thani|Jumada al-awwal|Jumada al-thani|Rajab|Shaban|Ramadan|Shawwal|Dhu al-Qidah|Dhu al-Hijjah)

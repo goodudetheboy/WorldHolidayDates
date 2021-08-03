@@ -98,6 +98,11 @@ public class UnitTest {
     }
 
     @Test
+    public void julianDateTest() {
+        testParserDate("julian 2021-05-01", LocalDate.parse("2021-05-14"));
+    }
+
+    @Test
     public void startOfMonthTest() {
         testParserDate("january", LocalDate.parse("2021-01-01"));
         testParserDate("March", LocalDate.parse("2021-03-01"));
