@@ -14,7 +14,7 @@ LEGEND: | - OR
 
 <on-weekday>     -> (not)? on <weekday>(,<weekday>)*
 
-<year-interval>  -> every <count> years since <year>
+<year-interval>  -> (every <count> years)? since <year>
 
 <rule>  -> (<year>-)?<month>-<day>
         -> (January|February|March|April|May|June|July|August|September|October|November|December)
@@ -27,9 +27,6 @@ LEGEND: | - OR
         -> (June|December) solstice (in <timezone>)?
         -> <count> <weekday> (before|in) <month>
         
-        -> MM-DD every <count> years since <year>
-
-        -> MM-DD (not) on <weekday>
         -> <date> if MM-DD (and MM-DD)? is (<type>)? holiday
 
 

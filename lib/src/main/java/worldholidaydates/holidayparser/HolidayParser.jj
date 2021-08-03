@@ -770,14 +770,22 @@ void yearInterval() throws NumberFormatException:
     List< Integer > yearStarts = rule.getYearIntervalStarts();
 }
 {
-    < EVERY >
     (
-        t = < NUMBER >
+        (
+            < EVERY >
+            (
+                t = < NUMBER >
+                {
+                    yearIntervals.add(Integer.parseInt(t.image));
+                }
+            )
+            < YEARS >
+        )
+        |
         {
-            yearIntervals.add(Integer.parseInt(t.image));
+            yearIntervals.add(0);
         }
     )
-    < YEARS >
     < SINCE >
     (
         t = < YEAR >
