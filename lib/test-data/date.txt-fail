@@ -6,14 +6,6 @@
 
 239	julian 12-25	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-442	1st sunday in October in even years	worldholidaydates.holidayparser.ParseException: Encountered " "in" "in "" at line 1, column 23.
-Was expecting:
-    <EOF> 
-    
-443	1st sunday before 11-01 in even years	worldholidaydates.holidayparser.ParseException: Encountered " "in" "in "" at line 1, column 25.
-Was expecting:
-    <EOF> 
-    
 484	julian 12-25	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 584	3 sunday after 09-01	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
@@ -38,30 +30,6 @@ Was expecting:
 903	23-07	worldholidaydates.holidayparser.ParseException: Month must be between 1-12, not 23
 906	julian 12-25	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-936	01-06 in non-leap years	worldholidaydates.holidayparser.ParseException: Encountered " "in" "in "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-937	01-07 in leap years	worldholidaydates.holidayparser.ParseException: Encountered " "in" "in "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-944	09-11 in non-leap years	worldholidaydates.holidayparser.ParseException: Encountered " "in" "in "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-945	09-12 in leap years	worldholidaydates.holidayparser.ParseException: Encountered " "in" "in "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-946	09-27 in non-leap years	worldholidaydates.holidayparser.ParseException: Encountered " "in" "in "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-947	09-28 in leap years	worldholidaydates.holidayparser.ParseException: Encountered " "in" "in "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
 1168	3rd monday in February	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 1254	06-25 #1	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 7.  Encountered: "#" (35), after : ""

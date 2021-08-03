@@ -223,6 +223,14 @@ TOKEN :
 
 TOKEN :
 {
+    < EVEN : "even years" >
+|   < ODD : "odd years" >
+|   < LEAP : "leap years" >
+|   < NON_LEAP : "non-leap years" >
+}
+
+TOKEN :
+{
     < TIMEZONE :
         (["A"-"Z"]){3}
     |   (< PLUS > | < DASH >) <NUMBER> ":" <NUMBER>
@@ -308,15 +316,15 @@ Rule start():
     )?
     (
         LOOKAHEAD( < ISO_PERIOD > )
-        (
-            differentRange()
-        )
+        differentRange()
     )?
     (
         LOOKAHEAD( ifRule() )
-        (
-            ifRule()
-        )
+        ifRule()
+    )?
+    (
+        LOOKAHEAD( specialYear() )
+        specialYear()
     )?
     < EOF >
     {   
@@ -658,6 +666,43 @@ void ifWeekdayThenTime() throws NumberFormatException:
                 altWeekday.add(previousOrNext);
                 altWeekdays.add(altWeekday);
                 altTime.add(null);
+            }
+        )
+    )
+}
+
+void specialYear() :
+{
+    Token t;
+}
+{
+    < IN >
+    (
+        (
+            < EVEN >
+            {
+                rule.setInEvenYearOnly(true);
+            }
+        )
+        |
+        (
+            < ODD >
+            {
+                rule.setInOddYearOnly(true);
+            }
+        )
+        |
+        (
+            < LEAP >
+            {
+                rule.setInLeapYearOnly(true);
+            }
+        )
+        |
+        (
+            < NON_LEAP >
+            {
+                rule.setInNonLeapYearOnly(true);
             }
         )
     )

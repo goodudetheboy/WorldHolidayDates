@@ -6,17 +6,19 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Nullable;
+
 public class Rule {
     public static final int UNDEFINED_NUM = Integer.MIN_VALUE;
     // the raw date, without any offset or time applied
-    Date        rawDate     = null;
+    Date        rawDate         = null;
 
     // set substitute check during if weekday check
     boolean     substituteCheck = false;
 
     // the range of this {@link Date} in minutes, the default range is from the
     // startTime to the end of the stored day
-    int         range       = UNDEFINED_NUM; 
+    int         range           = UNDEFINED_NUM; 
 
     // Gregorian days deviation from raw stored date
     int         offset              = 0;
@@ -27,6 +29,12 @@ public class Rule {
     
     // Offset before or after raw stored date
     boolean     isAfter     = true;
+
+    // Date enabled only in certain year only (if any of below is true)
+    boolean     inEvenYear      = false;
+    boolean     inOddYear       = false;
+    boolean     inLeapYear      = false;
+    boolean     inNonLeapYear   = false;
 
     // Start-time of holiday changes per weekday
     // list of if weekday, from 1-7
@@ -118,6 +126,34 @@ public class Rule {
     }
 
     /**
+     * @return true if this {@link Rule} is enabled in even years, false otherwise
+     */
+    public boolean isInEvenYearOnly() {
+        return inEvenYear;
+    }
+
+    /**
+     * @return true if this {@link Rule} is enabled in odd years, false otherwise
+     */
+    public boolean isInOddYearOnly() {
+        return inOddYear;
+    }
+
+    /**
+     * @return true if this {@link Rule} is enabled in leap years, false otherwise
+     */
+    public boolean isInLeapYearOnly() {
+        return inLeapYear;
+    }
+
+    /**
+     * @return true if this {@link Rule} is enabled in non-leap years, false otherwise
+     */
+    public boolean isInNonLeapYearOnly() {
+        return inNonLeapYear;
+    }
+
+    /**
      * @return the list of if weekday, from 1-7
      */
     public List<List<Integer>> getIfWeekdays() {
@@ -131,20 +167,29 @@ public class Rule {
         return altTime;
     }
 
-    public List<List<Integer>> getIfWeekdaysExtra() {
-        return ifWeekdaysExtra;
-    }
-
-    public List<List<Integer>> getExtraWeekdays() {
-        return extraWeekdays;
-    }
-
     /**
      * @return the list of alternative weekday, from 1-7 (null if no alternative)
-     *      as the first index, and 0 for previous and 1 for next as the second index
+     *      as the first index, and 0 for previous and 1 for next as the second
+     *      index
      */
     public List<List<Integer>> getAlternateWeekdays() {
         return altWeekdays;
+    }
+
+    /**
+     * @return the list of if weekday extra, from 1-7
+     */
+    public List<List<Integer>> getIfWeekdaysExtra() {
+        return ifWeekdaysExtra;
+    }
+    
+    /**
+     * @return the list of weekday extra, from 1-7 (null if no alternative) as
+     *      the first index, and 0 for previous and 1 for next as the second
+     *      index
+     */
+    public List<List<Integer>> getExtraWeekdays() {
+        return extraWeekdays;
     }
 
     /**
@@ -257,6 +302,42 @@ public class Rule {
     }
 
     /**
+     * Sets this {@link Rule} to be enabled only in even year.
+     * 
+     * @param inEvenYear true if this {@link Rule} is enabled only in even year
+     */
+    public void setInEvenYearOnly(boolean inEvenYear) {
+        this.inEvenYear = inEvenYear;
+    }
+
+    /**
+     * Sets this {@link Rule} to be enabled only in odd year.
+     * 
+     * @param inOddYear true if this {@link Rule} is enabled only in odd year
+     */
+    public void setInOddYearOnly(boolean inOddYear) {
+        this.inOddYear = inOddYear;
+    }
+
+    /**
+     * Sets this {@link Rule} to be enabled only in leap year.
+     * 
+     * @param inLeapYear true if this {@link Rule} is enabled only in leap year
+     */
+    public void setInLeapYearOnly(boolean inLeapYear) {
+        this.inLeapYear = inLeapYear;
+    }
+
+    /**
+     * Sets this {@link Rule} to be enabled only in non-leap year.
+     * 
+     * @param inNonLeapYear true if this {@link Rule} is enabled only in non-leap year
+     */
+    public void setInNonLeapYearOnly(boolean inNonLeapYear) {
+        this.inNonLeapYear = inNonLeapYear;
+    }
+
+    /**
      * Sets the list of if weekday.
      * 
      * @param ifWeekdays the list of if weekday
@@ -285,10 +366,22 @@ public class Rule {
         this.altWeekdays = altWeekdays;
     }
 
+    /**
+     * Sets the list of if weekday extra
+     * 
+     * @param ifWeekdays the list of if weekday extra
+     */
     public void setIfWeekdaysExtra(List<List<Integer>> ifWeekdaysExtra) {
         this.ifWeekdaysExtra = ifWeekdaysExtra;
     }
 
+    /**
+     * Sets the list of extra weekday. Each of the list is a list oftwo integers.
+     * The first integer is the index of the weekday, the second is either 0 for
+     * previous and 1 for next.
+     * 
+     * @param extraWeekdays the list of alternative weekday
+     */
     public void setExtraWeekdays(List<List<Integer>> extraWeekdays) {
         this.extraWeekdays = extraWeekdays;
     }
@@ -344,6 +437,23 @@ public class Rule {
         return result;
     }
 
+    private boolean hasYearRequirement() {
+        return inEvenYear || inOddYear || inLeapYear || inNonLeapYear;
+    }
+
+    private LocalDateTime checkYearRequirement(LocalDateTime dateTime) {
+        LocalDate date = dateTime.toLocalDate();
+        int year = date.getYear();
+        if (!hasYearRequirement()
+        ||  inEvenYear && (year % 2 == 0)
+        ||  inOddYear && (year % 2 == 1)
+        ||  inLeapYear && date.isLeapYear()
+        ||  inNonLeapYear && !date.isLeapYear()) {
+            return dateTime;
+        }
+        return null;
+    }
+
     /**
      * Calculates the start Gregorian date and time created from the {@link #rawDate},
      * along with any offset (deviation from raw dates).
@@ -354,10 +464,12 @@ public class Rule {
      * @return the Gregorian date created only from the year, month, day, and
      *      start time without taking any offset into calculation.
      */
+    @Nullable
     public LocalDateTime calculate() {
-        LocalDateTime raw = calculateRaw();
-        LocalDateTime offsetShifted = offsetShift(raw);
-        return checkIfWeekday(offsetShifted);
+        LocalDateTime raw = calculateRaw(); // get raw date
+        LocalDateTime offsetShifted = offsetShift(raw); // apply offset
+        LocalDateTime weekdayCheck = checkIfWeekday(offsetShifted); // check if weekday
+        return checkYearRequirement(weekdayCheck); // check year requirement (even/odd/leap/non-leap year only)
     }
 
     /**
@@ -416,7 +528,8 @@ public class Rule {
      *      this date, with offset, if any
      */
     public LocalDate calculateDate() {
-        return calculate().toLocalDate();
+        LocalDateTime result = calculate();
+        return (result != null) ? calculate().toLocalDate() : null;
     }
 
     /**

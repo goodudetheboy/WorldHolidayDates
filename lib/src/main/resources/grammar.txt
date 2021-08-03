@@ -1,6 +1,6 @@
 LEGEND: | - OR
 
-<start> -> (substitutes)? (<offset>)? <rule> (<start-time>)? (<if-rule>)?
+<start> -> (substitutes)? (<offset>)? <rule> (<start-time>)? (<if-rule>)? (<special-year>)?
 
 <rule0> -> (<offset>)? <rule>
 
@@ -8,6 +8,8 @@ LEGEND: | - OR
 
 <day-offset>     -> <number-of-days> (d|days)?
 <weekday-offset> -> <count>? <weekday>
+
+<special-year>   -> in <special-year-modifier> years
 
 <rule>  -> (<year>-)?<month>-<day>
         -> (January|February|March|April|May|June|July|August|September|October|November|December)
@@ -20,7 +22,6 @@ LEGEND: | - OR
         ->  (June|December) solstice (in <timezone>)?
         -> <count> <weekday> (before|in) <month>
         
-        -> MM-DD and if <weekday> then (next|previous) <weekday> 
         -> MM-DD in (even|odd|leap|non-leap) years
         -> MM-DD every <count> years since <year>
         -> MM-DD (not) on <weekday>

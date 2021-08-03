@@ -266,4 +266,12 @@ public class UnitTest {
         testParserExtraDates("2021-08-01 and if sunday then next tuesday", new LocalDate[]{ LocalDate.parse("2021-08-03") });
         testParserExtraDates("2021-08-01 if sunday then next monday and if monday then next tuesday", new LocalDate[]{ LocalDate.parse("2021-08-03") });
     }
+
+    @Test
+    public void inCertainYearOnlyTest() {
+        testParserDate("2021-08-01 in even years", null);
+        testParserDate("2021-08-01 in odd years", LocalDate.parse("2021-08-01"));
+        testParserDate("2020-08-01 in leap years", LocalDate.parse("2020-08-01"));
+        testParserDate("2020-08-01 in non-leap years", null);
+    }
 }
