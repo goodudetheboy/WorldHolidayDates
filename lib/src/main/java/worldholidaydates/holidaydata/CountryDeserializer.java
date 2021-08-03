@@ -30,8 +30,8 @@ public class CountryDeserializer implements JsonDeserializer<Country> {
         c.setZones(context.deserialize(jsonObject.get("zones"), String[].class));
         set_days(c, jsonObject.get("_days"), context);
         setDays(c, jsonObject.get("days"), context);
-        c.setStates(context.deserialize(jsonObject.get("states"), Map.class));
-        c.setRegions(context.deserialize(jsonObject.get("regions"), Map.class));
+        setStates(c, jsonObject.get("states"), context);
+        setRegions(c, jsonObject.get("regions"), context);
 
         return c;
     }
@@ -66,5 +66,35 @@ public class CountryDeserializer implements JsonDeserializer<Country> {
             }
         }
         c.setDays(result);
+    }
+
+    private void setStates(Country c, JsonElement states, JsonDeserializationContext context) {
+        Map <String, Country> result = new LinkedTreeMap<>();
+        if (states == null || states.isJsonNull()) {
+            result = null;
+        } else {
+            JsonObject statesArr = states.getAsJsonObject();
+            for (Map.Entry<String, JsonElement> entry : statesArr.entrySet()) {
+                JsonElement value = entry.getValue();
+                Country state = context.deserialize(value, Country.class);
+                result.put(entry.getKey(), state);
+            }
+        }
+        c.setStates(result);
+    }
+
+    private void setRegions(Country c, JsonElement regions, JsonDeserializationContext context) {
+        Map <String, Country> result = new LinkedTreeMap<>();
+        if (regions == null || regions.isJsonNull()) {
+            result = null;
+        } else {
+            JsonObject regionsArr = regions.getAsJsonObject();
+            for (Map.Entry<String, JsonElement> entry : regionsArr.entrySet()) {
+                JsonElement value = entry.getValue();
+                Country region = context.deserialize(value, Country.class);
+                result.put(entry.getKey(), region);
+            }
+        }
+        c.setRegions(result);
     }
 }
