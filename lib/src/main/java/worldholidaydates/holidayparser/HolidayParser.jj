@@ -321,6 +321,32 @@ Rule start():
         )
     )?
     (
+        ruleModifier()
+    )
+    < EOF >
+    {   
+        if (substitute != null) {
+            rule.setSubstituteCheck(true);
+        }
+        if (d != null) {
+            rule.setRawDate(d);
+        }
+        // TODO: refactor this
+        if (rule.getIfWeekdays() == null) {
+            rule.setIfWeekdays(ifWeekdays);
+        }
+        if (rule.getAlternateTime() == null) {
+            rule.setAlternateTime(altTime);
+        }
+        return rule;
+    }
+}
+
+void ruleModifier() throws NumberFormatException:
+{
+}
+{
+    (
         LOOKAHEAD( < ISO_PERIOD > )
         differentRange()
     )?
@@ -340,23 +366,6 @@ Rule start():
         LOOKAHEAD( yearInterval() )
         yearInterval()
     )?
-    < EOF >
-    {   
-        if (substitute != null) {
-            rule.setSubstituteCheck(true);
-        }
-        if (d != null) {
-            rule.setRawDate(d);
-        }
-        // TODO: refactor this
-        if (rule.getIfWeekdays() == null) {
-            rule.setIfWeekdays(ifWeekdays);
-        }
-        if (rule.getAlternateTime() == null) {
-            rule.setAlternateTime(altTime);
-        }
-        return rule;
-    }
 }
 
 void offset() throws NumberFormatException:
@@ -766,20 +775,14 @@ void yearInterval() throws NumberFormatException:
 }
 {
     (
+        < EVERY >
         (
-            < EVERY >
-            (
-                t = < NUMBER >
-                {
-                    yearIntervals.add(Integer.parseInt(t.image));
-                }
-            )
-            < YEARS >
+            t = < NUMBER >
+            {
+                yearIntervals.add(Integer.parseInt(t.image));
+            }
         )
-        |
-        {
-            yearIntervals.add(0);
-        }
+        < YEARS >
     )
     < SINCE >
     (

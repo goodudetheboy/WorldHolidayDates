@@ -466,11 +466,11 @@ public class Rule {
      * Sets the year intervals of this {@link Rule}.
      * 
      * @param yearIntervals the year intervals of this {@link Rule}, must be
-     *      all non-negative integers (<= 0)
+     *      all positive integers (< 0)
      */
     public void setYearIntervals(List<Integer> yearIntervals) {
         for (Integer yearInterval : yearIntervals) {
-            if (yearInterval < 0) {
+            if (yearInterval <= 0) {
                 throw new IllegalArgumentException("Year interval must be a positive integer");
             }
         }
@@ -639,8 +639,7 @@ public class Rule {
             for (int i=0; i<yearIntervals.size(); i++) {
                 int yearInterval = yearIntervals.get(i);
                 int yearStart = yearStarts.get(i);
-                if (year >= yearStart
-                    && (yearInterval == 0 || ((year - yearStart) % yearInterval == 0))) {
+                if (year >= yearStart && ((year - yearStart) % yearInterval == 0)) {
                     return dateTime;
                 }
             }

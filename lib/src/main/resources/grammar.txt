@@ -1,8 +1,8 @@
 LEGEND: | - OR
 
-<start> -> (substitutes)? (<offset>)? <rule> (<start-time>)? (<if-rule>)? (<special-year>)? (<on-weekday>)? (<year-interval>)?
+<start> -> (substitutes)? (<offset>)? <rule> <start-time> (<rule-modifier>)?
 
-<rule0> -> (<offset>)? <rule>
+<rule-modifier> ->  <if-rule> | <special-year> | <on-weekday> | <year-interval>
 
 <offset> -> (<day-offset>|<weekday-offset>) (after|before) 
 
@@ -14,7 +14,7 @@ LEGEND: | - OR
 
 <on-weekday>     -> (not)? on <weekday>(,<weekday>)*
 
-<year-interval>  -> (every <count> years)? since <year>
+<year-interval>  -> every <count> years since <year>
 
 <rule>  -> (<year>-)?<month>-<day>
         -> (January|February|March|April|May|June|July|August|September|October|November|December)

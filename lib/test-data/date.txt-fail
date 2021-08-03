@@ -20,6 +20,22 @@
 
 905	thursday after 1 sunday after 09-01	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 16.
 
+920	08-07 since 1960	worldholidaydates.holidayparser.ParseException: Encountered " "since" "since "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+923	11-15 since 1996	worldholidaydates.holidayparser.ParseException: Encountered " "since" "since "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1188	06-27 since 1977	worldholidaydates.holidayparser.ParseException: Encountered " "since" "since "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
+1289	01-25 since 2011	worldholidaydates.holidayparser.ParseException: Encountered " "since" "since "" at line 1, column 7.
+Was expecting:
+    <EOF> 
+    
 1293	30-06	worldholidaydates.holidayparser.ParseException: Month must be between 1-12, not 30
 1294	23-07	worldholidaydates.holidayparser.ParseException: Month must be between 1-12, not 23
 1297	julian 12-25	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
@@ -83,6 +99,10 @@ Was expecting:
 
 2985	3rd monday in February	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
+2992	06-19 and if sunday then next monday if saturday then previous friday since 2021	worldholidaydates.holidayparser.ParseException: Encountered " "since" "since "" at line 1, column 71.
+Was expecting:
+    <EOF> 
+    
 2995	monday in September	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 3007	3rd monday in February	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
