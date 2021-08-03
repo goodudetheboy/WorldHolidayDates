@@ -217,17 +217,21 @@ TOKEN :
     |   "nd"
     |   "rd"
     |   "th" >
-    {
-        matchedToken.image = image.toString().toLowerCase(Locale.US);
-    }
+}
+
+TOKEN:
+{
+    < EVERY : "every" >
+|   < SINCE : "since" >
 }
 
 TOKEN :
 {
-    < EVEN : "even years" >
-|   < ODD : "odd years" >
-|   < LEAP : "leap years" >
-|   < NON_LEAP : "non-leap years" >
+    < EVEN : "even" >
+|   < ODD : "odd" >
+|   < LEAP : "leap" >
+|   < NON_LEAP : "non-leap" >
+|   < YEARS : "years" >
 }
 
 TOKEN :
@@ -330,6 +334,10 @@ Rule start():
     (
         LOOKAHEAD( onWeekday() )
         onWeekday()
+    )?
+    (
+        LOOKAHEAD( yearInterval() )
+        yearInterval()
     )?
     < EOF >
     {   
@@ -691,8 +699,12 @@ void specialYear() :
         )
         |
         (
-            < ODD >
+            // TODO: fix this also (TIMEZONE 3-character bug)
+            t = < ODD >
             {
+                if (!t.image.equals("odd")) {
+                    throw new ParseException("Expected ODD");
+                }
                 rule.setInOddYearOnly(true);
             }
         )
@@ -711,6 +723,7 @@ void specialYear() :
             }
         )
     )
+    < YEARS >
 }
 
 void onWeekday() :
@@ -748,6 +761,30 @@ void onWeekday() :
                                         : rule.getDisabledWeekdays();
         weekdayReqList.addAll(weekdays);
     }
+}
+
+void yearInterval() throws NumberFormatException:
+{
+    Token t;
+    List< Integer > yearIntervals = rule.getYearIntervals();
+    List< Integer > yearStarts = rule.getYearIntervalStarts();
+}
+{
+    < EVERY >
+    (
+        t = < NUMBER >
+        {
+            yearIntervals.add(Integer.parseInt(t.image));
+        }
+    )
+    < YEARS >
+    < SINCE >
+    (
+        t = < YEAR >
+        {
+            yearStarts.add(Integer.parseInt(t.image));
+        }
+    )
 }
 
 Date gregorianDate() throws NumberFormatException:

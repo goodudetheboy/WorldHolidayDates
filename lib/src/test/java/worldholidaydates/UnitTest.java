@@ -282,4 +282,13 @@ public class UnitTest {
         testParserDate("08-02 not on Monday, Tuesday", null);
         testParserDate("08-01 not on Monday, Tuesday", LocalDate.parse("2021-08-01"));
     }
+
+    @Test
+    public void yearIntervalTest() {
+        testParserDate("2021-08-01 every 6 years since 2021", LocalDate.parse("2021-08-01"));
+        testParserDate("2021-08-01 every 6 years since 2015", LocalDate.parse("2021-08-01"));
+        // testParserDate("2021-08-01 every 5 years since 2015 every 4 years since 2017", LocalDate.parse("2021-08-01"));
+        testParserDate("2021-08-01 every 5 years since 2015", null);
+        testParserDate("tuesday after 1st monday in August every 4 years since 2021", LocalDate.parse("2021-08-03"));
+    }
 }

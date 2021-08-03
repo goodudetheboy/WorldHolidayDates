@@ -66,6 +66,19 @@ public class Rule {
     List<Integer>           enabledWeekdays  = new ArrayList<>();
     List<Integer>           disabledWeekdays = new ArrayList<>();              
 
+    /**
+     * Rule is enabled only for a certain year interval since a certain year.
+     * <p>
+     * {@link #yearInterval} contains the count of the year interval.
+     * <p>
+     * {@link #yearStart} contains the start year of the interval.
+     */
+    List<Integer>           yearIntervals   = new ArrayList<>();
+    List<Integer>           yearStarts      = new ArrayList<>();
+
+    /**
+     * Empty default constructor
+     */
     public Rule() {
         // empty
     }
@@ -221,6 +234,20 @@ public class Rule {
      */
     public List<Integer> getDisabledWeekdays() {
         return disabledWeekdays;
+    }
+
+    /**
+     * @return the list of year interval
+     */
+    public List<Integer> getYearIntervals() {
+        return yearIntervals;
+    }
+
+    /**
+     * @return the list of the year which are starts of the intervals
+     */
+    public List<Integer> getYearIntervalStarts() {
+        return yearStarts;
     }
 
     /**
@@ -436,6 +463,30 @@ public class Rule {
     }
 
     /**
+     * Sets the year intervals of this {@link Rule}.
+     * 
+     * @param yearIntervals the year intervals of this {@link Rule}, must be
+     *      all positive integers (< 0)
+     */
+    public void setYearIntervals(List<Integer> yearIntervals) {
+        for (Integer yearInterval : yearIntervals) {
+            if (yearInterval <= 0) {
+                throw new IllegalArgumentException("Year interval must be a positive integer");
+            }
+        }
+        this.yearIntervals = yearIntervals;
+    }
+
+    /**
+     * Sets the year starts of the interval.
+     * 
+     * @param yearStarts the year starts of the interval
+     */
+    public void setYearIntervalStarts(List<Integer> yearStarts) {
+        this.yearStarts = yearStarts;
+    }
+
+    /**
      * Shifts the input date by the {@link #offset} and {@link #offsetWeekDay},
      * if any.
      * 
@@ -558,7 +609,45 @@ public class Rule {
         }
         return dateTime;
     }            
-            
+      
+    /**
+     * Checks the input dateTime if its year falls into the interval year list.
+     * <p>
+     * The input will be returned untouched if:
+     * <ol>
+     * <li>there's no interval year list, or</li>
+     * <li>the input dateTime's year is in the interval year list</li>
+     * </ol>
+     * <p>
+     * The output will be null if:
+     * <ol>
+     * <li>the input dateTime is null, or</li>
+     * <li>the input dateTime's year is not in the interval year list</li>
+     * </ol>
+     * 
+     * @param dateTime the date to check
+     * @return the input dateTime, if its year is in the interval year list,
+     *      null otherwise
+     */
+    private LocalDateTime checkYearInterval(LocalDateTime dateTime) {
+        if (dateTime == null) {
+            return null;
+        }
+
+
+        int year = dateTime.toLocalDate().getYear();
+        if (!yearIntervals.isEmpty()) {
+            for (int i=0; i<yearIntervals.size(); i++) {
+                int yearInterval = yearIntervals.get(i);
+                int yearStart = yearStarts.get(i);
+                if (year >= yearStart && ((year - yearStart) % yearInterval == 0)) {
+                    return dateTime;
+                }
+            }
+            return null;
+        }
+        return dateTime;
+    }
 
     /**
      * Calculates the start Gregorian date and time created from the {@link #rawDate},
@@ -574,9 +663,10 @@ public class Rule {
     public LocalDateTime calculate() {
         LocalDateTime raw = calculateRaw(); // get raw date
         LocalDateTime offsetShifted = offsetShift(raw); // apply offset
-        LocalDateTime weekdayCheck = checkIfWeekday(offsetShifted); // check if weekday
-        LocalDateTime yearCheck = checkYearRequirement(weekdayCheck); // check year requirement (even/odd/leap/non-leap year only)
-        return checkWeekdayRequirement(yearCheck); // check weekday requirement (even/odd/leap/non-leap year only)
+        LocalDateTime ifCheck = checkIfWeekday(offsetShifted); // check if weekday
+        LocalDateTime yearCheck = checkYearRequirement(ifCheck); // check year requirement (even/odd/leap/non-leap year only)
+        LocalDateTime weekdayCheck = checkWeekdayRequirement(yearCheck); // check weekday requirement
+        return checkYearInterval(weekdayCheck); // check year interval
     }
 
     /**

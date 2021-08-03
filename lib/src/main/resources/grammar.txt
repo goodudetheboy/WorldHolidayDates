@@ -1,6 +1,6 @@
 LEGEND: | - OR
 
-<start> -> (substitutes)? (<offset>)? <rule> (<start-time>)? (<if-rule>)? (<special-year>)?
+<start> -> (substitutes)? (<offset>)? <rule> (<start-time>)? (<if-rule>)? (<special-year>)? (<on-weekday>)? (<year-interval>)?
 
 <rule0> -> (<offset>)? <rule>
 
@@ -14,6 +14,8 @@ LEGEND: | - OR
 
 <on-weekday>     -> (not)? on <weekday>(,<weekday>)*
 
+<year-interval>  -> every <count> years since <year>
+
 <rule>  -> (<year>-)?<month>-<day>
         -> (January|February|March|April|May|June|July|August|September|October|November|December)
         -> (easter|orthodox) (+|-)?<number-of-days>
@@ -26,6 +28,7 @@ LEGEND: | - OR
         -> <count> <weekday> (before|in) <month>
         
         -> MM-DD every <count> years since <year>
+
         -> MM-DD (not) on <weekday>
         -> <date> if MM-DD (and MM-DD)? is (<type>)? holiday
 
