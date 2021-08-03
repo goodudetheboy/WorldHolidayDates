@@ -1,4 +1,4 @@
-package worldholidaydates;
+package worldholidaydates.holidayparser;
 
 
 
@@ -11,11 +11,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import org.junit.Test;
-
-import worldholidaydates.holidayparser.Rule;
-import worldholidaydates.holidayparser.Date;
-import worldholidaydates.holidayparser.HolidayParser;
-import worldholidaydates.holidayparser.ParseException;
 
 public class UnitTest {
 

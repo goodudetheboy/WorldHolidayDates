@@ -1,4 +1,4 @@
-package worldholidaydates;
+package worldholidaydates.holidayparser;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -17,10 +17,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import org.junit.Test;
-
-import worldholidaydates.holidayparser.HolidayParser;
-import worldholidaydates.holidayparser.ParseException;
-import worldholidaydates.holidayparser.Rule;
 
 /**
  * A test class for the {@link HolidayParser}, that takes data from the date.txt
