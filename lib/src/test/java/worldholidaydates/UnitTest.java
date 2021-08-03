@@ -274,4 +274,12 @@ public class UnitTest {
         testParserDate("2020-08-01 in leap years", LocalDate.parse("2020-08-01"));
         testParserDate("2020-08-01 in non-leap years", null);
     }
+
+    @Test
+    public void inCertainWeekdayOnlyTest() {
+        testParserDate("08-02 on Monday, Tuesday", LocalDate.parse("2021-08-02"));
+        testParserDate("08-01 on Monday, Tuesday", null);
+        testParserDate("08-02 not on Monday, Tuesday", null);
+        testParserDate("08-01 not on Monday, Tuesday", LocalDate.parse("2021-08-01"));
+    }
 }

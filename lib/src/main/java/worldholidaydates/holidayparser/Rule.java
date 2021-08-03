@@ -16,8 +16,10 @@ public class Rule {
     // set substitute check during if weekday check
     boolean     substituteCheck = false;
 
-    // the range of this {@link Date} in minutes, the default range is from the
-    // startTime to the end of the stored day
+    /**
+     * The range of this {@link Date} in minutes, the default range is from the
+     * startTime to the end of the stored day 
+     */
     int         range           = UNDEFINED_NUM; 
 
     // Gregorian days deviation from raw stored date
@@ -39,15 +41,30 @@ public class Rule {
     // Start-time of holiday changes per weekday
     // list of if weekday, from 1-7
     List<List<Integer>>     ifWeekdays      = null; 
-    // list of alternative time, from {@link Date#MIN_TIME} to {@link Date#MAX_TIME}
-    //(null if no alternative)
+    /**
+     * List of alternative time, from {@link Date#MIN_TIME} to {@link Date#MAX_TIME}
+     * (null if no alternative)
+     */
     List<Integer>           altTime         = null;
-    // list of alternative weekday, from 1-7 (null if no alternative)
-    // 0 for previous and 1 for next
+    /**
+     * List of alternative weekday, from 1-7 (null if no alternative)
+     * 0 for previous and 1 for next
+     */
     List<List<Integer>>     altWeekdays     = null;
 
+    /**
+     * If raw Date's weekday is in {@link #ifWeekdaysExtra}, then there will be
+     * another holiday of the weekdays of the corresponding index in
+     * {@link #extraWeekdays}.
+     */
     List<List<Integer>>     ifWeekdaysExtra = null;
     List<List<Integer>>     extraWeekdays   = null;
+
+    /**
+     * Weekday enabled/disabled in certain weekday
+     */
+    List<Integer>           enabledWeekdays  = new ArrayList<>();
+    List<Integer>           disabledWeekdays = new ArrayList<>();              
 
     public Rule() {
         // empty
@@ -190,6 +207,20 @@ public class Rule {
      */
     public List<List<Integer>> getExtraWeekdays() {
         return extraWeekdays;
+    }
+
+    /**
+     * @return the list of enabled weekday, from 1-7
+     */
+    public List<Integer> getEnabledWeekdays() {
+        return enabledWeekdays;
+    }
+
+    /**
+     * @return the list of disabled weekday, from 1-7
+     */
+    public List<Integer> getDisabledWeekdays() {
+        return disabledWeekdays;
     }
 
     /**
@@ -387,6 +418,24 @@ public class Rule {
     }
 
     /**
+     * Sets the enabled weekdays list for this {@link Rule}.
+     * 
+     * @param enabledWeekdays the enabled weekdays list for this {@link Rule}
+     */
+    public void setEnabledWeekdays(List<Integer> enabledWeekdays) {
+        this.enabledWeekdays = enabledWeekdays;
+    }
+
+    /**
+     * Sets the disabled weekdays list for this {@link Rule}.
+     * 
+     * @param disabledWeekdays the disabled weekdays list for this {@link Rule}
+     */
+    public void setDisabledWeekdays(List<Integer> disabledWeekdays) {
+        this.disabledWeekdays = disabledWeekdays;
+    }
+
+    /**
      * Shifts the input date by the {@link #offset} and {@link #offsetWeekDay},
      * if any.
      * 
@@ -437,11 +486,30 @@ public class Rule {
         return result;
     }
 
+    /**
+     * Checks if there are any requirements in specific type of years in this
+     * {@link Rule}.
+     */
     private boolean hasYearRequirement() {
         return inEvenYear || inOddYear || inLeapYear || inNonLeapYear;
     }
 
+    /**
+     * Checks the input date against the year requirements of this {@link Rule}.
+     * The input date will be returned untouched if:
+     * <ol>
+     * <li>there's no year requirement, or</li>
+     * <li>the input date's year is in the required year list</li>
+     * </ol>
+     * 
+     * @param dateTime the date to check
+     * @return true if the input date is in the required year, false otherwise
+     */
     private LocalDateTime checkYearRequirement(LocalDateTime dateTime) {
+        if (dateTime == null) {
+            return null;
+        }
+
         LocalDate date = dateTime.toLocalDate();
         int year = date.getYear();
         if (!hasYearRequirement()
@@ -453,6 +521,44 @@ public class Rule {
         }
         return null;
     }
+
+    /**
+     * Checks the input dateTime with the weekday enabled/disabled list.
+     * The input dateTime will be returned untouched if:
+     * <ol>
+     * <li>there's no weekday enabled/disabled list, or</li>
+     * <li>the input dateTime's weekday is in the enabled list</li>
+     * </ol>
+     * 
+     * It will return null if:
+     * <ol>
+     * <li>the input dateTime is null, or</li>
+     * <li>the input dateTime's weekday is in the disabled list</li>
+     * </ol>
+     * 
+     * Note that the enabled list takes precedence over the disabled list,
+     * which means that if the input dateTime's weekday is in the enabled list,
+     * it will return the input dateTime, even if the weekday is in the disabled
+     * list.
+     * 
+     * @param dateTime the date to check
+     * @return the input dateTime, if it is in the enabled list, null otherwise
+     */
+    private LocalDateTime checkWeekdayRequirement(LocalDateTime dateTime) {
+        if (dateTime == null) {
+            return null;
+        }
+        
+        int weekdayValue = dateTime.getDayOfWeek().getValue();
+        if (!enabledWeekdays.isEmpty()) {
+            return (enabledWeekdays.contains(weekdayValue)) ? dateTime : null;
+        }
+        if (!disabledWeekdays.isEmpty()) {
+            return (disabledWeekdays.contains(weekdayValue)) ? null : dateTime;
+        }
+        return dateTime;
+    }            
+            
 
     /**
      * Calculates the start Gregorian date and time created from the {@link #rawDate},
@@ -469,7 +575,8 @@ public class Rule {
         LocalDateTime raw = calculateRaw(); // get raw date
         LocalDateTime offsetShifted = offsetShift(raw); // apply offset
         LocalDateTime weekdayCheck = checkIfWeekday(offsetShifted); // check if weekday
-        return checkYearRequirement(weekdayCheck); // check year requirement (even/odd/leap/non-leap year only)
+        LocalDateTime yearCheck = checkYearRequirement(weekdayCheck); // check year requirement (even/odd/leap/non-leap year only)
+        return checkWeekdayRequirement(yearCheck); // check weekday requirement (even/odd/leap/non-leap year only)
     }
 
     /**

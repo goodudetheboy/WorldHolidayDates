@@ -10,22 +10,10 @@
 
 584	3 sunday after 09-01	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-592	08-07 since 1960	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "sin "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-595	11-15 since 1996	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "sin "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-798	06-27 since 1977	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "sin "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
-898	01-25 since 2011	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "sin "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
+592	08-07 since 1960	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 12.  Encountered: " " (32), after : "ce"
+595	11-15 since 1996	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 12.  Encountered: " " (32), after : "ce"
+798	06-27 since 1977	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 12.  Encountered: " " (32), after : "ce"
+898	01-25 since 2011	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 12.  Encountered: " " (32), after : "ce"
 902	30-06	worldholidaydates.holidayparser.ParseException: Month must be between 1-12, not 30
 903	23-07	worldholidaydates.holidayparser.ParseException: Month must be between 1-12, not 23
 906	julian 12-25	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
@@ -41,10 +29,6 @@ Was expecting:
 
 1459	04-29 and if sunday then next monday #1	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 38.  Encountered: "#" (35), after : ""
 1460	04-29 and if sunday then next monday #2	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 38.  Encountered: "#" (35), after : ""
-1467	05-04 not on sunday, monday	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "not "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
 1480	09-22 if 09-21 and 09-23 is public holiday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
 Was expecting:
     <EOF> 
@@ -71,16 +55,10 @@ Was expecting:
 
 1809	1st monday in February	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-1820	12-01 every 6 years since 1934	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "eve "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
+1820	12-01 every 6 years since 1934	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 12.  Encountered: " " (32), after : "ry"
 1911	2nd sunday in February	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-1952	07-01 every 5 years since 2014	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "eve "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    
+1952	07-01 every 5 years since 2014	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 12.  Encountered: " " (32), after : "ry"
 2072	julian 12-25	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
 2088	julian 01-14	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
@@ -101,16 +79,10 @@ Was expecting:
 
 2514	3rd monday in February	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-2521	06-19 and if sunday then next monday if saturday then previous friday since 2021	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "sin "" at line 1, column 71.
-Was expecting:
-    <EOF> 
-    
+2521	06-19 and if sunday then next monday if saturday then previous friday since 2021	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 76.  Encountered: " " (32), after : "ce"
 2524	monday in September	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 
-2529	tuesday after 1st monday in November every 4 years since 1848	worldholidaydates.holidayparser.ParseException: Encountered " <TIMEZONE> "eve "" at line 1, column 38.
-Was expecting:
-    <EOF> 
-    
+2529	tuesday after 1st monday in November every 4 years since 1848	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 43.  Encountered: " " (32), after : "ry"
 2572	03-19#1	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 6.  Encountered: "#" (35), after : ""
 2602	1 day before vietnamese 1-0-1 P5D	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 

@@ -128,6 +128,7 @@ TOKEN :
     < AFTER : "after" >
 |   < BEFORE : "before" >
 |   < IN : "in" >
+|   < ON : "on" >
 |   < NEXT : "next" >
 |   < PREVIOUS : "previous" >
 |   < SUBSTITUTES : "substitutes" >
@@ -325,6 +326,10 @@ Rule start():
     (
         LOOKAHEAD( specialYear() )
         specialYear()
+    )?
+    (
+        LOOKAHEAD( onWeekday() )
+        onWeekday()
     )?
     < EOF >
     {   
@@ -706,6 +711,43 @@ void specialYear() :
             }
         )
     )
+}
+
+void onWeekday() :
+{
+    Token t;
+    boolean getEnabledList = true;
+    List< Integer > weekdays = new ArrayList< Integer >();
+}
+{
+    (
+        (
+            // TODO: #1 supposed to be NOT here, but the TIMEZONE definition
+            // of 3-character overshadow this. Fix this
+            < TIMEZONE > 
+            {
+                getEnabledList = false;
+            }
+        )?
+        < ON >
+        t = < WEEKDAY >
+        {
+            weekdays.add(Date.weekdayToValue(t.image));
+        }
+        (
+            < COMMA >
+            t = < WEEKDAY >
+            {
+                weekdays.add(Date.weekdayToValue(t.image));
+            }   
+        )*
+    )
+    {
+        List< Integer > weekdayReqList = (getEnabledList)
+                                        ? rule.getEnabledWeekdays()
+                                        : rule.getDisabledWeekdays();
+        weekdayReqList.addAll(weekdays);
+    }
 }
 
 Date gregorianDate() throws NumberFormatException:
