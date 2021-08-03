@@ -133,6 +133,7 @@ TOKEN :
 |   < PREVIOUS : "previous" >
 |   < SUBSTITUTES : "substitutes" >
 |   < AND : "and" >
+|   < NOT : "not" >
     {
         matchedToken.image = image.toString().toLowerCase(Locale.US);
     }
@@ -699,12 +700,8 @@ void specialYear() :
         )
         |
         (
-            // TODO: fix this also (TIMEZONE 3-character bug)
-            t = < ODD >
+            < ODD >
             {
-                if (!t.image.equals("odd")) {
-                    throw new ParseException("Expected ODD");
-                }
                 rule.setInOddYearOnly(true);
             }
         )
@@ -735,9 +732,7 @@ void onWeekday() :
 {
     (
         (
-            // TODO: #1 supposed to be NOT here, but the TIMEZONE definition
-            // of 3-character overshadow this. Fix this
-            < TIMEZONE > 
+            < NOT > 
             {
                 getEnabledList = false;
             }
