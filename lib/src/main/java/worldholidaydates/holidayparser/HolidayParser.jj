@@ -842,10 +842,12 @@ LocalDate sinceYear() throws NumberFormatException:
             year = Integer.parseInt(t.image);
         }
         (
+            < DASH >
             t = < NUMBER >
             {
                 month = Integer.parseInt(t.image);
             }
+            < DASH >
             t = < NUMBER >
             {
                 dayOfMonth = Integer.parseInt(t.image);
@@ -872,10 +874,12 @@ LocalDate untilYear() throws NumberFormatException:
             year = Integer.parseInt(t.image);
         }
         (
+            < DASH >
             t = < NUMBER >
             {
                 month = Integer.parseInt(t.image);
             }
+            < DASH >
             t = < NUMBER >
             {
                 dayOfMonth = Integer.parseInt(t.image);

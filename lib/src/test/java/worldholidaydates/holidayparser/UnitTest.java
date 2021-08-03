@@ -294,5 +294,8 @@ public class UnitTest {
         testParserDate("2021-08-01 since 2022", null);
         testParserDate("2021-08-01 since 2020 and prior to 2023", LocalDate.parse("2021-08-01"));
         testParserDate("2021-08-01 since 2020 and prior to 2020", null);
+        testParserDate("2021-08-01 since 2020-07-31 and prior to 2023", LocalDate.parse("2021-08-01"));
+        testParserDate("2021-08-01 since 2021-08-02 and prior to 2030", null);
+        testParserDate("2021-08-01 since 2020-08-02 and prior to 2021-07-31", null);
     }
 }
