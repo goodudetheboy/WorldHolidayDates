@@ -272,6 +272,10 @@ Rule start():
 {
     ( substitute = < SUBSTITUTES > )?
     (
+        LOOKAHEAD( weekdayOffset2nd() )
+        weekdayOffset2nd()
+    )?
+    (
         LOOKAHEAD( offset() )
         offset()
     )?
@@ -430,6 +434,38 @@ void weekdayOffset() throws NumberFormatException:
     {
         rule.setOffsetWeekDayNth(offsetWeekDayNth);
         rule.setOffsetWeekDay(offsetWeekDay);
+    }
+}
+
+void weekdayOffset2nd() throws NumberFormatException:
+{
+    Token t;
+    int offsetWeekDay2Nth = 1;
+    int offsetWeekDay2 = 0;
+    boolean isAfter2 = true;
+}
+{
+    (
+        t = < WEEKDAY >
+        {
+            offsetWeekDay2 = Date.weekdayToValue(t.image);
+        }
+        (
+            < BEFORE >
+            {
+                isAfter2 = false;
+            }
+            |
+            < AFTER >
+            {
+                isAfter2 = true;
+            }
+        )
+    )
+    {
+        rule.setOffsetWeekDay2Nth(offsetWeekDay2Nth);
+        rule.setOffsetWeekDay2(offsetWeekDay2);
+        rule.setOffsetDirection2(isAfter2);
     }
 }
 

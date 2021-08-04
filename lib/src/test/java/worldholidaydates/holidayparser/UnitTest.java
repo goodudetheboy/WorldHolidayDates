@@ -312,4 +312,12 @@ public class UnitTest {
         assertEquals(1, rule.getRelatedRuleNumber());
         assertNotEquals(2, rule.getRelatedRuleNumber());
     }
+
+    @Test
+    public void changeToDifferentWeekdayFromFixedDate() {
+        testParser("Friday after 4th Thursday before 08-01", LocalDateTime.parse("2021-07-09T00:00"));
+        // testParser("1st Friday after 4th Thursday before 08-01", LocalDateTime.parse("2021-07-09T00:00"));
+        // testParser("2nd Friday after 4th Thursday after 08-01", LocalDateTime.parse("2021-09-03T00:00"));
+        // testParser("2nd Friday before 4th Thursday after 08-01", LocalDateTime.parse("2021-08-13T00:00"));
+    }
 }

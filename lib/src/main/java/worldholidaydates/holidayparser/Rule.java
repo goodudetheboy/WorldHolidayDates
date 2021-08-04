@@ -37,6 +37,13 @@ public class Rule {
     
     // Offset before or after raw stored date
     boolean     isAfter     = true;
+    
+    // another weekday offset (seriously? why?)
+    int         offsetWeekDay2 = 0; // 1-7 corresponds to Monday-Sunday
+    int         offsetWeekDay2Nth = 0; // 1-100th
+
+    // seondary offset before or after raw stored date
+    boolean     isAfter2     = true;
 
     // Date enabled only in certain year only (if any of below is true)
     boolean     inEvenYear      = false;
@@ -203,6 +210,29 @@ public class Rule {
      */
     public boolean isInNonLeapYearOnly() {
         return inNonLeapYear;
+    }
+    
+    /**
+     * @return the secondary weekday offset of the raw {@link Date} (1-7).
+     */
+    public int getOffsetWeekDay2() {
+        return offsetWeekDay2;
+    }
+
+    /**
+     * @return the secondary nth of the weekday offset of the raw {@link Date}.
+     */
+    public int getOffsetWeekDay2Nth() {
+        return offsetWeekDay2Nth;
+    }
+
+    /**
+     * Returns the direction of secondary offset calcuation.
+     * 
+     * @return true if the offset direction is after, false if it is before
+     */
+    public boolean getOffsetDirection2() {
+        return isAfter2;
     }
 
     /**
@@ -451,6 +481,33 @@ public class Rule {
     public void setInNonLeapYearOnly(boolean inNonLeapYear) {
         this.inNonLeapYear = inNonLeapYear;
     }
+    /**
+     * Sets the secondary weekday offset (from 1-7) 
+     * 
+     * @param offsetWeekDay2 the weekday offset (from 1-7)
+     */
+    public void setOffsetWeekDay2(int offsetWeekDay2) {
+        this.offsetWeekDay2 = offsetWeekDay2;
+    }
+
+    /**
+     * Sets the secondary nth of the weekday offset of the raw {@link Date} (from 1-100).
+     * 
+     * @param offsetWeekDay2Nth the nth of the weekday offset (from 1-100)
+     */
+    public void setOffsetWeekDay2Nth(int offsetWeekDay2Nth) {
+        this.offsetWeekDay2Nth = offsetWeekDay2Nth;
+    }
+
+    /**
+     * Set the secondary offset direction of this {@link Date}.
+     * 
+     * @param isAfter true if the offset direction is after, false if it
+     *      is before
+     */
+    public void setOffsetDirection2(boolean isAfter2) {
+        this.isAfter2 = isAfter2;
+    }
 
     /**
      * Sets the list of if weekday.
@@ -575,6 +632,9 @@ public class Rule {
         }
         if (offsetWeekDay != 0) {
             result = Date.getOffsetWeekDayDate(result, offsetWeekDay, offsetWeekDayNth, isAfter);
+        }
+        if (offsetWeekDay2 != 0) {
+            result = Date.getOffsetWeekDayDate(result, offsetWeekDay2, offsetWeekDay2Nth, isAfter2);
         }
         return result;
     }
