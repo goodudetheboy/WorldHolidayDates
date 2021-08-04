@@ -168,7 +168,7 @@ public class EastAsianDate extends Date {
             EastAsianCalendar date = null;
             switch(calType) {
                 case CHINESE:
-                    date = ChineseCalendar.of(conYear, conMonth, dayOfMonth);
+                    date = ChineseCalendar.of(conYear, conMonth, (dayOfMonth != 0) ? dayOfMonth : 1);
                     break;
                 case KOREAN:
                     date = KoreanCalendar.of(conYear, conMonth, dayOfMonth);
@@ -179,7 +179,11 @@ public class EastAsianDate extends Date {
             }
             if (date != null) {
                 PlainDate pdate = date.transform(PlainDate.class);
-                return pdate.toTemporalAccessor();
+                LocalDate result =  pdate.toTemporalAccessor();
+                if (dayOfMonth == 0) {
+                    result = result.minusDays(1);
+                }
+                return result;
             } else {
                 return null;
             }

@@ -159,6 +159,7 @@ public class UnitTest {
         testParserDate("korean 78-38-6-0-18", LocalDate.parse("2021-07-27"));
         testParserDate("vietnamese 6-0-18", LocalDate.parse("2021-07-27"));
         testParserDate("vietnamese 78-38-6-0-18", LocalDate.parse("2021-07-27"));
+        testParserDate("chinese 01-0-00", LocalDate.parse("2021-02-11"));
     }
 
     @Test

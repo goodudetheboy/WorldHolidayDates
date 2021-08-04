@@ -1220,8 +1220,8 @@ Date eastAsian() throws NumberFormatException:
 {
     Token t;
     CalendarType calType;
-    int cycle = EastAsianDate.DEFAULT_EAST_ASIAN_CYCLE;
-    int yearOfCycle = EastAsianDate.DEFAULT_EAST_ASIAN_YEAR_OF_CYCLE;
+    int cycle;
+    int yearOfCycle;
     int month;
     boolean isLeapMonth;
     int dayOfMonth;
@@ -1282,7 +1282,7 @@ Date eastAsian() throws NumberFormatException:
             )
             < SOLARTERM >
         )?
-    |
+        |
         (
             (
                 t = < NUMBER >
@@ -1293,18 +1293,18 @@ Date eastAsian() throws NumberFormatException:
                 < DASH >
             )
             (
-                LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 0, 1) })
                 (
+                LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 0, 1) })
                     t = < NUMBER >
                     {
                         isLeapMonth = (Integer.parseInt(t.image) == 1);
                         d.setLeapMonth(isLeapMonth);
                     }
                     < DASH>
-                )
+                )?
             )
             (
-                LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 1, 30) })
+                LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 0, 30) })
                 (
                     t = < NUMBER >
                     {

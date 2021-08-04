@@ -2,7 +2,3 @@
 Was expecting:
     <EOF> 
     
-2896	chinese 01-0-00	worldholidaydates.holidayparser.ParseException: Encountered " <NUMBER> "01 "" at line 1, column 9.
-Was expecting:
-    <EOF> 
-    
