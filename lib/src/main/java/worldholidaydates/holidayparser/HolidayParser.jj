@@ -229,6 +229,9 @@ TOKEN:
     < EVERY : "every" >
 |   < SINCE : "since" >
 |   < PRIOR_TO : "prior to" >
+|   < IS : "is" >
+|   < PUBLIC : "public" >
+|   < HOLIDAY : "holiday" >
 }
 
 TOKEN :
@@ -344,6 +347,10 @@ Rule start():
     (
         LOOKAHEAD( relatedRuleNo() )
         relatedRuleNo()
+    )?
+    (
+        LOOKAHEAD( ifPublic() )
+        ifPublic()
     )?
     < EOF >
     {   
@@ -955,6 +962,63 @@ void relatedRuleNo() throws NumberFormatException:
             }
         )?
     )
+}
+
+void ifPublic() throws NumberFormatException:
+{
+    Token t;
+    if (rule.getEnabledIfIsPublicDateList() == null) {
+        rule.setEnabledIfIsPublicDateList(new ArrayList< int[] >());
+    }
+    List< int[] > ifIsPublicDateList = rule.getEnabledIfIsPublicDateList();
+    int[] ifIsPublicDate;
+}
+{
+    (
+        < IF >
+        ifIsPublicDate = getDate()
+        {
+            ifIsPublicDateList.add(ifIsPublicDate);
+        }
+        (
+            < AND >
+            ifIsPublicDate = getDate()
+            {
+                ifIsPublicDateList.add(ifIsPublicDate);
+            }
+        )*
+        < IS >
+        < PUBLIC >
+        < HOLIDAY >
+    )
+}
+
+int[] getDate() throws NumberFormatException:
+{
+    Token t;
+    int[] date = new int[2];
+}
+{
+    (
+        LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 1, 12) })
+        (
+            t = < NUMBER >
+            {
+                date[0] = Integer.parseInt(t.image);
+            }
+        )
+        < DASH >
+        LOOKAHEAD({ getToken(1).kind == NUMBER && Utils.between(getToken(1).image, 1, 31) })
+        (
+            t = < NUMBER >
+            {
+                date[1] = Integer.parseInt(t.image);
+            }
+        )
+    )
+    {
+        return date;
+    }
 }
 
 Date gregorianDate() throws NumberFormatException:

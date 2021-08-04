@@ -1,4 +1,0 @@
-1915	09-22 if 09-21 and 09-23 is public holiday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
-Was expecting:
-    <EOF> 
-    

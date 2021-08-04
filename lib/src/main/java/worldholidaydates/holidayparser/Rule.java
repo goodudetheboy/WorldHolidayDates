@@ -89,8 +89,22 @@ public class Rule {
     List<Integer>           yearIntervals   = new ArrayList<>();
     List<Integer>           yearStarts      = new ArrayList<>();
 
+    /**
+     * This {@link Rule} is enabled only if the {@link Date} is on the same day
+     * is between {@link #enabledUntil} and {@link #enabledSince}, if defined.
+     */
     LocalDate               enabledSince    = null;
     LocalDate               enabledUntil    = null;
+
+    /**
+     * This rule is enabled only if the date in this list is a public holiday.
+     * The int[] contains the {month, dayOfMonth} of the day that needs to be a 
+     * public holiday.
+     * <p>
+     * For now, this just serves as a placeholder until a good way to factor
+     * this into the {@link calculate} is found.
+     */
+    List<int[]>         enabledIfIsPublicDate  = null;
 
     /**
      * Empty default constructor
@@ -314,6 +328,14 @@ public class Rule {
      */
     public LocalDate getEnabledUntil() {
         return enabledUntil;
+    }
+
+    /**
+     * @return the list of {month, dayOfMonth} where this Rule is enabled
+     *      only if the date in this list is a public holiday.
+     */
+    public List<int[]> getEnabledIfIsPublicDateList() {
+        return enabledIfIsPublicDate;
     }
 
     /**
@@ -616,6 +638,17 @@ public class Rule {
      */
     public void setEnabledUntil(LocalDate enabledUntil) {
         this.enabledUntil = enabledUntil;
+    }
+
+    /**
+     * Sets the the list of {month, dayOfMonth} where this Rule is enabled
+     * only if the date in this list is a public holiday.
+     * 
+     * @param enabledIfIsPublicDate the list of {month, dayOfMonth} where this
+     *      Rule is enabled only if the date in this list is a public holiday
+     */
+    public void setEnabledIfIsPublicDateList(List<int[]> enabledIfIsPublicDate) {
+        this.enabledIfIsPublicDate = enabledIfIsPublicDate;
     }
 
     /**

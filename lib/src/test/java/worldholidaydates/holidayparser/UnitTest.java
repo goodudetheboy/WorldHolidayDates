@@ -321,4 +321,16 @@ public class UnitTest {
         // testParser("2nd Friday after 4th Thursday after 08-01", LocalDateTime.parse("2021-09-03T00:00"));
         // testParser("2nd Friday before 4th Thursday after 08-01", LocalDateTime.parse("2021-08-13T00:00"));
     }
+
+    @Test
+    public void enabledIfIsPublicDateTest() throws ParseException {
+        Rule rule = parse("09-22 if 09-21 is public holiday");
+        assertEquals(9, rule.getEnabledIfIsPublicDateList().get(0)[0]);
+        assertEquals(21, rule.getEnabledIfIsPublicDateList().get(0)[1]);
+        Rule rule2 = parse("09-22 if 09-21 and 09-23 is public holiday");
+        assertEquals(9, rule2.getEnabledIfIsPublicDateList().get(0)[0]);
+        assertEquals(21, rule2.getEnabledIfIsPublicDateList().get(0)[1]);
+        assertEquals(9, rule2.getEnabledIfIsPublicDateList().get(1)[0]);
+        assertEquals(23, rule2.getEnabledIfIsPublicDateList().get(1)[1]);
+    }
 }
