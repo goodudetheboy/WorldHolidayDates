@@ -145,7 +145,8 @@ TOKEN :
 {
     < DAYS_PH :
         "days"
-    |   "d" >
+    |   "d"
+    |   "day" >
 }
 
 TOKEN :
