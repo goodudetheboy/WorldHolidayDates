@@ -1,5 +1,5 @@
 {
-  "version": "2021-07-24",
+  "version": "2021-08-04",
   "license": "CC-BY-SA-3",
   "holidays": {
     "AD": {
@@ -4867,7 +4867,7 @@
             "it": "Giorno festivo federale"
           }
         },
-        "3 sunday after 09-01": {
+        "3rd sunday after 09-01": {
           "name": {
             "de": "Eidg. Dank-, Buss- und Bettag",
             "fr": "Jeûne fédéral",
@@ -5158,7 +5158,7 @@
                 "2023-04-13"
               ]
             },
-            "3 sunday after 09-01": false,
+            "3rd sunday after 09-01": false,
             "11-01": {
               "_name": "11-01"
             },
@@ -5587,7 +5587,7 @@
                 "fr": "2 Janvier"
               }
             },
-            "monday after 3 sunday in September": {
+            "monday after 3rd sunday in September": {
               "name": {
                 "de": "Bettagsmontag",
                 "fr": "Lundi du Jeûne Fédéral",
@@ -5638,7 +5638,7 @@
             "08-15": {
               "_name": "08-15"
             },
-            "monday after 3 sunday after 09-01": {
+            "monday after 3rd sunday after 09-01": {
               "name": {
                 "de": "Bettagsmontag",
                 "fr": "Lundi du Jeûne Fédéral",
@@ -5706,7 +5706,7 @@
             "easter 60": {
               "_name": "easter 60"
             },
-            "monday after 3 sunday in September": {
+            "monday after 3rd sunday in September": {
               "name": {
                 "de": "Bettagsmontag",
                 "fr": "Lundi du Jeûne Fédéral",
@@ -5743,7 +5743,7 @@
               },
               "type": "bank"
             },
-            "thursday after 1 sunday after 09-01": {
+            "thursday after 1st sunday after 09-01": {
               "name": {
                 "de": "Genfer Bettag",
                 "fr": "Jeûne Genevois"
@@ -8007,13 +8007,13 @@
         "05-01": {
           "_name": "05-01"
         },
-        "30-06": {
+        "06-30": {
           "name": {
             "ar": "عيد ثورة 30 يونيو",
             "en": "30 June Day"
           }
         },
-        "23-07": {
+        "07-23": {
           "_name": "Revolution Day"
         },
         "10-06": {
@@ -11261,7 +11261,7 @@
             "en": "Icelandic National Day"
           }
         },
-        "monday in August": {
+        "1st monday in August": {
           "name": {
             "is": "Frídagur verslunarmanna",
             "en": "Commerce Day"
@@ -15666,7 +15666,7 @@
           },
           "type": "observance"
         },
-        "sunday in March": {
+        "1st sunday in March": {
           "name": {
             "sv": "Vasaloppet"
           },
@@ -17903,7 +17903,7 @@
           "substitute": true,
           "_name": "Independence Day"
         },
-        "monday in September": {
+        "1st monday in September": {
           "_name": "05-01"
         },
         "2nd monday in October": {
