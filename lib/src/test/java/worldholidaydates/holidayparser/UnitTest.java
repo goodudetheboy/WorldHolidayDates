@@ -3,6 +3,7 @@ package worldholidaydates.holidayparser;
 
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.fail;
 
 import java.io.ByteArrayInputStream;
@@ -303,5 +304,12 @@ public class UnitTest {
         testParserDate("2021-08-01 since 2020-07-31 and prior to 2023", LocalDate.parse("2021-08-01"));
         testParserDate("2021-08-01 since 2021-08-02 and prior to 2030", null);
         testParserDate("2021-08-01 since 2020-08-02 and prior to 2021-07-31", null);
+    }
+
+    @Test
+    public void relatedRuleNum() throws ParseException {
+        Rule rule = parse("10-08 #1");
+        assertEquals(1, rule.getRelatedRuleNumber());
+        assertNotEquals(2, rule.getRelatedRuleNumber());
     }
 }

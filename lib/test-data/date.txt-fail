@@ -2,33 +2,15 @@
 
 905	thursday after 1st sunday after 09-01	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 16.
 
-1679	06-25 #1	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 7.  Encountered: "#" (35), after : ""
-1683	10-08 #1	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 7.  Encountered: "#" (35), after : ""
-1686	11-18 #1	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 7.  Encountered: "#" (35), after : ""
-1894	04-29 and if sunday then next monday #1	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 38.  Encountered: "#" (35), after : ""
-1895	04-29 and if sunday then next monday #2	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 38.  Encountered: "#" (35), after : ""
 1915	09-22 if 09-21 and 09-23 is public holiday	worldholidaydates.holidayparser.ParseException: Encountered " "if" "if "" at line 1, column 7.
 Was expecting:
     <EOF> 
     
-1920	2nd monday in October #1	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 23.  Encountered: "#" (35), after : ""
-1921	2nd monday in October #2	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 23.  Encountered: "#" (35), after : ""
 2896	chinese 01-0-00	worldholidaydates.holidayparser.ParseException: Encountered " <NUMBER> "01 "" at line 1, column 9.
 Was expecting:
     <EOF> 
     
-2926	chinese 01-0-15 #1	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 17.  Encountered: "#" (35), after : ""
-2933	chinese 05-0-13 #1	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 17.  Encountered: "#" (35), after : ""
-3013	2nd monday in October #1	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 23.  Encountered: "#" (35), after : ""
-3043	monday before 05-01 #1	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 21.  Encountered: "#" (35), after : ""
-3044	monday before 05-01 #2	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 21.  Encountered: "#" (35), after : ""
-3045	friday after 4th thursday in November #1	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 39.  Encountered: "#" (35), after : ""
-3046	friday after 4th thursday in November #2	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 39.  Encountered: "#" (35), after : ""
 3078	friday before 1st monday before 06-01	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 15.
 
-3087	2nd monday in October #1	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 23.  Encountered: "#" (35), after : ""
-3134	2nd monday in October #1	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 23.  Encountered: "#" (35), after : ""
-3155	2nd monday in October #1	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 23.  Encountered: "#" (35), after : ""
-3204	03-19#1	worldholidaydates.holidayparser.TokenMgrError: Lexical error at line 1, column 6.  Encountered: "#" (35), after : ""
 3244	1 day before vietnamese 1-0-1 P5D	worldholidaydates.holidayparser.ParseException: Encountered "" at line 1, column 1.
 

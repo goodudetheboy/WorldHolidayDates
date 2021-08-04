@@ -17,6 +17,12 @@ public class Rule {
     boolean     substituteCheck = false;
 
     /**
+     * Position of the {@link Rule} in the list of "days"
+     */
+    int         ruleNum         = UNDEFINED_NUM;
+    int         relatedRuleNum  = UNDEFINED_NUM;
+
+    /**
      * The range of this {@link Date} in minutes, the default range is from the
      * startTime to the end of the stored day 
      */
@@ -122,6 +128,20 @@ public class Rule {
     }
 
     /**
+     * @return the position of this {@link Rule} in the list of "days", from 1-9
+     */
+    public int getRuleNumber() {
+        return ruleNum;
+    }
+
+    /**
+     * @return the related {@link Rule}'s number (number after #).
+     */
+    public int getRelatedRuleNumber() {
+        return relatedRuleNum;
+    }
+
+    /**
      * @return the range of the raw {@link Date} (in minutes)
      */
     public int getRange() {
@@ -176,8 +196,7 @@ public class Rule {
      * @return true if this {@link Rule} is enabled in leap years, false otherwise
      */
     public boolean isInLeapYearOnly() {
-        return inLeapYear;
-    }
+        return inLeapYear;    }
 
     /**
      * @return true if this {@link Rule} is enabled in non-leap years, false otherwise
@@ -284,6 +303,27 @@ public class Rule {
      */
     public void setSubstituteCheck(boolean substituteCheck) {
         this.substituteCheck = substituteCheck;
+    }
+
+    /**
+     * Sets the position of this {@link Rule} in the list of "days". (from 1-9)
+     * 
+     * @param ruleNum the position of this {@link Rule} in the list of "days"
+     */
+    public void setRuleNum(int ruleNum) {
+        if (ruleNum < 1 || ruleNum > 9) {
+            throw new IllegalArgumentException("Rule number must be between 1 and 9");
+        }
+        this.ruleNum = ruleNum;
+    }
+
+    /**
+     * Sets the related rule {@link Rule}'s number (number after #).
+     * 
+     * @param relatedRuleNum
+     */
+    public void setRelatedRuleNumber(int relatedRuleNum) {
+        this.relatedRuleNum = relatedRuleNum;
     }
 
     /**

@@ -1,6 +1,6 @@
 LEGEND: | - OR
 
-<start> -> (substitutes)? (<offset>)? <rule> <start-time> (<rule-modifier>)? (<enabled-range>)?
+<start> -> (substitutes)? (<offset>)? <rule> <start-time> (<rule-modifier>)? (<enabled-range>)? (<related-rule>)?
 
 <rule-modifier> ->  <if-rule> | <special-year> | <on-weekday> | <year-interval>
 
@@ -18,6 +18,8 @@ LEGEND: | - OR
 
 <enabled-range>  -> since <year>(-<month>-<day-of-month>)? (and prior to <year>(-<month>-<day-of-month>)?)
                  -> prior to <year>(-<month>-<day-of-month>)?
+
+<related-rule>   -> #[1..9]
 
 <rule>  -> (<year>-)?<month>-<day>
         -> julian (<year>-)?<month>-<day>

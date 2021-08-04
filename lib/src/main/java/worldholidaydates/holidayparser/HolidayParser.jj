@@ -54,6 +54,7 @@ TOKEN :
 |   < PLUS : "+" >
 |   < COLON : ":" >
 |   < COMMA : "," >
+|   < NO_SIGN : "#" >
 }
 
 TOKEN : { < YEAR :  (< DIGIT >){4} > }
@@ -334,6 +335,10 @@ Rule start():
     (
         LOOKAHEAD( enabledRange() )
         enabledRange()            
+    )?
+    (
+        LOOKAHEAD( relatedRuleNo() )
+        relatedRuleNo()
     )?
     < EOF >
     {   
@@ -895,6 +900,24 @@ LocalDate untilYear() throws NumberFormatException:
     {
         return LocalDate.of(year, month, dayOfMonth);
     }
+}
+
+void relatedRuleNo() throws NumberFormatException:
+{
+    Token t;
+    int ruleNo;
+}
+{
+    (
+        < NO_SIGN >
+        (
+            LOOKAHEAD ({ getToken(1).kind == NUMBER && getToken(1).image.length() == 1 && Utils.between(getToken(1).image, 1, 9) })
+            t = < NUMBER >
+            {
+                rule.setRelatedRuleNumber(Integer.parseInt(t.image));
+            }
+        )?
+    )
 }
 
 Date gregorianDate() throws NumberFormatException:
