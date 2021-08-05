@@ -21,10 +21,10 @@ public class DataCollector {
     }
 
     public static void writeHolidaysInCountry(Country country, FileWriter fWriter) throws IOException {
-        Map<String, Object> holidays = country.getDays();
+        Map<Rule, Object> holidays = country.getDays();
         if (holidays != null) {
-            for (Map.Entry<String, Object> entry2 : holidays.entrySet()) {
-                fWriter.write(entry2.getKey() + Utils.LINE_SEPARATOR);
+            for (Map.Entry<Rule, Object> entry2 : holidays.entrySet()) {
+                fWriter.write(entry2.getKey().getOriginalRule() + Utils.LINE_SEPARATOR);
             }
         }
         Map<String, Country> states = country.getStates();

@@ -1,6 +1,12 @@
 package worldholidaydates.holidaydata;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+
+import worldholidaydates.holidayparser.Rule;
 
 public class Country {
     private     Map<String, String>      names      = null;
@@ -9,7 +15,7 @@ public class Country {
     private     String[]    langs       = null;
     private     String[]    zones       = null;
     private     String[]    refDays     = null;
-    private     Map<String, Object>      days       = null;
+    private     Map<Rule, Object>        days       = null;
     private     Map<String, Country>     states     = null;
     private     Map<String, Country>     regions    = null;
 
@@ -40,7 +46,7 @@ public class Country {
         this.refDays = refDays;
     }
 
-    public void setDays(Map<String, Object> days) {
+    public void setDays(Map<Rule, Object> days) {
         this.days = days;
     }
 
@@ -76,7 +82,7 @@ public class Country {
         return refDays;
     }
 
-    public Map<String, Object> getDays() {
+    public Map<Rule, Object> getDays() {
         return days;
     }
 
@@ -86,5 +92,39 @@ public class Country {
 
     public Map<String, Country> getRegions() {
         return regions;
+    }
+
+    /**
+     * Returns the list of all dates and times of holidays of this country,
+     * excluding the holidays from regions and states.
+     * <p>
+     * The year will be the default year.
+     * 
+     * @return a list of dates and times of holidays
+     */
+    public List<LocalDateTime> getHolidays() {
+        List<LocalDateTime> result = new ArrayList<>();
+        for (Map.Entry<Rule, Object> entry : days.entrySet()) {
+            if (entry.getValue() instanceof Holiday) {
+                result.add(entry.getKey().calculate());
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Returns the list of all dates of holidays of this country, excluding
+     * the holidays from regions and states.
+     * 
+     * @return a list of dates of holidays
+     */
+    public List<LocalDate> getHolidayDates() {
+        List<LocalDate> result = new ArrayList<>();
+        for (Map.Entry<Rule, Object> entry : days.entrySet()) {
+            if (entry.getValue() instanceof Holiday) {
+                result.add(entry.getKey().calculateDate());
+            }
+        }
+        return result;
     }
 }

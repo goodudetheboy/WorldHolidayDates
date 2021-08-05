@@ -8,8 +8,12 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-public class Rule {
+public class Rule implements Comparable<Rule> {
     public static final int UNDEFINED_NUM = Integer.MIN_VALUE;
+
+    // original rule from "days" of holidays.json
+    String      originalRule    = null;
+
     // the raw date, without any offset or time applied
     Date        rawDate         = null;
 
@@ -111,6 +115,31 @@ public class Rule {
      */
     public Rule() {
         // empty
+    }
+
+    @Override
+    public int compareTo(Rule r) {
+        return originalRule.compareTo(r.getOriginalRule());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Rule) {
+            return originalRule.equals(((Rule) o).getOriginalRule());
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return originalRule.hashCode();
+    }
+
+    /**
+     * @return the orignal rule in "days" of holidays.json
+     */
+    public String getOriginalRule() {
+        return originalRule;
     }
 
     /**
@@ -336,6 +365,15 @@ public class Rule {
      */
     public List<int[]> getEnabledIfIsPublicDateList() {
         return enabledIfIsPublicDate;
+    }
+
+    /**
+     * Sets the original rule string defining this {@link Rule}.
+     * 
+     * @param originalRule the original rule string
+     */
+    public void setOriginalRule(String originalRule) {
+        this.originalRule = originalRule;
     }
 
     /**

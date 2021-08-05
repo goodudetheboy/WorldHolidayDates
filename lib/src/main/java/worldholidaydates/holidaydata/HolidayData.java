@@ -40,6 +40,10 @@ public class HolidayData {
         return holidays;
     }
 
+    public Country getCountry(String countryCode) {
+        return holidays.get(countryCode);
+    }
+
     @Override
     public String toString() {
         StringBuilder b = new StringBuilder();

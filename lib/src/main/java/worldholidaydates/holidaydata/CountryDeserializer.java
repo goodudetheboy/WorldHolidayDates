@@ -1,5 +1,6 @@
 package worldholidaydates.holidaydata;
 
+import java.io.ByteArrayInputStream;
 import java.lang.reflect.Type;
 import java.util.Map;
 
@@ -9,6 +10,10 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.internal.LinkedTreeMap;
+
+import worldholidaydates.holidayparser.HolidayParser;
+import worldholidaydates.holidayparser.ParseException;
+import worldholidaydates.holidayparser.Rule;
 
 public class CountryDeserializer implements JsonDeserializer<Country> {
 
@@ -49,19 +54,31 @@ public class CountryDeserializer implements JsonDeserializer<Country> {
     }
 
     private void setDays(Country c, JsonElement days, JsonDeserializationContext context) {
-        Map<String, Object> result = new LinkedTreeMap<>();
+        Map<Rule, Object> result = new LinkedTreeMap<>();
         if (days == null || days.isJsonNull()) {
             result = null;
         } else {
             JsonObject daysArr = days.getAsJsonObject();
             for (Map.Entry<String, JsonElement> entry : daysArr.entrySet()) {
                 JsonElement value = entry.getValue();
+                Rule rule = null;
+                try {
+                    // parse and get rule
+                    String originalRule = entry.getKey();
+                    HolidayParser parser = new HolidayParser(new ByteArrayInputStream(originalRule.getBytes()));
+                    rule = parser.parse();
+                    rule.setOriginalRule(originalRule);
+                } catch (ParseException e) {
+                    throw new RuntimeException(e.getMessage(), e);
+                }
+
+                // construct key and value
                 if (value.isJsonPrimitive()) {
                     // TODO: add error handling here
-                    result.put(entry.getKey(), value.getAsBoolean());
+                    result.put(rule, value.getAsBoolean());
                 } else {
                     Holiday h = context.deserialize(value, Holiday.class);
-                    result.put(entry.getKey(), h);
+                    result.put(rule, h);
                 }
             }
         }
