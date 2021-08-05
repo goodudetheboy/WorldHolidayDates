@@ -47,8 +47,9 @@ public abstract class AstronomicalDate extends Date {
     }
 
     @Override
-    public LocalDateTime calculate() {
-        ZonedDateTime defaultResult = calculateAstronomicalDate();
+    public LocalDateTime calculate(int defaultYear) {
+        int yearToUse = (year != UNDEFINED_NUM) ? year : defaultYear;
+        ZonedDateTime defaultResult = calculateAstronomicalDate(yearToUse);
         ZonedDateTime shiftedResult = defaultResult.withZoneSameInstant(timezone);
         if (startTime != UNDEFINED_NUM) {
             LocalDate rawDate = shiftedResult.toLocalDate();
@@ -60,13 +61,14 @@ public abstract class AstronomicalDate extends Date {
     }
 
     @Override
-    public LocalDate calculateDate() {
-        ZonedDateTime defaultResult = calculateAstronomicalDate();
+    public LocalDate calculateDate(int defaultYear) {
+        int yearToUse = (year != UNDEFINED_NUM) ? year : defaultYear;
+        ZonedDateTime defaultResult = calculateAstronomicalDate(yearToUse);
         ZonedDateTime shiftedResult = defaultResult.withZoneSameInstant(timezone);
         return shiftedResult.toLocalDate();
     }
 
-    protected abstract ZonedDateTime calculateAstronomicalDate();
+    protected abstract ZonedDateTime calculateAstronomicalDate(int defaultYear);
 
     @Override
     public abstract String toNamedString();

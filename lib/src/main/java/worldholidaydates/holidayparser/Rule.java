@@ -162,13 +162,17 @@ public class Rule implements Comparable<Rule> {
      * <ol>
      * <li> the raw {@link Date}'s weekday falls into one of {@link ifWeekdays} list
      * </ol>
+     * <p>
+     * If the {@link Date} already have a year, it will be used. Otherwise,the
+     * default year will be used.
      * 
+     * @param defaultYear default Gregorian year
      * @return if this {@link Rule} is a substitute.
      */
-    public boolean isSubstitute() {
+    public boolean isSubstitute(int defaultYear) {
         if (!substituteCheck) return false;
         // check in ifWeekdays
-        int rawWeekday = calculateRaw().getDayOfWeek().getValue();
+        int rawWeekday = calculateRaw(defaultYear).getDayOfWeek().getValue();
         for (List<Integer> ifWeekday : ifWeekdays) {
             if (ifWeekday.contains(rawWeekday)) {
                 return true;
@@ -892,13 +896,17 @@ public class Rule implements Comparable<Rule> {
      * <p>
      * The returned date will be of {@link LocalDate}. Support for more options,
      * such as Threeten, will be implemented later.
+     * <p>
+     * If the {@link Date} already have a year, it will be used. Otherwise,the
+     * default year will be used.
      * 
+     * @param defaultYear default Gregorian year
      * @return the Gregorian date created only from the year, month, day, and
      *      start time without taking any offset into calculation.
      */
     @Nullable
-    public LocalDateTime calculate() {
-        LocalDateTime raw = calculateRaw(); // get raw date
+    public LocalDateTime calculate(int defaultYear) {
+        LocalDateTime raw = calculateRaw(defaultYear); // get raw date
         LocalDateTime offsetShifted = offsetShift(raw); // apply offset
         LocalDateTime ifCheck = checkIfWeekday(offsetShifted); // check if weekday
         LocalDateTime yearCheck = checkYearRequirement(ifCheck); // check year requirement (even/odd/leap/non-leap year only)
@@ -913,15 +921,19 @@ public class Rule implements Comparable<Rule> {
      * <ol>
      * <li> its weekday is in one of the {@link #ifWeekdaysExtra}
      * </ol>
+     * <p>
+     * If the {@link Date} already have a year, it will be used. Otherwise,the
+     * default year will be used.
      * 
+     * @param defaultYear default Gregorian year
      * @return the extra holidays if the processed {@link #rawDate} satisfies
      *      the above conditions
      */
-    public List<LocalDateTime> calculateExtra() {
+    public List<LocalDateTime> calculateExtra(int defaultYear) {
         List<LocalDateTime> result = new ArrayList<>();
 
         if (ifWeekdaysExtra != null) {
-            LocalDate mainDate = calculateDate();
+            LocalDate mainDate = calculateDate(defaultYear);
             int weekdayValue = mainDate.getDayOfWeek().getValue();
             for (int i=0; i<ifWeekdaysExtra.size(); i++) {
                 List<Integer> ifWeekdayExtra = ifWeekdaysExtra.get(i);
@@ -944,12 +956,16 @@ public class Rule implements Comparable<Rule> {
      * <p>
      * The returned date will be of {@link LocalDate}. Support for more options,
      * such as Threeten, will be implemented later.
+     * <p>
+     * If the {@link Date} already have a year, it will be used. Otherwise,the
+     * default year will be used.
      * 
+     * @param defaultYear default Gregorian year
      * @return the Gregorian date created only from the year, month, day,
      *      with offset, if any
      */
-    public LocalDateTime calculateEnd() {
-        return calculate().plusMinutes(range);
+    public LocalDateTime calculateEnd(int defaultYear) {
+        return calculate(defaultYear).plusMinutes(range);
     }
     
     /**
@@ -958,13 +974,17 @@ public class Rule implements Comparable<Rule> {
      * <p>
      * The returned date will be of {@link LocalDate}. Support for more options,
      * such as Threeten, will be implemented later.
+     * <p>
+     * If the {@link Date} already have a year, it will be used. Otherwise,the
+     * default year will be used.
      * 
+     * @param defaultYear default Gregorian year
      * @return the Gregorian date created from the year, month, day stored in
      *      this date, with offset, if any
      */
-    public LocalDate calculateDate() {
-        LocalDateTime result = calculate();
-        return (result != null) ? calculate().toLocalDate() : null;
+    public LocalDate calculateDate(int defaultYear) {
+        LocalDateTime result = calculate(defaultYear);
+        return (result != null) ? calculate(defaultYear).toLocalDate() : null;
     }
 
     /**
@@ -974,12 +994,16 @@ public class Rule implements Comparable<Rule> {
      * <p>
      * The returned date will be of {@link LocalDate}. Support for more options,
      * such as Threeten, will be implemented later.
+     * <p>
+     * If the {@link Date} already have a year, it will be used. Otherwise,the
+     * default year will be used.
      * 
+     * @param defaultYear default Gregorian year
      * @return the Gregorian date created from the year, month, day stored in
      *      this date, with offset, if any
      */
-    public LocalDate calculateDateEnd() {
-        LocalDateTime raw = calculateRawEnd();
+    public LocalDate calculateDateEnd(int defaultYear) {
+        LocalDateTime raw = calculateRawEnd(defaultYear);
         return offsetShift(raw).toLocalDate();
     }
 
@@ -990,11 +1014,15 @@ public class Rule implements Comparable<Rule> {
      * <p>
      * The returned date will be of {@link LocalDate}. Support for more
      * options, such as Threeten, will be implemented later.
+     * <p>
+     * If the {@link Date} already have a year, it will be used. Otherwise,the
+     * default year will be used.
      * 
+     * @param defaultYear default Gregorian year
      * @return the Gregorian date of the {@link #rawDate}
      */
-    public LocalDateTime calculateRaw() {
-        return rawDate.calculate();
+    public LocalDateTime calculateRaw(int defaultYear) {
+        return rawDate.calculate(defaultYear);
     }
 
     /**
@@ -1008,12 +1036,16 @@ public class Rule implements Comparable<Rule> {
      * <p>
      * The returned date will be of {@link LocalDate}. Support for more options,
      * such as Threeten, will be implemented later.
+     * <p>
+     * If the {@link Date} already have a year, it will be used. Otherwise,the
+     * default year will be used.
      * 
+     * @param defaultYear default Gregorian year
      * @return the Gregorian date created only from the year, month, day, and
      *      end time without taking any offset into calculation.
      */
-    public LocalDateTime calculateRawEnd() {
-        LocalDateTime raw = calculateRaw();
+    public LocalDateTime calculateRawEnd(int defaultYear) {
+        LocalDateTime raw = calculateRaw(defaultYear);
         if (range == UNDEFINED_NUM) {
             LocalDate date = raw.toLocalDate();
             LocalTime time = Date.minutesToLocalTime(Date.MAX_TIME);
@@ -1032,13 +1064,17 @@ public class Rule implements Comparable<Rule> {
      * <p>
      * Note that the method is abstract here is because this is intended for
      * use with different calendar systems in the world.
+     * <p>
+     * If the {@link Date} already have a year, it will be used. Otherwise,the
+     * default year will be used.
      * 
+     * @param defaultYear default Gregorian year
      * @return the Gregorian date created only from the year, month, day,
      *      without taking any offset into calculation.
      */
 
-    public LocalDate calculateRawDate() {
-        return rawDate.calculateDate();
+    public LocalDate calculateRawDate(int defaultYear) {
+        return rawDate.calculateDate(defaultYear);
     }
 
 
@@ -1053,11 +1089,15 @@ public class Rule implements Comparable<Rule> {
      * <p>
      * Note that the method is abstract here is because this is intended for
      * use with different calendar systems in the world.
+     * <p>
+     * If the {@link Date} already have a year, it will be used. Otherwise,the
+     * default year will be used.
      * 
+     * @param defaultYear default Gregorian year
      * @return the Gregorian date created only from the year, month, day,
      *      without taking any offset into calculation.
      */
-    public LocalDate calculateRawDateEnd() {
-        return calculateRawEnd().toLocalDate();
+    public LocalDate calculateRawDateEnd(int defaultYear) {
+        return calculateRawEnd(defaultYear).toLocalDate();
     }
 }

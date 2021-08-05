@@ -78,7 +78,7 @@ public class EastAsianDate extends Date {
     }
 
     public EastAsianDate(CalendarType calType, int month, boolean isLeapMonth, int dayOfMonth) {
-        this(calType, DEFAULT_EAST_ASIAN_CYCLE, DEFAULT_EAST_ASIAN_YEAR_OF_CYCLE, month, isLeapMonth, dayOfMonth);
+        this(calType, UNDEFINED_NUM, UNDEFINED_NUM, month, isLeapMonth, dayOfMonth);
     }
 
     public EastAsianDate(CalendarType calType, int solarTermTh, int solarTermDay) {
@@ -150,19 +150,25 @@ public class EastAsianDate extends Date {
      * Calculates the raw date stored in this {@link HijraDate} with the 
      * {@link #calType} (Calendar type, either Chinese, Korean, or Vietnamese),
      * then convert to the Gregorian calendar.
+     * <p>
+     * If the {@link Date} already have a year, it will be used. Otherwise,the
+     * default year will be used.
      * 
+     * @param defaultYear default Gregorian year
      * @return a {@link LocalDate} object representing the {@link calType} date
      *      converted to Gregorian calendar
      */
     @Override @Nullable
-    public LocalDate calculateDate() {
+    public LocalDate calculateDate(int defaultYear) {
+        int yearToUse = (cycle != UNDEFINED_NUM) ? toGregorianYear(cycle, yearOfCycle) : defaultYear;
+
         if (month != Date.UNDEFINED_NUM) {
             // normal year, month, day
             // conversion
             EastAsianMonth conMonth = (!isLeapMonth())
                                     ? EastAsianMonth.valueOf(month)
                                     : EastAsianMonth.valueOf(month).withLeap();
-            EastAsianYear conYear = EastAsianYear.forGregorian(toGregorianYear(cycle, yearOfCycle));
+            EastAsianYear conYear = EastAsianYear.forGregorian(yearToUse);
 
             // calculation based on different calendar type
             EastAsianCalendar date = null;
@@ -189,7 +195,7 @@ public class EastAsianDate extends Date {
             }
         } else {
             // solar term calculation
-            return getDateFromSolarTerm(solarTermTh, solarTermDay, toGregorianYear(cycle, yearOfCycle));
+            return getDateFromSolarTerm(solarTermTh, solarTermDay, yearToUse);
         }
     }
 

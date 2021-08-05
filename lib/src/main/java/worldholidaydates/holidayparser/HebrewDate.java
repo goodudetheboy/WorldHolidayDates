@@ -97,8 +97,7 @@ public class HebrewDate extends Date {
     public static final int DEFAULT_HEBREW_YEAR = 5781; // Gregorian Year = 2021-2022
 
     public HebrewDate() {
-        super();
-        setYear(DEFAULT_HEBREW_YEAR);
+        // empty
     }
 
     public HebrewDate(int year, int month, int dayOfMonth, int time) {
@@ -110,7 +109,7 @@ public class HebrewDate extends Date {
     }
 
     public HebrewDate(int month, int dayOfMonth) {
-        super(DEFAULT_HEBREW_YEAR, month, dayOfMonth);
+        super(month, dayOfMonth);
     }
 
     @Override
@@ -137,13 +136,35 @@ public class HebrewDate extends Date {
      * Calculates the raw date stored in this {@link HebrewDate} with the 
      * Hebrew calendar, then converted to the Gregorian calendar.
      * 
+     * <p>
+     * If the {@link Date} already have a year, it will be used. Otherwise,the
+     * default year will be used.
+     * 
+     * @param defaultYear default Gregorian year
      * @return a {@link LocalDate} object representing the raw Hebrew date 
      *      converted to Gregorian calendar
      */
     @Override
-    public LocalDate calculateDate() {
-        HebrewCalendar date = HebrewCalendar.of(year, ((HebrewMonth) namedMonth).toTime4jHebrewMonth(), dayOfMonth);
+    public LocalDate calculateDate(int defaultYear) {
+        int yearToUse = (year != UNDEFINED_NUM) ? year : gregorianYearToHebrewYear(defaultYear);
+        HebrewCalendar date = HebrewCalendar.of(yearToUse, ((HebrewMonth) namedMonth).toTime4jHebrewMonth(), dayOfMonth);
         PlainDate pdate = date.transform(PlainDate.class);
         return pdate.toTemporalAccessor();
+    }
+
+    /**
+     * Convert a Gregorian year to Hebrew year. This calculation is very rough
+     * and not precise, and is to be used within this class.
+     * <p>
+     * The number 3760 is taken from 2021 - 5781, since in the year 2021, the
+     * Hebrew year is 5781.
+     * 
+     * TODO: fix this calculation
+     * 
+     * @param gregorianYear a Greogrian year
+     * @return a rough estimation of Bengali year
+     */
+    public static int gregorianYearToHebrewYear(int gregorianYear) {
+        return 3760 + gregorianYear;
     }
 }

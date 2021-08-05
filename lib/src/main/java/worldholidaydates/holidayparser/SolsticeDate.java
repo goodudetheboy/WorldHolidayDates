@@ -10,7 +10,7 @@ import java.time.ZonedDateTime;
 public class SolsticeDate extends AstronomicalDate {
 
     public SolsticeDate() {
-        setYear(GregorianDate.DEFAULT_GREGORIAN_YEAR);
+        // empty
     }
 
     public SolsticeDate(int year, int month, ZoneId timezone) {
@@ -29,8 +29,9 @@ public class SolsticeDate extends AstronomicalDate {
     }
 
     @Override
-    protected ZonedDateTime calculateAstronomicalDate() {
-        return calculateSolsticeDate(month, year);
+    protected ZonedDateTime calculateAstronomicalDate(int defaultYear) {
+        int yearToUse = (year != UNDEFINED_NUM) ? year : defaultYear;
+        return calculateSolsticeDate(month, yearToUse);
     }
     
     @Override

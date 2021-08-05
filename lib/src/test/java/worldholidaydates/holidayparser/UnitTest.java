@@ -23,7 +23,7 @@ public class UnitTest {
     public static void testParser(String input, LocalDateTime expected) {
         try {
             Rule rule = parse(input);
-            LocalDateTime actual = rule.calculate();
+            LocalDateTime actual = rule.calculate(2021);
             assertEquals(expected, actual);
         } catch (ParseException e) {
             e.printStackTrace();
@@ -35,7 +35,7 @@ public class UnitTest {
         HolidayParser parser = new HolidayParser(new ByteArrayInputStream(input.getBytes()));
         try {
             Rule rule = parse(input);
-            LocalDateTime actual = rule.calculateEnd();
+            LocalDateTime actual = rule.calculateEnd(2021);
             assertEquals(expected, actual);
         } catch (ParseException e) {
             e.printStackTrace();
@@ -58,7 +58,7 @@ public class UnitTest {
     public static void testParserDate(String input, LocalDate expected) {
         try {
             Rule rule = parse(input);
-            LocalDate actual = rule.calculateDate();
+            LocalDate actual = rule.calculateDate(2021);
             assertEquals(expected, actual);
         } catch (ParseException e) {
             e.printStackTrace();
@@ -69,7 +69,7 @@ public class UnitTest {
     public static void testParserSubstitute(String input, boolean expected) {
         try {
             Rule rule = parse(input);
-            boolean actual = rule.isSubstitute();
+            boolean actual = rule.isSubstitute(2021);
             assertEquals(expected, actual);
         } catch (ParseException e) {
             e.printStackTrace();
@@ -80,7 +80,7 @@ public class UnitTest {
     public static void testParserExtraDates(String input, LocalDate[] expected) {
         try {
             Rule rule = parse(input);
-            List<LocalDateTime> actual = rule.calculateExtra();
+            List<LocalDateTime> actual = rule.calculateExtra(2021);
             assertEquals(expected.length, actual.size());
             for (int i = 0; i < expected.length; i++) {
                 assertEquals(expected[i], actual.get(i).toLocalDate());

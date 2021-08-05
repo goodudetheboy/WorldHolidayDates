@@ -11,7 +11,7 @@ public class EasterDate extends Date {
     int     offset          = 0;
 
     public EasterDate() {
-        this(GregorianDate.DEFAULT_GREGORIAN_YEAR, false);
+        // empty
     }
 
     public EasterDate(int year) {
@@ -24,6 +24,11 @@ public class EasterDate extends Date {
 
     public EasterDate(int year, boolean isOrthodox, int offset) {
         this.year = year;
+        this.isOrthodox = isOrthodox;
+        this.offset = offset;
+    }
+
+    public EasterDate(boolean isOrthodox, int offset) {
         this.isOrthodox = isOrthodox;
         this.offset = offset;
     }
@@ -57,8 +62,9 @@ public class EasterDate extends Date {
      * @return the date of Easter of the year stored in this {@link EasterDate}
      */
     @Override
-    public LocalDate calculateDate() {
-        LocalDate result = (isOrthodox) ? getOrthodoxEasterDate(year) : getEasterDate(year);
+    public LocalDate calculateDate(int defaultYear) {
+        int yearToUse = (year != UNDEFINED_NUM) ? year : defaultYear;
+        LocalDate result = (isOrthodox) ? getOrthodoxEasterDate(yearToUse) : getEasterDate(yearToUse);
         return getOffsetDate(result.atStartOfDay(), offset).toLocalDate();
     }
 

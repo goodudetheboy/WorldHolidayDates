@@ -92,7 +92,7 @@ public class ParserTest {
                 try {
                     HolidayParser parser = new HolidayParser(new ByteArrayInputStream(line.getBytes()));
                     Rule rule = parser.parse();
-                    LocalDateTime actual = rule.calculate();
+                    LocalDateTime actual = rule.calculate(2021);
                     String result = (actual != null) ? actual.toString() : null;
                     successful++;
                     outputExpected.write("0\t" + result + "\n");

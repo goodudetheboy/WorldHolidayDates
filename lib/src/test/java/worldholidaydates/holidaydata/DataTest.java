@@ -32,7 +32,7 @@ public class DataTest {
                 Country c = entry.getValue();
                 outputExpected.write(entry.getKey() + "\n");
                 if (c.getDays() != null) {
-                    for (LocalDate holiday : c.getHolidayDates()) {
+                    for (LocalDate holiday : c.getHolidayDates(2021)) {
                         if (holiday != null) {
                             outputExpected.write(holiday.toString() + "\n");
                         }

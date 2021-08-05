@@ -97,16 +97,16 @@ public class Country {
     /**
      * Returns the list of all dates and times of holidays of this country,
      * excluding the holidays from regions and states.
-     * <p>
-     * The year will be the default year.
      * 
+     * @param defaultYear the year that the holiday will be in, if the holiday
+     *      does not have a definite year.
      * @return a list of dates and times of holidays
      */
-    public List<LocalDateTime> getHolidays() {
+    public List<LocalDateTime> getHolidays(int defaultYear) {
         List<LocalDateTime> result = new ArrayList<>();
         for (Map.Entry<Rule, Object> entry : days.entrySet()) {
             if (entry.getValue() instanceof Holiday) {
-                result.add(entry.getKey().calculate());
+                result.add(entry.getKey().calculate(defaultYear));
             }
         }
         return result;
@@ -116,13 +116,15 @@ public class Country {
      * Returns the list of all dates of holidays of this country, excluding
      * the holidays from regions and states.
      * 
+     * @param defaultYear the year that the holiday will be in, if the holiday
+     *      does not have a definite year.
      * @return a list of dates of holidays
      */
-    public List<LocalDate> getHolidayDates() {
+    public List<LocalDate> getHolidayDates(int defaultYear) {
         List<LocalDate> result = new ArrayList<>();
         for (Map.Entry<Rule, Object> entry : days.entrySet()) {
             if (entry.getValue() instanceof Holiday) {
-                result.add(entry.getKey().calculateDate());
+                result.add(entry.getKey().calculateDate(defaultYear));
             }
         }
         return result;

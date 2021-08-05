@@ -80,8 +80,7 @@ public class GregorianDate extends Date {
     public static final int DEFAULT_GREGORIAN_YEAR = 2021;
 
     public GregorianDate() {
-        super();
-        setYear(DEFAULT_GREGORIAN_YEAR);
+        // empty
     }
 
     public GregorianDate(int year, int month, int dayOfMonth, int time) {
@@ -93,7 +92,7 @@ public class GregorianDate extends Date {
     }
 
     public GregorianDate(int month, int dayOfMonth) {
-        this(DEFAULT_GREGORIAN_YEAR, month, dayOfMonth, 0);
+        super(month, dayOfMonth);
     }
 
     @Override
@@ -119,12 +118,17 @@ public class GregorianDate extends Date {
     /**
      * Calculates the raw date stored in this {@link GregorianDate}, in the
      * Gregorian calendar.
+     * <p>
+     * If the {@link Date} already have a year, it will be used. Otherwise,the
+     * default year will be used.
      * 
+     * @param defaultYear default Gregorian year
      * @return a {@link LocalDate} object representing the raw date in
      *      Gregorian calendar
      */
     @Override
-    public LocalDate calculateDate() {
-        return LocalDate.of(year, month, dayOfMonth);
+    public LocalDate calculateDate(int defaultYear) {
+        int yearToUse = (year != UNDEFINED_NUM) ? year : defaultYear;
+        return LocalDate.of(yearToUse, month, dayOfMonth);
     }
 }

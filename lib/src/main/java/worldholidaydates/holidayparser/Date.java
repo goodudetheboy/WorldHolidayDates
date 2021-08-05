@@ -78,7 +78,8 @@ public abstract class Date {
      * @param dayOfMonth the day of month, 1-31
      */
     protected Date(int month, int dayOfMonth) {
-        this(GregorianDate.DEFAULT_GREGORIAN_YEAR, month, dayOfMonth, 0);
+        setMonth(month);
+        setDayOfMonth(dayOfMonth);
     }
 
     public int getYear() {
@@ -141,11 +142,15 @@ public abstract class Date {
 
     /**
      * Calculates the {@link LocalDateTime} of this {@link Date}.
+     * <p>
+     * If the {@link Date} already have a year, it will be used. Otherwise,the
+     * default year will be used.
      * 
+     * @param defaultYear default Gregorian year
      * @return the {@link LocalDateTime} of this {@link Date}
      */
-    public LocalDateTime calculate() {
-        LocalDate rawDate = calculateDate();
+    public LocalDateTime calculate(int defaultYear) {
+        LocalDate rawDate = calculateDate(defaultYear);
         LocalTime rawTime = (startTime != UNDEFINED_NUM)
                             ? minutesToLocalTime(startTime) 
                             : minutesToLocalTime(0);
@@ -155,21 +160,29 @@ public abstract class Date {
     /**
      * Similar to {@link #calculate}, but converted to {@link ZonedDateTime}
      * with the stored {@link #timezone}.
+     * <p>
+     * If the {@link Date} already have a year, it will be used. Otherwise,the
+     * default year will be used.
      * 
+     * @param defaultYear optional Gregorian year
      * @return the Gregorian date created only from the year, month, day, and
      *      start time with offset, if any, at the stored {@link #timezone}
      */
-    public ZonedDateTime calculateWithTimeZone() {
-        return calculate().atZone(timezone);
+    public ZonedDateTime calculateWithTimeZone(int defaultYear) {
+        return calculate(defaultYear).atZone(timezone);
     }
 
     /**
      * Calculates the {@link LocalDate} of this {@link Date}. This must be
      * implemented depending on the system of calendar.
+     * <p>
+     * If the {@link Date} already have a year, it will be used. Otherwise,the
+     * default year will be used.
      * 
+     * @param defaultYear default Gregorian year
      * @return the {@link LocalDate} of this {@link Date}
      */
-    public abstract LocalDate calculateDate();
+    public abstract LocalDate calculateDate(int defaultYear);
 
     /**
      * @return a string representation of the date with named month, which is
@@ -409,9 +422,5 @@ public abstract class Date {
     public static LocalDate getNextOrPreviousWeekday(LocalDate date, int weekday, boolean isAfter) {
         return (isAfter) ? date.with(TemporalAdjusters.next(DayOfWeek.of(weekday)))
                          : date.with(TemporalAdjusters.previous(DayOfWeek.of(weekday)));
-    }
-
-    public static void main(String[] args) {
-        System.out.println(getNextOrPreviousWeekday(LocalDate.of(2021, 8, 1), 1, true));
     }
 }

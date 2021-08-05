@@ -1,21 +1,61 @@
 package worldholidaydates.holidaydata;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Map;
 
 import worldholidaydates.Utils;
+import worldholidaydates.holidayparser.Rule;
 
 public class Holiday {
+    Rule        rule        = null;
     Map<String, String>     name = null;
     // the "_name" section
-    private     String      refName     = null;
-    private     String      type        = null;
-    private     String      note        = null;
-    private     Boolean     substitute  = null;
-    private     String[]    disable     = null;
-    private     String[]    enable      = null;
+    String      refName     = null;
+    String      type        = null;
+    String      note        = null;
+    Boolean     substitute  = null;
+    String[]    disable     = null;
+    String[]    enable      = null;
 
     public Holiday() {
         // empty
+    }
+
+    public Rule getRule() {
+        return rule;
+    }
+
+    public Map<String, String> getName() {
+        return name;
+    }
+
+    public String getRefName() {
+        return refName;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public Boolean getSubstitute() {
+        return substitute;
+    }
+
+    public String[] getDisable() {
+        return disable;
+    }
+
+    public String[] getEnable() {
+        return enable;
+    }
+
+    public void setRule(Rule rule) {
+        this.rule = rule;
     }
 
     // setter for all
@@ -42,9 +82,17 @@ public class Holiday {
     public void setDisable(String[] disable) {
         this.disable = disable;
     }
-    
+
     public void setEnable(String[] enable) {
         this.enable = enable;
+    }
+
+    public LocalDateTime calculate(int defaultYear) {
+        return rule.calculate(defaultYear);
+    }
+
+    public LocalDate calculateDate(int defaultYear) {
+        return rule.calculateDate(defaultYear);
     }
 
     @Override

@@ -67,8 +67,7 @@ public class HijraDate extends Date {
     public static final int DEFAULT_HIJRA_YEAR = 1442; // Gregorian Year = 2021-2022
 
     public HijraDate() {
-        super();
-        setYear(DEFAULT_HIJRA_YEAR);
+        // empty
     }
 
     public HijraDate(int year, int month, int dayOfMonth, int time) {
@@ -80,7 +79,7 @@ public class HijraDate extends Date {
     }
 
     public HijraDate(int month, int dayOfMonth) {
-        this(DEFAULT_HIJRA_YEAR, month, dayOfMonth, 0);
+        super(month, dayOfMonth);
     }
 
     @Override
@@ -111,8 +110,25 @@ public class HijraDate extends Date {
      *      converted to Gregorian calendar
      */
     @Override
-    public LocalDate calculateDate() {
-        java.time.chrono.HijrahDate date =  HijrahChronology.INSTANCE.date(HijrahEra.AH, year, month, dayOfMonth);
+    public LocalDate calculateDate(int defaultYear) {
+        int yearToUse = (year != UNDEFINED_NUM) ? year : greogrianYearToHijraYear(defaultYear);
+        java.time.chrono.HijrahDate date =  HijrahChronology.INSTANCE.date(HijrahEra.AH, yearToUse, month, dayOfMonth);
         return LocalDate.from(date);
+    }
+
+    /**
+     * Convert a Gregorian year to Hijra year. This calculation is very rough
+     * and not precise, and is to be used within this class.
+     * <p>
+     * The number 579 is taken from 2021 - 1442, since in the year 2021, the
+     * Hijra year is 1442.
+     * 
+     * TODO: fix this calculation
+     * 
+     * @param gregorianYear a Greogrian year
+     * @return a rough estimation of Bengali year
+     */
+    public static int greogrianYearToHijraYear(int gregorianYear) {
+        return gregorianYear - 579;
     }
 }

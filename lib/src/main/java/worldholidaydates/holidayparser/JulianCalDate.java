@@ -75,11 +75,10 @@ public class JulianCalDate extends Date {
             return name;
         }
     }
-    public static int DEFAULT_JULIAN_YEAR = 2021;
+    public static final int DEFAULT_JULIAN_YEAR = 2021;
 
     public JulianCalDate() {
         super();
-        setYear(DEFAULT_JULIAN_YEAR);
     }
 
     public JulianCalDate(int year, int month, int dayOfMonth, int time) {
@@ -91,7 +90,7 @@ public class JulianCalDate extends Date {
     }
 
     public JulianCalDate(int month, int dayOfMonth) {
-        this(DEFAULT_JULIAN_YEAR, month, dayOfMonth, 0);
+        super(month, dayOfMonth);
     }
 
     @Override
@@ -100,8 +99,10 @@ public class JulianCalDate extends Date {
     }
 
     @Override
-    public LocalDate calculateDate() {
-        JulianDate result = JulianDate.of(year, month, dayOfMonth);
+    public LocalDate calculateDate(int defaultYear) {
+        // julian year is pretty aligned to gregorian year
+        int yearToUse = (year != UNDEFINED_NUM) ? year : defaultYear;
+        JulianDate result = JulianDate.of(yearToUse, month, dayOfMonth);
         return julianToLocalDate(result);
     }
     
@@ -113,10 +114,5 @@ public class JulianCalDate extends Date {
      */
     public static LocalDate julianToLocalDate(org.threeten.extra.chrono.JulianDate julianDate) {
         return LocalDate.ofEpochDay(julianDate.toEpochDay());
-    }
-
-    public static void main(String[] args) {
-        System.out.println(JulianDate.now());
-        System.out.println(julianToLocalDate(JulianDate.now()));
     }
 }

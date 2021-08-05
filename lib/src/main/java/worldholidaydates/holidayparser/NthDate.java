@@ -50,10 +50,11 @@ public class NthDate extends Date {
     }
 
     @Override
-    public LocalDate calculateDate() {
+    public LocalDate calculateDate(int defaultYear) {
+        int yearToUse = (year != UNDEFINED_NUM) ? year : defaultYear;
         int monthToSearch = (isInMonth) ? month : month - 1;
         int nthToSearch = (isInMonth) ? nth : -nth;
-        return getNthDateOfMonth(year, monthToSearch, weekday, nthToSearch);
+        return getNthDateOfMonth(yearToUse, monthToSearch, weekday, nthToSearch);
     }
     
     /**

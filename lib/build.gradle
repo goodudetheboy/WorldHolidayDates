@@ -69,6 +69,6 @@ compileTestJava {
 }
 
 task collectDates(type: JavaExec) {
-    classpath sourceSets.main.runtimeClasspath
+    classpath sourceSets.test.runtimeClasspath
     main = "worldholidaydates.holidayparser.DataCollector"
 }

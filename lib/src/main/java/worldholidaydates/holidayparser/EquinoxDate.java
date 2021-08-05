@@ -10,7 +10,7 @@ import java.time.ZonedDateTime;
 public class EquinoxDate extends AstronomicalDate {
 
     public EquinoxDate() {
-        setYear(GregorianDate.DEFAULT_GREGORIAN_YEAR);
+        // empty
     }
 
     public EquinoxDate(int year, int month, ZoneId timezone) {
@@ -38,8 +38,9 @@ public class EquinoxDate extends AstronomicalDate {
     }
     
     @Override
-    protected ZonedDateTime calculateAstronomicalDate() {
-        return calculateEquinoxDate(month, year);
+    protected ZonedDateTime calculateAstronomicalDate(int defaultYear) {
+        int yearToUse = (year != UNDEFINED_NUM) ? year : defaultYear;
+        return calculateEquinoxDate(month, yearToUse);
     }
 
     /**
