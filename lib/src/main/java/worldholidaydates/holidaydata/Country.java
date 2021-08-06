@@ -60,6 +60,23 @@ public class Country {
         return regions;
     }
 
+    public Map<String, String> getNames() {
+        return names;
+    }
+
+    /**
+     * Gets the name of this holiday in a given language.
+     * 
+     * @param lang the language
+     * @return the name of this holiday in the given language
+     */
+    public String getNameByLang(String lang) {
+        if (names == null) {
+            return null;
+        }
+        return names.get(lang);
+    }
+
     public void setNames(Map<String, String> names) {
         this.names = names;
     }
@@ -99,9 +116,7 @@ public class Country {
         this.regions = regions;
     }
 
-    public Map<String, String> getNames() {
-        return names;
-    }
+
 
     /**
      * Returns the list of all dates and times of holidays of this country,
@@ -111,7 +126,7 @@ public class Country {
      *      does not have a definite year.
      * @return a list of dates and times of holidays
      */
-    public List<LocalDateTime> getHolidays(int defaultYear) {
+    public List<LocalDateTime> getHolidaysList(int defaultYear) {
         List<LocalDateTime> result = new ArrayList<>();
         for (Holiday holiday : days) {
             result.add(holiday.calculate(defaultYear));
@@ -127,7 +142,7 @@ public class Country {
      *      does not have a definite year.
      * @return a list of dates of holidays
      */
-    public List<LocalDate> getHolidayDates(int defaultYear) {
+    public List<LocalDate> getHolidayDatesList(int defaultYear) {
         List<LocalDate> result = new ArrayList<>();
         for (Holiday holiday : days) {
             result.add(holiday.calculateDate(defaultYear));

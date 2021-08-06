@@ -13,8 +13,7 @@ import worldholidaydates.holidaydata.Country;
 import worldholidaydates.holidaydata.HolidayData;
 
 public class DataCollector {
-    @Test
-    public static void collectDatesTest() throws IOException {
+    public static void collectDates() throws IOException {
         String path = System.getProperty("user.dir") + "/test-data/date.txt";
         FileWriter fWriter = new FileWriter(path);
 
@@ -50,6 +49,6 @@ public class DataCollector {
     }
 
     public static void main(String[] args) throws IOException {
-        collectDatesTest();
+        collectDates();
     }
 }
