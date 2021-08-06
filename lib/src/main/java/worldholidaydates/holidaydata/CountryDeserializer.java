@@ -35,7 +35,7 @@ public class CountryDeserializer implements JsonDeserializer<Country> {
         c.setDayoff(context.deserialize(jsonObject.get("dayoff"), String.class));
         c.setLangs(context.deserialize(jsonObject.get("langs"), String[].class));
         c.setZones(context.deserialize(jsonObject.get("zones"), String[].class));
-        set_days(c, jsonObject.get("_days"), context);
+        setReferenceDays(c, jsonObject.get("_days"), context);
         setDays(c, jsonObject.get("days"), context);
         setStates(c, jsonObject.get("states"), context);
         setRegions(c, jsonObject.get("regions"), context);
@@ -43,14 +43,14 @@ public class CountryDeserializer implements JsonDeserializer<Country> {
         return c;
     }
 
-    private void set_days(Country c, JsonElement _days, JsonDeserializationContext context) {
+    private void setReferenceDays(Country c, JsonElement refDays, JsonDeserializationContext context) {
         String[] result;
-        if (_days == null || !_days.isJsonNull()) {
+        if (refDays == null || !refDays.isJsonNull()) {
             result = null;
-        } else if (_days.isJsonPrimitive()) {
-            result = new String[]{ _days.getAsString() };
+        } else if (refDays.isJsonPrimitive()) {
+            result = new String[]{ refDays.getAsString() };
         } else {
-            result = context.deserialize(_days, String[].class);
+            result = context.deserialize(refDays, String[].class);
         }
         c.setReferenceDays(result);
     }
