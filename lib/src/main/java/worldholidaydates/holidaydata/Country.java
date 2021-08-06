@@ -15,12 +15,49 @@ public class Country {
     private     String[]    langs       = null;
     private     String[]    zones       = null;
     private     String[]    refDays     = null;
-    private     Map<Rule, Object>        days       = null;
-    private     Map<String, Country>     states     = null;
-    private     Map<String, Country>     regions    = null;
+    private     List<Holiday>           days       = null;
+    private     Map<Rule, Object>       rawDays    = null;
+    private     Map<String, Country>    states     = null;
+    private     Map<String, Country>    regions    = null;
 
     public Country() {
         // empty
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDayoff() {
+        return dayoff;
+    }
+
+    public String[] getLangs() {
+        return langs;
+    }
+
+    public String[] getZones() {
+        return zones;
+    }
+
+    public String[] getReferenceDays() {
+        return refDays;
+    }
+
+    public List<Holiday> getDays() {
+        return days;
+    }
+
+    public Map<Rule, Object> getRawDays() {
+        return rawDays;
+    }
+
+    public Map<String, Country> getStates() {
+        return states;
+    }
+
+    public Map<String, Country> getRegions() {
+        return regions;
     }
 
     public void setNames(Map<String, String> names) {
@@ -46,8 +83,12 @@ public class Country {
         this.refDays = refDays;
     }
 
-    public void setDays(Map<Rule, Object> days) {
+    public void setDays(List<Holiday> days) {
         this.days = days;
+    }
+
+    public void setRawDays(Map<Rule, Object> rawDays) {
+        this.rawDays = rawDays;
     }
 
     public void setStates(Map<String, Country> states) {
@@ -62,38 +103,6 @@ public class Country {
         return names;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getDayoff() {
-        return dayoff;
-    }
-
-    public String[] getLangs() {
-        return langs;
-    }
-
-    public String[] getZones() {
-        return zones;
-    }
-
-    public String[] getReferenceDays() {
-        return refDays;
-    }
-
-    public Map<Rule, Object> getDays() {
-        return days;
-    }
-
-    public Map<String, Country> getStates() {
-        return states;
-    }
-
-    public Map<String, Country> getRegions() {
-        return regions;
-    }
-
     /**
      * Returns the list of all dates and times of holidays of this country,
      * excluding the holidays from regions and states.
@@ -104,10 +113,8 @@ public class Country {
      */
     public List<LocalDateTime> getHolidays(int defaultYear) {
         List<LocalDateTime> result = new ArrayList<>();
-        for (Map.Entry<Rule, Object> entry : days.entrySet()) {
-            if (entry.getValue() instanceof Holiday) {
-                result.add(entry.getKey().calculate(defaultYear));
-            }
+        for (Holiday holiday : days) {
+            result.add(holiday.calculate(defaultYear));
         }
         return result;
     }
@@ -122,10 +129,8 @@ public class Country {
      */
     public List<LocalDate> getHolidayDates(int defaultYear) {
         List<LocalDate> result = new ArrayList<>();
-        for (Map.Entry<Rule, Object> entry : days.entrySet()) {
-            if (entry.getValue() instanceof Holiday) {
-                result.add(entry.getKey().calculateDate(defaultYear));
-            }
+        for (Holiday holiday : days) {
+            result.add(holiday.calculateDate(defaultYear));
         }
         return result;
     }

@@ -62,10 +62,25 @@ public class HolidayData {
         try {
             holidayDataString = Utils.readFile(path, StandardCharsets.UTF_8);
         } catch (IOException e) {
-            throw new RuntimeException(e.getMessage());
+            throw new HolidayInitializationException(e.getMessage(), e.getCause());
         }
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(Country.class, new CountryDeserializer());
+        gsonBuilder.registerTypeAdapter(Holiday.class, new HolidayDeserializer());
+        Gson gson = gsonBuilder.create();
+        return gson.fromJson(holidayDataString, HolidayData.class);
+    }
+
+    public static HolidayData initalizeRawData() {
+        String path = System.getProperty("user.dir") + "/src/main/resources/holidays.json";
+        String holidayDataString;
+        try {
+            holidayDataString = Utils.readFile(path, StandardCharsets.UTF_8);
+        } catch (IOException e) {
+            throw new HolidayInitializationException(e.getMessage(), e.getCause());
+        }
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(Country.class, new CountryRawDeserializer());
         gsonBuilder.registerTypeAdapter(Holiday.class, new HolidayDeserializer());
         Gson gson = gsonBuilder.create();
         return gson.fromJson(holidayDataString, HolidayData.class);

@@ -2,6 +2,8 @@ package worldholidaydates.holidaydata;
 
 import java.io.ByteArrayInputStream;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import com.google.gson.JsonDeserializationContext;
@@ -53,32 +55,28 @@ public class CountryDeserializer implements JsonDeserializer<Country> {
         c.setReferenceDays(result);
     }
 
-    private void setDays(Country c, JsonElement days, JsonDeserializationContext context) {
-        Map<Rule, Object> result = new LinkedTreeMap<>();
+    void setDays(Country c, JsonElement days, JsonDeserializationContext context) {
+        List<Holiday> result = new ArrayList<>();
         if (days == null || days.isJsonNull()) {
             result = null;
         } else {
             JsonObject daysArr = days.getAsJsonObject();
             for (Map.Entry<String, JsonElement> entry : daysArr.entrySet()) {
                 JsonElement value = entry.getValue();
-                Rule rule = null;
-                try {
-                    // parse and get rule
-                    String originalRule = entry.getKey();
-                    HolidayParser parser = new HolidayParser(new ByteArrayInputStream(originalRule.getBytes()));
-                    rule = parser.parse();
-                    rule.setOriginalRule(originalRule);
-                } catch (ParseException e) {
-                    throw new RuntimeException(e.getMessage(), e);
-                }
-
-                // construct key and value
-                if (value.isJsonPrimitive()) {
-                    // TODO: add error handling here
-                    result.put(rule, value.getAsBoolean());
-                } else {
+                if (!value.isJsonPrimitive()) {
+                    Rule rule = null;
+                    try {
+                        // parse and get rule
+                        String originalRule = entry.getKey();
+                        HolidayParser parser = new HolidayParser(new ByteArrayInputStream(originalRule.getBytes()));
+                        rule = parser.parse();
+                        rule.setOriginalRule(originalRule);
+                    } catch (ParseException e) {
+                        throw new HolidayInitializationException(e.getMessage(), e);
+                    }
                     Holiday h = context.deserialize(value, Holiday.class);
-                    result.put(rule, h);
+                    h.setRule(rule);
+                    result.add(h);
                 }
             }
         }

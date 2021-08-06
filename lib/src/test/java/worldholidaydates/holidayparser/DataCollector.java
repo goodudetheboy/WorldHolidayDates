@@ -14,11 +14,11 @@ import worldholidaydates.holidaydata.HolidayData;
 
 public class DataCollector {
     @Test
-    public void collectDatesTest() throws IOException {
+    public static void collectDatesTest() throws IOException {
         String path = System.getProperty("user.dir") + "/test-data/date.txt";
         FileWriter fWriter = new FileWriter(path);
 
-        HolidayData data = HolidayData.initializeData();
+        HolidayData data = HolidayData.initalizeRawData();
         int i = 0;
         for (Map.Entry<String, Country> entry : data.getHolidays().entrySet()) {
             writeHolidaysInCountry(entry.getValue(), fWriter);
@@ -29,7 +29,7 @@ public class DataCollector {
     }
 
     public static void writeHolidaysInCountry(Country country, FileWriter fWriter) throws IOException {
-        Map<Rule, Object> holidays = country.getDays();
+        Map<Rule, Object> holidays = country.getRawDays();
         if (holidays != null) {
             for (Map.Entry<Rule, Object> entry2 : holidays.entrySet()) {
                 fWriter.write(entry2.getKey().getOriginalRule() + Utils.LINE_SEPARATOR);
@@ -47,5 +47,9 @@ public class DataCollector {
                 writeHolidaysInCountry(entry.getValue(), fWriter);
             }
         }
+    }
+
+    public static void main(String[] args) throws IOException {
+        collectDatesTest();
     }
 }
