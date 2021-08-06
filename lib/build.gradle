@@ -35,9 +35,9 @@ sonarqube {
         property "sonar.projectKey", "goodudetheboy_WorldHolidayDates"
         property "sonar.organization", "goodudetheboy"
         property "sonar.host.url", "https://sonarcloud.io"
-        property "sonar.coverage.exclusions", "src/main/java/worldholidaydates/*"
-        property "sonar.coverage.exclusions", "src/main/java/worldholidaydates/holidaydata/*"
-        property "sonar.coverage.exclusions", "src/main/java/worldholidaydates/holidayparser/*"
+        property "sonar.coverage.exclusions", "src/main/java/com/goodu/worldholidaydates/*"
+        property "sonar.coverage.exclusions", "src/main/java/com/goodu/worldholidaydates/holidaydata/*"
+        property "sonar.coverage.exclusions", "src/main/java/com/goodu/worldholidaydates/holidayparser/*"
     }
 }
 
@@ -94,5 +94,5 @@ compileTestJava {
 
 task collectDates(type: JavaExec) {
     classpath sourceSets.test.runtimeClasspath
-    main = "worldholidaydates.holidayparser.DataCollector"
+    main = "com.goodu.worldholidaydates.holidayparser.DataCollector"
 }
