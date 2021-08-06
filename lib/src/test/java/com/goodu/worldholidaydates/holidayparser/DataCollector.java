@@ -9,9 +9,6 @@ import java.util.Map;
 import com.goodu.worldholidaydates.Utils;
 import com.goodu.worldholidaydates.holidaydata.Country;
 import com.goodu.worldholidaydates.holidaydata.HolidayData;
-import com.goodu.worldholidaydates.holidayparser.Rule;
-
-import org.junit.Test;
 
 public class DataCollector {
     public static void collectDates() throws IOException {

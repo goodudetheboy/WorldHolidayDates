@@ -12,9 +12,6 @@ import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.util.Map;
 
-import com.goodu.worldholidaydates.holidaydata.Country;
-import com.goodu.worldholidaydates.holidaydata.HolidayData;
-
 import org.junit.Test;
 
 public class DataTest {

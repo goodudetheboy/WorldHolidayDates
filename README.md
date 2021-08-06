@@ -1,6 +1,11 @@
 # **WorldHolidayDates** #
 
-[![build status](https://github.com/goodudetheboy/WorldHolidayDates/actions/workflows/gradle.yml/badge.svg)](https://github.com/goodudetheboy/OpeningHoursEvaluator/actions)
+[![build status](https://github.com/goodudetheboy/WorldHolidayDates/actions/workflows/gradle.yml/badge.svg)](https://github.com/goodudetheboy/WorldHolidayDates/actions)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=goodudetheboy_WorldHolidayDates&metric=alert_status)](https://sonarcloud.io/dashboard?id=goodudetheboy_WorldHolidayDates)
+[![sonarcloud bugs](https://sonarcloud.io/api/project_badges/measure?project=goodudetheboy_WorldHolidayDates&metric=bugs)](https://sonarcloud.io/component_measures?id=goodudetheboy_WorldHolidayDates&metric=bugs)
+[![sonarcould maintainability](https://sonarcloud.io/api/project_badges/measure?project=goodudetheboy_WorldHolidayDates&metric=sqale_rating)](https://sonarcloud.io/component_measures?id=goodudetheboy_WorldHolidayDates&metric=Maintainability)
+[![sonarcloud security](https://sonarcloud.io/api/project_badges/measure?project=goodudetheboy_WorldHolidayDates&metric=security_rating)](https://sonarcloud.io/component_measures?id=goodudetheboy_WorldHolidayDates&metric=Security)
+[![sonarcloud reliability](https://sonarcloud.io/api/project_badges/measure?project=goodudetheboy_WorldHolidayDates&metric=reliability_rating)](https://sonarcloud.io/component_measures?id=goodudetheboy_WorldHolidayDates&metric=Reliability)
 
 This project provides the dates and times of holidays around the world, specifically 168 countries. The data is taken from the processed `holidays.json` from [date-holidays](https://github.com/commenthol/date-holidays). Any interests in contributing to the holiday database should be made there, since this project is just a Java implementation to get data from it.
 
