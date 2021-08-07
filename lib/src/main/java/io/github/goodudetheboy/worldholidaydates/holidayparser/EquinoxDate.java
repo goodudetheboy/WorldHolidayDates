@@ -45,14 +45,14 @@ public class EquinoxDate extends AstronomicalDate {
 
     /**
      * Calculates the date of either March or September Equinox in input year,
-     * with timezone set to {@link #DEFAULT_TIMEZONE}. The output can deviate
+     * with timezone set to {@link Date#DEFAULT_ZONE}. The output can deviate
      * from actual dates by up to one day.
      * <p>
      * Part of this code is adapted from
      * <a href="https://github.com/sualeh/sunposition">sunposition</a>.
      * 
      * @param month 3 for March, 9 for September
-     * @param year 
+     * @param year the year
      * @return either March or September Equinox in input year
      */
     public static ZonedDateTime calculateEquinoxDate(int month, int year) {

@@ -72,13 +72,11 @@ public class EasterDate extends Date {
      * Returns the easter day of an input year.
      * <p>
      * This function uses the  "Meeus/Jones/Butcher" algorithm. For more
-     * information check the link provided below.
+     * information, see <a href="https://en.wikipedia.org/wiki/Date_of_Easter#Anonymous_Gregorian_algorithm">"Meeus/Jones/Butcher" algorithm</a>.
      * 
      * @param year valid Gregorian year
      * @return the date of Easter of input year
      * @author Bernhard Seebass, from https://stackoverflow.com/a/55278990/10154717
-     * @see "Meeus/Jones/Butcher" algorithm
-     * https://en.wikipedia.org/wiki/Date_of_Easter#Anonymous_Gregorian_algorithm
      */
     public static LocalDate getEasterDate(int year) {
         int a = year % 19;

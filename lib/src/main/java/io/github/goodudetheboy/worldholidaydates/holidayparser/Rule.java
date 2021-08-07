@@ -393,7 +393,7 @@ public class Rule implements Comparable<Rule> {
     /**
      * Sets the substitute check mode of this {@link Rule}.
      * 
-     * @param isSubstitute the substitute check mode of this {@link Rule}
+     * @param substituteCheck the substitute check mode of this {@link Rule}
      */
     public void setSubstituteCheck(boolean substituteCheck) {
         this.substituteCheck = substituteCheck;
@@ -414,7 +414,7 @@ public class Rule implements Comparable<Rule> {
     /**
      * Sets the related rule {@link Rule}'s number (number after #).
      * 
-     * @param relatedRuleNum
+     * @param relatedRuleNum the related rule {@link Rule}'s number
      */
     public void setRelatedRuleNumber(int relatedRuleNum) {
         this.relatedRuleNum = relatedRuleNum;
@@ -566,7 +566,7 @@ public class Rule implements Comparable<Rule> {
     /**
      * Set the secondary offset direction of this {@link Date}.
      * 
-     * @param isAfter true if the offset direction is after, false if it
+     * @param isAfter2 true if the offset direction is after, false if it
      *      is before
      */
     public void setOffsetDirection2(boolean isAfter2) {
@@ -605,7 +605,7 @@ public class Rule implements Comparable<Rule> {
     /**
      * Sets the list of if weekday extra
      * 
-     * @param ifWeekdays the list of if weekday extra
+     * @param ifWeekdaysExtra the list of if weekday extra
      */
     public void setIfWeekdaysExtra(List<List<Integer>> ifWeekdaysExtra) {
         this.ifWeekdaysExtra = ifWeekdaysExtra;
@@ -644,7 +644,7 @@ public class Rule implements Comparable<Rule> {
      * Sets the year intervals of this {@link Rule}.
      * 
      * @param yearIntervals the year intervals of this {@link Rule}, must be
-     *      all positive integers (< 0)
+     *      all positive integers
      */
     public void setYearIntervals(List<Integer> yearIntervals) {
         for (Integer yearInterval : yearIntervals) {

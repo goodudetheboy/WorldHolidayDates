@@ -226,13 +226,12 @@ public class EastAsianDate extends Date {
      * and day in that solar term. Based on the information from
      * <a href="https://en.wikipedia.org/wiki/Solar_term#List_of_solar_terms">List of solar terms</a>.
      * <p>
-     * As per Wikipedia, the resulting date "can vary within a ±1 day range."
+     * As per Wikipedia, the resulting date "can vary within a ±1 day range." See also: https://en.wikipedia.org/wiki/Solar_term
      * 
      * @param solarTermTh the count of solar term from 1 to 24
      * @param solarTermDay the day in the solar term from 1 to 15
      * @param year the year
      * @return a rough estimation of a date in year based on the count of solar term
-     * @see https://en.wikipedia.org/wiki/Solar_term
      */
     public static LocalDate getDateFromSolarTerm(int solarTermTh, int solarTermDay, int year) {
         if (solarTermTh < 1 || solarTermTh > 24) {

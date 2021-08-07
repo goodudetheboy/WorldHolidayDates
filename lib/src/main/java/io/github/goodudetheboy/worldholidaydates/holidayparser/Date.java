@@ -220,9 +220,9 @@ public abstract class Date {
      * Return the {@link LocalDateTime} that is offset by some days from the input
      * date, according to the following rule:
      * <ol>
-     * <li> offset < 0: return [offset] days before input date
-     * <li> offset > 0: return [offset] days after input date
-     * <li> offset = 0: return original date
+     * <li> offset less than 0: return [offset] days before input date
+     * <li> offset more than 0: return [offset] days after input date
+     * <li> offset equal 0: return original date
      * </ol>
      * <p>
      * 
@@ -244,13 +244,13 @@ public abstract class Date {
      * Return the {@link ZonedDateTime} that is offset by some days from the
      * input date, according to the following rule:
      * <ol>
-     * <li> offset < 0: return [offset] days before input date
-     * <li> offset > 0: return [offset] days after input date
-     * <li> offset = 0: return original date
+     * <li> offset less than 0: return [offset] days before input date
+     * <li> offset more than 0: return [offset] days after input date
+     * <li> offset equal 0: return original date
      * </ol>
      * <p>
      * 
-     * @param date an input date
+     * @param zDate an input date
      * @param offset offset, in days
      * @return the date that is offset by some [offset] days from the input date
      */
@@ -363,15 +363,14 @@ public abstract class Date {
 
     /**
      * Converts a weekday name to the following mapping:
-     * <p>
      * <ol>
-     * <li> "Monday" -> 1
-     * <li> "Tuesday" -> 2
-     * <li> "Wednesday" -> 3
-     * <li> "Thursday" -> 4
-     * <li> "Friday" -> 5
-     * <li> "Saturday" -> 6
-     * <li> "Sunday" -> 7
+     * <li> "Monday": 1
+     * <li> "Tuesday": 2
+     * <li> "Wednesday": 3
+     * <li> "Thursday": 4
+     * <li> "Friday": 5
+     * <li> "Saturday": 6
+     * <li> "Sunday": 7
      * </ol>
      * 
      * @param weekday a weekday name

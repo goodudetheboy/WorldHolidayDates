@@ -28,7 +28,7 @@ public class Utils {
      * @param path path to the file
      * @param encoding the charset to use
      * @return String created from content of a file
-     * @throws IOException
+     * @throws IOException when can't find the file
      * @author erickson, https://stackoverflow.com/users/3474/erickson
      */
     public static String readFile(String path, Charset encoding) throws IOException {

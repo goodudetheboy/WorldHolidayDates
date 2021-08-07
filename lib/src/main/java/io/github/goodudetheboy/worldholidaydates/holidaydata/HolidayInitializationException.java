@@ -7,6 +7,8 @@ package io.github.goodudetheboy.worldholidaydates.holidaydata;
 public class HolidayInitializationException extends RuntimeException {
     /**
      * Exception constructor with a message.
+     * 
+     * @param message a message
      */
     public HolidayInitializationException(String message) {
         super(message);

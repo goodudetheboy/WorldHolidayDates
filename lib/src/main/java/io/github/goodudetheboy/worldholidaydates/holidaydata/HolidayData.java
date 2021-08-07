@@ -9,6 +9,9 @@ import com.google.gson.GsonBuilder;
 
 import io.github.goodudetheboy.worldholidaydates.Utils;
 
+/**
+ * A class to contain the holiday data processed from the raw holidays.json file.
+ */
 public class HolidayData {
     private     String      version     = null;
     private     String      license     = null;

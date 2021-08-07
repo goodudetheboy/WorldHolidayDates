@@ -10,7 +10,7 @@ public class HolidayParseException extends RuntimeException {
     /**
      * Construct an exception from a message
      * 
-     * @param message
+     * @param message a message
      */
     public HolidayParseException(String message) {
         this(message, null);
@@ -20,8 +20,8 @@ public class HolidayParseException extends RuntimeException {
      * Construct an exception from a message and an optional Rule where the
      * exception happenend
      * 
-     * @param message
-     * @param failingRule
+     * @param message a message
+     * @param failingRule a Rule where the exception happenend
      */
     public HolidayParseException(String message, @Nullable String failingRule) {
         super(messsageBuilder(message, failingRule));
