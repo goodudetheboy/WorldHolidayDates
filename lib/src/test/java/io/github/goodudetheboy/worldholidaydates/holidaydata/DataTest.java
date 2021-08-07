@@ -14,9 +14,6 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import io.github.goodudetheboy.worldholidaydates.holidaydata.Country;
-import io.github.goodudetheboy.worldholidaydates.holidaydata.HolidayData;
-
 public class DataTest {
     @Test
     public void dataJsonParseTest() {

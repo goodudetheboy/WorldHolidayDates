@@ -1,7 +1,6 @@
 package io.github.goodudetheboy.worldholidaydates.holidaydata;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 import com.google.gson.Gson;
@@ -60,10 +59,9 @@ public class HolidayData {
     }
 
     public static HolidayData initializeData() {
-        String path = System.getProperty("user.dir") + "/src/main/resources/holidays.json";
         String holidayDataString;
         try {
-            holidayDataString = Utils.readFile(path, StandardCharsets.UTF_8);
+            holidayDataString = Utils.readFileFromResource("holidays.json");
         } catch (IOException e) {
             throw new HolidayInitializationException(e.getMessage(), e.getCause());
         }
@@ -75,10 +73,9 @@ public class HolidayData {
     }
 
     public static HolidayData initalizeRawData() {
-        String path = System.getProperty("user.dir") + "/src/main/resources/holidays.json";
         String holidayDataString;
         try {
-            holidayDataString = Utils.readFile(path, StandardCharsets.UTF_8);
+            holidayDataString = Utils.readFileFromResource("holidays.json");
         } catch (IOException e) {
             throw new HolidayInitializationException(e.getMessage(), e.getCause());
         }

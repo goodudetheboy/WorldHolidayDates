@@ -9,11 +9,10 @@ import java.util.Map;
 import io.github.goodudetheboy.worldholidaydates.Utils;
 import io.github.goodudetheboy.worldholidaydates.holidaydata.Country;
 import io.github.goodudetheboy.worldholidaydates.holidaydata.HolidayData;
-import io.github.goodudetheboy.worldholidaydates.holidayparser.Rule;
 
 public class DataCollector {
     public static void collectDates() throws IOException {
-        String path = System.getProperty("user.dir") + "/test-data/date.txt";
+        String path = "./test-data/date.txt";
         FileWriter fWriter = new FileWriter(path);
 
         HolidayData data = HolidayData.initalizeRawData();
