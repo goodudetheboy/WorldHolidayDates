@@ -99,6 +99,16 @@ compileTestJava {
     source javaccSource,mainSource,testSource
 }
 
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'WorldHolidayDates fat jar',
+        'Implementation-Version': "${project.version}"
+    }
+    baseName = project.archivesBaseName + '-all'
+    from { configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
 task collectDates(type: JavaExec) {
     classpath sourceSets.test.runtimeClasspath
     main = "io.github.goodudetheboy.worldholidaydates.holidayparser.DataCollector"
