@@ -46,8 +46,8 @@ public class Utils {
     /**
      * Gets an {@link InputStream} of a file from ./resource folder
      * 
-     * @param fileName 
-     * @return
+     * @param fileName a file name in the ./resource folder
+     * @return an {@link InputStream} of a file from ./resource folder
      * @author mykong, https://mkyong.com/java/java-read-a-file-from-resources-folder/
      */
     public static InputStream getFileFromResourceAsStream(String fileName) {

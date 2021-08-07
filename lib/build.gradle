@@ -19,7 +19,7 @@ plugins {
 
 group = 'io.github.goodudetheboy'
 archivesBaseName = 'WorldHolidayDates'
-version = '0.0.1'
+version = '0.0.3'
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
