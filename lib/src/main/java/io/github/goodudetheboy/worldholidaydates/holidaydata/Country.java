@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Nullable;
+
 import io.github.goodudetheboy.worldholidaydates.holidayparser.Rule;
 
 /**
@@ -204,6 +206,55 @@ public class Country {
      */
     public void setRegions(Map<String, Country> regions) {
         this.regions = regions;
+    }
+
+    /**
+     * Gets the state of this {@link Country} by its shortened name.
+     * 
+     * @param name the shortened name of the state
+     * @return the state of this {@link Country}
+     */
+    @Nullable
+    public Country getStateByName(String name) {
+        if (states != null) {
+            return states.get(name);
+        }
+        return null;                
+    }
+
+    /**
+     * Gets the region of this {@link Country} by its shortened name.
+     * 
+     * @param name the shortened name of the region
+     * @return the state of this {@link Country}
+     */
+    @Nullable
+    public Country getRegionByName(String name) {
+        if (regions != null) {
+            return regions.get(name);
+        }
+        return null;
+    }
+
+    /**
+     * Gets the subregion of this {@link Country} by name. The subregion can be
+     * either a state or a regions. The subRegionName will be checked
+     * against the states and the regions.
+     * 
+     * @param subRegionName the name of the subregion
+     * @return the subregion of this {@link Country} by name, or null none found
+     */
+    @Nullable
+    public Country getSubRegion(String subRegionName) {
+        Country state = getStateByName(subRegionName);
+        if (state != null) {
+            return state;
+        }
+        Country region = getRegionByName(subRegionName);
+        if (region != null) {
+            return region;
+        }
+        return null;
     }
 
     /**
