@@ -27,7 +27,7 @@ Supports public, bank, school, optional, and observance holidays.
 
 ## Installation ##
 
-This project is published on Maven Central. Add the following snippets of codes to your `build.gradle` find to install it:
+This project is published on [Maven Central](https://search.maven.org/artifact/io.github.goodudetheboy/WorldHolidayDates/0.0.3/jar). Add the following snippets of codes to your `build.gradle` file to install it:
 
 ```
 repositories {
