@@ -25,6 +25,8 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
+    - name: Test with Gradle
+      run: ./gradlew test
     - name: Cache SonarCloud packages
       uses: actions/cache@v1
       with:
