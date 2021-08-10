@@ -1,7 +1,7 @@
 package io.github.goodudetheboy.worldholidaydates.holidayparser;
 
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
+import org.threeten.bp.ZoneId;
+import org.threeten.bp.ZonedDateTime;
 
 /**
  * A class for calculating the date and time of solstice events, on which

@@ -1,7 +1,7 @@
 package io.github.goodudetheboy.worldholidaydates.holidayparser;
 
-import java.time.LocalDate;
-import java.time.YearMonth;
+import org.threeten.bp.LocalDate;
+import org.threeten.bp.YearMonth;
 
 import javax.annotation.Nullable;
 
@@ -185,7 +185,7 @@ public class EastAsianDate extends Date {
             }
             if (date != null) {
                 PlainDate pdate = date.transform(PlainDate.class);
-                LocalDate result =  pdate.toTemporalAccessor();
+                LocalDate result =  LocalDate.of(pdate.getYear(), pdate.getMonth(), pdate.getDayOfMonth());
                 if (dayOfMonth == 0) {
                     result = result.minusDays(1);
                 }

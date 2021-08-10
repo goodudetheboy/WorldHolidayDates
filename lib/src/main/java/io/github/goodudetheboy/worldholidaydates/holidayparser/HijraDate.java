@@ -1,8 +1,8 @@
 package io.github.goodudetheboy.worldholidaydates.holidayparser;
 
-import java.time.LocalDate;
-import java.time.chrono.HijrahChronology;
-import java.time.chrono.HijrahEra;
+import org.threeten.bp.LocalDate;
+import org.threeten.bp.chrono.HijrahChronology;
+import org.threeten.bp.chrono.HijrahEra;
 
 /**
  * A class for calculating the date of Hirja dates based on Hirja calendar
@@ -112,7 +112,7 @@ public class HijraDate extends Date {
     @Override
     public LocalDate calculateDate(int defaultYear) {
         int yearToUse = (year != UNDEFINED_NUM) ? year : greogrianYearToHijraYear(defaultYear);
-        java.time.chrono.HijrahDate date =  HijrahChronology.INSTANCE.date(HijrahEra.AH, yearToUse, month, dayOfMonth);
+        org.threeten.bp.chrono.HijrahDate date =  HijrahChronology.INSTANCE.date(HijrahEra.AH, yearToUse, month, dayOfMonth);
         return LocalDate.from(date);
     }
 

@@ -73,6 +73,9 @@ dependencies {
     // Time4J
     implementation 'net.time4j:time4j-base:5.8'
 
+    // ThreeTen Backport for Java 7, provides Java 8 Date and Time API
+    implementation 'org.threeten:threetenbp:1.5.1'
+
     // ThreeTen extra
     implementation 'org.threeten:threeten-extra:1.7.0'
 }

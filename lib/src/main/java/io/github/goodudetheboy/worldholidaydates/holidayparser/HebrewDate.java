@@ -1,6 +1,6 @@
 package io.github.goodudetheboy.worldholidaydates.holidayparser;
 
-import java.time.LocalDate;
+import org.threeten.bp.LocalDate;
 
 import net.time4j.PlainDate;
 import net.time4j.calendar.HebrewCalendar;
@@ -149,7 +149,7 @@ public class HebrewDate extends Date {
         int yearToUse = (year != UNDEFINED_NUM) ? year : gregorianYearToHebrewYear(defaultYear);
         HebrewCalendar date = HebrewCalendar.of(yearToUse, ((HebrewMonth) namedMonth).toTime4jHebrewMonth(), dayOfMonth);
         PlainDate pdate = date.transform(PlainDate.class);
-        return pdate.toTemporalAccessor();
+        return LocalDate.of(pdate.getYear(), pdate.getMonth(), pdate.getDayOfMonth());
     }
 
     /**

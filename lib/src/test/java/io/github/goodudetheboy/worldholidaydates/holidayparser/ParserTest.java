@@ -13,10 +13,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 import org.junit.Test;
+import org.threeten.bp.LocalDateTime;
 
 import io.github.goodudetheboy.worldholidaydates.holidayparser.Rule;
 
